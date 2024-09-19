@@ -2,32 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --primary: 30 100% 46%;
+    --primary-dark: 30 100% 35%;
+    --primary-light: 36 100% 77%;
+    --primary-lighter: 48 100% 88%;
+    --accent: 257 100% 27%;
+    --accent-dark: 261 51% 9%;
+    --accent-light: 227 43% 85%;
+    --accent-lighter: 288 9% 89%;
+    --danger: 0 72% 65%;
+    --danger-dark: 0 57% 42%;
+    --danger-light: 0 100% 96%;
+    --warning: 29 100% 59%;
+    --warning-dark: 25 94% 43%;
+    --warning-light: 29 100% 91%;
+    --success: 151 68% 38%;
+    --success-dark: 151 76% 24%;
+    --success-light: 151 77% 93%;
+    --grayscale-black: 0 0% 0%;
+    --grayscale-700: 0 0% 14%;
+    --grayscale-600: 0 0% 27%;
+    --grayscale-500: 0 0% 43%;
+    --grayscale-400: 0 0% 59%;
+    --grayscale-300: 0 0% 74%;
+    --grayscale-200: 0 0% 90%;
+    --grayscale-100: 0 0% 93%;
+    --grayscale-50: 0 0% 97%;
+    --white-alpha-70: 0 0% 100% / 70%;
+    --white-alpha-50: 0 0% 100% / 50%;
+    --white-alpha-30: 0 0% 100% / 30%;
+    --white-alpha-10: 0 0% 100% / 10%;
+    --black-alpha-80: 0 0% 0% / 80%;
+    --black-alpha-70: 0 0% 0% / 70%;
+    --black-alpha-50: 0 0% 0% / 50%;
+    --black-alpha-30: 0 0% 0% / 30%;
+    --black-alpha-20: 0 0% 0% / 20%;
+    --black-alpha-10: 0 0% 0% / 10%;
+  }
+
+  .dark {
+    /* dark mode color 확인후 채워넣기 */
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
