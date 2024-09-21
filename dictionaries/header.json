@@ -1,0 +1,23 @@
+{
+  "기업정보": {
+    "ko": "기업정보",
+    "en": "Company Information",
+    "en-US": "Company Information"
+  },
+  "사업영역": {
+    "ko": "사업영역",
+    "en": "Business Area"
+  },
+  "제품정보": {
+    "ko": "제품정보",
+    "en": "Product Information"
+  },
+  "홍보센터": {
+    "ko": "홍보센터",
+    "en": "Promotion Center"
+  },
+  "인재채용": {
+    "ko": "인재채용",
+    "en": "Recruitment"
+  }
+}
