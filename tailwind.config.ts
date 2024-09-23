@@ -49,6 +49,7 @@ const config = {
         grayscale: {
           DEFAULT: 'hsl(var(--grayscale-400))',
           black: 'hsl(var(--grayscale-black))',
+          white: 'hsl(var(--grayscale-white))',
           700: 'hsl(var(--grayscale-700))',
           600: 'hsl(var(--grayscale-600))',
           500: 'hsl(var(--grayscale-500))',
