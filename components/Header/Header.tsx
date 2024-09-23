@@ -8,6 +8,8 @@ import LogoTopLeft from './icons/LogoTopLeft.svg';
 import LogoTopRight from './icons/LogoTopRight.svg';
 
 import { cn } from '@/lib/utils';
+import { useParams, usePathname, useRouter } from 'next/navigation';
+import { useCallback } from 'react';
 
 type Props = {
   darkMode?: boolean;
@@ -15,6 +17,18 @@ type Props = {
 };
 
 const Header = ({ darkMode, lang }: Props) => {
+  const router = useRouter();
+  const params = useParams();
+  const path = usePathname();
+  const changeLanguage = useCallback(
+    (lang: Language) => {
+      if (params.lang !== lang && typeof params.lang === 'string') {
+        const newPath = path.replace(params.lang, lang);
+        router.replace(newPath);
+      }
+    },
+    [path, params.lang, router],
+  );
   return (
     <div
       className={cn(
@@ -82,12 +96,15 @@ const Header = ({ darkMode, lang }: Props) => {
         <div className="mr-11 w-[98px] typo-TitleBold">
           <div className="flex gap-3 items-center">
             <span
-              className={cn({
+              className={cn('cursor-pointer', {
                 'text-grayscale-black': lang === 'ko' && !darkMode,
                 'text-blackAlpha-50': lang !== 'ko' && !darkMode,
                 'text-grayscale-white': lang === 'ko' && darkMode,
                 'text-whiteAlpha-50': lang !== 'ko' && darkMode,
-              })}>
+              })}
+              onClick={() => {
+                changeLanguage('ko');
+              }}>
               KOR
             </span>
             <span
@@ -97,12 +114,15 @@ const Header = ({ darkMode, lang }: Props) => {
               })}
             />
             <span
-              className={cn({
+              className={cn('cursor-pointer', {
                 'text-grayscale-black': lang === 'en' && !darkMode,
                 'text-blackAlpha-50': lang !== 'en' && !darkMode,
                 'text-grayscale-white': lang === 'en' && darkMode,
                 'text-whiteAlpha-50': lang !== 'en' && darkMode,
-              })}>
+              })}
+              onClick={() => {
+                changeLanguage('en');
+              }}>
               ENG
             </span>
           </div>
