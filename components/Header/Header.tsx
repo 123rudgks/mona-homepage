@@ -73,25 +73,23 @@ const Header = ({ darkMode, lang }: Props) => {
           className={cn(
             ' items-center typo-TitleBold transition-colors text-black  xl:flex hidden ',
             {
-              'text-sm': lang === 'en',
+              'text-base': lang === 'en',
               'text-white': darkMode,
             },
           )}>
-          <span className="w-[140px] flex justify-center items-center">
-            {dict['기업정보'][lang]}
-          </span>
-          <span className="w-[140px] flex justify-center items-center">
-            {dict['사업영역'][lang]}
-          </span>
-          <span className="w-[140px] flex justify-center items-center">
-            {dict['제품정보'][lang]}
-          </span>
-          <span className="w-[140px] flex justify-center items-center">
-            {dict['홍보센터'][lang]}
-          </span>
-          <span className="w-[140px] flex justify-center items-center">
-            {dict['인재채용'][lang]}
-          </span>
+          {[
+            dict['기업정보'][lang],
+            dict['사업영역'][lang],
+            dict['제품정보'][lang],
+            dict['홍보센터'][lang],
+            dict['인재채용'][lang],
+          ].map((item, index) => (
+            <span
+              key={item}
+              className={cn('w-[140px] flex justify-center items-center ')}>
+              <span className="hover:text-primary cursor-pointer">{item}</span>
+            </span>
+          ))}
         </nav>
         <div className="mr-11 w-[98px] typo-TitleBold">
           <div className="flex gap-3 items-center">

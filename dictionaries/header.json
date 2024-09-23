@@ -1,8 +1,8 @@
 {
   "기업정보": {
     "ko": "기업정보",
-    "en": "Company Information",
-    "en-US": "Company Information"
+    "en": "Company Info",
+    "en-US": "Company Info"
   },
   "사업영역": {
     "ko": "사업영역",
@@ -10,7 +10,7 @@
   },
   "제품정보": {
     "ko": "제품정보",
-    "en": "Product Information"
+    "en": "Product Info"
   },
   "홍보센터": {
     "ko": "홍보센터",
