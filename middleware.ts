@@ -1,4 +1,3 @@
-import uniqBy from 'lodash/uniqBy';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 let defaultLocale = 'ko';
@@ -14,16 +13,19 @@ function getLocale(request: NextRequest) {
   }
   // 'Accept-Language' 헤더는 여러 언어를 포함할 수 있으며, 각 언어는 우선순위가 있습니다.
   // 예: 'en-US,en;q=0.9,ko;q=0.8'
-  const languages = uniqBy(
-    acceptLanguage.split(',').map((lang) => {
-      const [locale, qValue] = lang.split(';');
-      return {
-        locale: getLocaleWithoutDash(locale),
-        q: qValue ? parseFloat(qValue.split('=')[1]) : 1.0,
-      };
-    }),
-    (item) => item.locale,
-  );
+  const seen = new Set();
+  let languages: { locale: string; q: number }[] = [];
+  acceptLanguage.split(',').forEach((lang) => {
+    const [locale, qValue] = lang.split(';');
+    const key = getLocaleWithoutDash(locale);
+    if (seen.has(key)) return;
+    seen.add(key);
+    languages.push({
+      locale: key,
+      q: qValue ? parseFloat(qValue.split('=')[1]) : 1.0,
+    });
+  });
+
   languages.sort((a, b) => b.q - a.q);
   return languages[0].locale;
 }
