@@ -1,4 +1,5 @@
 'use client';
+import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
 import { Language } from '@/types/globals.types';
 import { useEffect, useRef, useState } from 'react';
@@ -11,10 +12,15 @@ export default function Page({
   const section1Ref = useRef<HTMLDivElement | null>(null);
   const section2Ref = useRef<HTMLDivElement | null>(null);
   const section3Ref = useRef<HTMLDivElement | null>(null);
+
   const [headerDarkMode, setHeaderDarkMode] = useState<boolean>(true);
 
   // 스크롤에 따라 헤더 색상 변경
   useEffect(() => {
+    // 처음 로딩된 페이지의 스크롤 위치가 최상단이 아닐 경우
+    if (window.scrollY !== 0) {
+      setHeaderDarkMode(false);
+    }
     const changeHeaderColor = (e: Event) => {
       if (window.scrollY < 100) {
         setHeaderDarkMode(true);
@@ -56,6 +62,7 @@ export default function Page({
         caption bold
         <div className="w-[100px] h-[100px] ">s</div>
       </div>
+      <Footer />
     </main>
   );
 }
