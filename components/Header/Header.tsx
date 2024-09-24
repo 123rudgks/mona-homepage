@@ -32,12 +32,12 @@ const Header = ({ darkMode, lang }: Props) => {
   return (
     <div
       className={cn(
-        ' w-full md:h-[100px]  h-16  fixed top-0 flex items-center justify-center transition-colors',
+        ' w-full sm-screen:h-[100px]  h-16  fixed top-0 flex items-center justify-center transition-colors',
         darkMode ? 'bg-transparent' : 'bg-white',
       )}>
-      <div className={cn('flex justify-between w-full  max-w-[1632px] ')}>
+      <div className={cn('flex justify-between w-full   ')}>
         <div className="ml-11 flex items-end justify-between gap-2 ">
-          <div className="w-[23px] h-[23px]">
+          <div className="w-[22px] h-[22px]">
             <div className="flex justify-between">
               <LogoTopLeft />
               <LogoTopRight
@@ -62,16 +62,18 @@ const Header = ({ darkMode, lang }: Props) => {
               />
             </div>
           </div>
-          <LogoText
-            className={cn(
-              darkMode ? '[&>path]:fill-white' : '',
-              '[&>path]:transition-colors',
-            )}
-          />
+          <div className="w-[100px] h-[22px]">
+            <LogoText
+              className={cn(
+                darkMode ? '[&>path]:fill-white' : '',
+                '[&>path]:transition-colors',
+              )}
+            />
+          </div>
         </div>
         <nav
           className={cn(
-            ' items-center typo-TitleBold transition-colors text-black  xl:flex hidden ',
+            ' items-center typo-TitleBold transition-colors text-black  md-screen:flex hidden ',
             {
               'text-base': lang === 'en',
               'text-white': darkMode,
