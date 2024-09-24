@@ -62,7 +62,7 @@ export default function Page({
         caption bold
         <div className="w-[100px] h-[100px] ">s</div>
       </div>
-      <Footer />
+      <Footer darkMode={true} lang={lang} />
     </main>
   );
 }

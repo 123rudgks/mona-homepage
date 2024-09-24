@@ -1,0 +1,91 @@
+{
+  "기업정보": {
+    "ko": "기업정보",
+    "en": "Company Info"
+  },
+  "회사소개": {
+    "ko": "회사소개",
+    "en": "Company Introduction"
+  },
+  "연혁": {
+    "ko": "연혁",
+    "en": "History"
+  },
+  "구성원": {
+    "ko": "구성원",
+    "en": "Members"
+  },
+  "오시는 길": {
+    "ko": "오시는 길",
+    "en": "Directions"
+  },
+  "사업영역": {
+    "ko": "사업영역",
+    "en": "Business Area"
+  },
+  "제조 솔루션": {
+    "ko": "제조 솔루션",
+    "en": "Manufacturing Solution"
+  },
+  "초고속 배터리 진단 솔루션": {
+    "ko": "초고속 배터리 진단 솔루션",
+    "en": "High-speed Battery Diagnostic Solution"
+  },
+  "모듈 고장 진단 솔루션": {
+    "ko": "모듈 고장 진단 솔루션",
+    "en": "Module Fault Diagnostic Solution"
+  },
+  "유지 보수 및 SOH 진단": {
+    "ko": "유지 보수 및 SOH 진단",
+    "en": "Maintenance and SOH Diagnosis"
+  },
+  "모듈 정비 및 진단": {
+    "ko": "모듈 정비 및 진단",
+    "en": "Module Maintenance and Diagnosis"
+  },
+  "전기차 SOH 진단": {
+    "ko": "전기차 SOH 진단",
+    "en": "Electric Vehicle SOH Diagnosis"
+  },
+  "사용 후 배터리": {
+    "ko": "사용 후 배터리",
+    "en": "After Use Battery"
+  },
+  "수소": {
+    "ko": "수소",
+    "en": "Hydrogen"
+  },
+  "제품정보": {
+    "ko": "제품정보",
+    "en": "Product Info"
+  },
+  "배터리 용량 예측 솔루션": {
+    "ko": "배터리 용량 예측 솔루션",
+    "en": "Battery Capacity Prediction Solution"
+  },
+  "수소 시스템 및 진단": {
+    "ko": "수소 시스템 및 진단",
+    "en": "Hydrogen System and Diagnosis"
+  },
+
+  "홍보센터": {
+    "ko": "홍보센터",
+    "en": "Promotion Center"
+  },
+  "투자정보": {
+    "ko": "투자정보",
+    "en": "Investment Info"
+  },
+  "문의하기": {
+    "ko": "문의하기",
+    "en": "Contact Us"
+  },
+  "인재채용": {
+    "ko": "인재채용",
+    "en": "Recruitment"
+  },
+  "채용공고": {
+    "ko": "채용공고",
+    "en": "Recruitment Notice"
+  }
+}
