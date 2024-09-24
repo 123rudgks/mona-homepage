@@ -11,8 +11,10 @@ const config = {
   prefix: '',
   theme: {
     screens: {
-      '3xl': '1440px',
-      '4xl': '1920px',
+      'sm-screen': '769px',
+      'md-screen': '1024px',
+      'lg-screen': '1440px',
+      'xl-screen': '1440px',
     },
     container: {
       center: true,
