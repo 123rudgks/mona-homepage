@@ -39,15 +39,43 @@ export default function Page({
 
   useEffect(() => {
     const animatedCircle = document.getElementById('animated-circle');
-
+    function preventDefault(e: Event) {
+      e.preventDefault();
+    }
+    const disableScroll = () => {
+      window.addEventListener('touchmove', preventDefault, { passive: false });
+      window.addEventListener('wheel', preventDefault, { passive: false });
+    };
+    const enableScroll = () => {
+      window.removeEventListener('touchmove', preventDefault);
+      window.removeEventListener('wheel', preventDefault);
+    };
+    disableScroll();
+    animatedCircle?.addEventListener('transitionend', (e) => {
+      enableScroll();
+      animatedCircle.classList.remove(
+        'transition-all',
+        'ease-in',
+        'duration-500',
+      );
+    });
     setTimeout(() => {
       if (animatedCircle) {
-        animatedCircle.classList.replace('w-[360px]', 'w-full');
-        animatedCircle.classList.replace('h-[360px]', 'h-full');
-        animatedCircle.classList.remove('rounded-full', 'bottom-[135px]');
+        animatedCircle.classList.remove('invisible');
+        animatedCircle.classList.remove(
+          'md-screen:w-[874px]',
+          'md-screen:h-[874px]',
+          'sm-screen:w-[600px]',
+          'sm-screen:h-[600px]',
+          'w-[400px]',
+          'h-[400px]',
+        );
+        animatedCircle.classList.add('-translate-y-[100px]', '-translate-y-16');
+        animatedCircle.classList.add('w-full', 'h-full');
+        animatedCircle.classList.remove('rounded-full');
         setHeaderDarkMode(true);
       }
-    }, 1500);
+    }, 1000);
   }, []);
   return (
     <main
@@ -55,28 +83,58 @@ export default function Page({
       className="flex min-h-screen flex-col items-center justify-between bg-white ">
       <div
         ref={section2Ref}
-        className="section-toggle bg-white w-full sm-screen:h-[1080px] h-[812px] relative ">
-        <div className="absolute w-full h-full flex items-center justify-center">
-          <div
-            id="animated-circle"
-            className={cn(
-              'absolute w-[360px] bottom-[135px] h-[360px] transition-all bg-center bg-cover bg-no-repeat  rounded-full duration-500',
-            )}
-            style={{ backgroundImage: `url(${AnimationCircleBg.src})` }}></div>
-        </div>
-
-        <div className="w-full h-full flex justify-center pt-[225px] px-[312px]">
-          <div className="flex-col flex text-primary items-center gap-6">
-            <span className="typo-Display7Bold text-[90px]">
+        className="transform flex justify-center items-center sm-screen:pt-[100px]   pt-16 bg-white w-full sm-screen:h-[1080px] h-[812px] relative ">
+        <div
+          id="animated-circle"
+          className={cn(
+            'fixed invisible transition-all duration-500 ease-in  rounded-full  bg-black overflow-hidden',
+            'md-screen:w-[874px] md-screen:h-[874px]',
+            'sm-screen:w-[600px] sm-screen:h-[600px]',
+            'w-[400px] h-[400px]',
+          )}
+          style={{
+            backgroundRepeat: 'no-repeat',
+            backgroundImage: `url(${AnimationCircleBg.src})`,
+            backgroundPosition: 'center',
+            backgroundSize: '100vw 100vh',
+          }}></div>
+        <div className="flex flex-col md-screen:gap-[74px] sm-screen:gap-12 gap-5 items-center">
+          {/* Section1 Text Section */}
+          <div className="flex-col flex text-primary items-center ">
+            <span
+              className={cn(
+                'typo-Display7Bold  font-semibold  ',
+                'md-screen:text-[90px] md-screen:leading-[104px] md-screen:tracking-[-1.8px]',
+                'sm-screen:text-[80px] sm-screen:leading-[90px] sm-screen:tracking-[-1.4px]',
+                'text-[40px] leading-[50px] tracking-[-1px]',
+              )}>
               RAPID & ACCURATE
             </span>
-            <span className="typo-Display7Bold text-[90px]">
+            <span
+              className={cn(
+                'typo-Display7Bold  font-semibold  ',
+                'md-screen:text-[90px] md-screen:leading-[104px] md-screen:tracking-[-1.8px]',
+                'sm-screen:text-[80px] sm-screen:leading-[90px] sm-screen:tracking-[-1.4px]',
+                'text-[40px] leading-[50px] tracking-[-1px]',
+              )}>
               BATTERY DIAGNOSIS
             </span>
-            <span className="typo-HeadlineMedium text-[44px] flex items-center">
+            <span
+              className={cn(
+                'typo-HeadlineMedium  font-medium  flex items-center',
+                'md-screen:text-[44px] md-screen:leading-[60px] md-screen:tracking-[-0.6px]',
+                'sm-screen:text-[34px] sm-screen:leading-[50px] sm-screen:tracking-[-0.4px]',
+              )}>
               Powered by AI <ShineIcon />
             </span>
           </div>
+          <div
+            className={cn(
+              ' bg-black rounded-full',
+              'md-screen:w-[360px] md-screen:h-[360px]',
+              'sm-screen:w-[300px] sm-screen:h-[300px]',
+              'w-[200px] h-[200px]',
+            )}></div>
         </div>
       </div>
       <div

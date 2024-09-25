@@ -119,6 +119,13 @@
     line-height: 38px;
     letter-spacing: -0.6px;
   }
+  .typo-Display1Medium {
+    font-family: 'Pretendard';
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 38px;
+    letter-spacing: -0.6px;
+  }
   .typo-HeadlineBold {
     font-family: 'Pretendard';
     font-weight: 700;
