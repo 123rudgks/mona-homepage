@@ -10,6 +10,27 @@ const config = {
   ],
   prefix: '',
   theme: {
+    keyframes: {
+      'expanding-circle': {
+        '0%': {
+          bottom: 'auto',
+          left: 'auto',
+          top: 'auto',
+          right: 'auto',
+        },
+        '100%': {
+          bottom: '0',
+          left: '0',
+          top: '0',
+          right: '0',
+          width: '100%',
+          height: '100%',
+        },
+      },
+    },
+    animation: {
+      'expanding-circle': 'expanding-circle 1s ease-in',
+    },
     screens: {
       'sm-screen': '769px',
       'md-screen': '1024px',
