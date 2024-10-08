@@ -1,1 +1,10 @@
-{}
+{
+  "신속하고 정확한 배터리 진단": {
+    "ko": "신속하고 정확한 배터리 진단",
+    "en": "Fast and Accurate Battery Diagnosis"
+  },
+  "Section2_Desc": {
+    "ko": "임피던스 분석과 인공지능 기술을 적용하여 배터리 셀 단위로 전수검사하는 솔루션을 개발하고 있습니다. 빠르게 정확하게 배터리 셀의 불량을 검출하고 용량을 예측하는 것이 핵심기술입니다. 자세한 내용은 홍보영상을 통해 확인하실 수 있습니다.",
+    "en": "We are developing a solution that inspects battery cells in detail by applying impedance analysis and artificial intelligence technology. Quickly and accurately detecting defects in battery cells and predicting capacity is the core technology. You can check the details through the promotional video."
+  }
+}

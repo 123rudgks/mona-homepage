@@ -34,7 +34,7 @@ const config = {
     screens: {
       'sm-screen': '769px',
       'md-screen': '1024px',
-      'lg-screen': '1440px',
+      'lg-screen': '1280px',
       'xl-screen': '1440px',
     },
     container: {

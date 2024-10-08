@@ -22,7 +22,7 @@ const Footer = ({ darkMode, lang }: Props) => {
   return (
     <div
       className={cn(
-        'lg-screen:px-[100px] lg-screen:pt-[100px] lg-screen:pb-[49px]',
+        'xl-screen:px-[100px] xl-screen:pt-[100px] xl-screen:pb-[49px]',
         'md-screen:py-[100px] md-screen:px-[44px]',
         'sm-screen:py-[60px] sm-screen:px-[44px] sm-screen:block',
         'py-[60px] w-full flex flex-col items-center relative',
@@ -32,19 +32,19 @@ const Footer = ({ darkMode, lang }: Props) => {
       <div
         className={cn(
           'flex flex-col gap-20 ',
-          'lg-screen:flex-row lg-screen:items-start lg-screen:gap-[100px]',
+          'xl-screen:flex-row xl-screen:items-start xl-screen:gap-[100px]',
           'sm-screen:pb-12',
         )}>
         {/* Logo sections */}
         <div
           className={cn(
             'w-[126px] flex items-end justify-between gap-2 ',
-            'lg-screen:w-[290px]',
+            'xl-screen:w-[290px]',
             'md-screen:mb-0 ',
             'sm-screen:w-[200px] sm-screen:mb-5',
             'mb-2',
           )}>
-          <div className="w-7 h-7 sm-screen:w-11 sm-screen:h-11 lg-screen:w-16 lg-screen:h-16 ">
+          <div className="w-7 h-7 sm-screen:w-11 sm-screen:h-11 xl-screen:w-16 xl-screen:h-16 ">
             <div className="flex justify-between">
               <LogoTopLeft />
               <LogoTopRight
@@ -60,11 +60,11 @@ const Footer = ({ darkMode, lang }: Props) => {
               />
             </div>
           </div>
-          <div className="flex flex-col justify-between pt-[2px]  h-7  sm-screen:h-11  lg-screen:h-16">
-            <div className="w-[90px] h-5 sm-screen:w-[140px] sm-screen:h-[30px] lg-screen:w-52 lg-screen:h-11">
+          <div className="flex flex-col justify-between pt-[2px]  h-7  sm-screen:h-11  xl-screen:h-16">
+            <div className="w-[90px] h-5 sm-screen:w-[140px] sm-screen:h-[30px] xl-screen:w-52 xl-screen:h-11">
               <LogoText className={cn(darkMode ? '[&>path]:fill-white' : '')} />
             </div>
-            <div className="w-[90px] h-1 sm-screen:w-[140px] sm-screen:h-[6px] lg-screen:w-52 lg-screen:h-2">
+            <div className="w-[90px] h-1 sm-screen:w-[140px] sm-screen:h-[6px] xl-screen:w-52 xl-screen:h-2">
               <LogoBottomText
                 className={cn(darkMode ? '[&>path]:fill-white' : '')}
               />
@@ -209,7 +209,7 @@ const Footer = ({ darkMode, lang }: Props) => {
       <span
         className={cn(
           'absolute',
-          'lg-screen:bottom-[145px] lg-screen:right-[100px]',
+          'xl-screen:bottom-[145px] xl-screen:right-[100px]',
           'md-screen:bottom-[192px] md-screen:right-11',
           'sm-screen:bottom-[152px] sm-screen:right-11 sm-screen:translate-x-0',
           'bottom-[60px] right-1/2 translate-x-1/2',

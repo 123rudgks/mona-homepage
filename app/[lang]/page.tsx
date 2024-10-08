@@ -1,12 +1,15 @@
 'use client';
+import ViewMore from '@/app/svgs/ViewMore.svg';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
+import { Button } from '@/components/ui/button';
+import dict from '@/dictionaries/main.json';
 import { cn } from '@/lib/utils';
 import AnimationCircleBg from '@/public/images/AnimationCircleBg.png';
+import MainSection2 from '@/public/images/MainSection2.png';
 import { Language } from '@/types/globals.types';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import dict from '../../dictionaries/header.json';
 import ShineIcon from '../svgs/Shine.svg';
 
 export default function Page({
@@ -15,7 +18,6 @@ export default function Page({
   params: { lang: Language };
 }) {
   const section1Ref = useRef<HTMLDivElement | null>(null);
-  const section2Ref = useRef<HTMLDivElement | null>(null);
   const section3Ref = useRef<HTMLDivElement | null>(null);
 
   const [headerDarkMode, setHeaderDarkMode] = useState<boolean>(false);
@@ -72,7 +74,10 @@ export default function Page({
           'w-[400px]',
           'h-[400px]',
         );
-        animatedCircle.classList.add('-translate-y-[100px]', '-translate-y-16');
+        animatedCircle.classList.add(
+          'sm-screen:-translate-y-[50px]',
+          '-translate-y-8',
+        );
         animatedCircle.classList.add('w-full', 'h-full');
         animatedCircle.classList.remove('rounded-full');
         setHeaderDarkMode(true);
@@ -83,9 +88,7 @@ export default function Page({
     <main
       id="main"
       className="flex min-h-screen flex-col items-center justify-between bg-white ">
-      <div
-        ref={section2Ref}
-        className="transform flex justify-center items-center sm-screen:pt-[100px]   pt-16 bg-white w-full sm-screen:h-[1080px] h-[812px] relative ">
+      <div className="transform flex justify-center items-center sm-screen:pt-[100px]   pt-16 bg-white w-full sm-screen:h-[1080px] h-[812px] relative ">
         <div
           id="animated-circle"
           className={cn(
@@ -149,17 +152,81 @@ export default function Page({
       </div>
       <div
         ref={section1Ref}
-        className="section-toggle bg-primary-light w-full h-[800px] bg-white">
-        white
-        <button>{dict['기업정보'][lang]}</button>
+        className={cn(
+          'section-toggle  w-full',
+          'xl-screen:py-[142px] xl-screen:px-[102px] xl-screen:h-[761px]',
+          'lg-screen:py-[132px] lg-screen:px-[45px] lg-screen:h-[632px] lg-screen:block',
+          'sm-screen:py-[88px] sm-screen:px-[45px] sm-screen:h-[840px] sm-screen:flex sm-screen:items-center',
+          'py-[70px] px-6 h-[860px]',
+        )}>
+        <div
+          className={cn(
+            'w-full h-full flex items-center  flex-col',
+            'lg-screen:flex-row lg-screen:gap-0 lg-screen:h-full',
+            'sm-screen:gap-11 sm-screen:h-fit',
+            'gap-8',
+          )}>
+          <div
+            className={cn(
+              'relative  h-full w-full rounded-2xl overflow-hidden',
+              'lg-screen:h-full lg-screen:flex-1 ',
+              'sm-screen:h-[313px] sm-screen:w-[614px] sm-screen:flex-none',
+            )}>
+            <Image src={MainSection2.src} alt="main-section2" layout="fill" />
+          </div>
+          <div className="flex-1 w-full">
+            <div
+              className={cn(
+                'w-full h-full flex flex-col gap-9 items-center',
+                'lg-screen:gap-10',
+              )}>
+              <div
+                className={cn(
+                  'flex flex-col gap-4 items-center w-full max-w-[936px]',
+                  'lg-screen:w-[500px] lg-screen:gap-5',
+                )}>
+                <span className="typo-Display1Medium text-primary">
+                  Powered by AI
+                </span>
+                <span
+                  className={cn(
+                    'text-grayscale-black text-center',
+                    lang === 'ko' ? 'typo-Display5Bold' : 'typo-Display2Bold',
+                  )}>
+                  {dict['신속하고 정확한 배터리 진단'][lang]}
+                </span>
+                <span
+                  className={cn(
+                    'h-[63px] w-[1px] bg-blackAlpha-20 hidden',
+                    'lg-screen:inline',
+                  )}
+                />
+                <span
+                  className={cn(
+                    'text-blackAlpha-80 text-center w-full',
+                    lang === 'ko'
+                      ? 'typo-BodyLargeMedium '
+                      : 'typo-BodySmallMedium',
+                  )}>
+                  {dict['Section2_Desc'][lang]}
+                </span>
+              </div>
+              <div>
+                <Button
+                  variant={'ghost'}
+                  theme={'black'}
+                  size={'lg'}
+                  className="">
+                  <div className="flex items-center gap-2">
+                    View more <ViewMore />
+                  </div>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div> 이미지 시작</div>
-      <Image
-        src={'/images/AnimationCircleBg.png'}
-        alt=""
-        width={100}
-        height={100}
-      />
+
       <div
         ref={section3Ref}
         className="section-toggle typo-BodyCaptionBold w-full h-[800px] bg-primary-dark">
