@@ -4,9 +4,11 @@ import Header from '@/components/Header/Header';
 import { cn } from '@/lib/utils';
 import AnimationCircleBg from '@/public/images/AnimationCircleBg.png';
 import { Language } from '@/types/globals.types';
+import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import dict from '../../dictionaries/header.json';
 import ShineIcon from '../svgs/Shine.svg';
+
 export default function Page({
   params: { lang },
 }: {
@@ -96,17 +98,19 @@ export default function Page({
             backgroundRepeat: 'no-repeat',
             backgroundImage: `url(${AnimationCircleBg.src})`,
             backgroundPosition: 'center',
-            backgroundSize: '100vw 100vh',
+            backgroundSize: '1920px 1080px',
           }}></div>
+
         <div className="flex flex-col md-screen:gap-[74px] sm-screen:gap-12 gap-5 items-center">
           {/* Section1 Text Section */}
+
           <div className="flex-col flex text-primary items-center ">
             <span
               className={cn(
                 'typo-Display7Bold  font-semibold  ',
                 'md-screen:text-[90px] md-screen:leading-[104px] md-screen:tracking-[-1.8px]',
                 'sm-screen:text-[80px] sm-screen:leading-[90px] sm-screen:tracking-[-1.4px]',
-                'text-[40px] leading-[50px] tracking-[-1px]',
+                'text-[38px] leading-[50px] tracking-[-1px]',
               )}>
               RAPID & ACCURATE
             </span>
@@ -115,7 +119,7 @@ export default function Page({
                 'typo-Display7Bold  font-semibold  ',
                 'md-screen:text-[90px] md-screen:leading-[104px] md-screen:tracking-[-1.8px]',
                 'sm-screen:text-[80px] sm-screen:leading-[90px] sm-screen:tracking-[-1.4px]',
-                'text-[40px] leading-[50px] tracking-[-1px]',
+                'text-[38px] leading-[50px] tracking-[-1px]',
               )}>
               BATTERY DIAGNOSIS
             </span>
@@ -134,7 +138,13 @@ export default function Page({
               'md-screen:w-[360px] md-screen:h-[360px]',
               'sm-screen:w-[300px] sm-screen:h-[300px]',
               'w-[200px] h-[200px]',
-            )}></div>
+            )}
+            style={{
+              backgroundRepeat: 'no-repeat',
+              backgroundImage: `url(${AnimationCircleBg.src})`,
+              backgroundPosition: 'center',
+              backgroundSize: '960px 540px',
+            }}></div>
         </div>
       </div>
       <div
@@ -143,7 +153,13 @@ export default function Page({
         white
         <button>{dict['기업정보'][lang]}</button>
       </div>
-
+      <div> 이미지 시작</div>
+      <Image
+        src={'/images/AnimationCircleBg.png'}
+        alt=""
+        width={100}
+        height={100}
+      />
       <div
         ref={section3Ref}
         className="section-toggle typo-BodyCaptionBold w-full h-[800px] bg-primary-dark">
