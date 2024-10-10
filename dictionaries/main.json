@@ -6,5 +6,13 @@
   "Section2_Desc": {
     "ko": "임피던스 분석과 인공지능 기술을 적용하여 배터리 셀 단위로 전수검사하는 솔루션을 개발하고 있습니다. 빠르게 정확하게 배터리 셀의 불량을 검출하고 용량을 예측하는 것이 핵심기술입니다. 자세한 내용은 홍보영상을 통해 확인하실 수 있습니다.",
     "en": "We are developing a solution that inspects battery cells in detail by applying impedance analysis and artificial intelligence technology. Quickly and accurately detecting defects in battery cells and predicting capacity is the core technology. You can check the details through the promotional video."
+  },
+  "Section3_Desc": {
+    "ko": "전기차의 화재를 방지하기 위한 배터리 진단 시스템을 개발합니다",
+    "en": "Developing a battery diagnosis system to prevent fires in electric vehicles"
+  },
+  "Section3_SubDesc": {
+    "ko": "임피던스 계측과 충방전 기능을 보유한 검사장비에 배터리의 빅데이터를 수집/분석하여 개발한 인공지능 기반의 진단 모형을 적용하여 셀/모듈/팩의 상태를 신속하고 정밀하게 진단하는 통합 솔루션을 개발합니다.",
+    "en": "Developing an integrated solution that quickly and accurately diagnoses the state of cells/modules/packs by collecting/analyzing battery big data on inspection equipment with impedance measurement and charge/discharge functions and applying an artificial intelligence-based diagnostic model."
   }
 }

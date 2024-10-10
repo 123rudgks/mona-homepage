@@ -7,6 +7,7 @@ import dict from '@/dictionaries/main.json';
 import { cn } from '@/lib/utils';
 import AnimationCircleBg from '@/public/images/AnimationCircleBg.png';
 import MainSection2 from '@/public/images/MainSection2.png';
+import MainSection3 from '@/public/images/MainSection3.png';
 import { Language } from '@/types/globals.types';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
@@ -229,8 +230,60 @@ export default function Page({
 
       <div
         ref={section3Ref}
-        className="section-toggle typo-BodyCaptionBold w-full h-[800px] bg-primary-dark">
-        caption bold
+        className={cn('w-full ')}
+        style={{
+          backgroundRepeat: 'no-repeat',
+          backgroundImage: `url(${MainSection3.src})`,
+          backgroundSize: 'cover',
+          backdropFilter: 'blur(10px)',
+        }}>
+        <div
+          className={cn(
+            'bg-blackAlpha-70 w-full h-full',
+            'lg-screen:pb-[156px]',
+            'sm-screen:px-11 pb-[100px]',
+            'px-6 pb-[70px]',
+            'backdrop-blur-xl',
+          )}>
+          <div
+            className={cn(
+              'flex flex-col items-center max-w-[979px] mx-auto',
+              'sm-screen:gap-9',
+              'gap-7',
+            )}>
+            <div
+              className={cn(
+                'flex flex-col items-center',
+                'sm-screen:gap-5',
+                'gap-4',
+              )}>
+              <span
+                className={cn(
+                  'text-primary',
+                  'typo-BodyLargeBold',
+                  'sm-screen:typo-Display1Medium',
+                )}>
+                ABOUT MONA
+              </span>
+              <span
+                className={cn(
+                  'text-grayscale-white',
+                  'typo-Display1Bold',
+                  'sm-screen:typo-Display4Bold',
+                  'lg-screen:typo-Display5Bold',
+                )}>
+                {dict['Section3_Desc'][lang]}
+              </span>
+            </div>
+            <span
+              className={cn(
+                'text-whiteAlpha-70 text-center max-w-[730px]',
+                'typo-BodyLargeBold',
+              )}>
+              {dict['Section3_SubDesc'][lang]}
+            </span>
+          </div>
+        </div>
       </div>
       <div className="section-toggle typo-BodyCaptionBold w-full h-[800px] bg-black">
         caption bold
