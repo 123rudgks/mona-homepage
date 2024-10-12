@@ -267,6 +267,7 @@
 @layer base {
   :root {
     --primary: 30 100% 46%;
+    --primary-alpha-50: 30 100% 46% / 50%;
     --primary-dark: 30 100% 35%;
     --primary-light: 36 100% 77%;
     --primary-lighter: 48 100% 88%;

@@ -2,6 +2,7 @@
 import ViewMore from '@/app/svgs/ViewMore.svg';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
+import TopRightRoundedCard from '@/components/pages/Main/TopRightRoundedCard';
 import { Button } from '@/components/ui/button';
 import dict from '@/dictionaries/main.json';
 import { cn } from '@/lib/utils';
@@ -235,14 +236,13 @@ export default function Page({
           backgroundRepeat: 'no-repeat',
           backgroundImage: `url(${MainSection3.src})`,
           backgroundSize: 'cover',
-          backdropFilter: 'blur(10px)',
         }}>
         <div
           className={cn(
             'bg-blackAlpha-70 w-full h-full',
-            'lg-screen:pb-[156px]',
-            'sm-screen:px-11 pb-[100px]',
-            'px-6 pb-[70px]',
+            'lg-screen:pb-[156px] lg-screen:pt-[140px]',
+            'sm-screen:px-11 pb-[100px] pt-[100px]',
+            'px-6 py-[70px]',
             'backdrop-blur-xl',
           )}>
           <div
@@ -282,6 +282,22 @@ export default function Page({
               )}>
               {dict['Section3_SubDesc'][lang]}
             </span>
+          </div>
+
+          <div
+            className={cn(
+              'grid',
+              'xl-screen:gap-12',
+              'lg-screen:grid-cols-3',
+              'sm-screen:gap-8',
+              'grid-cols-2 gap-4',
+            )}>
+            <TopRightRoundedCard />
+            <TopRightRoundedCard />
+            <TopRightRoundedCard />
+            <TopRightRoundedCard />
+            <TopRightRoundedCard />
+            <TopRightRoundedCard />
           </div>
         </div>
       </div>
