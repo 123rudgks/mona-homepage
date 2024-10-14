@@ -1,4 +1,9 @@
 'use client';
+import Section3_AI솔루션 from '@/app/images/main/Section3_AI솔루션.png';
+import Section3_데이터분석 from '@/app/images/main/Section3_데이터분석.png';
+import Section3_빅데이터 from '@/app/images/main/Section3_빅데이터.png';
+import Section3_컨버전스 from '@/app/images/main/Section3_컨버전스.png';
+import Section3_하드웨어 from '@/app/images/main/Section3_하드웨어.png';
 import ViewMore from '@/app/svgs/ViewMore.svg';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
@@ -14,12 +19,25 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import ShineIcon from '../svgs/Shine.svg';
 
+const Section3Images: { [str in Partial<keyof typeof dict>]?: string } = {
+  'AI 솔루션': Section3_AI솔루션.src,
+  '데이터 분석': Section3_데이터분석.src,
+  빅데이터: Section3_빅데이터.src,
+  컨버전스: Section3_컨버전스.src,
+  '하드웨어 디자인': Section3_하드웨어.src,
+};
+const Section3Titles: { ko: Partial<keyof typeof dict>; en: string }[] = [
+  { ko: 'AI 솔루션', en: 'AI Solution' },
+  { ko: '데이터 분석', en: 'Data Analysis' },
+  { ko: '빅데이터', en: 'Big Data' },
+  { ko: '하드웨어 디자인', en: 'Hardware Design' },
+  { ko: '컨버전스', en: 'Convergence' },
+];
 export default function Page({
   params: { lang },
 }: {
   params: { lang: Language };
 }) {
-  const section1Ref = useRef<HTMLDivElement | null>(null);
   const section3Ref = useRef<HTMLDivElement | null>(null);
 
   const [headerDarkMode, setHeaderDarkMode] = useState<boolean>(false);
@@ -153,7 +171,6 @@ export default function Page({
         </div>
       </div>
       <div
-        ref={section1Ref}
         className={cn(
           'section-toggle  w-full',
           'xl-screen:py-[142px] xl-screen:px-[102px] xl-screen:h-[761px]',
@@ -288,16 +305,64 @@ export default function Page({
             className={cn(
               'grid',
               'xl-screen:gap-12',
-              'lg-screen:grid-cols-3',
-              'sm-screen:gap-8',
-              'grid-cols-2 gap-4',
+              'lg-screen:grid-cols-3 lg-screen:mt-[106px]',
+              'sm-screen:gap-8 sm-screen:mt-[80px]',
+              'grid-cols-2 gap-4 mt-[40px]',
             )}>
-            <TopRightRoundedCard />
-            <TopRightRoundedCard />
-            <TopRightRoundedCard />
-            <TopRightRoundedCard />
-            <TopRightRoundedCard />
-            <TopRightRoundedCard />
+            <TopRightRoundedCard theme="primary">
+              <div className="flex flex-col gap-5 h-full justify-between sm-screen:p-11 p-5">
+                <div className="flex flex-col typo-HeadlineRegular sm-screen:typo-Display5Regular">
+                  <span className={'text-whiteAlpha-70'}>RAPID</span>
+                  <span className={'text-whiteAlpha-50'}>ACCURATE</span>
+                  <span className={'text-whiteAlpha-30'}>SAFE</span>
+                </div>
+                <Button
+                  theme={'white'}
+                  variant={'ghost'}
+                  size={'lg'}
+                  className="sm-screen:w-40 sm-screen:py-3 w-[120px] py-1">
+                  View more
+                </Button>
+              </div>
+            </TopRightRoundedCard>
+            {Section3Titles.map((item, index) => {
+              const src = Section3Images[item.ko];
+              return (
+                <TopRightRoundedCard key={item.ko}>
+                  <div className="flex flex-col gap-5 sm-screen:p-11 p-5">
+                    <div
+                      className="relative w-full "
+                      style={{ aspectRatio: '341 / 312' }}>
+                      {src && <Image src={src} alt={item.ko} fill />}
+                    </div>
+
+                    <div className={cn('flex flex-col sm-screen:gap-4 gap-1')}>
+                      <div
+                        className={cn('flex flex-col sm-screen:gap-2 gap-1')}>
+                        <span
+                          className={cn(
+                            'typo-BodyCaptionBold sm-screen:typo-HeadlineBold text-primary',
+                          )}>
+                          {item.en}
+                        </span>
+                        <span
+                          className={cn(
+                            'typo-BodyLargeBold sm-screen:typo-Display4Bold text-white',
+                          )}>
+                          {item.ko}
+                        </span>
+                      </div>
+                      <span
+                        className={cn(
+                          'typo-BodyCaptionMedium sm-screen:typo-BodyLargeMedium text-whiteAlpha-70',
+                        )}>
+                        {dict[item.ko][lang]}
+                      </span>
+                    </div>
+                  </div>
+                </TopRightRoundedCard>
+              );
+            })}
           </div>
         </div>
       </div>

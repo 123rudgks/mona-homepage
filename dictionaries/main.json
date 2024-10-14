@@ -14,5 +14,25 @@
   "Section3_SubDesc": {
     "ko": "임피던스 계측과 충방전 기능을 보유한 검사장비에 배터리의 빅데이터를 수집/분석하여 개발한 인공지능 기반의 진단 모형을 적용하여 셀/모듈/팩의 상태를 신속하고 정밀하게 진단하는 통합 솔루션을 개발합니다.",
     "en": "Developing an integrated solution that quickly and accurately diagnoses the state of cells/modules/packs by collecting/analyzing battery big data on inspection equipment with impedance measurement and charge/discharge functions and applying an artificial intelligence-based diagnostic model."
+  },
+  "빅데이터": {
+    "ko": "배터리 셀, 모듈, 팩 생산 라인에서 데이터를 직접 수집합니다.",
+    "en": "Collect data directly from battery cell, module, and pack production lines."
+  },
+  "데이터 분석": {
+    "ko": "데이터 전처리 및 기능 엔지니어링을 합니다.",
+    "en": "Perform data preprocessing and feature engineering."
+  },
+  "AI 솔루션": {
+    "ko": "품질관리를 위해 AI 솔루션 기반으로 SOH(State-of-Health) 추론 및 결함 검출을 합니다.",
+    "en": "Infer SOH(State-of-Health) and detect defects based on AI solution for quality management."
+  },
+  "하드웨어 디자인": {
+    "ko": "정밀한 전기화학 측정을 위한 디자인을 합니다.",
+    "en": "Design for precise electrochemical measurements."
+  },
+  "컨버전스": {
+    "ko": "데이터, 인공지능 및 기기를 통합합니다.",
+    "en": "Integrate data, AI, and devices."
   }
 }

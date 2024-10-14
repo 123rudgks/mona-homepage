@@ -2,9 +2,10 @@ import { cn } from '@/lib/utils';
 
 type Props = {
   theme?: 'primary';
+  children?: React.ReactNode;
 };
 
-const TopRightRoundedCard = ({ theme }: Props) => {
+const TopRightRoundedCard = ({ theme, children }: Props) => {
   return (
     <div
       className={cn(
@@ -23,7 +24,9 @@ const TopRightRoundedCard = ({ theme }: Props) => {
           theme === 'primary'
             ? ' bg-gradient-to-b from-primary to-primary-alpha-50 '
             : 'bg-gradient-to-br  from-blackAlpha-50 to-blackAlpha-10',
-        )}></div>
+        )}>
+        {children}
+      </div>
     </div>
   );
 };
