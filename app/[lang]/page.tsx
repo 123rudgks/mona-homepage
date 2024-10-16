@@ -7,6 +7,7 @@ import Section3_하드웨어 from '@/app/images/main/Section3_하드웨어.png';
 import ViewMore from '@/app/svgs/ViewMore.svg';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
+import ProductCarousel from '@/components/pages/Main/ProductCarousel';
 import TopRightRoundedCard from '@/components/pages/Main/TopRightRoundedCard';
 import { Button } from '@/components/ui/button';
 import dict from '@/dictionaries/main.json';
@@ -366,8 +367,12 @@ export default function Page({
           </div>
         </div>
       </div>
-      <div className="section-toggle typo-BodyCaptionBold w-full h-[800px] bg-black">
-        caption bold
+      <div className="section-toggle typo-BodyCaptionBold w-full h-[1500px]">
+        <div className="h-full flex items-center">
+          <div className="w-full">
+            <ProductCarousel />
+          </div>
+        </div>
       </div>
       <div className="typo-BodyLargeRegular w-full h-[800px] bg-primary">
         caption bold
