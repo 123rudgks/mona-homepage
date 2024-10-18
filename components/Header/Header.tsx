@@ -32,7 +32,7 @@ const Header = ({ darkMode, lang }: Props) => {
   return (
     <div
       className={cn(
-        ' w-full sm-screen:h-[100px]  h-16  fixed top-0 flex items-center justify-center transition-colors',
+        'z-20 w-full sm-screen:h-[100px]  h-16  fixed top-0 flex items-center justify-center transition-colors',
         darkMode ? 'bg-transparent' : 'bg-white',
       )}>
       <div className={cn('flex justify-between w-full   ')}>

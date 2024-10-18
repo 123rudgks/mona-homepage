@@ -24,7 +24,7 @@ const ProductCarousel = (props: Props) => {
       }}>
       <CarouselContent>
         <CarouselItem className="flex justify-center basis-1/2">
-          <ProductCard />
+          <ProductCard theme="primary" />
         </CarouselItem>
         <CarouselItem className="flex justify-center basis-1/2">
           <ProductCard />

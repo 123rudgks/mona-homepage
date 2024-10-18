@@ -10,6 +10,7 @@ import Header from '@/components/Header/Header';
 import ProductCarousel from '@/components/pages/Main/ProductCarousel';
 import TopRightRoundedCard from '@/components/pages/Main/TopRightRoundedCard';
 import { Button } from '@/components/ui/button';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import dict from '@/dictionaries/main.json';
 import { cn } from '@/lib/utils';
 import AnimationCircleBg from '@/public/images/AnimationCircleBg.png';
@@ -181,7 +182,7 @@ export default function Page({
         )}>
         <div
           className={cn(
-            'w-full h-full flex items-center  flex-col',
+            'w-full h-full flex items-center flex-col',
             'lg-screen:flex-row lg-screen:gap-0 lg-screen:h-full',
             'sm-screen:gap-11 sm-screen:h-fit',
             'gap-8',
@@ -368,8 +369,58 @@ export default function Page({
         </div>
       </div>
       <div className="section-toggle typo-BodyCaptionBold w-full h-[1500px]">
-        <div className="h-full flex items-center">
-          <div className="w-full">
+        <div className="h-full flex flex-col sm-screen:gap-20 lg-screen:gap-[90px]  bg-[#0D0D0D] relative overflow-hidden pt-[70px] sm-screen:pt-[100px] xl-screen:pt-[140px]">
+          <div className=" opacity-20 w-[909px] h-[909px] bg-primary absolute left-0 bottom-0 rounded-full blur-[250px] -translate-x-1/2 translate-y-1/2" />
+          <div
+            className={cn(
+              'flex flex-col gap-10 mx-auto items-center',
+              lang === 'ko'
+                ? 'sm-screen:w-[606px] sm-screen:max-w-none'
+                : 'sm-screen:max-w-none sm-screen:w-[730px]',
+              lang === 'ko' ? 'max-w-[411px] w-full' : 'max-w-[611px] w-full',
+            )}>
+            <div className="flex  flex-col gap-5 items-center ">
+              <span
+                className={cn(
+                  'text-primary',
+                  'typo-BodyLargeBold',
+                  'sm-screen:typo-Display1Medium',
+                )}>
+                PRODUCT
+              </span>
+              <span
+                className={cn(
+                  'text-white text-center',
+                  lang === 'ko'
+                    ? 'lg-screen:typo-Display5Bold'
+                    : 'lg-screen:typo-Display3Bold',
+                  'sm-screen:typo-Display3Bold',
+                  'typo-Display1Bold',
+                )}>
+                {dict['Section4_Desc'][lang]}
+              </span>
+            </div>
+            <Tabs defaultValue="solution">
+              <TabsList
+                className={cn(' sm-screen:gap-[10px] xl-screen:gap-3 gap-0')}>
+                <TabsTrigger
+                  className={cn(
+                    'sm-screen:typo-HeadlineBold typo-BodyLargeBold sm-screen:py-3 sm-screen:px-6 py-2 px-4',
+                  )}
+                  value="solution">
+                  {dict['Section4_Tab1'][lang]}
+                </TabsTrigger>
+                <TabsTrigger
+                  className={cn(
+                    'sm-screen:typo-HeadlineBold typo-BodyLargeBold sm-screen:py-3 sm-screen:px-6 py-2 px-4',
+                  )}
+                  value="hardware">
+                  {dict['Section4_Tab2'][lang]}
+                </TabsTrigger>
+              </TabsList>
+            </Tabs>
+          </div>
+          <div className="w-full z-10">
             <ProductCarousel />
           </div>
         </div>

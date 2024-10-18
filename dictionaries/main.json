@@ -34,5 +34,17 @@
   "컨버전스": {
     "ko": "데이터, 인공지능 및 기기를 통합합니다.",
     "en": "Integrate data, AI, and devices."
+  },
+  "Section4_Desc": {
+    "ko": "재생 관련 분야, 차세대 모빌리티 분야에 기술 선도 기업이 될 것입니다.",
+    "en": "We will be a leading technology company in the field of regeneration and next-generation mobility."
+  },
+  "Section4_Tab1": {
+    "ko": "솔루션",
+    "en": "Solution"
+  },
+  "Section4_Tab2": {
+    "ko": "하드웨어",
+    "en": "Hardware"
   }
 }
