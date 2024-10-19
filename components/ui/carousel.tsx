@@ -13,6 +13,24 @@ type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
 type CarouselOptions = UseCarouselParameters[0];
 type CarouselPlugin = UseCarouselParameters[1];
+const numberWithinRange = (number: number, min: number, max: number): number =>
+  Math.min(Math.max(number, min), max);
+export interface EmblaEventListType {
+  init: 'init';
+  pointerDown: 'pointerDown';
+  pointerUp: 'pointerUp';
+  slidesChanged: 'slidesChanged';
+  slidesInView: 'slidesInView';
+  scroll: 'scroll';
+  select: 'select';
+  settle: 'settle';
+  destroy: 'destroy';
+  reInit: 'reInit';
+  resize: 'resize';
+  slideFocusStart: 'slideFocusStart';
+  slideFocus: 'slideFocus';
+}
+export type EmblaEventType = EmblaEventListType[keyof EmblaEventListType];
 
 type CarouselProps = {
   opts?: CarouselOptions;
@@ -29,6 +47,8 @@ type CarouselContextProps = {
   canScrollPrev: boolean;
   canScrollNext: boolean;
 } & CarouselProps;
+
+const TWEEN_FACTOR_BASE = 0.5;
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null);
 
@@ -65,9 +85,67 @@ const Carousel = React.forwardRef<
       },
       plugins,
     );
+    const tweenFactor = React.useRef(0);
+    const tweenNodes = React.useRef<HTMLElement[]>([]);
+
     const [canScrollPrev, setCanScrollPrev] = React.useState(false);
     const [canScrollNext, setCanScrollNext] = React.useState(false);
 
+    const setTweenNodes = React.useCallback(
+      (emblaApi: UseEmblaCarouselType[1]): void => {
+        if (emblaApi === undefined) return;
+        tweenNodes.current = emblaApi.slideNodes().map((slideNode) => {
+          return slideNode.querySelector(
+            '.embla__slide__number',
+          ) as HTMLElement;
+        });
+      },
+      [],
+    );
+    const setTweenFactor = React.useCallback(
+      (emblaApi: UseEmblaCarouselType[1]) => {
+        if (emblaApi === undefined) return;
+        tweenFactor.current =
+          TWEEN_FACTOR_BASE * emblaApi.scrollSnapList().length;
+      },
+      [],
+    );
+    const tweenScale = React.useCallback(
+      (emblaApi: UseEmblaCarouselType[1], event?: EmblaEventType) => {
+        if (emblaApi === undefined) return;
+        const engine = emblaApi?.internalEngine();
+        const scrollProgress = emblaApi?.scrollProgress();
+        const slidesInView = emblaApi?.slidesInView();
+        const isScrollEvent = event === 'scroll';
+        emblaApi?.scrollSnapList().forEach((scrollSnap, snapIndex) => {
+          let diffToTarget = scrollSnap - scrollProgress;
+          const slidesInSnap = engine.slideRegistry[snapIndex];
+          slidesInSnap.forEach((slideIndex) => {
+            if (isScrollEvent && !slidesInView.includes(slideIndex)) return;
+            if (engine.options.loop) {
+              engine.slideLooper.loopPoints.forEach((loopItem) => {
+                const target = loopItem.target();
+                if (slideIndex === loopItem.index && target !== 0) {
+                  const sign = Math.sign(target);
+
+                  if (sign === -1) {
+                    diffToTarget = scrollSnap - (1 + scrollProgress);
+                  }
+                  if (sign === 1) {
+                    diffToTarget = scrollSnap + (1 - scrollProgress);
+                  }
+                }
+              });
+            }
+            const tweenValue = 1 - Math.abs(diffToTarget * tweenFactor.current);
+            const scale = numberWithinRange(tweenValue, 0, 1).toString();
+            const tweenNode = tweenNodes.current[slideIndex];
+            if (tweenNode) tweenNode.style.transform = `scale(${scale})`;
+          });
+        });
+      },
+      [],
+    );
     const onSelect = React.useCallback((api: CarouselApi) => {
       if (!api) {
         return;
@@ -111,9 +189,16 @@ const Carousel = React.forwardRef<
         return;
       }
 
+      setTweenNodes(api);
+      setTweenFactor(api);
+      tweenScale(api);
+
       onSelect(api);
       api.on('reInit', onSelect);
       api.on('select', onSelect);
+      api.on('reInit', tweenScale);
+      api.on('scroll', tweenScale);
+      api.on('slideFocus', tweenScale);
 
       return () => {
         api?.off('select', onSelect);
@@ -182,7 +267,7 @@ const CarouselItem = React.forwardRef<
       role="group"
       aria-roledescription="slide"
       className={cn(
-        'min-w-0 shrink-0 grow-0 basis-full',
+        'min-w-0 shrink-0 grow-0 basis-full ',
         orientation === 'horizontal' ? 'pl-4' : 'pt-4',
         className,
       )}

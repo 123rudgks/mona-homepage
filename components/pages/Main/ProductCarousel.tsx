@@ -32,6 +32,15 @@ const ProductCarousel = (props: Props) => {
         <CarouselItem className="flex justify-center basis-1/2">
           <ProductCard />
         </CarouselItem>
+        <CarouselItem className="flex justify-center basis-1/2">
+          <ProductCard />
+        </CarouselItem>
+        <CarouselItem className="flex justify-center basis-1/2">
+          <ProductCard />
+        </CarouselItem>
+        <CarouselItem className="flex justify-center basis-1/2">
+          <ProductCard />
+        </CarouselItem>
       </CarouselContent>
     </Carousel>
   );
