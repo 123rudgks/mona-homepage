@@ -46,5 +46,53 @@
   "Section4_Tab2": {
     "ko": "하드웨어",
     "en": "Hardware"
+  },
+  "Section4_Solution1_Desc": {
+    "ko": "인공지능 기반 IN-LINE기반 배터리 실시간 검사 솔루션",
+    "en": "AI-based IN-LINE-based battery real-time inspection solution"
+  },
+  "Section4_Solution1_SubDesc": {
+    "ko": "배터리 임피던스 계측 및 보정 기술 개발, 배터리 임피던스에 대한 빅데이터 수집 및 분석, 인공지능 기술 기반의 신속하고 정밀한 In-line 기반의 배터리 검사 시스템 개발",
+    "en": "Developing battery impedance measurement and calibration technology, collecting and analyzing big data on battery impedance, and developing a fast and accurate in-line-based battery inspection system based on artificial intelligence technology."
+  },
+  "Section4_Solution2_Desc": {
+    "ko": "EV 배터리 실시간 모니터링 및 진단",
+    "en": "EV battery real-time monitoring and diagnosis"
+  },
+  "Section4_Solution2_SubDesc": {
+    "ko": "인공지능 기반 사용 후 배터리 상태 진단 솔루션, 클라우드 서비스 기반 재사용 배터리 상태 감시 및 수명 예측 솔루션",
+    "en": "AI-based post-use battery condition diagnosis solution, cloud service-based reuse battery condition monitoring and life prediction solution"
+  },
+  "Section4_Solution3_Desc": {
+    "ko": "사용 후 배터리 전 주기 신속진단 예측 솔루션",
+    "en": "Fast diagnosis and prediction solution for battery full cycle after use"
+  },
+  "Section4_Solution3_SubDesc": {
+    "ko": "전송된 원시 데이터의 처리, AI 기반 배터리 상태 진단 사용할 배터리 상태 전달",
+    "en": "Processing of transmitted raw data, AI-based battery condition diagnosis, and delivery of battery condition to be used"
+  },
+  "Section4_Hardware1_Desc": {
+    "ko": "배터리 테스터(충전/방전)",
+    "en": "Battery Tester (Charging/Discharging)"
+  },
+  "Section4_Hardware1_SubDesc": {
+    "ko": "배터리 충전 테스트, 배터리 방전 테스트, 배터리 셀 온도 측정 ( 2 TC per CH ), CYCLE TEST UI 프로그램, 원격 설정 및 모니터링, 4CH / UNIT 및 최대 20CH",
+    "en": "Battery Charging Test, Battery Discharging Test, Battery Cell Temperature Measurements ( 2 TC per CH ), CYCLE TEST UI Program, Remote setup and Monitoring, 4CH / UNIT and max 20CH"
+  },
+  "Section4_Hardware2_Desc": {
+    "ko": "PEMFC 스테이션",
+    "en": "PEMFC Station"
+  },
+  "Section4_Hardware2_SubDesc": {
+    "ko": "사용자 정의형 연료전지 시험 스테이션, 다양한 H2, AIR 또는 O2 공급 모드 변수, 습식 / 건식 운전 모드, 자동화 실험, 흐름 범위 : 0.5 ~ 5 SLPM",
+    "en": "Customizable Fuel Cell Test Station, Various H2, AIR or O2 Supply Modes Variable, Wet / Dry Operating Modes, Automation experiments, Flow range : 0.5 ~ 5 SLPM"
+  },
+  "Section4_Hardware3_Desc": {
+    "ko": "EIS",
+    "en": "EIS"
+  },
+  "Section4_Hardware3_SubDesc": {
+    "ko": "배터리 셀 / 모듈 테스트 스테이션, 임피던스 및 전압 측정, 임피던스 측정, 자동화 실험, 온도 측정",
+    "en": "BATTERY Cell / Module Test Station, Impedance & Voltage Measurement, Impedance Measurement, Automation experiments, Temperature Measurement"
   }
 }

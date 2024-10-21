@@ -1,13 +1,12 @@
 'use client';
 
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from 'embla-carousel-react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import * as React from 'react';
-
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
 
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
@@ -119,29 +118,51 @@ const Carousel = React.forwardRef<
         const isScrollEvent = event === 'scroll';
         emblaApi?.scrollSnapList().forEach((scrollSnap, snapIndex) => {
           let diffToTarget = scrollSnap - scrollProgress;
-          const slidesInSnap = engine.slideRegistry[snapIndex];
-          slidesInSnap.forEach((slideIndex) => {
-            if (isScrollEvent && !slidesInView.includes(slideIndex)) return;
-            if (engine.options.loop) {
-              engine.slideLooper.loopPoints.forEach((loopItem) => {
-                const target = loopItem.target();
-                if (slideIndex === loopItem.index && target !== 0) {
-                  const sign = Math.sign(target);
-
-                  if (sign === -1) {
-                    diffToTarget = scrollSnap - (1 + scrollProgress);
-                  }
-                  if (sign === 1) {
-                    diffToTarget = scrollSnap + (1 - scrollProgress);
-                  }
+          if (isScrollEvent && !slidesInView.includes(snapIndex)) return;
+          if (opts?.loop) {
+            engine.slideLooper.loopPoints.forEach((loopItem) => {
+              const target = loopItem.target();
+              if (snapIndex === loopItem.index && target !== 0) {
+                const sign = Math.sign(target);
+                if (sign === -1) {
+                  diffToTarget = scrollSnap - (1 + scrollProgress);
                 }
-              });
-            }
-            const tweenValue = 1 - Math.abs(diffToTarget * tweenFactor.current);
-            const scale = numberWithinRange(tweenValue, 0, 1).toString();
-            const tweenNode = tweenNodes.current[slideIndex];
-            if (tweenNode) tweenNode.style.transform = `scale(${scale})`;
-          });
+                if (sign === 1) {
+                  diffToTarget = scrollSnap + (1 - scrollProgress);
+                }
+              }
+            });
+          }
+
+          const tweenValue = 1 - Math.abs(diffToTarget * tweenFactor.current);
+          const scale = numberWithinRange(tweenValue, 0, 1).toString();
+          const tweenNode = tweenNodes.current[snapIndex];
+          if (tweenNode) tweenNode.style.transform = `scale(${scale})`;
+
+          // slidesInSnap.forEach((slideIndex) => {
+          //   if (isScrollEvent && !slidesInView.includes(slideIndex)) return;
+          //   if (engine.options.loop) {
+          //     engine.slideLooper.loopPoints.forEach((loopItem) => {
+          //       const target = loopItem.target();
+          //       if (slideIndex === loopItem.index && target !== 0) {
+          //         console.log(loopItem, target);
+
+          //         const sign = Math.sign(target);
+
+          //         if (sign === -1) {
+          //           diffToTarget = scrollSnap - (1 + scrollProgress);
+          //         }
+          //         if (sign === 1) {
+          //           diffToTarget = scrollSnap + (1 - scrollProgress);
+          //         }
+          //       }
+          //     });
+          //   }
+          //   const tweenValue = 1 - Math.abs(diffToTarget * tweenFactor.current);
+          //   const scale = numberWithinRange(tweenValue, 0, 1).toString();
+          //   const tweenNode = tweenNodes.current[slideIndex];
+          //   if (tweenNode) tweenNode.style.transform = `scale(${scale})`;
+          // });
         });
       },
       [],

@@ -181,7 +181,7 @@ const Footer = ({ darkMode, lang }: Props) => {
                   ),
                 },
                 {
-                  key: 'instagram',
+                  key: 'blog',
                   icon: (
                     <Blog
                       className={cn(darkMode ? '[&>path]:fill-white' : '')}

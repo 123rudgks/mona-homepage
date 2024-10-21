@@ -1,4 +1,5 @@
 'use client';
+import Temp from '@/app/images/main/Frame 48097515.png';
 import Section3_AI솔루션 from '@/app/images/main/Section3_AI솔루션.png';
 import Section3_데이터분석 from '@/app/images/main/Section3_데이터분석.png';
 import Section3_빅데이터 from '@/app/images/main/Section3_빅데이터.png';
@@ -41,7 +42,7 @@ export default function Page({
   params: { lang: Language };
 }) {
   const section3Ref = useRef<HTMLDivElement | null>(null);
-
+  const [tabValue, setTabValue] = useState<string>('solution');
   const [headerDarkMode, setHeaderDarkMode] = useState<boolean>(false);
 
   // 스크롤에 따라 헤더 색상 변경
@@ -400,7 +401,11 @@ export default function Page({
                 {dict['Section4_Desc'][lang]}
               </span>
             </div>
-            <Tabs defaultValue="solution">
+            <Tabs
+              defaultValue="solution"
+              onValueChange={(value) => {
+                setTabValue(value);
+              }}>
               <TabsList
                 className={cn(' sm-screen:gap-[10px] xl-screen:gap-3 gap-0')}>
                 <TabsTrigger
@@ -421,13 +426,44 @@ export default function Page({
             </Tabs>
           </div>
           <div className="w-full z-10">
-            <ProductCarousel />
+            <ProductCarousel lang={lang} tabValue={tabValue} />
           </div>
         </div>
       </div>
-      <div className="typo-BodyLargeRegular w-full h-[800px] bg-primary">
-        caption bold
-        <div className="w-[100px] h-[100px] ">s</div>
+      <div className="typo-BodyLargeRegular w-full py-[140px] px-[245px] bg-white flex flex-col gap-[90px]">
+        <div
+          className={cn(
+            'flex flex-col gap-10 mx-auto items-center',
+            lang === 'ko'
+              ? 'sm-screen:w-[606px] sm-screen:max-w-none'
+              : 'sm-screen:max-w-none sm-screen:w-[730px]',
+            lang === 'ko' ? 'max-w-[411px] w-full' : 'max-w-[611px] w-full',
+          )}>
+          <div className="flex  flex-col gap-5 items-center ">
+            <span
+              className={cn(
+                'text-primary',
+                'typo-BodyLargeBold',
+                'sm-screen:typo-Display1Medium',
+              )}>
+              NEWS
+            </span>
+            <span
+              className={cn(
+                'text-black text-center',
+                lang === 'ko'
+                  ? 'lg-screen:typo-Display5Bold'
+                  : 'lg-screen:typo-Display3Bold',
+                'sm-screen:typo-Display3Bold',
+                'typo-Display1Bold',
+              )}>
+              <span>모나 주식회사는</span>
+              <br />
+              <span>끊임없는 발전을 위해 노력합니다</span>
+            </span>
+          </div>
+        </div>
+        <Image src={Temp} alt="temp" />
       </div>
       <Header darkMode={headerDarkMode} lang={lang} />
       <Footer darkMode={true} lang={lang} />
