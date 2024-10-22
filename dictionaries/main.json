@@ -47,9 +47,13 @@
     "ko": "하드웨어",
     "en": "Hardware"
   },
-  "Section4_Solution1_Desc": {
-    "ko": "인공지능 기반 IN-LINE기반 배터리 실시간 검사 솔루션",
-    "en": "AI-based IN-LINE-based battery real-time inspection solution"
+  "Section4_Solution1_Desc1": {
+    "ko": "인공지능 기반 IN-LINE기반",
+    "en": "AI-based IN-LINE-based"
+  },
+  "Section4_Solution1_Desc2": {
+    "ko": "배터리 실시간 검사 솔루션",
+    "en": "battery real-time inspection solution"
   },
   "Section4_Solution1_SubDesc": {
     "ko": "배터리 임피던스 계측 및 보정 기술 개발, 배터리 임피던스에 대한 빅데이터 수집 및 분석, 인공지능 기술 기반의 신속하고 정밀한 In-line 기반의 배터리 검사 시스템 개발",
@@ -59,9 +63,13 @@
     "ko": "EV 배터리 실시간 모니터링 및 진단",
     "en": "EV battery real-time monitoring and diagnosis"
   },
-  "Section4_Solution2_SubDesc": {
-    "ko": "인공지능 기반 사용 후 배터리 상태 진단 솔루션, 클라우드 서비스 기반 재사용 배터리 상태 감시 및 수명 예측 솔루션",
-    "en": "AI-based post-use battery condition diagnosis solution, cloud service-based reuse battery condition monitoring and life prediction solution"
+  "Section4_Solution2_SubDesc1": {
+    "ko": "인공지능 기반 사용 후 배터리 상태 진단 솔루션,",
+    "en": "AI-based post-use battery condition diagnosis solution,"
+  },
+  "Section4_Solution2_SubDesc2": {
+    "ko": "클라우드 서비스 기반 재사용 배터리 상태 감시 및 수명 예측 솔루션",
+    "en": "cloud service-based reuse battery condition monitoring and life prediction solution"
   },
   "Section4_Solution3_Desc": {
     "ko": "사용 후 배터리 전 주기 신속진단 예측 솔루션",

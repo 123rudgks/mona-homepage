@@ -306,7 +306,7 @@ export default function Page({
 
           <div
             className={cn(
-              'grid',
+              'grid mx-auto w-fit',
               'xl-screen:gap-12',
               'lg-screen:grid-cols-3 lg-screen:mt-[106px]',
               'sm-screen:gap-8 sm-screen:mt-[80px]',

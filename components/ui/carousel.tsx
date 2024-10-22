@@ -47,7 +47,7 @@ type CarouselContextProps = {
   canScrollNext: boolean;
 } & CarouselProps;
 
-const TWEEN_FACTOR_BASE = 0.5;
+const TWEEN_FACTOR_BASE = 0.3;
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null);
 
@@ -261,11 +261,12 @@ const CarouselContent = React.forwardRef<
   const { carouselRef, orientation } = useCarousel();
 
   return (
-    <div ref={carouselRef} className="overflow-hidden">
+    <div ref={carouselRef} className="overflow-hidden ">
       <div
         ref={ref}
+        aria-roledescription="carousel-container"
         className={cn(
-          'flex',
+          'flex ',
           orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col',
           className,
         )}
