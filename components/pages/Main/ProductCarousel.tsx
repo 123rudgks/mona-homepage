@@ -103,7 +103,7 @@ const ProductCarousel = ({ lang, tabValue }: Props) => {
           </CarouselContent>
         )}
       </Carousel>
-      <div className="flex gap-5 items-center justify-center mt-[30px] lg-screen:mt-8">
+      <div className="flex gap-5 items-center justify-center mt-[30px] lg-screen:mt-8 mb-[60px] sm-screen:mb-[100px] xl-screen:mb-[140px]">
         <button
           className="w-6 h-6 group"
           onClick={

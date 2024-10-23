@@ -369,7 +369,11 @@ export default function Page({
           </div>
         </div>
       </div>
-      <div className="section-toggle typo-BodyCaptionBold w-full h-[1500px]">
+      <div
+        className={cn(
+          'section-toggle typo-BodyCaptionBold w-full',
+          'xl-screen:min-h-[1507px] lg-screen:min-h-[1508px] sm-screen:min-h-[1178px] min-h-[942px]',
+        )}>
         <div className="h-full flex flex-col sm-screen:gap-20 lg-screen:gap-[90px]  bg-[#0D0D0D] relative overflow-hidden pt-[70px] sm-screen:pt-[100px] xl-screen:pt-[140px]">
           <div className=" opacity-20 w-[909px] h-[909px] bg-primary absolute left-0 bottom-0 rounded-full blur-[250px] -translate-x-1/2 translate-y-1/2" />
           <div

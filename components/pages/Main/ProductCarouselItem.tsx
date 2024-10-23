@@ -19,7 +19,8 @@ const ProductCarouselItem = ({ isSelected, cardImg, desc, subDesc }: Props) => {
         // 'xl-screen:basis-[718px]',
         // 'lg-screen:basis-[846px]',
         // 'sm-screen:basis-[516px]',
-        'basis-1/2',
+        'sm-screen:basis-[52%]',
+        'basis-full',
       )}>
       <div
         className={cn(
@@ -27,10 +28,11 @@ const ProductCarouselItem = ({ isSelected, cardImg, desc, subDesc }: Props) => {
           'xl-screen:w-[718px] xl-screen:pt-9 xl-screen:pb-16 xl-screen:px-20',
           'lg-screen:w-[846px] lg-screen:py-[92px] lg-screen:px-20',
           'sm-screen:w-[516px] sm-screen:py-9 sm-screen:px-[60px]',
-          'w-full h-fit pt-5 px-6 pb-[133px] ring-1 ring-whiteAlpha-30  rounded-[80px] ',
+          'w-full h-fit pt-5 px-6  sm-screen:ring-1 sm-screen:ring-whiteAlpha-30  rounded-[80px] ',
           isSelected
-            ? 'bg-gradient-to-b from-primary-alpha-50 to-primary-alpha-20'
-            : 'bg-whiteAlpha-10',
+            ? 'sm-screen:bg-gradient-to-b sm-screen:from-primary-alpha-50 sm-screen:to-primary-alpha-20'
+            : 'sm-screen:bg-whiteAlpha-10',
+          'bg-transparent',
         )}>
         <div className="flex flex-col gap-[10px]">
           <div className="flex justify-center">
@@ -58,9 +60,9 @@ export const ProductDesc = ({
   subDesc: string[];
 }) => {
   return (
-    <div className="flex flex-col gap-[64px]">
-      <div className="flex flex-col gap-5 h-[152px]">
-        <span className="typo-Display2Bold text-white text-center">
+    <div className="flex flex-col sm-screen:gap-[64px] gap-7">
+      <div className="flex flex-col gap-5 sm-screen:min-h-[152px] min-h-[136px]">
+        <span className="sm-screen:typo-Display2Bold typo-Display1Bold text-white text-center">
           {desc.map((item, idx) => {
             if (idx === desc.length - 1) {
               return <>{item}</>;
