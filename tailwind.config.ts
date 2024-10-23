@@ -51,7 +51,9 @@ const config = {
           dark: 'hsl(var(--primary-dark))',
           light: 'hsl(var(--primary-light))',
           lighter: 'hsl(var(--primary-lighter))',
+          'alpha-70': 'hsl(var(--primary-alpha-70))',
           'alpha-50': 'hsl(var(--primary-alpha-50))',
+          'alpha-30': 'hsl(var(--primary-alpha-30))',
           'alpha-20': 'hsl(var(--primary-alpha-20))',
         },
         accent: {
