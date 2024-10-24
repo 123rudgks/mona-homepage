@@ -1,5 +1,4 @@
 'use client';
-import Temp from '@/app/images/main/Frame 48097515.png';
 import Section3_AI솔루션 from '@/app/images/main/Section3_AI솔루션.png';
 import Section3_데이터분석 from '@/app/images/main/Section3_데이터분석.png';
 import Section3_빅데이터 from '@/app/images/main/Section3_빅데이터.png';
@@ -8,6 +7,7 @@ import Section3_하드웨어 from '@/app/images/main/Section3_하드웨어.png';
 import ViewMore from '@/app/svgs/ViewMore.svg';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
+import NewsItem, { DUMMY_NEWS } from '@/components/pages/Main/NewsItem';
 import ProductCarousel from '@/components/pages/Main/ProductCarousel';
 import TopRightRoundedCard from '@/components/pages/Main/TopRightRoundedCard';
 import { Button } from '@/components/ui/button';
@@ -434,16 +434,23 @@ export default function Page({
           </div>
         </div>
       </div>
-      <div className="typo-BodyLargeRegular w-full py-[140px] px-[245px] bg-white flex flex-col gap-[90px]">
-        <div
-          className={cn(
-            'flex flex-col gap-10 mx-auto items-center',
-            lang === 'ko'
-              ? 'sm-screen:w-[606px] sm-screen:max-w-none'
-              : 'sm-screen:max-w-none sm-screen:w-[730px]',
-            lang === 'ko' ? 'max-w-[411px] w-full' : 'max-w-[611px] w-full',
-          )}>
-          <div className="flex  flex-col gap-5 items-center ">
+      <div
+        className={cn(
+          ' w-full bg-white flex flex-col gap-[90px]',
+          'xl-screen:py-[140px] xl-screen:px-[245px]',
+          'lg-screen:py-[100px] lg-screen:px-[159px]',
+          'sm-screen:py-[100px] sm-screen:px-9',
+          'py-[70px] px-6',
+        )}>
+        <div className={cn('flex flex-col gap-10  items-center w-full')}>
+          <div
+            className={cn(
+              'flex  flex-col gap-5 items-center ',
+              lang === 'ko'
+                ? 'sm-screen:w-[606px] sm-screen:max-w-none'
+                : 'sm-screen:max-w-none sm-screen:w-[730px]',
+              lang === 'ko' ? 'max-w-[450px] w-full' : 'max-w-[611px] w-full',
+            )}>
             <span
               className={cn(
                 'text-primary',
@@ -458,16 +465,32 @@ export default function Page({
                 lang === 'ko'
                   ? 'lg-screen:typo-Display5Bold'
                   : 'lg-screen:typo-Display3Bold',
-                'sm-screen:typo-Display3Bold',
+                'sm-screen:typo-Display4Bold',
                 'typo-Display1Bold',
               )}>
-              <span>모나 주식회사는</span>
-              <br />
-              <span>끊임없는 발전을 위해 노력합니다</span>
+              <span> {dict['Section5_Desc1'][lang]}</span>
+              <br className="hidden sm-screen:inline" />
+              <span> {dict['Section5_Desc2'][lang]}</span>
             </span>
           </div>
+          <div className={cn('w-full flex flex-col sm-screen:gap-10 gap-6')}>
+            {DUMMY_NEWS.map((news) => (
+              <>
+                <NewsItem key={news.id} {...news} />
+                <div className="h-[1px] bg-blackAlpha-20" />
+              </>
+            ))}
+          </div>
+          <Button
+            variant={'ghost'}
+            theme={'black'}
+            size={'lg'}
+            className="w-[200px] h-10 lg-screen:mt-[30px] sm-screen:mt-5">
+            <div className="flex items-center gap-2">
+              View more <ViewMore />
+            </div>
+          </Button>
         </div>
-        <Image src={Temp} alt="temp" />
       </div>
       <Header darkMode={headerDarkMode} lang={lang} />
       <Footer darkMode={true} lang={lang} />

@@ -102,5 +102,13 @@
   "Section4_Hardware3_SubDesc": {
     "ko": "배터리 셀 / 모듈 테스트 스테이션, 임피던스 및 전압 측정, 임피던스 측정, 자동화 실험, 온도 측정",
     "en": "BATTERY Cell / Module Test Station, Impedance & Voltage Measurement, Impedance Measurement, Automation experiments, Temperature Measurement"
+  },
+  "Section5_Desc1": {
+    "ko": "모나 주식회사는",
+    "en": "Monna Co., Ltd."
+  },
+  "Section5_Desc2": {
+    "ko": "끊임없는 발전을 위해 노력합니다",
+    "en": "strives for constant development"
   }
 }
