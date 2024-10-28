@@ -492,6 +492,19 @@ export default function Page({
           </Button>
         </div>
       </div>
+      <div
+        className={cn('w-full sm-screen:h-[142px] h-[94px] relative bg-black')}>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <span className="whitespace-nowrap sm-screen:typo-Display6Regular typo-Display2Regular text-primary">
+            RAPID & ACCURATE BATTERY DIAGNOSIS RAPID & ACCURATE BATTERY
+            DIAGNOSIS RAPID & ACCURATE BATTERY DIAGNOSIS
+          </span>
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-black to-transparent"></div>
+            <div className="absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-black to-transparent"></div>
+          </div>
+        </div>
+      </div>
       <Header darkMode={headerDarkMode} lang={lang} />
       <Footer darkMode={true} lang={lang} />
     </main>
