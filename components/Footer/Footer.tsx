@@ -73,7 +73,7 @@ const Footer = ({ darkMode, lang }: Props) => {
           </div>
         </div>
         {/* Nav menu section */}
-        <div className=" hidden md-screen:flex max-w-[1325px] w-full">
+        <div className="w-full hidden md-screen:flex">
           {[
             {
               title: dict['기업정보'][lang],
