@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils';
 
 import { FooterNavMenu } from '@/components/Footer/Footer.types';
 import { Language } from '@/types/globals.types';
+import Link from 'next/link';
 import LogoBottomLeft from '../Header/icons/LogoBottomLeft.svg';
 import LogoBottomRight from '../Header/icons/LogoBottomRight.svg';
 import LogoText from '../Header/icons/LogoText.svg';
@@ -79,15 +80,19 @@ const Footer = ({ darkMode, lang }: Props) => {
               menu: [
                 {
                   text: [dict['회사소개'][lang]],
+                  path: ['/company-info/introduction'],
                 },
                 {
                   text: [dict['연혁'][lang]],
+                  path: ['/company-info/history'],
                 },
                 {
                   text: [dict['구성원'][lang]],
+                  path: ['/company-info/members'],
                 },
                 {
                   text: [dict['오시는 길'][lang]],
+                  path: ['/company-info/location'],
                 },
               ],
             },
@@ -100,6 +105,10 @@ const Footer = ({ darkMode, lang }: Props) => {
                     dict['초고속 배터리 진단 솔루션'][lang],
                     dict['모듈 고장 진단 솔루션'][lang],
                   ],
+                  path: [
+                    '/business-area/high-speed-battery',
+                    '/business-area/module-fault',
+                  ],
                 },
                 {
                   label: dict['유지 보수 및 SOH 진단'][lang],
@@ -107,12 +116,35 @@ const Footer = ({ darkMode, lang }: Props) => {
                     dict['모듈 정비 및 진단'][lang],
                     dict['전기차 SOH 진단'][lang],
                   ],
+                  path: [
+                    '/business-area/module-maintenance',
+                    '/business-area/electric-vehicle-soh',
+                  ],
                 },
                 {
                   text: [dict['사용 후 배터리'][lang]],
+                  path: ['/business-area/after-use-battery'],
                 },
                 {
                   text: [dict['수소'][lang]],
+                  path: ['/business-area/hydrogen'],
+                },
+              ],
+            },
+            {
+              title: dict['제품정보'][lang],
+              menu: [
+                {
+                  text: [dict['초고속 배터리 진단 솔루션'][lang]],
+                  path: ['/product-info/battery-capacity'],
+                },
+                {
+                  text: [dict['배터리 용량 예측 솔루션'][lang]],
+                  path: ['/product-info/high-speed-battery'],
+                },
+                {
+                  text: [dict['수소 시스템 및 진단'][lang]],
+                  path: ['/product-info/hydrogen-system'],
                 },
               ],
             },
@@ -121,12 +153,15 @@ const Footer = ({ darkMode, lang }: Props) => {
               menu: [
                 {
                   text: ['NEWS'],
+                  path: ['/promotion-center/news'],
                 },
                 {
                   text: [dict['투자정보'][lang]],
+                  path: ['/promotion-center/investment-info'],
                 },
                 {
                   text: [dict['문의하기'][lang]],
+                  path: ['/promotion-center/contact-us'],
                 },
               ],
             },
@@ -135,6 +170,7 @@ const Footer = ({ darkMode, lang }: Props) => {
               menu: [
                 {
                   text: [dict['채용공고'][lang]],
+                  path: ['/recruitment/notice'],
                 },
               ],
             },
@@ -274,12 +310,13 @@ const NavMenu = ({ darkMode, title, menu }: FooterNavMenu) => {
                 </label>
               )}
               <div className={cn('flex flex-col gap-2 typo-TitleBold')}>
-                {item.text.map((text) => (
-                  <span
+                {item.text.map((text, idx) => (
+                  <Link
                     key={text}
+                    href={item.path[idx]}
                     className="cursor-pointer hover:text-primary">
                     {text}
-                  </span>
+                  </Link>
                 ))}
               </div>
             </div>
