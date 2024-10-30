@@ -1,7 +1,14 @@
+import Header from '@/components/Header/Header';
+import { Language } from '@/types/globals.types';
+
 type Props = {};
 
-const Page = (props: Props) => {
-  return <div>Page</div>;
+const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
+  return (
+    <div>
+      <Header lang={lang} />
+    </div>
+  );
 };
 
 export default Page;

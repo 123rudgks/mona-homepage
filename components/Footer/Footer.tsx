@@ -284,7 +284,7 @@ const IconBtn = ({
     </span>
   );
 };
-const NavMenu = ({ darkMode, title, menu }: FooterNavMenu) => {
+export const NavMenu = ({ darkMode, title, menu }: FooterNavMenu) => {
   return (
     <div className="flex  flex-1 h-[390px]">
       <DivisionLine darkMode={darkMode} className={cn('w-[1px] h-full')} />

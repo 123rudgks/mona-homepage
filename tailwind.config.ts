@@ -106,6 +106,10 @@ const config = {
           20: 'hsla(var(--black-alpha-20))',
           10: 'hsla(var(--black-alpha-10))',
         },
+        navy: {
+          DEFAULT: 'hsl(var(--navy-700))',
+          700: 'hsl(var(--navy-700))',
+        },
       },
       borderRadius: {
         lg: 'var(--radius)',

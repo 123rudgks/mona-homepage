@@ -493,7 +493,9 @@ export default function Page({
         </div>
       </div>
       <div
-        className={cn('w-full sm-screen:h-[142px] h-[94px] relative bg-black')}>
+        className={cn(
+          'w-full sm-screen:h-[142px] h-[94px] relative bg-black overflow-hidden',
+        )}>
         <div className="absolute inset-0 flex items-center justify-center">
           <span className="whitespace-nowrap sm-screen:typo-Display6Regular typo-Display2Regular text-primary">
             RAPID & ACCURATE BATTERY DIAGNOSIS RAPID & ACCURATE BATTERY
