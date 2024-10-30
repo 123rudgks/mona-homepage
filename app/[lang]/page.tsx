@@ -194,7 +194,12 @@ export default function Page({
               'lg-screen:h-full lg-screen:flex-1 ',
               'sm-screen:h-[313px] sm-screen:w-[614px] sm-screen:flex-none',
             )}>
-            <Image src={MainSection2.src} alt="main-section2" layout="fill" />
+            <Image
+              src={MainSection2.src}
+              alt="main-section2"
+              fill
+              sizes="100%, 100%"
+            />
           </div>
           <div className="flex-1 w-full">
             <div
@@ -336,7 +341,14 @@ export default function Page({
                     <div
                       className="relative w-full "
                       style={{ aspectRatio: '341 / 312' }}>
-                      {src && <Image src={src} alt={item.ko} fill />}
+                      {src && (
+                        <Image
+                          src={src}
+                          alt={item.ko}
+                          fill
+                          sizes="341px, 312px"
+                        />
+                      )}
                     </div>
 
                     <div className={cn('flex flex-col sm-screen:gap-4 gap-1')}>
