@@ -14,7 +14,7 @@ import HamburgerMenu from '@/components/ui/hamburger_menu';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { useParams, usePathname, useRouter } from 'next/navigation';
-import { useCallback, useState } from 'react';
+import { Fragment, useCallback, useState } from 'react';
 
 type Props = {
   darkMode?: boolean;
@@ -200,8 +200,8 @@ const NavItem = ({ menus, darkMode }: HeaderNavMenu) => {
       {menus.map((item, idx) => {
         if (item.label) {
           return (
-            <>
-              <div key={item.label} className="flex flex-col gap-2">
+            <Fragment key={item.label}>
+              <div className="flex flex-col gap-2">
                 <span className="typo-BodySmallMedium">{item.label}</span>
                 {item.text.map((text, idx) => (
                   <Link
@@ -220,7 +220,7 @@ const NavItem = ({ menus, darkMode }: HeaderNavMenu) => {
                   )}
                 />
               )}
-            </>
+            </Fragment>
           );
         } else {
           return item.text.map((text, idx) => (
@@ -347,12 +347,8 @@ const MdScreenDropdownMenu = ({
             },
           )}>
           {headerMenu.map((item, idx) => (
-            <>
-              <NavItem
-                key={item.category + 'nav'}
-                menus={item.menus}
-                darkMode={darkMode}
-              />
+            <Fragment key={item.category + 'nav'}>
+              <NavItem menus={item.menus} darkMode={darkMode} />
               {headerMenu.length - 1 !== idx && (
                 <div
                   className={cn(
@@ -361,7 +357,7 @@ const MdScreenDropdownMenu = ({
                   )}
                 />
               )}
-            </>
+            </Fragment>
           ))}
         </nav>
         <div className="mr-11 w-[98px] "></div>

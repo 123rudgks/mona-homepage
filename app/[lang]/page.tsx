@@ -19,7 +19,7 @@ import MainSection2 from '@/public/images/MainSection2.png';
 import MainSection3 from '@/public/images/MainSection3.png';
 import { Language } from '@/types/globals.types';
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import ShineIcon from '../svgs/Shine.svg';
 
 const Section3Images: { [str in Partial<keyof typeof dict>]?: string } = {
@@ -475,10 +475,10 @@ export default function Page({
           </div>
           <div className={cn('w-full flex flex-col sm-screen:gap-10 gap-6')}>
             {DUMMY_NEWS.map((news) => (
-              <>
-                <NewsItem key={news.id} {...news} />
+              <Fragment key={news.id + news.title}>
+                <NewsItem {...news} />
                 <div className="h-[1px] bg-blackAlpha-20" />
-              </>
+              </Fragment>
             ))}
           </div>
           <Button

@@ -65,13 +65,13 @@ export const ProductDesc = ({
         <span className="sm-screen:typo-Display2Bold typo-Display1Bold text-white text-center">
           {desc.map((item, idx) => {
             if (idx === desc.length - 1) {
-              return <>{item}</>;
+              return <span key={item}>{item}</span>;
             } else {
               return (
-                <>
+                <span key={item}>
                   {item}
                   <br />
-                </>
+                </span>
               );
             }
           })}
@@ -79,13 +79,13 @@ export const ProductDesc = ({
         <span className="typo-BodyLargeMedium text-whiteAlpha-70 text-center">
           {subDesc.map((item, idx) => {
             if (idx === subDesc.length - 1) {
-              return <>{item}</>;
+              return <span key={item}>{item}</span>;
             } else {
               return (
-                <>
+                <span key={item}>
                   {item}
                   <br />
-                </>
+                </span>
               );
             }
           })}
