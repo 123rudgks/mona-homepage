@@ -376,7 +376,7 @@ const EngKor = ({
   changeLanguage: (lang: Language) => void;
 }) => {
   return (
-    <div className=" w-[98px] typo-TitleBold">
+    <div className=" w-[98px] typo-TitleBold hidden sm-screen:block">
       <div className="flex gap-3 items-center">
         <span
           className={cn('cursor-pointer', {
