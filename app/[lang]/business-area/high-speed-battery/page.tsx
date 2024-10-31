@@ -1,6 +1,7 @@
 'use client';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
+import TabMenu, { MobileTabMenu } from '@/components/TabMenu';
 import { Language } from '@/types/globals.types';
 import { useEffect, useState } from 'react';
 
@@ -31,7 +32,10 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
       <div className="sm-screen:pt-[100px]  pt-16 bg-navy-700 w-full sm-screen:h-[1080px] h-[812px] relative ">
         Section1
       </div>
-      <div>section2</div>
+      <div>
+        <TabMenu lang={lang} />
+        <MobileTabMenu lang={lang} />
+      </div>
       <Header darkMode={headerDarkMode} lang={lang} />
       <Footer darkMode={true} lang={lang} />
     </main>
