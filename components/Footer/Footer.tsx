@@ -196,14 +196,16 @@ const Footer = ({ darkMode, lang }: Props) => {
           <div className="flex gap-6 flex-col sm-screen:flex-row sm-screen:gap-8 ">
             {/* policy section */}
             <span className="sm-screen:typo-BodyLargeMedium typo-BodySmallRegular flex items-center gap-[11px]">
-              <span>개인정보처리방침</span>
+              <span>
+                {lang === 'ko' ? '개인정보처리방침' : 'Privacy Policy'}
+              </span>
               <span
                 className={cn('w-[2px] h-[12px]', {
                   'bg-blackAlpha-30': !darkMode,
                   'bg-whiteAlpha-30': darkMode,
                 })}
               />
-              <span>이용약관</span>
+              <span>{lang === 'ko' ? '이용약관' : 'Terms of Service'}</span>
             </span>
             {/* icon section */}
             <span className="flex gap-3 ">
