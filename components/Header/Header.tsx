@@ -34,7 +34,7 @@ const Header = ({ darkMode, lang }: Props) => {
     },
     [path, params.lang, router],
   );
-  const MENU = useMenu({ lang });
+  const { MENU } = useMenu({ lang });
 
   return (
     <header className={cn('z-20 fixed top-0 w-full group')}>

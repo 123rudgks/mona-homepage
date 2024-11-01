@@ -2,6 +2,8 @@ import { HeaderMenu } from '@/components/Header/Header.types';
 import dict2 from '@/dictionaries/footer.json';
 import dict from '@/dictionaries/header.json';
 import { Language } from '@/types/globals.types';
+import { usePathname } from 'next/navigation';
+import { useMemo } from 'react';
 
 type Props = {
   lang: Language;
@@ -114,7 +116,38 @@ const useMenu = ({ lang }: Props) => {
       ],
     },
   ];
-  return MENU;
+
+  const path = usePathname();
+
+  const currentMenus = useMemo(() => {
+    return MENU.find((item) => path.includes(item.categoryPath));
+  }, [path, MENU]);
+
+  const currentCategory = useMemo(() => {
+    return MENU.find((item) => path.includes(item.categoryPath));
+  }, [path, MENU]);
+
+  const currentMenu = useMemo(() => {
+    let currentMenu: {
+      label?: string;
+      text: string;
+      path: string;
+    } = { text: '', path: '' };
+
+    currentMenus?.menus.forEach((menu) => {
+      const idx = menu.path.findIndex((p) => path.includes(p));
+      if (idx > -1) {
+        currentMenu = {
+          text: menu.text[idx],
+          path: menu.path[idx],
+          label: menu.label,
+        };
+      }
+    });
+    return currentMenu;
+  }, [path, currentMenus]);
+
+  return { MENU, currentCategory, currentMenu, currentMenus };
 };
 
 export default useMenu;

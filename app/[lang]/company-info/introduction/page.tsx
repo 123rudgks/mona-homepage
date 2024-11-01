@@ -1,5 +1,6 @@
 'use client';
 import HomeIcon from '@/app/svgs/HomeIcon.svg';
+import ContentBox from '@/components/ContentBox';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
 import MonaBreadCrumb from '@/components/MonaBreadCrumb';
@@ -7,17 +8,12 @@ import TabMenu, { MobileTabMenu } from '@/components/TabMenu';
 import useMenu from '@/hooks/useMenu';
 import { cn } from '@/lib/utils';
 import { Language } from '@/types/globals.types';
-import { usePathname } from 'next/navigation';
-import { useMemo } from 'react';
 
 type Props = {};
 
 const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
-  const path = usePathname();
-  const MEMU = useMenu({ lang });
-  const currentCategory = useMemo(() => {
-    return MEMU.find((item) => path.includes(item.categoryPath));
-  }, [path, MEMU]);
+  const { MENU, currentCategory, currentMenu } = useMenu({ lang });
+
   return (
     <main>
       <div className="h-[545px] bg-navy-700">사업 영역</div>
@@ -48,7 +44,9 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
             <TabMenu lang={lang} />
             <MobileTabMenu lang={lang} />
           </div>
-          <div>메인 컨텐츠</div>
+          <ContentBox title={currentMenu.text} label={currentMenu.label}>
+            {'hi'}
+          </ContentBox>
         </div>
       </div>
       <Header lang={lang} />
