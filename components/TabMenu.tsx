@@ -21,10 +21,9 @@ const checkCurrentPath = (path: string, menuPath: string) => {
 };
 const TabMenu = ({ lang }: Props) => {
   const path = usePathname();
-  const MENU = useMenu({ lang });
-  const currentMenu = useMemo(() => {
-    return MENU.filter((item) => path.includes(item.categoryPath))[0];
-  }, [MENU, path]);
+  const { MENU, currentCategory, currentMenu, currentMenus } = useMenu({
+    lang,
+  });
 
   return (
     <div
@@ -33,7 +32,7 @@ const TabMenu = ({ lang }: Props) => {
         'lg-screen:flex-col lg-screen:flex-nowrap lg-screen:w-[310px]',
         'sm-screen:flex-row sm-screen:flex-wrap sm-screen:gap-2',
       )}>
-      {currentMenu.menus.map((item, menusIdx) =>
+      {currentMenus?.menus.map((item, menusIdx) =>
         item.label ? (
           <Fragment key={item.label + 'tabMenu'}>
             <div
@@ -59,15 +58,15 @@ const TabMenu = ({ lang }: Props) => {
                 />
               ))}
             </div>
-            {currentMenu.menus.length - 1 !== menusIdx && (
+            {currentMenus?.menus.length - 1 !== menusIdx && (
               <div className="my-4 w-full h-[1px] bg-grayscale-200 lg-screen:block hidden" />
             )}
           </Fragment>
         ) : (
           item.text.map((text, idx) => (
             <Fragment key={text + 'tabMenu'}>
-              {!!currentMenu.menus.find((item) => item.label !== undefined) &&
-                currentMenu.menus.findIndex(
+              {!!currentMenus?.menus.find((item) => item.label !== undefined) &&
+                currentMenus?.menus.findIndex(
                   (item) => item.label === undefined,
                 ) === menusIdx && (
                   <span
@@ -136,29 +135,29 @@ const Tab = ({
 
 export const MobileTabMenu = ({ lang }: Props) => {
   const path = usePathname();
-  const MENU = useMenu({ lang });
-  const currentMenu = useMemo(() => {
-    return MENU.filter((item) => path.includes(item.categoryPath))[0];
-  }, [MENU, path]);
+  const { MENU, currentMenus } = useMenu({ lang });
+
   const accordionTitle = useMemo(() => {
     let title: string | undefined = '';
-    currentMenu.menus.forEach((menu) => {
+    currentMenus?.menus.forEach((menu) => {
       const tempTitle = menu.text.find((text, idx) => {
         return checkCurrentPath(path, menu.path[idx]);
       });
       if (tempTitle !== undefined) title = tempTitle;
     });
     return title;
-  }, [path, currentMenu]);
+  }, [path, currentMenus]);
   return (
-    <Accordion type="multiple" className="w-full bg-white sm-screen:hidden">
-      <AccordionItem value="1-sdfsdf">
-        <AccordionTrigger>
+    <Accordion
+      type="multiple"
+      className="w-full bg-white sm-screen:hidden absolute top-0">
+      <AccordionItem value="1">
+        <AccordionTrigger className="py-[14px] px-6">
           <div className="px-6 typo-BodyLargeBold">{accordionTitle}</div>
         </AccordionTrigger>
         <AccordionContent>
           <div className="flex flex-col px-6 py-[6px]">
-            {currentMenu.menus.map((item, menusIdx) =>
+            {currentMenus?.menus.map((item, menusIdx) =>
               item.label ? (
                 <div key={item.label + 'tabMenu'} className="mb-5">
                   <span
