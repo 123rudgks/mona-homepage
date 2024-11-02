@@ -11,10 +11,14 @@ const BoardSection = ({ title, desc }: Props) => {
       <div className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 aspect-square h-[200%] rounded-full bg-gradient-radial from-transparent to-primary opacity-10" />
       <div className="absolute bottom-0 right-0 -translate-x-1/4 rounded-r-full aspect-square h-[200%]  bg-gradient-to-r from-transparent to-primary opacity-10" />
       <div className="flex flex-col gap-4 text-white text-center">
-        <span className="typo-Display5Bold ">{title}</span>
+        <span className="lg-screen:typo-Display5Bold sm-screen:typo-Display3Bold typo-Display1Bold">
+          {title}
+        </span>
         <div className="flex flex-col">
           {desc.map((text, i) => (
-            <span key={text} className="typo-TitleMedium">
+            <span
+              key={text}
+              className="lg-screen:typo-TitleMedium  sm-screen:typo-BodyLargeMedium typo-BodyCaptionMedium">
               {text}
             </span>
           ))}
