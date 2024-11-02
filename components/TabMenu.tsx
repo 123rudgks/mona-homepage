@@ -150,7 +150,7 @@ export const MobileTabMenu = ({ lang }: Props) => {
   return (
     <Accordion
       type="multiple"
-      className="w-full bg-white sm-screen:hidden absolute top-0">
+      className="w-full bg-white sm-screen:hidden absolute top-0 z-10">
       <AccordionItem value="1">
         <AccordionTrigger className="py-[14px] px-6">
           <div className="px-6 typo-BodyLargeBold">{accordionTitle}</div>
