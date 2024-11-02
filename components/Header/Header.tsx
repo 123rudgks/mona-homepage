@@ -129,7 +129,7 @@ const NavItem = ({ menus, darkMode }: HeaderNavMenu) => {
 
 const Logo = ({ darkMode }: { darkMode?: boolean }) => {
   return (
-    <div className="ml-11 flex items-end justify-between gap-2 ">
+    <Link href={'/'} className="ml-11 flex items-end justify-between gap-2 ">
       <div className="w-[22px] h-[22px]">
         <div className="flex justify-between">
           <LogoTopLeft />
@@ -163,7 +163,7 @@ const Logo = ({ darkMode }: { darkMode?: boolean }) => {
           )}
         />
       </div>
-    </div>
+    </Link>
   );
 };
 
