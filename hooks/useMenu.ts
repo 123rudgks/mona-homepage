@@ -75,11 +75,11 @@ const useMenu = ({ lang }: Props) => {
       menus: [
         {
           text: [dict2['초고속 배터리 진단 솔루션'][lang]],
-          path: ['/product-info/battery-capacity'],
+          path: ['/product-info/high-speed-battery'],
         },
         {
           text: [dict2['배터리 용량 예측 솔루션'][lang]],
-          path: ['/product-info/high-speed-battery'],
+          path: ['/product-info/battery-capacity'],
         },
         {
           text: [dict2['수소 시스템 및 진단'][lang]],

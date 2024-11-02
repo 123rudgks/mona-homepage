@@ -1,34 +1,58 @@
 'use client';
-import { useState } from 'react';
+import BoardSection from '@/components/BoardSection';
+import ContentBox from '@/components/ContentBox';
+import ContentSection from '@/components/ContentSection';
+import Footer from '@/components/Footer/Footer';
+import Header from '@/components/Header/Header';
+import MonaBreadCrumb from '@/components/MonaBreadCrumb';
+import TabMenu, { MobileTabMenu } from '@/components/TabMenu';
+import useMenu from '@/hooks/useMenu';
+import { cn } from '@/lib/utils';
+import { Language } from '@/types/globals.types';
+import { HomeIcon } from 'lucide-react';
 
 type Props = {};
 
-const Page = (props: Props) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
+  const { MENU, currentCategory, currentMenu } = useMenu({ lang });
+
   return (
-    <button
-      className="relative w-[18px] h-[16px] flex flex-col justify-center items-center"
-      onClick={() => setIsOpen(!isOpen)}
-      aria-label="Menu">
-      <span
-        className={`
-        absolute h-[2px] bg-current transform transition-all duration-300 ease-in-out
-        ${isOpen ? 'w-[18px] rotate-45' : 'w-[18px] -translate-y-[6px]'}
-      `}
+    <main>
+      <BoardSection
+        title={currentCategory?.category}
+        desc={['RAPID & ACCURATE BATTERY DIAGNOSIS', 'Powered By AI']}
       />
-      <span
-        className={`
-        absolute h-[2px] bg-current transform transition-all duration-300 ease-in-out
-        ${isOpen ? 'w-0 opacity-0' : 'w-[18px] opacity-100'}
-      `}
-      />
-      <span
-        className={`
-        absolute h-[2px] bg-current transform transition-all duration-300 ease-in-out
-        ${isOpen ? 'w-[18px] -rotate-45' : 'w-[18px] translate-y-[6px]'}
-      `}
-      />
-    </button>
+      <ContentSection mobileTabMenuComp={<MobileTabMenu lang={lang} />}>
+        <div
+          className={cn(
+            'lg-screen:h-[100px] sm-screen:h-20 h-[60px] flex items-center justify-end',
+          )}>
+          <MonaBreadCrumb
+            items={[
+              { href: '/', component: <HomeIcon />, id: 'home' },
+
+              {
+                component: currentCategory?.category,
+                id: 'category',
+              },
+            ]}
+          />
+        </div>
+        <div
+          className={cn(
+            'sm-screen:flex lg-screen:flex-row lg-screen:gap-11 sm-screen:flex-col sm-screen:gap-9',
+          )}>
+          <div className={cn('sm-screen:static sm-screen:w-auto ')}>
+            <TabMenu lang={lang} />
+          </div>
+          <ContentBox title={currentMenu.text} label={currentMenu.label}>
+            내용은 모나에서 관리자웹으로 편집
+          </ContentBox>
+        </div>
+      </ContentSection>
+      <Header lang={lang} />
+      <Footer lang={lang} />
+    </main>
   );
 };
 

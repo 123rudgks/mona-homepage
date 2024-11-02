@@ -1,5 +1,6 @@
 'use client';
 import HomeIcon from '@/app/svgs/HomeIcon.svg';
+import BoardSection from '@/components/BoardSection';
 import ContentBox from '@/components/ContentBox';
 import ContentSection from '@/components/ContentSection';
 import Footer from '@/components/Footer/Footer';
@@ -17,7 +18,10 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
 
   return (
     <main>
-      <div className="h-[545px] bg-navy-700">사업 영역</div>
+      <BoardSection
+        title={currentCategory?.category}
+        desc={['RAPID & ACCURATE BATTERY DIAGNOSIS', 'Powered By AI']}
+      />
       <ContentSection mobileTabMenuComp={<MobileTabMenu lang={lang} />}>
         <div
           className={cn(
@@ -42,7 +46,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
             <TabMenu lang={lang} />
           </div>
           <ContentBox title={currentMenu.text} label={currentMenu.label}>
-            {'hi'}
+            내용은 모나에서 관리자웹으로 편집
           </ContentBox>
         </div>
       </ContentSection>
