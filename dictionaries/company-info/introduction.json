@@ -1,0 +1,26 @@
+{
+  "content_1": {
+    "ko": "전기차 화재의 원인은 다양하지만 전기적 요인이 가장 큰 비중을 차지합니다. 그러나, 전기적 불량 요인을 직접적이고 완전하게 검사하지 못하는 실정입니다. 전기차가 널리 보급되기 위해서는 전기차 화재를 철저하게 방지하는 것이 필수적입니다. 인명 피해를 동반한 대형 사고를 우려하여 소비자들이 전기차 구매를 망설이기 때문입니다.",
+    "en": "The causes of electric vehicle fires are diverse, but electrical factors account for the largest proportion. However, the fact is that electrical defects cannot be directly and completely inspected. In order for electric vehicles to be widely distributed, it is essential to thoroughly prevent electric vehicle fires. Consumers are hesitant to purchase electric vehicles because they are concerned about large accidents involving casualties."
+  },
+  "content_2": {
+    "ko": "전기차용 배터리의 수요가 폭발적으로 늘면서 배터리 셀 제조사들은 생산성을 유지하는 동시에 품질검사를 완전하게 수행하는데 어려움을 겪고 있습니다. 양품으로 제조된 배터리도 몇 달씩 걸리는 육해상 운송, 승하차 등의 물류과정에서 불량이 발생합니다. 그리고 배터리 모듈과 팩을 제조하는 과정에서도 불량이 발생합니다.",
+    "en": "As the demand for batteries for electric vehicles increases explosively, battery cell manufacturers are having difficulty in maintaining productivity while performing quality inspections completely. Even batteries manufactured as good products are defective during the logistics process such as land and sea transportation, loading and unloading, which takes several months. And defects occur in the process of manufacturing battery modules and packs."
+  },
+  "content_3": {
+    "ko": "전기차의 화재를 방지하기 위한 배터리 진단 시스템(하드웨어, 소프트웨어 등)을 개발합니다.",
+    "en": "Developing a battery diagnostic system (hardware, software, etc.) to prevent electric vehicle fires."
+  },
+  "content_4": {
+    "ko": "우리는 임피던스 계측과 충방전 기능을 보유한 검사장비에 배터리의 빅데이터를 수집/분석하여 개발한 인공지능 기반의 진단 모형을 적용하여 셀/모듈/팩의 상태를 신속하고 정밀하게 진단하는 통합 솔루션을 개발합니다.",
+    "en": "We develop an integrated solution that quickly and accurately diagnoses the state of cells/modules/packs by collecting/analyzing battery big data on inspection equipment with impedance measurement and charge/discharge functions and applying an AI-based diagnostic model."
+  },
+  "content_5": {
+    "ko": "전기차 OEM이나 전기차용 배터리 팩 제조사는 MONA 검사 시스템을 도입하여 배터리 셀/모듈/팩 단위로 정밀하게 전수검사할 수 있습니다. 품질검사 및 관리 역량을 자체적으로 확보하여 배터리 셀 공급선을 다변화할 수 있습니다. 배터리 셀 제조사는 충방전 기능을 탑재한 MONA 검사 시스템을 도입하여 충방전과 동시에 전수검사할 수 있습니다.",
+    "en": "Electric vehicle OEMs and electric vehicle battery pack manufacturers can introduce the MONA inspection system to conduct a thorough inspection of battery cells/modules/packs with precision. By securing quality inspection and management capabilities on their own, they can diversify the battery cell supply line. Battery cell manufacturers can introduce the MONA inspection system equipped with charge/discharge functions to conduct a thorough inspection simultaneously with charge/discharge."
+  },
+  "content_6": {
+    "ko": "MONA는 임피던스 분석과 인공지능 기술을 적용하여 배터리 셀 단위로 전수검사하는 솔루션을 개발하고 있습니다. 빠르게 정확하게 배터리 셀의 불량을 검출하고 용량을 예측하는 것이 핵심기술입니다.",
+    "en": "MONA is developing a solution that conducts a thorough inspection of battery cells with impedance analysis and artificial intelligence technology. Quickly and accurately detecting defects in battery cells and predicting capacity are key technologies."
+  }
+}

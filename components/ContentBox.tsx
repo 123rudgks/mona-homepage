@@ -1,10 +1,11 @@
 type Props = {
   label?: string;
   title: string;
+  subTitle?: React.ReactNode;
   children: React.ReactNode;
 };
 
-const ContentBox = ({ label, title, children }: Props) => {
+const ContentBox = ({ label, title, subTitle, children }: Props) => {
   return (
     <div className="">
       {label && (
@@ -12,8 +13,11 @@ const ContentBox = ({ label, title, children }: Props) => {
           {label}
         </div>
       )}
-      <div className="sm-screen:typo-Display6Bold text-navy-700 typo-Display1Bold mb-8">
-        {title}
+      <div className="mb-8">
+        <div className="sm-screen:typo-Display6Bold text-navy-700 typo-Display1Bold ">
+          {title}
+        </div>
+        {subTitle}
       </div>
       {children}
     </div>

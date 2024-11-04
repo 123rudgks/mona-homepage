@@ -155,7 +155,10 @@ export default function Page({
                 'md-screen:text-[44px] md-screen:leading-[60px] md-screen:tracking-[-0.6px]',
                 'sm-screen:text-[34px] sm-screen:leading-[50px] sm-screen:tracking-[-0.4px]',
               )}>
-              Powered by AI <ShineIcon />
+              Powered by AI{' '}
+              <span className="w-[37px] height-[38px]">
+                <ShineIcon />
+              </span>
             </span>
           </div>
           <div

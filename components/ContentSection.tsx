@@ -19,7 +19,9 @@ const ContentSection = ({
       )}
       {...divProps}>
       {mobileTabMenuComp}
-      <div className="sm-screen:px-11 px-6">{children}</div>
+      <div className="sm-screen:px-11 px-6 flex justify-center">
+        <div className=" w-full max-w-[1430px]">{children}</div>
+      </div>
     </div>
   );
 };
