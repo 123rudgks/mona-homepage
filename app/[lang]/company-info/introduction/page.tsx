@@ -79,7 +79,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
           <ContentBox
             title={'RAPID & ACCURATE BATTERY DIAGNOSIS'}
             subTitle={
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-1 text-navy-700">
                 Powered by AI
                 <span className="w-[19px] h-[19px]">
                   <ShineIcon className="[&_path]:fill-navy-700" />
@@ -91,15 +91,14 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
               <br />
               <br />
               {dict.content_2[lang]}
-              <br />
-              <br />
+
               <div
                 className={cn(
                   'grid',
                   'md-screen:grid-cols-5',
                   'min-[960px]:grid-cols-4',
-                  'sm-screen:grid-cols-3 sm-screen:gap-[14px]',
-                  'grid-cols-2 gap-2',
+                  'sm-screen:grid-cols-3 sm-screen:gap-[14px] sm-screen:my-[60px]',
+                  'grid-cols-2 gap-2 my-9',
                 )}>
                 <AISolutionImgCard />
                 {OperationCardTitles.map((item, idx) => {
@@ -121,13 +120,24 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
 
               <br />
               <br />
-              {dict.content_4[lang]}
-              <br />
-              <br />
-              {dict.content_5[lang]}
-              <br />
-              <br />
-              {dict.content_6[lang]}
+              <div className="text-blackAlpha-70">
+                {dict.content_4[lang]}
+                <br />
+                <br />
+                {dict.content_5[lang]}
+                <div className="w-full aspect-[25/14] rounded-2xl overflow-hidden mb-5 mt-9">
+                  <iframe
+                    src="https://player.vimeo.com/video/761694548?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                    title="1920ver"
+                    className="w-full h-full"
+                  />
+                </div>
+
+                <br />
+                <br />
+                {dict.content_6[lang]}
+              </div>
             </div>
           </ContentBox>
         </div>
