@@ -182,4 +182,5 @@ const MemberCard = ({
     </div>
   );
 };
+
 export default Page;

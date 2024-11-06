@@ -1,0 +1,26 @@
+{
+  "본사": {
+    "ko": "본사",
+    "en": "Headquarters"
+  },
+  "본사_addr": {
+    "ko": "군산시 동장산2길6 (재) 자동차융합기술원 2201호",
+    "en": "#2201 Automotive Convergence Technology Institute, 6 Dongjangsan 2-gil, Gunsan-si"
+  },
+  "연구소": {
+    "ko": "연구소",
+    "en": "R&D"
+  },
+  "연구소_addr": {
+    "ko": "경기 광명시 일직로43 GIDC 광명역 A동 810호",
+    "en": "Center A-810 GIDC Gwangmyeong Station, Iljik-ro 43, Gwangmyeong-si, Gyeonggi-do"
+  },
+  "자사": {
+    "ko": "자사",
+    "en": "Branch"
+  },
+  "자사_addr": {
+    "ko": "전라남도 영암군 삼호읍 에프원로 46, 한국자동차연구원 프리미엄자동차연구센터 사무동 201호",
+    "en": "Suite 201, Premium Automotive Research Center, Korea Automobile Research Institute, F1-ro 46, Samho-eup, Yeongam-gun, Jeollanam-do"
+  }
+}

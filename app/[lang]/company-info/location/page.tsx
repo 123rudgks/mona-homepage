@@ -1,4 +1,5 @@
 'use client';
+import MapSample from '@/app/images/company-info/location/MapSample.png';
 import BoardSection from '@/components/BoardSection';
 import ContentBox from '@/components/ContentBox';
 import ContentSection from '@/components/ContentSection';
@@ -6,10 +7,12 @@ import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
 import MonaBreadCrumb from '@/components/MonaBreadCrumb';
 import TabMenu, { MobileTabMenu } from '@/components/TabMenu';
+import dict from '@/dictionaries/company-info/location.json';
 import useMenu from '@/hooks/useMenu';
 import { cn } from '@/lib/utils';
 import { Language } from '@/types/globals.types';
 import { HomeIcon } from 'lucide-react';
+import Image from 'next/image';
 
 type Props = {};
 
@@ -46,7 +49,23 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
             <TabMenu lang={lang} />
           </div>
           <ContentBox title={currentMenu.text} label={currentMenu.label}>
-            내용은 모나에서 관리자웹으로 편집
+            <div className={cn('flex flex-col ', 'gap-[58px] ')}>
+              <LocationBox
+                label={dict['본사'][lang]}
+                address={dict['본사_addr'][lang]}
+                map={<Image src={MapSample} alt="" />}
+              />
+              <LocationBox
+                label={dict['연구소'][lang]}
+                address={dict['연구소_addr'][lang]}
+                map={<Image src={MapSample} alt="" />}
+              />
+              <LocationBox
+                label={dict['자사'][lang]}
+                address={dict['자사_addr'][lang]}
+                map={<Image src={MapSample} alt="" />}
+              />
+            </div>
           </ContentBox>
         </div>
       </ContentSection>
@@ -56,4 +75,33 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
   );
 };
 
+const LocationBox = ({
+  label,
+  address,
+  map,
+}: {
+  label: string;
+  address: string;
+  map: React.ReactNode;
+}) => {
+  return (
+    <div
+      className={cn(
+        'flex flex-col gap-5 pt-5 border-t border-grayscale-200',
+        'sm-screen:gap-8 sm-screen:pt-11',
+      )}>
+      <div>{map}</div>
+      <div className={cn('flex flex-col gap-5')}>
+        <span
+          className={cn(
+            'bg-[#EC770010] text-primary w-fit py-2 px-7 rounded-full',
+            'typo-HeadlineBold',
+          )}>
+          {label}
+        </span>
+        <div className={cn('typo-Display1Bold')}>{address}</div>
+      </div>
+    </div>
+  );
+};
 export default Page;
