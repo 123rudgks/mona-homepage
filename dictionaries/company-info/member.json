@@ -1,0 +1,102 @@
+{
+  "장익환_position": {
+    "ko": "CEO",
+    "en": "CEO"
+  },
+  "장익환_desc1": {
+    "ko": "경영 및 기술개발 총괄",
+    "en": "CEO"
+  },
+  "장익환_desc2": {
+    "ko": "(전) 공동설립자 Greenvale, GV Fuel Cell]",
+    "en": "(Former) Co-founder Greenvale, GV Fuel Cell"
+  },
+  "장익환_desc3": {
+    "ko": "(전) Post-doctoral Fellow@Georgia Tech & McGill University",
+    "en": "(Former) Post-doctoral Fellow@Georgia Tech & McGill University"
+  },
+  "장익환_desc4": {
+    "ko": "Ph.D., ME, Seoul National University",
+    "en": "Ph.D., ME, Seoul National University"
+  },
+  "송창희_position": {
+    "ko": "CTO",
+    "en": "CTO"
+  },
+  "송창희_desc1": {
+    "ko": "AI 기술개발 총괄",
+    "en": "CTO"
+  },
+  "송창희_desc2": {
+    "ko": "AI를 활용한 친환경 차량 에너지 관리 시스템등 관련 프로젝트 수행",
+    "en": "Lead AI-based eco-friendly vehicle energy management system projects"
+  },
+  "송창희_desc3": {
+    "ko": "Ph.D., ME@Seoul National University",
+    "en": "Ph.D., ME@Seoul National University"
+  },
+  "김기한_position": {
+    "ko": "수석",
+    "en": "Senior Engineer"
+  },
+  "김기한_desc1": {
+    "ko": "AI & Battery 솔루션 개발",
+    "en": "Lead AI & Battery Solution Development"
+  },
+  "김기한_desc2": {
+    "ko": "(전) 삼성전기 선임연구원",
+    "en": "(Former) Senior Researcher, Samsung SDI"
+  },
+  "김기한_desc3": {
+    "ko": "M.S@Seoul National University",
+    "en": "M.S@Seoul National University"
+  },
+  "염태균_position": {
+    "ko": "수석",
+    "en": "Senior Engineer"
+  },
+  "염태균_desc1": {
+    "ko": "양산라인시스템 개발",
+    "en": "Lead Production Line System Development"
+  },
+  "염태균_desc2": {
+    "ko": "부산대 전기전자",
+    "en": "BSEE, Pusan National University"
+  },
+  "염태균_desc3": {
+    "ko": "(전) 한화기계 차장",
+    "en": "(Former) Hyundai Heavy Industries, Senior Engineer"
+  },
+  "김영범_position": {
+    "ko": "사외이사",
+    "en": "Outside Director"
+  },
+  "김영범_desc1": {
+    "ko": "(현) 교수 @한양대 기계공학부",
+    "en": "(Current) Professor @Hanyang University, Mechanical Engineering"
+  },
+  "김영범_desc2": {
+    "ko": "대한기계학회, 한국자동차공학회, 한국정밀공학회 등 임원",
+    "en": "Executive Member of Korean Society of Mechanical Engineers, Korean Society of Automotive Engineers, Korean Society of Precision Engineering"
+  },
+  "김영범_desc3": {
+    "ko": "Ph.D., ME@Stanford University",
+    "en": "Ph.D., ME@Stanford University"
+  },
+  "차석원_position": {
+    "ko": "Advisor",
+    "en": "Advisor"
+  },
+  "차석원_desc1": {
+    "ko": "(현) 교수 @서울대학교 기계공학부",
+    "en": "(Current) Professor @Seoul National University, Mechanical Engineering"
+  },
+  "차석원_desc2": {
+    "ko": "대한기계학회, 한국정밀공학회 등 임원",
+    "en": "Executive Member of Korean Society of Mechanical Engineers, Korean Society of Precision Engineering"
+  },
+  "차석원_desc3": {
+    "ko": "Ph.D., ME@Stanford University",
+    "en": "Ph.D., ME@Stanford University"
+  }
+}
