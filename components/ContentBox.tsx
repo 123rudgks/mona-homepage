@@ -7,7 +7,7 @@ type Props = {
 
 const ContentBox = ({ label, title, subTitle, children }: Props) => {
   return (
-    <div className="">
+    <div className="flex-1">
       {label && (
         <div className="sm-screen:typo-HeadlineBold typo-BodyLargeBold text-primary">
           {label}
