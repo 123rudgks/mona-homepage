@@ -1,0 +1,66 @@
+{
+  "주요정보": {
+    "ko": "주요정보",
+    "en": "Main Information"
+  },
+  "연매출": {
+    "ko": "연매출",
+    "en": "Annual Sales"
+  },
+  "연매출_tooltip": {
+    "ko": "최근 신고된 재무재표 상 연매출입니다.",
+    "en": "Annual sales reported in the most recent financial statements."
+  },
+  "연매출_content": {
+    "ko": "₩ 12.2억",
+    "en": "₩ 12.2 billion"
+  },
+  "투자 진행중": {
+    "ko": "투자 진행중",
+    "en": "Investment in Progress"
+  },
+  "투자 진행중_content": {
+    "ko": "₩ 30억",
+    "en": "₩ 30 billion"
+  },
+  "누적 투자유치": {
+    "ko": "누적 투자유치",
+    "en": "Cumulative Investment Attraction"
+  },
+  "누적 투자유치_content": {
+    "ko": "18억+",
+    "en": "18 billion+"
+  },
+  "소재지": {
+    "ko": "소재지",
+    "en": "Location"
+  },
+  "소재지_content": {
+    "ko": "전북특별자치도",
+    "en": "Jeollabuk-do"
+  },
+  "상태": {
+    "ko": "상태",
+    "en": "Status"
+  },
+  "상태_content": {
+    "ko": "비상장",
+    "en": "Unlisted"
+  },
+  "제품 및 서비스": {
+    "ko": "제품 및 서비스",
+    "en": "Products and Services"
+  },
+  "특허": {
+    "ko": "특허",
+    "en": "Patents"
+  },
+  "제품 및 서비스_content_title": {
+    "ko": "전기차 배터리 진단 솔루션",
+    "en": "Electric Vehicle Battery Diagnostic Solution"
+  },
+  "제품 및 서비스_content_desc": {
+    "ko": "AI기반 전기차 배터리 고장 진단 소프트웨어",
+    "en": "AI-based electric vehicle battery failure diagnostic software"
+  }
+}
