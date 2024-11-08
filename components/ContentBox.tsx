@@ -13,7 +13,7 @@ const ContentBox = ({ label, title, subTitle, children }: Props) => {
           {label}
         </div>
       )}
-      <div className="mb-8">
+      <div className="sm-screen:mb-8 mb-5">
         <div className="sm-screen:typo-Display6Bold text-navy-700 typo-Display1Bold ">
           {title}
         </div>

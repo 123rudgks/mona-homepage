@@ -1,0 +1,54 @@
+{
+  "문의하기_desc": {
+    "ko": "MONA의 제품 및 서비스에 관련해 궁금하신 점이 있으시면 편하게 연락주세요.",
+    "en": "If you have any questions about MONA's products and services, please feel free to contact us."
+  },
+  "이름": {
+    "ko": "이름",
+    "en": "Name"
+  },
+  "업체명": {
+    "ko": "업체명",
+    "en": "Company Name"
+  },
+  "직책": {
+    "ko": "직책",
+    "en": "Position"
+  },
+  "직책_placeholder": {
+    "ko": "직책명",
+    "en": "Position"
+  },
+  "이메일": {
+    "ko": "이메일",
+    "en": "Email"
+  },
+  "이메일_placeholder": {
+    "ko": "이메일 주소",
+    "en": "Email Address"
+  },
+  "이메일_error": {
+    "ko": "옳바른 이메일이 아닙니다.",
+    "en": "Invalid email."
+  },
+  "전화번호": {
+    "ko": "전화번호",
+    "en": "Phone Number"
+  },
+  "전화번호_placeholder": {
+    "ko": "'-'없이 입력",
+    "en": "Enter without '-'"
+  },
+  "전화번호_error": {
+    "ko": "옳바른 전화번호가 아닙니다.",
+    "en": "Invalid phone number."
+  },
+  "문의 내용": {
+    "ko": "문의 내용",
+    "en": "Inquiry"
+  },
+  "문의 내용_placeholder": {
+    "ko": "상세 문의 내용",
+    "en": "Inquiry Details"
+  }
+}

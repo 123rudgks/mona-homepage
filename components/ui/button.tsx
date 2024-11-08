@@ -10,6 +10,8 @@ const buttonVariants = cva(
     variants: {
       variant: {
         ghost: 'rounded-full',
+        primary:
+          'rounded-full bg-primary text-white  hover:bg-primary-dark typo-BodySmallBold focus:ring focus:ring-primary-alpha-30 focus-visible:ring focus-visible:ring-primary-alpha-30 focus-visible:ring-offset-0 disabled:bg-grayscale-200 ',
       },
       theme: {
         white: '',

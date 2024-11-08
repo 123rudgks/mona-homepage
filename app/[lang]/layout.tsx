@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '../globals.css';
@@ -16,7 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={inter.className}>{children}</body>
+      <body className={cn(inter.className, 'relative')}>
+        {children}
+        <div id="modal-root" className="fixed left-0 top-0 z-40 " />
+      </body>
     </html>
   );
 }
