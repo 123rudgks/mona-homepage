@@ -50,5 +50,344 @@
   "문의 내용_placeholder": {
     "ko": "상세 문의 내용",
     "en": "Inquiry Details"
+  },
+  "개인정보 수집 이용 동의 문구": {
+    "ko": "개인정보 수집 · 이용에 동의합니다",
+    "en": "I agree to the collection and use of personal information"
+  },
+  "문의하기": {
+    "ko": "문의하기",
+    "en": "Inquiry"
+  },
+
+  "개인정보 수집 및 이용 동의": {
+    "ko": "개인정보 수집 및 이용 동의",
+    "en": "Agree to the collection and use of personal information"
+  },
+  "<개인정보 수집 및 이용 동의 >": {
+    "ko": "<개인정보 수집 및 이용 동의 >",
+    "en": "<Agree to the collection and use of personal information >"
+  },
+  "모나 주식회사(이하": {
+    "ko": "모나 주식회사(이하 '회사'라 한다)는 개인정보 보호법 제30조에 따라 정보 주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리지침을 수립, 공개합니다.",
+    "en": "MONA Co., Ltd. (hereinafter referred to as the 'Company') establishes and discloses the following personal information processing guidelines to protect the personal information of the data subject in accordance with Article 30 of the Personal Information Protection Act and to process related complaints quickly and smoothly."
+  },
+  "제1조 (개인정보의 처리목적)": {
+    "ko": "제1조 (개인정보의 처리목적)",
+    "en": "Article 1 (Purpose of Personal Information Processing)"
+  },
+  "회사": {
+    "ko": "회사는 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는 개인정보보호법 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.",
+    "en": "The company processes personal information for the following purposes. The personal information being processed is not used for purposes other than the following purposes, and if the purpose of use changes, necessary measures will be implemented in accordance with Article 18 of the Personal Information Protection Act, such as obtaining separate consent."
+  },
+  "1) 제품문의": {
+    "ko": "1) 제품문의",
+    "en": "1) Product Inquiry"
+  },
+  "제품 문의_desc": {
+    "ko": "제품문의에 대한 정보확인을 위해 개인정보를 처리합니다.",
+    "en": "Personal information is processed to verify inquiries about products."
+  },
+  "2) 지원서 수신": {
+    "ko": "2) 지원서 수신",
+    "en": "2) Receiving Applications"
+  },
+  "지원서 수신_desc": {
+    "ko": "수신 이름, 생년월일, 연락처, 이메일주소, 이력서, 포트폴리오를 통해 지원자님의 개인정보를 획득하고 취급합니다.",
+    "en": "The applicant's personal information is acquired and handled through the received name, date of birth, contact information, email address, resume, and portfolio."
+  },
+  "제2조 (개인정보의 처리 및 보유기간)": {
+    "ko": "제2조 (개인정보의 처리 및 보유기간)",
+    "en": "Article 2 (Processing and Retention Period of Personal Information)"
+  },
+  "1) 개인정보 보유, 이용 기간": {
+    "ko": "1) 회사는 법령에 따른 개인정보 보유, 이용 기간 또는 정보주체로부터 개인정보를 수집 시에 동의 받은 개인정보 보유, 이용 기간 내에서 개인정보를 처리, 보유합니다. 각각의 개인정보 처리 및 보유 기간은 다음과 같습니다.",
+    "en": "1) The company processes and retains personal information within the retention and usage period agreed upon when collecting personal information from the data subject or as required by law. The processing and retention periods for each personal information are as follows."
+  },
+  "2) 통신비밀보호법": {
+    "ko": "2) 「통신비밀보호법」 제41조에 따른 통신사실확인자료 보관",
+    "en": "2) Retention of communication confirmation data in accordance with Article 41 of the Communications Privacy Protection Act"
+  },
+  "가입자 전기통신일시": {
+    "ko": "- 가입자 전기통신일시, 개시․종료 시간, 상대방 가입자 번호, 사용도수, 발신기지국 위치추적자료 : 1년",
+    "en": "- Subscriber telecommunications date and time, start/end time, counterpart subscriber number, usage frequency, originating base station location tracking data: 1 year"
+  },
+  "컴퓨터 통신": {
+    "ko": "- 컴퓨터 통신, 인터넷 로그 기록자료, 접속지 추적자료 : 3개월",
+    "en": "- Computer communication, internet log records, access location tracking data: 3 months"
+  },
+  "제5조(이용자 및 법정대리인의 권리와 그 행사 방법)": {
+    "ko": "제5조(이용자 및 법정대리인의 권리와 그 행사 방법)",
+    "en": "Article 5 (Rights of Users and Legal Representatives and How to Exercise Them)"
+  },
+  "정보주체 권리": {
+    "ko": "1) 정보주체는 회사에 대해 언제든지 다음 각 호의 개인정보 보호 관련 권리를 행사할 수 있습니다.",
+    "en": "1) The data subject may exercise the following rights related to personal information protection at any time with respect to the company."
+  },
+  "개인정보 열람 요구": {
+    "ko": "1. 개인정보 열람 요구",
+    "en": "1. Request to access personal information"
+  },
+  "오류 정정 요구": {
+    "ko": "2. 오류 등이 있을 경우 정정 요구",
+    "en": "2. Request correction if there are errors, etc."
+  },
+  "삭제요구": {
+    "ko": "3. 삭제요구",
+    "en": "3. Request deletion"
+  },
+  "처리정지 요구": {
+    "ko": "4. 처리정지 요구",
+    "en": "4. Request to suspend processing"
+  },
+  "권리 행사의 방법": {
+    "ko": "2) 제1항에 따른 권리 행사는 회사에 대해 서면, 전화, 전자우편, 모사전송(FAX) 등을 통하여 하실 수 있으며 회사는 이에 대해 지체없이 조치하겠습니다.",
+    "en": "2) The rights under paragraph 1 may be exercised with respect to the company in writing, by phone, email, fax, etc., and the company will take action without delay."
+  },
+  "오류 정정 또는 삭제": {
+    "ko": "3) 정보주체가 개인정보의 오류 등에 대한 정정 또는 삭제를 요구한 경우에는 회사는 정정 또는 삭제를 완료할 때까지 당해 개인정보를 이용하거나 제공하지 않습니다.",
+    "en": "3) If the data subject requests correction or deletion of personal information errors, the company will not use or provide the personal information until the correction or deletion is completed."
+  },
+  "대리인을 통한 권리 행사": {
+    "ko": "4) 제1항에 따른 권리 행사는 정보주체의 법정대리인이나 위임을 받은 자 등 대리인을 통하여 하실 수 있습니다. 이 경우 개인정보 보호법 시행규칙 별지 제11호 서식에 따른 위임장을 제출하셔야 합니다.",
+    "en": "4) The rights under paragraph 1 may be exercised through a legal representative or a delegated person of the data subject. In this case, a power of attorney in accordance with Form No. 11 of the Enforcement Rules of the Personal Information Protection Act must be submitted."
+  },
+  "개인정보 보호법 위반 금지": {
+    "ko": "5) 정보주체는 개인정보 보호법 등 관계 법령을 위반하여 회사가 처리하고 있는 정보주체 본인이나 타인의 개인정보 및 사생활을 침해하여서는 아니 됩니다.",
+    "en": "5) The data subject must not violate the Personal Information Protection Act or related laws to infringe on the personal information and privacy of themselves or others processed by the company."
+  },
+  "제6조(처리하는 개인정보 항목)": {
+    "ko": "제6조(처리하는 개인정보 항목)",
+    "en": "Article 6 (Items of Personal Information Processed)"
+  },
+  "회사는 다음의 개인정보": {
+    "ko": "회사는 다음의 개인정보 항목을 처리하고 있습니다.",
+    "en": "The company processes the following personal information items."
+  },
+
+  "제품문의 필수항목": {
+    "ko": "필수항목 : 업체명, 소속/성함, 연락처, 이메일",
+    "en": "Required items: company name, affiliation/name, contact information, email"
+  },
+  "지원서 수신 필수항목": {
+    "ko": "필수항목 : 이름, 생년월일, 연락처, 이메일, 지원분야, 이력서, 포트폴리오",
+    "en": "Required items: name, date of birth, contact information, email, field of application, resume, portfolio"
+  },
+  "인터넷 서비스 이용과정": {
+    "ko": "3) 인터넷 서비스 이용과정에서 아래 개인정보 항목이 자동으로 생성되어 수집될 수 있습니다.",
+    "en": "3) The following personal information items may be automatically generated and collected during the process of using internet services."
+  },
+  "IP주소": {
+    "ko": "IP주소, 쿠키, MAC주소, 서비스 이용기록, 방문기록, 불량 이용기록 등",
+    "en": "IP address, cookies, MAC address, service usage records, visit records, bad usage records, etc."
+  },
+  "제7조(개인정보의 파기)": {
+    "ko": "제7조(개인정보의 파기)",
+    "en": "Article 7 (Destruction of Personal Information)"
+  },
+  "개인정보 파기": {
+    "ko": "1) 회사는 개인정보 보유 기간의 경과, 처리목적 달성 등 개인정보가 불필요하게 되었을 때에는 지체없이 해당 개인정보를 파기합니다.",
+    "en": "1) The company will destroy personal information without delay when it becomes unnecessary, such as the expiration of the personal information retention period or achievement of the processing purpose."
+  },
+  "개인정보 보존 필요시": {
+    "ko": "2) 정보주체로부터 동의받은 개인정보 보유 기간이 경과하거나 처리목적이 달성되었음에도 불구하고 다른 법령에 따라 개인정보를 계속 보존하여야 하는 경우에는, 해당 개인정보를 별도의 데이터베이스(DB)로 옮기거나 보관장소를 달리하여 보존합니다.",
+    "en": "2) If the retention period of personal information agreed upon by the data subject has expired or the processing purpose has been achieved, but the personal information must be retained according to other laws, the personal information will be transferred to a separate database (DB) or stored in a different storage location."
+  },
+  "개인정보 파기의 절차 및 방법": {
+    "ko": "3) 개인정보 파기의 절차 및 방법은 다음과 같습니다.",
+    "en": "3) The procedures and methods for destroying personal information are as follows."
+  },
+  "1. 파기 절차": {
+    "ko": "1. 파기 절차",
+    "en": "1. Destruction Procedure"
+  },
+  "파기 절차": {
+    "ko": "회사는 파기 사유가 발생한 개인정보를 선정하고, 회사의 개인정보 보호책임자의 승인을 받아 개인정보를 파기합니다.",
+    "en": "The company selects personal information for destruction when the reason for destruction occurs and destroys the personal information after obtaining approval from the company's personal information protection officer."
+  },
+  "2. 파기 방법": {
+    "ko": "2. 파기 방법",
+    "en": "2. Destruction Method"
+  },
+  "파기 방법": {
+    "ko": "회사는 전자적 파일 형태로 기록․저장된 개인정보는 기록을 재생할 수 없도록 로우레밸포멧(Low Level Format) 등의 방법을 이용하여 파기하며, 종이 문서에 기록․저장된 개인정보는 분쇄기로 분쇄하거나 소각하여 파기합니다.",
+    "en": "Personal information recorded and stored in electronic file format is destroyed using methods such as low-level format to make the record unrecoverable, and personal information recorded and stored on paper documents is destroyed by shredding or incineration."
+  },
+  "제8조(개인정보의 안전성 확보조치)": {
+    "ko": "제8조(개인정보의 안전성 확보조치)",
+    "en": "Article 8 (Measures to Ensure the Safety of Personal Information)"
+  },
+  "회사는 개인정보의 안정성": {
+    "ko": "회사는 개인정보의 안전성 확보를 위해 다음과 같은 조치를 하고 있습니다.",
+    "en": "The company takes the following measures to ensure the security of personal information."
+  },
+  "관리적 조치": {
+    "ko": "1. 관리적 조치 : 내부관리계획 수립 및 시행, 정기적 직원 교육 등",
+    "en": "1. Administrative measures: establishment and implementation of internal management plans, regular employee training, etc."
+  },
+  "기술적 조치": {
+    "ko": "2. 기술적 조치 : 개인정보처리시스템 등의 접근 권한 관리, 접근통제시스템 설치, 고유 식별정보 등의 암호화, 보안프로그램 설치",
+    "en": "2. Technical measures: management of access rights to personal information processing systems, installation of access control systems, encryption of unique identification information, installation of security programs"
+  },
+  "물리적 조치": {
+    "ko": "3. 물리적 조치 : 전산실, 자료보관실 등의 접근통제",
+    "en": "3. Physical measures: access control to computer rooms, data storage rooms, etc."
+  },
+  "제9조(개인정보 자동 수집 장치의 설치∙운영 및 거부에 관한 사항)": {
+    "ko": "제9조(개인정보 자동 수집 장치의 설치∙운영 및 거부에 관한 사항)",
+    "en": "Article 9 (Matters Concerning the Installation, Operation, and Rejection of Automatic Personal Information Collection Devices)"
+  },
+  "쿠키 사용 목적": {
+    "ko": "1) 회사는 이용자에게 개별적인 맞춤 서비스를 제공하기 위해 이용정보를 저장하고 수시로 불러오는 '쿠키(cookie)'를 사용합니다.",
+    "en": "1) The company uses 'cookies' to store and retrieve usage information from time to time to provide individual customized services to users."
+  },
+  "쿠키 설치∙운영 및 거부": {
+    "ko": "2) 쿠키는 웹사이트를 운영하는데 이용되는 서버(http)가 이용자의 컴퓨터 브라우저에 보내는 소량의 정보이며 이용자들의 컴퓨터 내의 하드디스크에 저장되기도 합니다.",
+    "en": "2) Cookies are small amounts of information sent by the server (http) used to operate the website to the user's computer browser and may be stored on the user's computer hard disk."
+  },
+  "쿠키의 사용 목적": {
+    "ko": "가. 쿠키의 사용 목적: 이용자가 방문한 각 서비스와 웹 사이트들에 대한 방문 및 이용형태, 인기 검색어, 보안접속 여부, 등을 파악하여 이용자에게 최적화된 정보 제공을 위해 사용됩니다.",
+    "en": "A. Purpose of using cookies: They are used to provide optimized information to users by identifying visits and usage patterns of services and websites visited by the user, popular search terms, security access, etc."
+  },
+  "쿠키의 설치∙운영 및 거부": {
+    "ko": "나. 쿠키의 설치∙운영 및 거부 : 웹브라우저 상단의 도구>인터넷 옵션>개인정보 메뉴의 옵션 설정을 통해 쿠키 저장을 거부 할 수 있습니다.",
+    "en": "B. Installation, operation, and rejection of cookies: You can refuse to store cookies by setting options in the privacy menu of the tools>internet options at the top of the web browser."
+  },
+  "쿠키 저장 거부 시": {
+    "ko": "다. 쿠키 저장을 거부할 경우 맞춤형 서비스 이용에 어려움이 발생할 수 있습니다.",
+    "en": "C. If you refuse to store cookies, you may experience difficulties in using customized services."
+  },
+  "제10조(개인정보 보호책임자)": {
+    "ko": "제10조(개인정보 보호책임자)",
+    "en": "Article 10 (Personal Information Protection Officer)"
+  },
+  "개인정보 보호책임자": {
+    "ko": "1) 회사는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만 처리 및 피해구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.",
+    "en": "1) The company is responsible for overseeing and managing personal information processing tasks, and designates the following personal information protection officer to handle complaints and remedies related to personal information processing."
+  },
+  "▶ 개인정보 보호책임자": {
+    "ko": "▶ 개인정보 보호책임자",
+    "en": "▶ Personal Information Protection Officer"
+  },
+  "개인정보 보호책임자 성명": {
+    "ko": " 성명 : 김정공",
+    "en": "Name : Junggong Kim"
+  },
+  "개인정보 보호책임자 직책": {
+    "ko": "직책 : 부사장",
+    "en": "Position : Vice President"
+  },
+  "개인정보 보호책임자 연락처": {
+    "ko": "연락처 : 02-6949-1134 / mona@monaelec.com",
+    "en": "Contact: 02-6949-1134 / mona@monaelec.com"
+  },
+  "▶ 개인정보 보호 담당부서": {
+    "ko": "▶ 개인정보 보호 담당부서",
+    "en": "▶ Personal Information Protection Department"
+  },
+  "개인정보 보호 담당부서 부서명": {
+    "ko": "부서명 : 경영지원팀",
+    "en": "Department Name: Management Support Team"
+  },
+  "개인정보 보호 담당부서 담당자": {
+    "ko": "담당자 : 윤혜선",
+    "en": "Person in Charge: Hyesun Yoon"
+  },
+  "개인정보 보호 담당부서 연락처": {
+    "ko": "연락처 : 02-6949-1134 / yhs6593@monaelec.com",
+    "en": "Contact: 02-6949-1134 / yhs6593@monaelec.com"
+  },
+
+  "개인정보 보호 관련 문의": {
+    "ko": "2) 정보주체께서는 회사의 서비스(또는 사업)을 이용하시면서 발생한 모든 개인정보 보호 관련 문의, 불만 처리, 피해구제 등에 관한 사항을 개인정보 보호책임자 및 담당부서로 문의하실 수 있습니다. 회사는 정보주체의 문의에 대해 지체없이 답변 및 처리해드릴 것입니다.",
+    "en": "2) The data subject may inquire about all personal information protection-related inquiries, complaint handling, damage relief, etc., that occur while using the company's services (or business) to the personal information protection officer and the department in charge. The company will respond and handle the data subject's inquiries without delay."
+  },
+  "제11조(개인정보 열람청구)": {
+    "ko": "제11조(개인정보 열람청구)",
+    "en": "Article 11 (Request for Access to Personal Information)"
+  },
+  "정보주체는 개인정보": {
+    "ko": "정보주체는 개인정보 보호법 제35조에 따른 개인정보의 열람 청구를 아래의 부서에 할 수 있습니다. 회사는 정보주체의 개인정보 열람 청구가 신속하게 처리되도록 노력하겠습니다.",
+    "en": "The data subject may request access to personal information in accordance with Article 35 of the Personal Information Protection Act to the following department. The company will make efforts to process the data subject's request for access to personal information quickly."
+  },
+  "개인정보 열람청구 접수․처리 부서": {
+    "ko": "▶ 개인정보 열람청구 접수․처리 부서",
+    "en": "▶ Department for Receiving and Processing Requests for Access to Personal Information"
+  },
+  "개인정보 열람청부 접수.처리 부서명": {
+    "ko": "부서명 : 경영지원팀",
+    "en": "Department Name: Management Support Team"
+  },
+  "개인정보 열람청구 접수.처리 담당자": {
+    "ko": "담당자 : 윤혜선",
+    "en": "Person in Charge: Hyesun Yoon"
+  },
+  "개인정보 열람청구 접수.처리 연락처": {
+    "ko": "연락처 : 02-6949-1134 / yhs6593@monaelec.com",
+    "en": "Contact: 02-6949-1134 / yhs6593@monaelec.com"
+  },
+  "제12조(권익침해 구제 방법)": {
+    "ko": "제12조(권익침해 구제 방법)",
+    "en": "Article 12 (Remedy for Infringement of Rights)"
+  },
+  "권익침해 구제 방법 설명": {
+    "ko": "정보주체는 아래의 기관에 대해 개인정보 침해에 대한 피해구제, 상담 등을 문의하실 수 있습니다.",
+    "en": "The data subject may inquire about remedies for personal information infringement, counseling, etc., with the following institutions."
+  },
+  "▶ 개인정보 침해신고센터 (한국인터넷진흥원 운영)": {
+    "ko": "▶ 개인정보 침해신고센터 (한국인터넷진흥원 운영)",
+    "en": "▶ Personal Information Infringement Report Center (operated by Korea Internet & Security Agency)"
+  },
+  "개인정보 침해신고센터 소관 업무": {
+    "ko": "- 소관 업무 : 개인정보 침해사실 신고, 상담 신청",
+    "en": "- Responsibilities: Reporting personal information infringement, applying for counseling"
+  },
+  "개인정보 침해신고센터 홈페이지": {
+    "ko": "- 홈페이지 : privacy.kisa.or.kr",
+    "en": "- Website: privacy.kisa.or.kr"
+  },
+  "개인정보 침해신고센터 전화": {
+    "ko": "- 전화 : (국번없이) 118",
+    "en": "- Phone: 118 (without area code)"
+  },
+  "개인정보 침해신고센터 주소": {
+    "ko": "- 주소 : (58324) 전남 나주시 진흥길 9(빛가람동 301-2) 3층 개인정보침해신고센터",
+    "en": "- Address: 3rd Floor, 9 Jinheung-gil, Naju-si, Jeollanam-do, 58324, Personal Information Infringement Report Center"
+  },
+  "▶ 개인정보 분쟁조정위원회": {
+    "ko": "▶ 개인정보 분쟁조정위원회",
+    "en": "▶ Personal Information Dispute Mediation Committee"
+  },
+  "개인정보 분쟁조정위원회 소관 업무": {
+    "ko": "- 소관업무 : 개인정보 분쟁조정신청, 집단분쟁조정 (민사적 해결)",
+    "en": "- Responsibilities: Applying for personal information dispute mediation, group dispute mediation (civil resolution)"
+  },
+  "개인정보 분쟁조정위원회 홈페이지": {
+    "ko": "- 홈페이지 : www.kopico.go.kr",
+    "en": "- Website: www.kopico.go.kr"
+  },
+  "개인정보 분쟁조정위원회 전화": {
+    "ko": "- 전화 : (국번없이) 1833-6972",
+    "en": "- Phone: 1833-6972 (without area code)"
+  },
+  "개인정보 분쟁조정위원회 주소": {
+    "ko": "- 주소 : (03171)서울특별시 종로구 세종대로 209 정부서울청사 4층",
+    "en": "- Address: 4th Floor, Government Complex Seoul, 209 Sejong-daero, Jongno-gu, Seoul, 03171"
+  },
+  "대검찰청 사이버범죄수사단": {
+    "ko": "▶ 대검찰청 사이버범죄수사단 : 02-3480-3573 (www.spo.go.kr)",
+    "en": "▶ Supreme Prosecutors' Office Cyber Crime Investigation Division: 02-3480-3573 (www.spo.go.kr)"
+  },
+  "경찰청 사이버안전국": {
+    "ko": "▶ 경찰청 사이버안전국 : 182 (http://cyberbureau.police.go.kr)",
+    "en": "▶ National Police Agency Cyber Safety Bureau: 182 (http://cyberbureau.police.go.kr)"
+  },
+  "제13조(개인정보 처리방침 시행 및 변경)": {
+    "ko": "제13조(개인정보 처리방침 시행 및 변경)",
+    "en": "Article 13 (Implementation and Changes to the Personal Information Processing Policy)"
+  },
+  "개인정보 처리방침 시행일": {
+    "ko": "이 개인정보 처리방침은 2022.10.19부터 적용됩니다.",
+    "en": "This personal information processing policy is effective from October 19, 2022."
   }
 }

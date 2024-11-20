@@ -4,12 +4,16 @@ type Props = {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
   darkMode?: boolean;
+  className?: string;
 };
 
-const HamburgerMenu = ({ isOpen, setIsOpen, darkMode }: Props) => {
+const HamburgerMenu = ({ isOpen, setIsOpen, darkMode, className }: Props) => {
   return (
     <button
-      className="w-6 h-6 flex justify-center items-center md-screen:hidden"
+      className={cn(
+        'w-6 h-6 flex justify-center items-center md-screen:hidden',
+        className,
+      )}
       onClick={() => setIsOpen(!isOpen)}
       aria-label="Menu">
       <div className="relative w-[18px] h-[16px] flex flex-col justify-center items-center">

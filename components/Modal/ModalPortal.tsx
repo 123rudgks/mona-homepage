@@ -20,11 +20,12 @@ const ModalPortal = ({
 }) => {
   const [mounted, setMounted] = useState<boolean>(false);
   const [wrapperElement, setWrapperElement] = useState<HTMLElement | null>(
-    document.getElementById('modal-root'),
+    null,
   );
 
   useLayoutEffect(() => {
     let element = document.getElementById(wrapperId);
+    setWrapperElement(element);
     // if element is not found with wrapperId or wrapperId is not provided,
     // create and append to body
     if (!element) {
