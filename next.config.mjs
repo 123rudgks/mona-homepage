@@ -4,6 +4,14 @@ const nextConfig = {
   images: {
     domains: ['picsum.photos'],
   },
+  rewrites: async () => {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'http://localhost:8080/v1/:path*',
+      },
+    ];
+  },
   webpack: (config) => {
     config.cache = false;
     config.module.rules.push({

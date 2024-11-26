@@ -21,13 +21,18 @@ import { cn } from '@/lib/utils';
 import { Language } from '@/types/globals.types';
 import { HomeIcon } from 'lucide-react';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type Props = {};
 
 const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
   const { MENU, currentCategory, currentMenu } = useMenu({ lang });
-
+  const getNews = async () => {
+    const res = await fetch('/api/articles?page=1');
+    const data = await res.json();
+    console.log(data);
+  };
+  useEffect(() => {}, []);
   return (
     <main>
       <BoardSection
@@ -35,6 +40,12 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
         desc={['RAPID & ACCURATE BATTERY DIAGNOSIS', 'Powered By AI']}
       />
       <ContentSection mobileTabMenuComp={<MobileTabMenu lang={lang} />}>
+        <button
+          onClick={() => {
+            getNews();
+          }}>
+          test
+        </button>
         <div
           className={cn(
             'lg-screen:h-[100px] sm-screen:h-20 h-[60px] flex items-center justify-end',
