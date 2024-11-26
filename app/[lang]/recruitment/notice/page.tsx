@@ -1,6 +1,6 @@
 'use client';
 import RecruitSection1 from '@/app/images/recruitment/notice/RecruitSection1.png';
-import BackEndIcon from '@/app/svgs/recruitment/notice/BackEndIcon.svg';
+// import BackEndIcon from '@/app/svgs/recruitment/notice/BackEndIcon.svg';
 import BatteryIcon from '@/app/svgs/recruitment/notice/BatteryIcon.svg';
 import BMSIcon from '@/app/svgs/recruitment/notice/BMSIcon.svg';
 import ElectricIcon from '@/app/svgs/recruitment/notice/ElectricIcon.svg';
@@ -40,7 +40,7 @@ const RecruitCardsData: RecruitCardProps[] = [
     label: 'R&D',
     position: 'Back End',
     skill: ['서버', 'AI'],
-    Icon: BackEndIcon,
+    Icon: FrontEndIcon,
   },
   {
     label: 'R&D',
