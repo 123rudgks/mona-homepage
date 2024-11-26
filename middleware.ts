@@ -1,7 +1,9 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 let defaultLocale = 'ko';
-let locales = [defaultLocale, 'en'];
+// for 영어 버전 hide
+// let locales = [defaultLocale, 'en'];
+let locales = [defaultLocale];
 
 function getLocaleWithoutDash(locale: string) {
   return locale.split('-')[0];
@@ -37,7 +39,9 @@ export function middleware(request: NextRequest) {
   );
   if (pathnameHasLocale) return;
 
-  const locale = getLocale(request);
+  // for 영어 버전 hide
+  // const locale = getLocale(request);
+  const locale = defaultLocale;
   request.nextUrl.pathname = `/${locale}${pathname}`;
 
   return NextResponse.redirect(request.nextUrl);

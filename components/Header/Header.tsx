@@ -296,9 +296,10 @@ const EngKor = ({
             'text-grayscale-white': lang === 'en' && darkMode,
             'text-whiteAlpha-50': lang !== 'en' && darkMode,
           })}
-          onClick={() => {
-            changeLanguage('en');
-          }}>
+          // onClick={() => {
+          //   changeLanguage('en');
+          // }}
+        >
           ENG
         </span>
       </div>
