@@ -1,9 +1,9 @@
 'use client';
-import Section3_AI솔루션 from '@/app/images/main/Section3_AI솔루션.png';
-import Section3_데이터분석 from '@/app/images/main/Section3_데이터분석.png';
-import Section3_빅데이터 from '@/app/images/main/Section3_빅데이터.png';
-import Section3_컨버전스 from '@/app/images/main/Section3_컨버전스.png';
-import Section3_하드웨어 from '@/app/images/main/Section3_하드웨어.png';
+import Section3_AI솔루션 from '@/app/images/main/Section3_AISolution.png';
+import Section3_빅데이터 from '@/app/images/main/Section3_BigData.png';
+import Section3_컨버전스 from '@/app/images/main/Section3_Conversions.png';
+import Section3_데이터분석 from '@/app/images/main/Section3_DataAnalysis.png';
+import Section3_하드웨어 from '@/app/images/main/Section3_Hardware.png';
 import ViewMore from '@/app/svgs/ViewMore.svg';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
