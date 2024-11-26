@@ -5,7 +5,6 @@ const nextConfig = {
     domains: ['picsum.photos'],
   },
   webpack: (config) => {
-    config.cache = false;
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
