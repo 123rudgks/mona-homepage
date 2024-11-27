@@ -6,6 +6,7 @@ import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
 import MonaBreadCrumb from '@/components/MonaBreadCrumb';
 import TabMenu, { MobileTabMenu } from '@/components/TabMenu';
+import useGetInfos from '@/hooks/useGetInfos';
 import useMenu from '@/hooks/useMenu';
 import { cn } from '@/lib/utils';
 import { Language } from '@/types/globals.types';
@@ -15,6 +16,7 @@ type Props = {};
 
 const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
   const { MENU, currentCategory, currentMenu } = useMenu({ lang });
+  const { content } = useGetInfos({ infoId: 1, infoType: 'business' });
 
   return (
     <main>
@@ -45,8 +47,13 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
           <div className={cn('sm-screen:static sm-screen:w-auto ')}>
             <TabMenu lang={lang} />
           </div>
-          <ContentBox title={currentMenu.text} label={currentMenu.label}>
-            내용은 모나에서 관리자웹으로 편집
+          <ContentBox title={content.title} label={currentMenu.label}>
+            <div
+              className="whitespace-pre-line"
+              dangerouslySetInnerHTML={{
+                __html: content.content,
+              }}
+            />
           </ContentBox>
         </div>
       </ContentSection>
