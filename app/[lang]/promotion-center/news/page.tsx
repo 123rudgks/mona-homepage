@@ -16,23 +16,51 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from '@/components/ui/pagination';
+import dict from '@/dictionaries/promotion-center/news.json';
 import useMenu from '@/hooks/useMenu';
+import usePagination from '@/hooks/usePagination';
 import { cn } from '@/lib/utils';
-import { Language } from '@/types/globals.types';
+import { ArticleData, Language } from '@/types/globals.types';
 import { HomeIcon } from 'lucide-react';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 type Props = {};
 
 const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
   const { MENU, currentCategory, currentMenu } = useMenu({ lang });
-  const getNews = async () => {
-    const res = await fetch('/api/articles?page=1');
-    const data = await res.json();
-    console.log(data);
-  };
-  useEffect(() => {}, []);
+  const [inputValue, setInputValue] = useState('');
+  const [news, setNews] = useState<ArticleData[]>([]);
+  const {
+    currentPages,
+    updatePaginationMeta,
+    paginationMeta,
+    disableNext,
+    disablePrev,
+  } = usePagination({
+    take: 5,
+  });
+  const fetchNews = useCallback(
+    async ({ page, title }: { page: number; title?: string }) => {
+      const res = await fetch(
+        `/api/articles?page=${page}${title ? `&title=${title}` : ''}`,
+      );
+      const data = await res.json();
+      return data;
+    },
+    [],
+  );
+  const moveToPage = useCallback(
+    async (page: number, title?: string) => {
+      const data = await fetchNews({ page, title: title });
+      setNews(data.data.articles);
+      updatePaginationMeta(data.data.meta);
+    },
+    [updatePaginationMeta, fetchNews],
+  );
+  useEffect(() => {
+    moveToPage(1);
+  }, [moveToPage]);
   return (
     <main>
       <BoardSection
@@ -40,12 +68,6 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
         desc={['RAPID & ACCURATE BATTERY DIAGNOSIS', 'Powered By AI']}
       />
       <ContentSection mobileTabMenuComp={<MobileTabMenu lang={lang} />}>
-        <button
-          onClick={() => {
-            getNews();
-          }}>
-          test
-        </button>
         <div
           className={cn(
             'lg-screen:h-[100px] sm-screen:h-20 h-[60px] flex items-center justify-end',
@@ -69,10 +91,15 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
             title={currentMenu.text}
             subTitle={
               <InputSearch
-                placeholder="Search keyword"
+                placeholder={dict['제목 검색 placeholder'][lang]}
+                value={inputValue}
+                setValue={setInputValue}
                 className={cn(
                   'mt-2 sm-screen:mt-0 sm-screen:absolute  sm-screen:right-0 sm-screen:bottom-0',
                 )}
+                onSearch={(search) => {
+                  moveToPage(1, search);
+                }}
               />
             }
             label={currentMenu.label}>
@@ -82,70 +109,49 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
                 'sm-screen:grid-cols-2 sm-screen:gap-6 sm-screen:mb-9',
                 'lg-screen:grid-cols-3 lg-screen:gap-10',
               )}>
-              <NewsCard
-                img="https://picsum.photos/seed/picsum/200/300"
-                title="더블디, 신규 매장 오픈 더블디, 신규 매장 오픈 더블디, 신규 매장 오픈"
-                date="2022-06-18"
-              />
-              <NewsCard
-                img="https://picsum.photos/seed/picsum/200/300"
-                title="더블디, 신규 매장 오픈 더블디, 신규 매장 오픈 더블디, 신규 매장 오픈"
-                date="2022-06-18"
-              />
-              <NewsCard
-                img="https://picsum.photos/seed/picsum/200/300"
-                title="더블디, 신규 매장 오픈 더블디, 신규 매장 오픈 더블디, 신규 매장 오픈"
-                date="2022-06-18"
-              />
-              <NewsCard
-                img="https://picsum.photos/seed/picsum/200/300"
-                title="더블디, 신규 매장 오픈 더블디, 신규 매장 오픈 더블디, 신규 매장 오픈"
-                date="2022-06-18"
-              />
-              <NewsCard
-                img="https://picsum.photos/seed/picsum/200/300"
-                title="더블디, 신규 매장 오픈 더블디, 신규 매장 오픈 더블디, 신규 매장 오픈"
-                date="2022-06-18"
-              />{' '}
-              <NewsCard
-                img="https://picsum.photos/seed/picsum/200/300"
-                title="더블디, 신규 매장 오픈 더블디, 신규 매장 오픈 더블디, 신규 매장 오픈"
-                date="2022-06-18"
-              />
-              <NewsCard
-                img="https://picsum.photos/seed/picsum/200/300"
-                title="더블디, 신규 매장 오픈 더블디, 신규 매장 오픈 더블디, 신규 매장 오픈"
-                date="2022-06-18"
-              />
-              <NewsCard
-                img="https://picsum.photos/seed/picsum/200/300"
-                title="더블디, 신규 매장 오픈 더블디, 신규 매장 오픈 더블디, 신규 매장 오픈"
-                date="2022-06-18"
-              />
-              <NewsCard
-                img="https://picsum.photos/seed/picsum/200/300"
-                title="더블디, 신규 매장 오픈 더블디, 신규 매장 오픈 더블디, 신규 매장 오픈"
-                date="2022-06-18"
-              />
+              {news.map((article) => (
+                <NewsCard
+                  key={article.id}
+                  img={article.thumbnail}
+                  title={article.title}
+                  date={article.createdDate}
+                  id={article.id}
+                />
+              ))}
             </div>
-            <Pagination>
-              <PaginationContent>
-                <PaginationItem>
-                  <PaginationPrevious></PaginationPrevious>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink href="#" isActive>
-                    1
-                  </PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink href="#">2</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationNext></PaginationNext>
-                </PaginationItem>
-              </PaginationContent>
-            </Pagination>
+            {paginationMeta && paginationMeta.totalPages > 0 && (
+              <Pagination>
+                <PaginationContent>
+                  <PaginationItem>
+                    <PaginationPrevious
+                      disabled={disablePrev}
+                      onClick={() => {
+                        moveToPage(paginationMeta.currentPage - 1, inputValue);
+                      }}
+                    />
+                  </PaginationItem>
+                  {currentPages.map((page) => (
+                    <PaginationItem key={page} className="cursor-pointer">
+                      <PaginationLink
+                        onClick={() => {
+                          moveToPage(page, inputValue);
+                        }}
+                        isActive={paginationMeta.currentPage === page}>
+                        {page}
+                      </PaginationLink>
+                    </PaginationItem>
+                  ))}
+                  <PaginationItem>
+                    <PaginationNext
+                      disabled={disableNext}
+                      onClick={() => {
+                        moveToPage(paginationMeta.currentPage + 1, inputValue);
+                      }}
+                    />
+                  </PaginationItem>
+                </PaginationContent>
+              </Pagination>
+            )}
           </ContentBox>
         </div>
       </ContentSection>
@@ -159,13 +165,17 @@ const NewsCard = ({
   img,
   title,
   date,
+  id,
 }: {
   img: string;
   title: string;
   date: string;
+  id: number;
 }) => {
   return (
-    <div className={cn('w-full flex flex-col gap-3', 'gap-5')}>
+    <a
+      href={`/promotion-center/news/${id}`}
+      className={cn('w-full flex flex-col gap-3 cursor-pointer', 'gap-5')}>
       <div className={cn('relative w-full h-[327px]', 'sm-screen:h-[450px]')}>
         <Image src={img} alt={title} fill />
       </div>
@@ -182,18 +192,21 @@ const NewsCard = ({
           {date}
         </div>
       </div>
-    </div>
+    </a>
   );
 };
 
 const InputSearch = ({
   className,
+  value,
+  setValue,
   onCancel,
   onSearch,
   ...props
 }: React.ComponentProps<'input'> & {
   onCancel?: () => void;
-  onSearch?: () => void;
+  onSearch?: (search: string) => void;
+  setValue?: (value: string) => void;
 }) => {
   const [focused, setFocused] = useState(false);
   const [filled, setFilled] = useState(false);
@@ -202,7 +215,7 @@ const InputSearch = ({
       className={cn(
         'sm-screen:w-[450px] w-full h-10 p-2 border border-grayscale-200 rounded-[4px] flex',
         focused && props.disabled
-          ? 'ring-[3px] ring-[#97979739] border-grayscale-black'
+          ? 'ring-[3px] ring-grayscale-focused border-grayscale-black'
           : '',
         props.disabled ? 'border-grayscale-200 bg-grayscale-50' : '',
         className,
@@ -210,6 +223,7 @@ const InputSearch = ({
       <input
         className="w-full h-full outline-none typo-BodyLargeRegular placeholder:text-grayscale-400 bg-transparent"
         {...props}
+        value={value}
         onFocus={(e) => {
           setFocused(true);
           props.onFocus?.(e);
@@ -220,7 +234,7 @@ const InputSearch = ({
         }}
         onChange={(e) => {
           setFilled(!!e.target.value);
-          props.onChange?.(e);
+          setValue?.(e.target.value);
         }}
       />
       <div className="flex gap-[6px] items-center">
@@ -229,6 +243,8 @@ const InputSearch = ({
             className="cursor-pointer"
             onClick={() => {
               onCancel?.();
+              setValue?.('');
+              onSearch?.('');
               setFilled(false);
             }}
           />
@@ -239,7 +255,7 @@ const InputSearch = ({
             props.disabled ? '[&>path]:fill-grayscale-300' : '',
           )}
           onClick={() => {
-            onSearch?.();
+            value && onSearch?.(value.toString());
           }}
         />
       </div>

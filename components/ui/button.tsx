@@ -12,10 +12,13 @@ const buttonVariants = cva(
         ghost: 'rounded-full',
         primary:
           'rounded-full bg-primary text-white  hover:bg-primary-dark typo-BodySmallBold focus:ring focus:ring-primary-alpha-30 focus-visible:ring focus-visible:ring-primary-alpha-30 focus-visible:ring-offset-0 disabled:bg-grayscale-200 ',
+        outline:
+          'rounded-s focus:ring focus:ring-grayscale-focused focus-visible:ring focus-visible:ring-grayscale-focused focus-visible:ring-offset-0 ',
       },
       theme: {
         white: '',
         black: '',
+        gray: '',
       },
       size: {
         lg: 'py-2 px-8',
@@ -34,6 +37,12 @@ const buttonVariants = cva(
         theme: 'white',
         className:
           'border border-whiteAlpha-70 hover:bg-blackAlpha-10 typo-BodyLargeBold text-grayscale-white',
+      },
+      {
+        variant: 'outline',
+        theme: 'gray',
+        className:
+          'border border-grayscale-300 hover:bg-grayscale-100 typo-BodyLargeBold text-grayscale-500 disabled:bg-grayscale-200',
       },
     ],
     defaultVariants: {},

@@ -90,6 +90,7 @@ const config = {
           DEFAULT: 'hsl(var(--grayscale-400))',
           black: 'hsl(var(--grayscale-black))',
           white: 'hsl(var(--grayscale-white))',
+          focused: 'hsl(var(--grayscale-focused))',
         },
         whiteAlpha: {
           '10': 'hsla(var(--white-alpha-10))',

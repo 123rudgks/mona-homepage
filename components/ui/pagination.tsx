@@ -59,11 +59,15 @@ PaginationLink.displayName = 'PaginationLink';
 const PaginationPrevious = ({
   className,
   disabled,
+  onClick,
   ...props
 }: React.ComponentProps<'a'> & {
   disabled?: boolean;
 }) => (
-  <a className={cn(disabled ? '' : 'cursor-pointer', className)} {...props}>
+  <a
+    className={cn(disabled ? '' : 'cursor-pointer', className)}
+    onClick={!disabled ? onClick : undefined}
+    {...props}>
     <ChevronLeft
       className={cn(
         'h-8 w-8 ',
@@ -77,11 +81,15 @@ PaginationPrevious.displayName = 'PaginationPrevious';
 const PaginationNext = ({
   className,
   disabled,
+  onClick,
   ...props
 }: React.ComponentProps<'a'> & {
   disabled?: boolean;
 }) => (
-  <a className={cn(disabled ? '' : 'cursor-pointer', className)} {...props}>
+  <a
+    className={cn(disabled ? '' : 'cursor-pointer', className)}
+    onClick={!disabled ? onClick : undefined}
+    {...props}>
     <ChevronRight
       className={cn(
         'h-8 w-8 ',

@@ -16,7 +16,7 @@ const Checkbox = React.forwardRef<
       'peer h-6 w-6 shrink-0 rounded border border-grayscale-300 ring-offset-background   ',
       'disabled:cursor-not-allowed disabled:bg-grayscale-50 disabled:border-grayscale-200 disabled:ring-0',
       'data-[state=checked]:bg-primary data-[state=checked]:text-white data-[state=checked]:border-primary',
-      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#97979739] hover:outline-none hover:ring-2 hover:ring-[#97979739]',
+      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-grayscale-focused hover:outline-none hover:ring-2 hover:ring-grayscale-focused',
       'data-[state=checked]:focus-visible:outline-none data-[state=checked]:focus-visible:ring-2 data-[state=checked]:focus-visible:ring-primary-alpha-30 data-[state=checked]:hover:outline-none data-[state=checked]:hover:ring-2 data-[state=checked]:hover:ring-primary-alpha-30',
       className,
     )}

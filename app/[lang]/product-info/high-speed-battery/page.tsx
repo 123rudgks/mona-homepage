@@ -4,6 +4,7 @@ import ContentBox from '@/components/ContentBox';
 import ContentSection from '@/components/ContentSection';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
+import HtmlDiv from '@/components/HtmlDiv';
 import MonaBreadCrumb from '@/components/MonaBreadCrumb';
 import TabMenu, { MobileTabMenu } from '@/components/TabMenu';
 import useGetInfos from '@/hooks/useGetInfos';
@@ -16,7 +17,7 @@ type Props = {};
 
 const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
   const { MENU, currentCategory, currentMenu } = useMenu({ lang });
-  const { content } = useGetInfos({ infoId: 1, infoType: 'product' });
+  const { content } = useGetInfos({ infoId: 7, infoType: 'business' });
 
   return (
     <main>
@@ -48,12 +49,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
             <TabMenu lang={lang} />
           </div>
           <ContentBox title={content.title} label={currentMenu.label}>
-            <div
-              className="whitespace-pre-line"
-              dangerouslySetInnerHTML={{
-                __html: content.content,
-              }}
-            />
+            <HtmlDiv html={content.content} />
           </ContentBox>
         </div>
       </ContentSection>

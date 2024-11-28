@@ -298,6 +298,7 @@
     --grayscale-200: 0 0% 90%;
     --grayscale-100: 0 0% 93%;
     --grayscale-50: 0 0% 97%;
+    --grayscale-focused: 0 0% 59% / 39%;
     --white-alpha-70: 0 0% 100% / 70%;
     --white-alpha-50: 0 0% 100% / 50%;
     --white-alpha-30: 0 0% 100% / 30%;

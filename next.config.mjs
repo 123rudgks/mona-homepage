@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['picsum.photos'],
+    domains: ['picsum.photos', 'monalec-dev.s3.ap-northeast-2.amazonaws.com'],
   },
   rewrites: async () => {
     return [
