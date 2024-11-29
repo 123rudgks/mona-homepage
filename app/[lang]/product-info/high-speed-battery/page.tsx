@@ -17,7 +17,7 @@ type Props = {};
 
 const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
   const { MENU, currentCategory, currentMenu } = useMenu({ lang });
-  const { content } = useGetInfos({ infoId: 7, infoType: 'business' });
+  const { content } = useGetInfos({ infoId: 7, infoType: 'product' });
 
   return (
     <main>

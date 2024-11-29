@@ -167,7 +167,7 @@ const NewsCard = ({
   date,
   id,
 }: {
-  img: string;
+  img: string | null;
   title: string;
   date: string;
   id: number;
@@ -177,7 +177,7 @@ const NewsCard = ({
       href={`/promotion-center/news/${id}`}
       className={cn('w-full flex flex-col gap-3 cursor-pointer', 'gap-5')}>
       <div className={cn('relative w-full h-[327px]', 'sm-screen:h-[450px]')}>
-        <Image src={img} alt={title} fill />
+        {img && <Image src={img} alt={title} fill />}
       </div>
       <div className={cn('flex flex-col gap-2', 'gap-3')}>
         <div

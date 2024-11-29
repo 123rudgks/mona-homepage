@@ -7,6 +7,14 @@
     "ko": "이전글",
     "en": "Previous"
   },
+  "다음글이 없습니다.": {
+    "ko": "다음글이 없습니다.",
+    "en": "There is no next article."
+  },
+  "이전글이 없습니다.": {
+    "ko": "이전글이 없습니다.",
+    "en": "There is no previous article."
+  },
   "목록 보기": {
     "ko": "목록 보기",
     "en": "List"

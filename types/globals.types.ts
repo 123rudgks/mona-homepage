@@ -15,8 +15,8 @@ export interface ArticleData {
   id: number;
   title: string;
   createdDate: string;
-  thumbnail: string;
-  reservedDate: string;
+  thumbnail: string | null;
+  reservedDate: string | null;
 }
 export interface ArticleDetailData {
   title: string;

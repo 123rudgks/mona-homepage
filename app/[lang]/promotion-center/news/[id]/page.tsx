@@ -208,7 +208,13 @@ const PostingList = ({
         </span>
       </div>
       <div className="w-[2px] h-[15px] bg-grayscale-200" />
-      <div className="typo-BodyLargeRegular flex-1">{title}</div>
+      <div className="typo-BodyLargeRegular flex-1">
+        {title
+          ? title
+          : direction === 'next'
+          ? dict['다음글이 없습니다.'][lang]
+          : dict['이전글이 없습니다.'][lang]}
+      </div>
       {date && (
         <div className="typo-BodySmallRegular text-blackAlpha-50 hidden sm-screen:block">
           {dayjs(date).format('YYYY-MM-DD')}
