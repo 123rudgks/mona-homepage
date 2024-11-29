@@ -37,3 +37,12 @@ export interface PaginationMeta {
   totalPages: number;
   size: number;
 }
+
+export interface ContactData {
+  name: string;
+  company: string;
+  position: string;
+  email: string;
+  phone: string;
+  content: string;
+}

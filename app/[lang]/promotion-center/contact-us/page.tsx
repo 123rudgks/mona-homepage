@@ -15,16 +15,269 @@ import HamburgerMenu from '@/components/ui/hamburger_menu';
 import dict from '@/dictionaries/company-info/contact-us.json';
 import useMenu from '@/hooks/useMenu';
 import { cn } from '@/lib/utils';
-import { Language } from '@/types/globals.types';
+import { ContactData, Language } from '@/types/globals.types';
+import dayjs from 'dayjs';
 import { HomeIcon } from 'lucide-react';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 type Props = {};
+
+type ValidationType =
+  | 'name'
+  | 'company'
+  | 'position'
+  | 'email'
+  | 'phone'
+  | 'content';
 
 const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
   const { MENU, currentCategory, currentMenu } = useMenu({ lang });
   const [isModal, setIsModal] = useState(false);
   const [openPolicyPopup, setOpenPolicyPopup] = useState(false);
+  const [contactData, setContactData] = useState<ContactData>({
+    name: '',
+    company: '',
+    position: '',
+    email: '',
+    phone: '',
+    content: '',
+  });
+  const [agreement, setAgreement] = useState(false);
+  const [validation, setValidation] = useState<ValidationType[]>([]);
+  const checkEmail = useCallback((email: string) => {
+    const emailRegexp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegexp.test(email);
+  }, []);
+  const checkPhone = useCallback((phone: string) => {
+    const phoneRegexp = /^\d{2,3}\d{3,4}\d{4}$/;
+    return phoneRegexp.test(phone);
+  }, []);
+  const checkValidation = useCallback(() => {
+    const validation: ValidationType[] = [];
+    if (!contactData.name) {
+      validation.push('name');
+    }
+    if (!contactData.company) {
+      validation.push('company');
+    }
+    if (!contactData.position) {
+      validation.push('position');
+    }
+    if (!checkEmail(contactData.email)) {
+      validation.push('email');
+    }
+    if (!checkPhone(contactData.phone)) {
+      validation.push('phone');
+    }
+    if (!contactData.content) {
+      validation.push('content');
+    }
+    return validation;
+  }, [contactData, checkEmail, checkPhone]);
 
+  const getEmailTemplate = useCallback((contact: ContactData) => {
+    return `<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문의 확인 이메일</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 44px;
+        font-family: Arial, sans-serif;
+        background-color: #ffffff;
+      }
+      table {
+        border-spacing: 0;
+        width: 100%;
+      }
+      td {
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <table width="100%" bgcolor="#ffffff" cellpadding="0" cellspacing="0">
+      <tr>
+        <td align="center">
+          <table
+            width="700"
+            bgcolor="#ffffff"
+            cellpadding="0"
+            cellspacing="0"
+            style="border-radius: 8px; overflow: hidden"
+          >
+            <!-- Header -->
+            <tr>
+              <td align="left" bgcolor="#ffffff" style="padding: 44px">
+                <img
+                  src="https://monalec-dev.s3.ap-northeast-2.amazonaws.com/images/temp/a6507545-1c39-4738-85d5-f15ed3636557"
+                  alt="MONA Logo"
+                  style="display: block"
+                />
+              </td>
+            </tr>
+            <!-- Body -->
+            <tr>
+              <td style="padding: 0 44px; text-align: left; color: #333333">
+                <h1
+                  style="
+                    margin: 0;
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: #000;
+                  "
+                >
+                  ${contact.name}님, 안녕하세요.
+                </h1>
+                <p style="font-size: 14px; line-height: 1.6; margin: 10px 0">
+                  저희 모나에 문의주셔서 감사 드립니다.<br />
+                  문의 주신 내용은 저희 담당자에게 바로 전달하였으며,<br />
+                  저희 담당자가 빠르게 확인하고 고객님께 연락드리겠습니다.<br />
+                  감사합니다.
+                </p>
+              </td>
+            </tr>
+            <!-- Inquiry Details -->
+            <tr>
+              <td style="padding: 44px; background-color: #ffffff">
+                <h2
+                  style="
+                    margin: 0;
+                    font-size: 18px;
+                    color: #ec7700;
+                    border-bottom: 1px solid #ec7700;
+
+                    padding-bottom: 24px;
+                  "
+                >
+                  문의내역
+                </h2>
+                <p
+                  style="
+                    font-size: 12px;
+                    background-color: #f6f6f6;
+                    color: #444;
+                    margin: 24px 0;
+                    padding: 4px 9px;
+                    width: fit-content;
+                  "
+                >
+                  ${dayjs().format('YYYY-MM-DD HH:mm')}에 문의하셨습니다.
+                </p>
+                <table
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="font-size: 14px; color: #333; margin-top: 10px"
+                >
+                  <tr>
+                    <td
+                      style="
+                        padding: 5px 0;
+                        color: #ec7700;
+                        font-size: 14px;
+                        width: 50px;
+                      "
+                    >
+                      이름
+                    </td>
+                    <td style="padding-left: 12px">${contact.name}</td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="padding-top: 12px; color: #ec7700; font-size: 14px"
+                    >
+                      회사명
+                    </td>
+                    <td style="padding-top: 12px; padding-left: 12px">
+                      ${contact.company}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="padding-top: 12px; color: #ec7700; font-size: 14px"
+                    >
+                      직책
+                    </td>
+                    <td style="padding-top: 12px; padding-left: 12px">
+                      ${contact.position}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="padding-top: 12px; color: #ec7700; font-size: 14px"
+                    >
+                      이메일
+                    </td>
+                    <td style="padding-top: 12px; padding-left: 12px">
+                      ${contact.email}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="padding-top: 12px; color: #ec7700; font-size: 14px"
+                    >
+                      전화번호
+                    </td>
+                    <td style="padding-top: 12px; padding-left: 12px">
+                      ${contact.phone}
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <!-- Additional Content -->
+            <tr>
+              <td
+                style="
+                  padding: 0 44px;
+                  text-align: left;
+                  color: #333333;
+                  font-size: 14px;
+                  line-height: 1.6;
+                "
+              >
+                <p
+                  style="
+                    border: 1px solid #f6f6f6;
+                    border-radius: 16px;
+                    padding: 12px 16px 0;
+                    min-height: 248px;
+                  "
+                >
+                  ${contact.content}
+                </p>
+              </td>
+            </tr>
+            <!-- Footer -->
+            <tr>
+              <td style="border-bottom: 1px solid #eee; padding-top: 44px"></td>
+            </tr>
+            <tr>
+              <td
+                style="
+                  padding: 32px 0px;
+                  text-align: center;
+                  background-color: #ffffff;
+                  font-size: 12px;
+                  color: #6d6d6d;
+                "
+              >
+                <p>본 메일은 발신전용 입니다.</p>
+                <p>&copy; 2024. MONA All rights reserved.</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+`;
+  }, []);
   return (
     <main>
       <BoardSection
@@ -58,53 +311,150 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
                 <div className={cn('flex flex-col gap-6')}>
                   <TextBox label={dict['이름'][lang]}>
                     <Input
+                      error={
+                        validation.includes('name')
+                          ? dict['이름_error'][lang]
+                          : undefined
+                      }
                       inputProps={{
                         placeholder: dict['이름'][lang],
+                        value: contactData.name,
+                        onChange: (e) => {
+                          setValidation(validation.filter((v) => v !== 'name'));
+                          setContactData({
+                            ...contactData,
+                            name: e.target.value,
+                          });
+                        },
                       }}
                     />
                   </TextBox>
                   <TextBox label={dict['업체명'][lang]}>
                     <Input
+                      error={
+                        validation.includes('company')
+                          ? dict['업체명_error'][lang]
+                          : undefined
+                      }
                       inputProps={{
                         placeholder: dict['업체명'][lang],
+                        value: contactData.company,
+                        onChange: (e) => {
+                          setValidation(
+                            validation.filter((v) => v !== 'company'),
+                          );
+                          setContactData({
+                            ...contactData,
+                            company: e.target.value,
+                          });
+                        },
                       }}
                     />
                   </TextBox>
                   <TextBox label={dict['직책'][lang]}>
                     <Input
+                      error={
+                        validation.includes('position')
+                          ? dict['직책_error'][lang]
+                          : undefined
+                      }
                       inputProps={{
                         placeholder: dict['직책_placeholder'][lang],
+                        value: contactData.position,
+                        onChange: (e) => {
+                          setValidation(
+                            validation.filter((v) => v !== 'position'),
+                          );
+                          setContactData({
+                            ...contactData,
+                            position: e.target.value,
+                          });
+                        },
                       }}
                     />
                   </TextBox>
                   <TextBox label={dict['이메일'][lang]}>
                     <Input
-                      error={dict['이메일_error'][lang]}
+                      error={
+                        validation.includes('email')
+                          ? dict['이메일_error'][lang]
+                          : undefined
+                      }
                       inputProps={{
                         placeholder: dict['이메일_placeholder'][lang],
+                        value: contactData.email,
+                        onChange: (e) => {
+                          setValidation(
+                            validation.filter((v) => v !== 'email'),
+                          );
+                          setContactData({
+                            ...contactData,
+                            email: e.target.value,
+                          });
+                        },
                       }}
                     />
                   </TextBox>
                   <TextBox label={dict['전화번호'][lang]}>
                     <Input
-                      error={dict['전화번호_error'][lang]}
+                      error={
+                        validation.includes('phone')
+                          ? dict['전화번호_error'][lang]
+                          : undefined
+                      }
                       inputProps={{
                         placeholder: dict['전화번호_placeholder'][lang],
+                        value: contactData.phone,
+                        onChange: (e) => {
+                          const value = e.target.value;
+                          if (/^\d*$/.test(value)) {
+                            // 숫자만 허용
+                            setValidation(
+                              validation.filter((v) => v !== 'phone'),
+                            );
+                            setContactData({
+                              ...contactData,
+                              phone: e.target.value,
+                            });
+                          }
+                        },
                       }}
                     />
                   </TextBox>
                   <TextBox label={dict['문의 내용'][lang]}>
                     <TextArea
+                      error={
+                        validation.includes('content')
+                          ? dict['문의 내용_error'][lang]
+                          : undefined
+                      }
                       textareaProps={{
                         placeholder: dict['문의 내용_placeholder'][lang],
                         className: 'min-h-[186px]',
+                        value: contactData.content,
+                        onChange: (e) => {
+                          setValidation(
+                            validation.filter((v) => v !== 'content'),
+                          );
+                          setContactData({
+                            ...contactData,
+                            content: e.target.value,
+                          });
+                        },
                       }}
                     />
                   </TextBox>
                 </div>
                 <div className={cn('flex flex-col gap-6')}>
                   <div className="flex gap-2">
-                    <Checkbox id="checkbox" className="" />
+                    <Checkbox
+                      id="checkbox"
+                      className=""
+                      checked={agreement}
+                      onCheckedChange={(e) => {
+                        typeof e === 'boolean' && setAgreement(e);
+                      }}
+                    />
                     <span className="typo-BodyLargeRegular">
                       {lang === 'ko' ? (
                         <>
@@ -136,7 +486,15 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
                     variant={'primary'}
                     size={'lg'}
                     className="h-12"
-                    onClick={() => setIsModal(true)}>
+                    onClick={() => {
+                      const validation = checkValidation();
+                      if (validation.length > 0 || !agreement) {
+                        setValidation(validation);
+                        return;
+                      }
+                      setIsModal(true);
+                      console.log(getEmailTemplate(contactData));
+                    }}>
                     {dict['문의하기'][lang]}
                   </Button>
                 </div>

@@ -7,9 +7,18 @@
     "ko": "이름",
     "en": "Name"
   },
+  "이름_error": {
+    "ko": "이름을 입력해주세요.",
+    "en": "Please enter your name."
+  },
+
   "업체명": {
     "ko": "업체명",
     "en": "Company Name"
+  },
+  "업체명_error": {
+    "ko": "업체명을 입력해주세요.",
+    "en": "Please enter your company name."
   },
   "직책": {
     "ko": "직책",
@@ -18,6 +27,10 @@
   "직책_placeholder": {
     "ko": "직책명",
     "en": "Position"
+  },
+  "직책_error": {
+    "ko": "직책을 입력해주세요.",
+    "en": "Please enter your position."
   },
   "이메일": {
     "ko": "이메일",
@@ -50,6 +63,10 @@
   "문의 내용_placeholder": {
     "ko": "상세 문의 내용",
     "en": "Inquiry Details"
+  },
+  "문의 내용_error": {
+    "ko": "문의 내용을 입력해주세요.",
+    "en": "Please enter your inquiry."
   },
   "개인정보 수집 이용 동의 문구": {
     "ko": "개인정보 수집 · 이용에 동의합니다",
