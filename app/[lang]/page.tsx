@@ -66,6 +66,7 @@ export default function Page({
 
   useEffect(() => {
     const animatedCircle = document.getElementById('animated-circle');
+    animatedCircle?.classList.add('animate-expanding-circle');
     function preventDefault(e: Event) {
       e.preventDefault();
     }
@@ -78,54 +79,63 @@ export default function Page({
       window.removeEventListener('wheel', preventDefault);
     };
     disableScroll();
-    animatedCircle?.addEventListener('transitionend', (e) => {
+    animatedCircle?.addEventListener('animationend', (e) => {
       enableScroll();
-      animatedCircle.classList.remove(
-        'transition-all',
-        'ease-in',
-        'duration-500',
-      );
+      setHeaderDarkMode(true);
     });
-    setTimeout(() => {
-      if (animatedCircle) {
-        animatedCircle.classList.remove('invisible');
-        animatedCircle.classList.remove(
-          'md-screen:w-[874px]',
-          'md-screen:h-[874px]',
-          'sm-screen:w-[600px]',
-          'sm-screen:h-[600px]',
-          'w-[400px]',
-          'h-[400px]',
-        );
-        animatedCircle.classList.add(
-          'sm-screen:-translate-y-[50px]',
-          '-translate-y-8',
-        );
-        animatedCircle.classList.add('w-full', 'h-full');
-        animatedCircle.classList.remove('rounded-full');
-        setHeaderDarkMode(true);
-      }
-    }, 1000);
+    // setTimeout(() => {
+    //   // enableScroll();
+    //   // setHeaderDarkMode(true);
+    //   // if (animatedCircle) {
+    //   //   animatedCircle.classList.remove('invisible');
+    //   //   animatedCircle.classList.remove(
+    //   //     'md-screen:w-[874px]',
+    //   //     'md-screen:h-[874px]',
+    //   //     'sm-screen:w-[600px]',
+    //   //     'sm-screen:h-[600px]',
+    //   //     'w-[400px]',
+    //   //     'h-[400px]',
+    //   //   );
+    //   //   animatedCircle.classList.add(
+    //   //     'sm-screen:-translate-y-[50px]',
+    //   //     '-translate-y-8',
+    //   //   );
+    //   //   animatedCircle.classList.add('w-full', 'h-full');
+    //   //   animatedCircle.classList.remove('rounded-full');
+    //   //   setHeaderDarkMode(true);
+    //   // }
+    // }, 100);
   }, []);
   return (
     <main
       id="main"
       className="flex min-h-screen flex-col items-center justify-between bg-white ">
-      <div className="transform flex justify-center items-center sm-screen:pt-[100px]   pt-16 bg-white w-full sm-screen:h-[1080px] h-[812px] relative ">
-        <div
+      <div className=" flex justify-center items-center sm-screen:pt-[100px]   pt-16 bg-white w-full sm-screen:h-[1080px] h-[812px] relative ">
+        {/* <div
           id="animated-circle"
           className={cn(
             'fixed invisible transition-all duration-500 ease-in  rounded-full  bg-black overflow-hidden',
             'md-screen:w-[874px] md-screen:h-[874px]',
             'sm-screen:w-[600px] sm-screen:h-[600px]',
             'w-[400px] h-[400px]',
+            // 'animate-expanding-circle',
           )}
-          style={{
-            backgroundRepeat: 'no-repeat',
-            backgroundImage: `url(${AnimationCircleBg.src})`,
-            backgroundPosition: 'center',
-            backgroundSize: '1920px 1080px',
-          }}></div>
+          // style={{
+          //   backgroundRepeat: 'no-repeat',
+          //   backgroundImage: `url(${AnimationCircleBg.src})`,
+          //   backgroundPosition: 'center',
+          //   backgroundSize: 'cover',
+          // }}
+        >
+          <Image
+            src={AnimationCircleBg.src}
+            alt="Animated Circle"
+            layout="fill"
+            objectFit="cover"
+            quality={100} // 고화질 설정
+            priority={true} // 우선순위 설정
+          />
+        </div> */}
 
         <div className="flex flex-col md-screen:gap-[74px] sm-screen:gap-12 gap-5 items-center">
           {/* Section1 Text Section */}
@@ -173,7 +183,25 @@ export default function Page({
               backgroundImage: `url(${AnimationCircleBg.src})`,
               backgroundPosition: 'center',
               backgroundSize: '960px 540px',
-            }}></div>
+            }}>
+            <div
+              id="animated-circle"
+              className={cn(
+                ' absolute left-1/2 -translate-x-1/2 bottom-0   overflow-hidden ',
+                // 'md-screen:w-[360px] md-screen:h-[360px]',
+                // 'sm-screen:w-[300px] sm-screen:h-[300px]',
+                'w-[0px] h-[0px]',
+              )}>
+              <Image
+                className="object-cover"
+                src={AnimationCircleBg.src}
+                alt="Animated Circle"
+                fill
+                quality={100} // 고화질 설정
+                priority={true} // 우선순위 설정
+              />
+            </div>
+          </div>
         </div>
       </div>
       <div

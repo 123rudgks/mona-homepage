@@ -13,23 +13,43 @@ const config = {
     keyframes: {
       'expanding-circle': {
         '0%': {
-          bottom: 'auto',
-          left: 'auto',
-          top: 'auto',
-          right: 'auto',
+          width: '0px',
+          height: '0px',
+          borderRadius: '100%',
+          opacity: '0',
         },
+        '50%': {
+          borderRadius: '100%',
+          opacity: '0',
+        },
+        '60%': {
+          borderRadius: '100%',
+          opacity: '1',
+        },
+        '75%': {
+          borderRadius: '100%',
+          opacity: '1',
+        },
+        '80%': {
+          width: '800px',
+          height: '800px',
+          maxWidth: '100vw',
+          maxHeight: '100vw',
+          borderRadius: '100%',
+          opacity: '1',
+        },
+
         '100%': {
-          bottom: '0',
-          left: '0',
-          top: '0',
-          right: '0',
           width: '100%',
           height: '100%',
+
+          borderRadius: '0%',
+          opacity: '1',
         },
       },
     },
     animation: {
-      'expanding-circle': 'expanding-circle 1s ease-in',
+      'expanding-circle': 'expanding-circle 1s linear  forwards',
     },
     screens: {
       'sm-screen': '769px',
