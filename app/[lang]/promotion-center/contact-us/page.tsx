@@ -74,210 +74,25 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
     return validation;
   }, [contactData, checkEmail, checkPhone]);
 
-  const getEmailTemplate = useCallback((contact: ContactData) => {
-    return `<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>문의 확인 이메일</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 44px;
-        font-family: Arial, sans-serif;
-        background-color: #ffffff;
-      }
-      table {
-        border-spacing: 0;
-        width: 100%;
-      }
-      td {
-        padding: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <table width="100%" bgcolor="#ffffff" cellpadding="0" cellspacing="0">
-      <tr>
-        <td align="center">
-          <table
-            width="700"
-            bgcolor="#ffffff"
-            cellpadding="0"
-            cellspacing="0"
-            style="border-radius: 8px; overflow: hidden"
-          >
-            <!-- Header -->
-            <tr>
-              <td align="left" bgcolor="#ffffff" style="padding: 44px">
-                <img
-                  src="https://monalec-dev.s3.ap-northeast-2.amazonaws.com/images/temp/a6507545-1c39-4738-85d5-f15ed3636557"
-                  alt="MONA Logo"
-                  style="display: block"
-                />
-              </td>
-            </tr>
-            <!-- Body -->
-            <tr>
-              <td style="padding: 0 44px; text-align: left; color: #333333">
-                <h1
-                  style="
-                    margin: 0;
-                    font-size: 18px;
-                    font-weight: bold;
-                    color: #000;
-                  "
-                >
-                  ${contact.name}님, 안녕하세요.
-                </h1>
-                <p style="font-size: 14px; line-height: 1.6; margin: 10px 0">
-                  저희 모나에 문의주셔서 감사 드립니다.<br />
-                  문의 주신 내용은 저희 담당자에게 바로 전달하였으며,<br />
-                  저희 담당자가 빠르게 확인하고 고객님께 연락드리겠습니다.<br />
-                  감사합니다.
-                </p>
-              </td>
-            </tr>
-            <!-- Inquiry Details -->
-            <tr>
-              <td style="padding: 44px; background-color: #ffffff">
-                <h2
-                  style="
-                    margin: 0;
-                    font-size: 18px;
-                    color: #ec7700;
-                    border-bottom: 1px solid #ec7700;
+  const postContact = useCallback(async (contact: ContactData) => {
+    const body = {
+      ...contact,
+      date: dayjs().format('YYYY-MM-DD HH:mm'),
+      to: '123rudgks@gmail.com',
+    };
+    const res = await fetch('/api/mail/inquiry', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    });
+    const data = await res.json();
 
-                    padding-bottom: 24px;
-                  "
-                >
-                  문의내역
-                </h2>
-                <p
-                  style="
-                    font-size: 12px;
-                    background-color: #f6f6f6;
-                    color: #444;
-                    margin: 24px 0;
-                    padding: 4px 9px;
-                    width: fit-content;
-                  "
-                >
-                  ${dayjs().format('YYYY-MM-DD HH:mm')}에 문의하셨습니다.
-                </p>
-                <table
-                  width="100%"
-                  cellpadding="0"
-                  cellspacing="0"
-                  style="font-size: 14px; color: #333; margin-top: 10px"
-                >
-                  <tr>
-                    <td
-                      style="
-                        padding: 5px 0;
-                        color: #ec7700;
-                        font-size: 14px;
-                        width: 50px;
-                      "
-                    >
-                      이름
-                    </td>
-                    <td style="padding-left: 12px">${contact.name}</td>
-                  </tr>
-                  <tr>
-                    <td
-                      style="padding-top: 12px; color: #ec7700; font-size: 14px"
-                    >
-                      회사명
-                    </td>
-                    <td style="padding-top: 12px; padding-left: 12px">
-                      ${contact.company}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td
-                      style="padding-top: 12px; color: #ec7700; font-size: 14px"
-                    >
-                      직책
-                    </td>
-                    <td style="padding-top: 12px; padding-left: 12px">
-                      ${contact.position}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td
-                      style="padding-top: 12px; color: #ec7700; font-size: 14px"
-                    >
-                      이메일
-                    </td>
-                    <td style="padding-top: 12px; padding-left: 12px">
-                      ${contact.email}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td
-                      style="padding-top: 12px; color: #ec7700; font-size: 14px"
-                    >
-                      전화번호
-                    </td>
-                    <td style="padding-top: 12px; padding-left: 12px">
-                      ${contact.phone}
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-            <!-- Additional Content -->
-            <tr>
-              <td
-                style="
-                  padding: 0 44px;
-                  text-align: left;
-                  color: #333333;
-                  font-size: 14px;
-                  line-height: 1.6;
-                "
-              >
-                <p
-                  style="
-                    border: 1px solid #f6f6f6;
-                    border-radius: 16px;
-                    padding: 12px 16px 0;
-                    min-height: 248px;
-                  "
-                >
-                  ${contact.content}
-                </p>
-              </td>
-            </tr>
-            <!-- Footer -->
-            <tr>
-              <td style="border-bottom: 1px solid #eee; padding-top: 44px"></td>
-            </tr>
-            <tr>
-              <td
-                style="
-                  padding: 32px 0px;
-                  text-align: center;
-                  background-color: #ffffff;
-                  font-size: 12px;
-                  color: #6d6d6d;
-                "
-              >
-                <p>본 메일은 발신전용 입니다.</p>
-                <p>&copy; 2024. MONA All rights reserved.</p>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
-  </body>
-</html>
-
-`;
+    if (data.message === '성공') setIsModal(true);
+    // API
   }, []);
+
   return (
     <main>
       <BoardSection
@@ -486,14 +301,14 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
                     variant={'primary'}
                     size={'lg'}
                     className="h-12"
+                    disabled={!agreement}
                     onClick={() => {
                       const validation = checkValidation();
                       if (validation.length > 0 || !agreement) {
                         setValidation(validation);
                         return;
                       }
-                      setIsModal(true);
-                      console.log(getEmailTemplate(contactData));
+                      postContact(contactData);
                     }}>
                     {dict['문의하기'][lang]}
                   </Button>
