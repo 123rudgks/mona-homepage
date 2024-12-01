@@ -17,7 +17,10 @@ type Props = {};
 
 const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
   const { MENU, currentCategory, currentMenu } = useMenu({ lang });
-  const { content } = useGetInfos({ infoId: 7, infoType: 'product' });
+  const { content } = useGetInfos({
+    infoTag: 'high-speed-battery-product',
+    infoType: 'product',
+  });
 
   return (
     <main>
