@@ -15,6 +15,7 @@ export interface ArticleData {
   id: number;
   title: string;
   createdDate: string;
+  content: string;
   thumbnail: string | null;
   reservedDate: string | null;
 }

@@ -7,7 +7,7 @@ import Section3_하드웨어 from '@/app/images/main/Section3_Hardware.png';
 import ViewMore from '@/app/svgs/ViewMore.svg';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
-import NewsItem, { DUMMY_NEWS } from '@/components/pages/Main/NewsItem';
+import NewsItem from '@/components/pages/Main/NewsItem';
 import ProductCarousel from '@/components/pages/Main/ProductCarousel';
 import TopRightRoundedCard from '@/components/pages/Main/TopRightRoundedCard';
 import { Button } from '@/components/ui/button';
@@ -17,9 +17,10 @@ import { cn } from '@/lib/utils';
 import AnimationCircleBg from '@/public/images/AnimationCircleBg.png';
 import MainSection2 from '@/public/images/MainSection2.png';
 import MainSection3 from '@/public/images/MainSection3.png';
-import { Language } from '@/types/globals.types';
+import { ArticleData, Language } from '@/types/globals.types';
 import Image from 'next/image';
-import { Fragment, useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import ShineIcon from '../svgs/Shine.svg';
 
 const Section3Images: { [str in Partial<keyof typeof dict>]?: string } = {
@@ -44,6 +45,8 @@ export default function Page({
   const section3Ref = useRef<HTMLDivElement | null>(null);
   const [tabValue, setTabValue] = useState<string>('solution');
   const [headerDarkMode, setHeaderDarkMode] = useState<boolean>(false);
+  const [news, setNews] = useState<ArticleData[]>([]);
+  const router = useRouter();
 
   // 스크롤에 따라 헤더 색상 변경
   useEffect(() => {
@@ -106,6 +109,21 @@ export default function Page({
     //   // }
     // }, 100);
   }, []);
+  const fetchNews = useCallback(
+    async ({ page, title }: { page: number; title?: string }) => {
+      const res = await fetch(
+        `/api/articles?page=${page}${title ? `&title=${title}` : ''}`,
+      );
+      const data = await res.json();
+      return data;
+    },
+    [],
+  );
+  useEffect(() => {
+    fetchNews({ page: 1 }).then((data) => {
+      setNews(data.data.articles);
+    });
+  }, [fetchNews]);
   return (
     <main
       id="main"
@@ -517,7 +535,7 @@ export default function Page({
             </span>
           </div>
           <div className={cn('w-full flex flex-col sm-screen:gap-10 gap-6')}>
-            {DUMMY_NEWS.map((news) => (
+            {news.slice(0, 4).map((news) => (
               <Fragment key={news.id + news.title}>
                 <NewsItem {...news} />
                 <div className="h-[1px] bg-blackAlpha-20" />
@@ -528,7 +546,10 @@ export default function Page({
             variant={'ghost'}
             theme={'black'}
             size={'lg'}
-            className="w-[200px] h-10 lg-screen:mt-[30px] sm-screen:mt-5">
+            className="w-[200px] h-10 lg-screen:mt-[30px] sm-screen:mt-5"
+            onClick={() => {
+              router.push('/promotion-center/news');
+            }}>
             <div className="flex items-center gap-2">
               View more <ViewMore />
             </div>
