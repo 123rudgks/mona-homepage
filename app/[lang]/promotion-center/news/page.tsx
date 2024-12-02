@@ -182,7 +182,7 @@ const NewsCard = ({
       <div className={cn('flex flex-col gap-2', 'gap-3')}>
         <div
           className={cn(
-            'text-grayscale-700',
+            'text-grayscale-700 line-clamp-1',
             'typo-HeadlineBold',
             'sm-screen:typo-Display1Bold',
           )}>
