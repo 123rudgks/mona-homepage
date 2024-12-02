@@ -1,10 +1,10 @@
 import Hardware1 from '@/app/images/main/Hardware_slide1.png';
 import Hardware2 from '@/app/images/main/Hardware_slide2.png';
 import Hardware3 from '@/app/images/main/Hardware_slide3.png';
+import Solution_slide1 from '@/app/images/main/Solution_slide1.png';
+import Solution_slide2 from '@/app/images/main/Solution_slide2.png';
+import Solution_slide3 from '@/app/images/main/Solution_slide3.png';
 import ChevronLeft from '@/app/svgs/main/ChevronLeft.svg';
-import Solution_slide1 from '@/app/svgs/main/Solution_slide1.svg';
-import Solution_slide2 from '@/app/svgs/main/Solution_slide2.svg';
-import Solution_slide3 from '@/app/svgs/main/Solution_slide3.svg';
 import dict from '@/dictionaries/main.json';
 
 import ProductCarouselItem from '@/components/pages/Main/ProductCarouselItem';
@@ -54,7 +54,10 @@ const ProductCarousel = ({ lang, tabValue }: Props) => {
           <CarouselContent>
             <ProductCarouselItem
               isSelected={selectedSlide === 0}
-              cardImg={<Solution_slide1 />}
+              cardImg={
+                <Image src={Solution_slide1} alt="Solution_slide1" fill />
+                // <Solution_slide1 />
+              }
               desc={[
                 dict['Section4_Solution1_Desc1'][lang],
                 dict['Section4_Solution1_Desc2'][lang],
@@ -63,7 +66,9 @@ const ProductCarousel = ({ lang, tabValue }: Props) => {
             />
             <ProductCarouselItem
               isSelected={selectedSlide === 1}
-              cardImg={<Solution_slide2 />}
+              cardImg={
+                <Image src={Solution_slide2} alt="Solution_slide2" fill />
+              }
               desc={[dict['Section4_Solution2_Desc'][lang]]}
               subDesc={[
                 dict['Section4_Solution2_SubDesc1'][lang],
@@ -72,7 +77,9 @@ const ProductCarousel = ({ lang, tabValue }: Props) => {
             />
             <ProductCarouselItem
               isSelected={selectedSlide === 2}
-              cardImg={<Solution_slide3 />}
+              cardImg={
+                <Image src={Solution_slide3} alt="Solution_slide3" fill />
+              }
               desc={[dict['Section4_Solution3_Desc'][lang]]}
               subDesc={[dict['Section4_Solution3_SubDesc'][lang]]}
             />
