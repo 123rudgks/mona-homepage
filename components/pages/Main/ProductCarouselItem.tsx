@@ -2,6 +2,7 @@ import ViewMore from '@/app/svgs/ViewMore.svg';
 import { Button } from '@/components/ui/button';
 import { CarouselItem } from '@/components/ui/carousel';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 import React from 'react';
 
 type Props = {
@@ -9,9 +10,16 @@ type Props = {
   cardImg: React.ReactNode;
   desc: string[];
   subDesc: string[];
+  link?: string;
 };
 
-const ProductCarouselItem = ({ isSelected, cardImg, desc, subDesc }: Props) => {
+const ProductCarouselItem = ({
+  isSelected,
+  cardImg,
+  desc,
+  subDesc,
+  link,
+}: Props) => {
   return (
     <CarouselItem
       className={cn(
@@ -45,7 +53,9 @@ const ProductCarouselItem = ({ isSelected, cardImg, desc, subDesc }: Props) => {
               {cardImg}
             </div>
           </div>
-          {isSelected && <ProductDesc desc={desc} subDesc={subDesc} />}
+          {isSelected && (
+            <ProductDesc desc={desc} subDesc={subDesc} link={link} />
+          )}
         </div>
       </div>
     </CarouselItem>
@@ -55,9 +65,11 @@ const ProductCarouselItem = ({ isSelected, cardImg, desc, subDesc }: Props) => {
 export const ProductDesc = ({
   desc,
   subDesc,
+  link = '',
 }: {
   desc: string[];
   subDesc: string[];
+  link?: string;
 }) => {
   return (
     <div className="flex flex-col sm-screen:gap-[64px] gap-7">
@@ -97,10 +109,10 @@ export const ProductDesc = ({
           theme={'white'}
           size={'lg'}
           className="w-[160px] h-[52px]">
-          <div className="flex items-center gap-2">
+          <Link className="flex items-center gap-2" href={link}>
             View more
             <ViewMore className="[&>path]:fill-white [&>path]:stroke-white" />
-          </div>
+          </Link>
         </Button>
       </div>
     </div>

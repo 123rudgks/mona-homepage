@@ -53,6 +53,7 @@ const ProductCarousel = ({ lang, tabValue }: Props) => {
         {tabValue === 'solution' && (
           <CarouselContent>
             <ProductCarouselItem
+              link="/product-info/high-speed-battery"
               isSelected={selectedSlide === 0}
               cardImg={
                 <Image src={Solution_slide1} alt="Solution_slide1" fill />
@@ -65,6 +66,7 @@ const ProductCarousel = ({ lang, tabValue }: Props) => {
               subDesc={[dict['Section4_Solution1_SubDesc'][lang]]}
             />
             <ProductCarouselItem
+              link="/product-info/battery-capacity"
               isSelected={selectedSlide === 1}
               cardImg={
                 <Image src={Solution_slide2} alt="Solution_slide2" fill />
@@ -76,6 +78,7 @@ const ProductCarousel = ({ lang, tabValue }: Props) => {
               ]}
             />
             <ProductCarouselItem
+              link="/product-info/hydrogen-system"
               isSelected={selectedSlide === 2}
               cardImg={
                 <Image src={Solution_slide3} alt="Solution_slide3" fill />

@@ -21,6 +21,7 @@
       "@/*": ["./*"]
     }
   },
+  "types": ["global.d.ts"],
   "include": [
     "svgr.d.ts",
     "next-env.d.ts",

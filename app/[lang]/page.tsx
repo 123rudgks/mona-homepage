@@ -292,7 +292,10 @@ export default function Page({
                   variant={'ghost'}
                   theme={'black'}
                   size={'lg'}
-                  className="">
+                  className=""
+                  onClick={() => {
+                    window.open('https://vimeo.com/761694548');
+                  }}>
                   <div className="flex items-center gap-2">
                     View more <ViewMore />
                   </div>
@@ -377,7 +380,10 @@ export default function Page({
                   theme={'white'}
                   variant={'ghost'}
                   size={'lg'}
-                  className="sm-screen:w-40 sm-screen:py-3 w-[120px] py-1">
+                  className="sm-screen:w-40 sm-screen:py-3 w-[120px] py-1"
+                  onClick={() => {
+                    router.push('/company-info/introduction');
+                  }}>
                   View more
                 </Button>
               </div>

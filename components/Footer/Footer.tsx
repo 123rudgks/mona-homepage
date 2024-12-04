@@ -212,6 +212,7 @@ const Footer = ({ darkMode, lang }: Props) => {
               {[
                 {
                   key: 'instagram',
+                  link: 'https://www.instagram.com/monainc_official/',
                   icon: (
                     <Instagram
                       className={cn(darkMode ? '[&>g>path]:fill-white' : '')}
@@ -220,6 +221,7 @@ const Footer = ({ darkMode, lang }: Props) => {
                 },
                 {
                   key: 'blog',
+                  link: 'https://blog.naver.com/monaelectric',
                   icon: (
                     <Blog
                       className={cn(darkMode ? '[&>path]:fill-white' : '')}
@@ -228,6 +230,7 @@ const Footer = ({ darkMode, lang }: Props) => {
                 },
                 {
                   key: 'youtube',
+                  link: 'https://www.youtube.com/channel/UCs57hD9Wqsu7yhia20_jVEw',
                   icon: (
                     <Youtube
                       className={cn(darkMode ? '[&>path]:fill-white ' : '')}
@@ -236,6 +239,7 @@ const Footer = ({ darkMode, lang }: Props) => {
                 },
               ].map((item) => (
                 <IconBtn
+                  href={item.link}
                   key={item.key}
                   darkMode={darkMode}
                   icon={item.icon}></IconBtn>
@@ -270,20 +274,24 @@ const IconBtn = ({
   darkMode,
   icon,
   onClick,
+  href = '',
 }: {
   darkMode?: boolean;
   icon: JSX.Element;
   onClick?: () => void;
+  href?: string;
 }) => {
   return (
-    <span
+    <Link
+      href={href}
+      target="_blank"
       onClick={onClick}
       className={cn(
         'w-11 h-11 rounded-full flex items-center justify-center cursor-pointer',
         darkMode ? 'bg-whiteAlpha-10' : 'bg-blackAlpha-10',
       )}>
       {icon}
-    </span>
+    </Link>
   );
 };
 export const NavMenu = ({ darkMode, title, menu }: FooterNavMenu) => {

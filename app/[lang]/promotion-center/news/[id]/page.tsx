@@ -1,7 +1,5 @@
 'use client';
 import ChevronLeft from '@/app/svgs/main/ChevronLeft.svg';
-import ClipIcon from '@/app/svgs/promotion-center/news/Icon_clip.svg';
-import KakaoIcon from '@/app/svgs/promotion-center/news/Icon_kakao.svg';
 import BoardSection from '@/components/BoardSection';
 import ContentSection from '@/components/ContentSection';
 import Footer from '@/components/Footer/Footer';
@@ -10,10 +8,15 @@ import HtmlDiv from '@/components/HtmlDiv';
 import MonaBreadCrumb from '@/components/MonaBreadCrumb';
 import { MobileTabMenu } from '@/components/TabMenu';
 import { Button } from '@/components/ui/button';
+import {
+  ClipboardShareButton,
+  KakaoShareButton,
+} from '@/components/ui/ShareButton';
 import dict from '@/dictionaries/promotion-center/news-detail.json';
 import useMenu from '@/hooks/useMenu';
 import { cn } from '@/lib/utils';
 import { ArticleDetailData, Language } from '@/types/globals.types';
+import { extractTextFromHTML } from '@/utils/parsers';
 import dayjs from 'dayjs';
 import { HomeIcon } from 'lucide-react';
 import Image from 'next/image';
@@ -105,18 +108,23 @@ const Page = ({
             )}
 
             <span className="absolute bottom-0 right-1/2 translate-x-1/2 sm-screen:right-0 sm-screen:top-[70px] sm-screen:bottom-auto sm-screen:translate-x-0  flex gap-4">
-              <Button
-                variant={'outline'}
-                theme={'gray'}
-                className="rounded-full aspect-square w-12">
-                <KakaoIcon />
-              </Button>
-              <Button
-                variant={'outline'}
-                theme={'gray'}
-                className="rounded-full aspect-square w-12">
-                <ClipIcon />
-              </Button>
+              <KakaoShareButton
+                kakaoConfig={{
+                  objectType: 'feed',
+                  content: {
+                    title: articleDetail?.title || '',
+                    description: truncateString(
+                      extractTextFromHTML(articleDetail?.content || ''),
+                    ),
+                    imageUrl: articleDetail?.thumbnail || '',
+                    link: {
+                      mobileWebUrl: window.location.href,
+                      webUrl: window.location.href,
+                    },
+                  },
+                }}
+              />
+              <ClipboardShareButton />
             </span>
           </div>
         </div>
@@ -223,4 +231,14 @@ const PostingList = ({
     </Link>
   );
 };
+
+function truncateString(str: string) {
+  // 문자열이 50글자를 초과하는지 확인
+  if (str.length > 50) {
+    // 50글자까지 자르고 '...' 추가
+    return str.slice(0, 50) + '...';
+  }
+  // 50글자 이하라면 그대로 반환
+  return str;
+}
 export default Page;
