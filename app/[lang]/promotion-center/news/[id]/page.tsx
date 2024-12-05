@@ -108,6 +108,7 @@ const Page = ({
             )}
 
             <span className="absolute bottom-0 right-1/2 translate-x-1/2 sm-screen:right-0 sm-screen:top-[70px] sm-screen:bottom-auto sm-screen:translate-x-0  flex gap-4">
+              {/* 클라이언트한테 계정 받아야함. 현재 디자인에선 hidden */}
               <KakaoShareButton
                 kakaoConfig={{
                   objectType: 'feed',
