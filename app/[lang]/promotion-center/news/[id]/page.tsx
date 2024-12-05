@@ -8,15 +8,11 @@ import HtmlDiv from '@/components/HtmlDiv';
 import MonaBreadCrumb from '@/components/MonaBreadCrumb';
 import { MobileTabMenu } from '@/components/TabMenu';
 import { Button } from '@/components/ui/button';
-import {
-  ClipboardShareButton,
-  KakaoShareButton,
-} from '@/components/ui/ShareButton';
+import { ClipboardShareButton } from '@/components/ui/ShareButton';
 import dict from '@/dictionaries/promotion-center/news-detail.json';
 import useMenu from '@/hooks/useMenu';
 import { cn } from '@/lib/utils';
 import { ArticleDetailData, Language } from '@/types/globals.types';
-import { extractTextFromHTML } from '@/utils/parsers';
 import dayjs from 'dayjs';
 import { HomeIcon } from 'lucide-react';
 import Image from 'next/image';
@@ -109,7 +105,7 @@ const Page = ({
 
             <span className="absolute bottom-0 right-1/2 translate-x-1/2 sm-screen:right-0 sm-screen:top-[70px] sm-screen:bottom-auto sm-screen:translate-x-0  flex gap-4">
               {/* 클라이언트한테 계정 받아야함. 현재 디자인에선 hidden */}
-              <KakaoShareButton
+              {/* <KakaoShareButton
                 kakaoConfig={{
                   objectType: 'feed',
                   content: {
@@ -124,7 +120,7 @@ const Page = ({
                     },
                   },
                 }}
-              />
+              /> */}
               <ClipboardShareButton />
             </span>
           </div>
