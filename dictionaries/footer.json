@@ -87,5 +87,665 @@
   "채용공고": {
     "ko": "채용공고",
     "en": "Recruitment Notice"
+  },
+  "개인정보처리방침": {
+    "ko": "개인정보처리방침",
+    "en": "Privacy Policy"
+  },
+  "이용약관": {
+    "ko": "이용약관",
+    "en": "Terms of Use"
+  },
+  "제 1조 목적": {
+    "ko": "제 1조 목적",
+    "en": "Article 1 Purpose"
+  },
+  "본 이용약관은": {
+    "ko": "본 이용약관은 “모나 주식회사”(이하 “사이트”)의 서비스의 이용조건과 운영에 관한 제반 사항 규정을 목적으로 합니다.",
+    "en": "This Terms of Use is intended to regulate the terms and conditions of use and operation of the services of “MONA Corporation” (hereinafter referred to as the “Site”)."
+  },
+  "제 2조 용어의 정의": {
+    "ko": "제2조 용어의 정의",
+    "en": "Article 2 Definitions"
+  },
+  "본 약관에서 사용되는": {
+    "ko": "본 약관에서 사용되는 주요한 용어의 정의는 다음과 같습니다.",
+    "en": "The definitions of the key terms used in these Terms are as follows."
+  },
+  "회원": {
+    "ko": "① 회원 : 사이트의 약관에 동의하고 개인정보를 제공하여 회원등록을 한 자로서, 사이트와의 이용계약을 체결하고 사이트를 이용하는 이용자를 말합니다.",
+    "en": "① Member: A person who agrees to the terms of the site, provides personal information, registers as a member, enters into a usage contract with the site, and uses the site."
+  },
+  "이용계약": {
+    "ko": "② 이용계약 : 사이트 이용과 관련하여 사이트와 회원간에 체결 하는 계약을 말합니다.",
+    "en": "② Usage Contract: A contract concluded between the site and the member regarding the use of the site."
+  },
+  "회원 아이디": {
+    "ko": "③ 회원 아이디(이하 'ID') : 회원의 식별과 회원의 서비스 이용을 위하여 회원별로 부여하는 고유한 문자와 숫자의 조합을 말합니다.",
+    "en": "③ Member ID (hereinafter 'ID'): A unique combination of letters and numbers assigned to each member for identification and service use."
+  },
+  "비밀번호": {
+    "ko": "④ 비밀번호 : 회원이 부여받은 ID와 일치된 회원임을 확인하고 회원의 권익 보호를 위하여 회원이 선정한 문자와 숫자의 조합을 말합니다.",
+    "en": "④ Password: A combination of letters and numbers selected by the member to verify their identity and protect their rights."
+  },
+  "운영자": {
+    "ko": "⑤ 운영자 : 서비스에 홈페이지를 개설하여 운영하는 운영자를 말합니다.",
+    "en": "⑤ Operator: A person who opens and operates a homepage for the service."
+  },
+  "해지": {
+    "ko": "⑥ 해지 : 회원이 이용계약을 해약하는 것을 말합니다.",
+    "en": "⑥ Termination: The act of a member canceling the usage contract."
+  },
+  "제3조 약관 외 준칙": {
+    "ko": "제3조 약관 외 준칙",
+    "en": "Article 3 Supplementary Provisions"
+  },
+  "운영자는 필요한": {
+    "ko": "운영자는 필요한 경우 별도로 운영정책을 공지 안내할 수 있으며, 본 약관과 운영정책이 중첩될 경우 운영정책이 우선 적용됩니다.",
+    "en": "The operator may announce and guide the operation policy separately if necessary, and if the operation policy overlaps with these terms, the operation policy shall take precedence."
+  },
+  "제4조 이용계약 체결": {
+    "ko": "제4조 이용계약 체결",
+    "en": "Article 4 Conclusion of Usage Agreement"
+  },
+  "이용계약은 회원으로": {
+    "ko": "① 이용계약은 회원으로 등록하여 사이트를 이용하려는 자의 본 약관 내용에 대한 동의와 가입신청에 대하여 운영자의 이용승낙으로 성립합니다.",
+    "en": "① The usage agreement is established by the operator's approval of the application for use and the agreement of the person who wants to use the site as a member."
+  },
+  "회원으로 등록": {
+    "ko": "② 회원으로 등록하여 서비스를 이용하려는 자는 사이트 가입신청 시 본 약관을 읽고 아래에 있는 \"동의합니다\"를 선택하는 것으로 본 약관에 대한 동의 의사 표시를 합니다.",
+    "en": "② A person who wants to use the service as a member must read these terms when applying for membership on the site and express their intention to agree to these terms by selecting 'Agree' below."
+  },
+  "제5조 서비스 이용 신청": {
+    "ko": "제5조 서비스 이용 신청",
+    "en": "Article 5 Application for Service Use"
+  },
+  "회원으로 등록하여": {
+    "ko": "① 회원으로 등록하여 사이트를 이용하려는 이용자는 사이트에서 요청하는 제반정보(이용자ID,비밀번호, 닉네임 등)를 제공해야 합니다.",
+    "en": "① A user who wants to use the site as a member must provide the required information (User ID, password, nickname, etc.) requested by the site."
+  },
+  "타인의 정보를 도용하거나": {
+    "ko": "② 타인의 정보를 도용하거나 허위의 정보를 등록하는 등 본인의 진정한 정보를 등록하지 않은 회원은 사이트 이용과 관련하여 아무런 권리를 주장할 수 없으며, 관계 법령에 따라 처벌받을 수 있습니다.",
+    "en": "② A member who uses another person's information, registers false information, or fails to register their true information cannot claim any rights regarding the use of the site and may be punished under relevant laws."
+  },
+  "제6조 개인정보처리방침": {
+    "ko": "제6조 개인정보처리방침",
+    "en": "Article 6 Privacy Policy"
+  },
+  "사이트 및 운영자는": {
+    "ko": "사이트 및 운영자는 회원가입 시 제공한 개인정보 중 비밀번호를 가지고 있지 않으며 이와 관련된 부분은 사이트의 개인정보처리방침을 따릅니다.",
+    "en": "The site and operator do not have the password among the personal information provided during membership registration, and this part follows the site's privacy policy."
+  },
+  "운영자는 관계 법령이": {
+    "ko": "운영자는 관계 법령이 정하는 바에 따라 회원등록정보를 포함한 회원의 개인정보를 보호하기 위하여 노력합니다.",
+    "en": "The operator strives to protect the member's personal information, including member registration information, as prescribed by relevant laws."
+  },
+  "회원의 개인정보보호에 관하여": {
+    "ko": "회원의 개인정보보호에 관하여 관계법령 및 사이트가 정하는 개인정보처리방침에 정한 바에 따릅니다.",
+    "en": "The protection of members' personal information is subject to the relevant laws and the privacy policy set by the site."
+  },
+  "단, 회원의 귀책 사유로": {
+    "ko": "단, 회원의 귀책 사유로 인해 노출된 정보에 대해 운영자는 일체의 책임을 지지 않습니다.",
+    "en": "However, the operator is not responsible for any information exposed due to the member's fault."
+  },
+  "운영자는 회원이 미풍양속에": {
+    "ko": "운영자는 회원이 미풍양속에 저해되거나 국가안보에 위배되는 게시물 등 위법한 게시물을 등록 · 배포할 경우 관련 기관의 요청이 있을 시 회원의 자료를 열람 및 해당 자료를 관련 기관에 제출할 수 있습니다.",
+    "en": "If a member registers or distributes illegal posts that are harmful to public morals or violate national security, the operator may view the member's data and submit it to relevant authorities upon request."
+  },
+  "제7조 운영자의 의무": {
+    "ko": "제7조 운영자의 의무",
+    "en": "Article 7 Duties of the Operator"
+  },
+  "운영자는 이용회원으로부터": {
+    "ko": "① 운영자는 이용회원으로부터 제기되는 의견이나 불만이 정당하다고 인정할 경우에는 가급적 빨리 처리하여야 합니다. 다만, 개인적인 사정으로 신속한 처리가 곤란한 경우에는 사후에 공지 또는 이용회원에게 쪽지, 전자우편 등을 보내는 등 최선을 다합니다.",
+    "en": "① The operator must handle opinions or complaints raised by members as quickly as possible if they are deemed reasonable. However, if quick handling is difficult due to personal circumstances, the operator will do their best by notifying later or sending a message or email to the member."
+  },
+  "운영자는 계속적이고 안정적인": {
+    "ko": "② 운영자는 계속적이고 안정적인 사이트 제공을 위하여 설비에 장애가 생기거나 유실된 때에는 이를 지체 없이 수리 또는 복구할 수 있도록 사이트에 요구할 수 있습니다. 다만, 천재지변 또는 사이트나 운영자에 부득이한 사유가 있는 경우, 사이트 운영을 일시 정지할 수 있습니다.",
+    "en": "② The operator may request the site to promptly repair or restore facilities in case of a malfunction or loss to ensure continuous and stable site provision. However, in cases of natural disasters or unavoidable reasons for the site or operator, site operation may be temporarily suspended."
+  },
+  "제8조 회원의 의무": {
+    "ko": "제8조 회원의 의무",
+    "en": "Article 8 Duties of Members"
+  },
+  "회원은 본 약관에서": {
+    "ko": "① 회원은 본 약관에서 규정하는 사항과 운영자가 정한 제반 규정, 공지사항 및 운영정책 등 사이트가 공지하는 사항 및 관계 법령을 준수하여야 하며, 기타 사이트의 업무에 방해가 되는 행위, 사이트의 명예를 손상하는 행위를 해서는 안 됩니다.",
+    "en": "① Members must comply with the provisions of these terms and conditions, various regulations set by the operator, notices, operating policies, and related laws announced by the site. Members must not engage in acts that interfere with the site's operations or damage the site's reputation."
+  },
+  "회원은 사이트의 명시적": {
+    "ko": "② 회원은 사이트의 명시적 동의가 없는 한 서비스의 이용 권한, 기타 이용계약상 지위를 타인에게 양도, 증여할 수 없으며, 이를 담보로 제공할 수 없습니다.",
+    "en": "② Members may not transfer, gift, or provide as collateral their service usage rights or other contractual positions without the explicit consent of the site."
+  },
+  "이용고객은 아이디 및": {
+    "ko": "③ 이용고객은 아이디 및 비밀번호 관리에 상당한 주의를 기울여야 하며, 운영자나 사이트의 동의 없이 제3자에게 아이디를 제공하여 이용하게 할 수 없습니다.",
+    "en": "③ Users must pay careful attention to managing their ID and password and must not allow third parties to use their ID without the consent of the operator or site."
+  },
+  "회원은 운영자와 사이트": {
+    "ko": "④ 회원은 운영자와 사이트 및 제3자의 지적 재산권을 침해해서는 안 됩니다.",
+    "en": "④ Members must not infringe on the intellectual property rights of the operator, the site, or third parties."
+  },
+  "제9조 서비스 이용 시간": {
+    "ko": "제9조 서비스 이용 시간",
+    "en": "Article 9 Service Hours"
+  },
+  "서비스 이용 시간은 업무상": {
+    "ko": "① 서비스 이용 시간은 업무상 또는 기술상 특별한 지장이 없는 한 연중무휴 1일 24시간을 원칙으로 합니다. 단, 사이트는 시스템 정기점검, 증설 및 교체를 위해 사이트가 정한 날이나 시간에 서비스를 일시중단 할 수 있으며 예정된 작업으로 인한 서비스 일시 중단은 사이트의 홈페이지에 사전에 공지하오니 수시로 참고하시길 바랍니다.",
+    "en": "① The service hours are, in principle, 24 hours a day, 365 days a year, unless there are special operational or technical issues. However, the site may temporarily suspend services on days or times determined by the site for regular system inspections, expansions, or replacements. Notices regarding scheduled work and temporary service suspensions will be posted on the site’s homepage in advance, so please check frequently."
+  },
+  "단 사이트는 다음 경우에": {
+    "ko": "② 단, 사이트는 다음 경우에 대하여 사전 공지나 예고 없이 서비스를 일시적 혹은 영구적으로 중단할 수 있습니다.",
+    "en": "② However, the site may temporarily or permanently suspend services without prior notice or announcement in the following cases."
+  },
+  "- 긴급한 시스템 점검, 증설": {
+    "ko": "- 긴급한 시스템 점검, 증설, 교체, 고장 혹은 오동작을 일으키는 경우",
+    "en": "- In case of urgent system inspections, expansions, replacements, malfunctions, or malfunctions"
+  },
+  "- 국가비상사태": {
+    "ko": "- 국가비상사태, 정전, 천재지변 등의 불가항력적인 사유가 있는 경우",
+    "en": "- In case of force majeure such as a national emergency, power outage, or natural disaster"
+  },
+  "- 전기통신사업법에": {
+    "ko": "- 전기통신사업법에 규정된 기간통신사업자가 전기통신 서비스를 중지한 경우",
+    "en": "- In case a telecommunications service provider suspends telecommunication services as stipulated in the Telecommunications Business Act"
+  },
+  "- 서비스 이용의 폭주": {
+    "ko": "- 서비스 이용의 폭주 등으로 정상적인 서비스 이용에 지장이 있는 경우",
+    "en": "- In case of service congestion that interferes with normal service use"
+  },
+  "전항에 의한 서비스 중단의": {
+    "ko": "③ 전항에 의한 서비스 중단의 경우 사이트는 사전에 공지사항 등을 통하여 회원에게 통지합니다. 단, 사이트가 통제할 수 없는 사유로 발생한 서비스의 중단에 대하여 사전공지가 불가능한 경우에는 사후공지로 대신합니다.",
+    "en": "③ In the case of service suspension as described in the preceding paragraph, the site will notify members in advance through notices, etc. However, if prior notice is not possible due to reasons beyond the site's control, a post-notification will be provided instead."
+  },
+  "제10조 서비스 이용 해지": {
+    "ko": "제10조 서비스 이용 해지",
+    "en": "Article 10 Termination of Service Use"
+  },
+  "회원이 사이트와의 이용계약을": {
+    "ko": "① 회원이 사이트와의 이용계약을 해지하고자 하는 경우에는 회원 본인이 온라인을 통하여 등록해지 신청을 하여야 합니다. 한편, 사이트 이용 해지와 별개로 사이트에 대한 이용계약 해지는 별도로 하셔야 합니다.",
+    "en": "① If a member wishes to terminate the service use agreement with the site, the member must apply for termination online. Separately, termination of the service use agreement with the site must be handled independently."
+  },
+  "해지 신청과 동시에 사이트가": {
+    "ko": "② 해지 신청과 동시에 사이트가 제공하는 사이트 관련 프로그램이 회원 관리 화면에서 자동적으로 삭제됨으로 운영자는 더 이상 해지신청자의 정보를 볼 수 없습니다.",
+    "en": "② Upon termination application, the site-related programs provided by the site are automatically deleted from the member management screen, so the operator can no longer view the information of the termination applicant."
+  },
+  "제11조 서비스 이용 제한": {
+    "ko": "제11조 서비스 이용 제한",
+    "en": "Article 11 Restriction of Service Use"
+  },
+  "회원은 다음 각호에 해당하는": {
+    "ko": "회원은 다음 각호에 해당하는 행위를 하여서는 아니 되며 해당 행위를 한 경우에 사이트는 회원의 서비스 이용 제한 및 적법한 조치를 할 수 있으며 이용계약을 해지하거나 기간을 정하여 서비스를 중지할 수 있습니다.",
+    "en": "Members must not engage in any of the following acts, and if they do, the site may restrict the member's use of the service, take appropriate legal action, terminate the service agreement, or suspend the service for a specified period."
+  },
+  "① 회원 가입시 혹은 가입 후": {
+    "ko": "① 회원 가입시 혹은 가입 후 정보 변경 시 허위 내용을 등록하는 행위",
+    "en": "① Registering false information during membership registration or when changing information after registration"
+  },
+  "② 타인의 사이트 이용을 방해하거나": {
+    "ko": "② 타인의 사이트 이용을 방해하거나 정보를 도용하는 행위",
+    "en": "② Interfering with another person's use of the site or stealing information"
+  },
+  "③ 사이트의 운영진 직원 또는": {
+    "ko": "③ 사이트의 운영진, 직원 또는 관계자를 사칭하는 행위",
+    "en": "③ Impersonating the site's administrators, staff, or affiliates"
+  },
+  "④ 사이트 기타 제3자의 인격권": {
+    "ko": "④ 사이트, 기타 제3자의 인격권 또는 지적재산권을 침해하거나 업무를 방해하는 행위",
+    "en": "④ Infringing on the personal rights or intellectual property rights of the site or third parties, or interfering with their operations"
+  },
+  "⑤ 다른 회원의 ID를 부정하게": {
+    "ko": "⑤ 다른 회원의 ID를 부정하게 사용하는 행위",
+    "en": "⑤ Illegally using another member's ID"
+  },
+  "⑥ 다른 회원에 대한 개인정보를": {
+    "ko": "⑥ 다른 회원에 대한 개인정보를 그 동의 없이 수집, 저장, 공개하는 행위",
+    "en": "⑥ Collecting, storing, or disclosing another member's personal information without their consent"
+  },
+  "⑦ 범죄와 결부된다고 객관적으로": {
+    "ko": "⑦ 범죄와 결부된다고 객관적으로 판단되는 행위",
+    "en": "⑦ Acts that are objectively judged to be associated with crimes"
+  },
+  "⑧ 기타 관련 법령에 위배되는": {
+    "ko": "⑧ 기타 관련 법령에 위배되는 행위",
+    "en": "⑧ Other acts that violate relevant laws and regulations"
+  },
+  "제12조 게시물의 관리": {
+    "ko": "제12조 게시물의 관리",
+    "en": "Article 12 Management of Posts"
+  },
+  "① 사이트의 게시물과 자료의 관리": {
+    "ko": "① 사이트의 게시물과 자료의 관리 및 운영의 책임은 운영자에게 있습니다. 운영자는 항상 불량 게시물 및 자료에 대하여 모니터링을 하여야 하며, 불량 게시물 및 자료를 발견하거나 신고를 받으면 해당 게시물 및 자료를 삭제하고 이를 등록한 회원에게 주의를 주어야 합니다. 한편, 이용회원이 올린 게시물에 대해서는 게시자 본인에게 책임이 있으니 회원 스스로 본 이용약관에서 위배되는 게시물은 게재해서는 안 됩니다.",
+    "en": "① The responsibility for the management and operation of posts and materials on the site lies with the operator. The operator must always monitor for inappropriate posts and materials, and if such posts or materials are found or reported, the operator must delete them and warn the member who posted them. Meanwhile, members are responsible for the posts they upload, so they must not post any content that violates these terms of use."
+  },
+  "② 정보통신윤리위원회 등 공공기관의": {
+    "ko": "② 정보통신윤리위원회 등 공공기관의 시정요구가 있는 경우 운영자는 회원의 사전동의 없이 게시물을 삭제하거나 이동 할 수 있습니다.",
+    "en": "② If there is a corrective request from public institutions such as the Information and Communication Ethics Committee, the operator may delete or move the post without prior consent from the member."
+  },
+  "③ 불량게시물의 판단기준은 다음과": {
+    "ko": "③ 불량게시물의 판단기준은 다음과 같습니다.",
+    "en": "③ The criteria for determining inappropriate posts are as follows."
+  },
+  "- 다른 회원 또는 제3자에게 심한": {
+    "ko": "- 다른 회원 또는 제3자에게 심한 모욕을 주거나 명예를 손상하는 내용인 경우",
+    "en": "- Content that severely insults or damages the reputation of other members or third parties"
+  },
+  "- 공공질서 및 미풍양속에 위반되는": {
+    "ko": "- 공공질서 및 미풍양속에 위반되는 내용을 유포하거나 링크 시키는 경우",
+    "en": "- Content that violates public order and morals, or links to such content"
+  },
+  "- 불법 복제 또는 해킹을 조장하는": {
+    "ko": "- 불법 복제 또는 해킹을 조장하는 내용인 경우",
+    "en": "- Content that promotes illegal copying or hacking"
+  },
+  "- 영리를 목적으로 하는 광고일 경우": {
+    "ko": "- 영리를 목적으로 하는 광고일 경우",
+    "en": "- Advertisements for commercial purposes"
+  },
+  "- 범죄와 결부된다고 객관적으로 인정되는": {
+    "ko": "- 범죄와 결부된다고 객관적으로 인정되는 내용일 경우",
+    "en": "- Content objectively recognized as being associated with crimes"
+  },
+  "- 다른 이용자 또는 제3자와 저작권": {
+    "ko": "- 다른 이용자 또는 제3자와 저작권 등 기타 권리를 침해하는 경우",
+    "en": "- Content that infringes on the copyrights or other rights of other users or third parties"
+  },
+  "- 기타 관계 법령에 위배된다고 판단되는": {
+    "ko": "- 기타 관계 법령에 위배된다고 판단되는 경우",
+    "en": "- Content deemed to violate relevant laws and regulations"
+  },
+  "④ 사이트 및 운영자는 게시물 등에": {
+    "ko": "④ 사이트 및 운영자는 게시물 등에 대하여 제3자로부터 명예훼손, 지적재산권 등의 권리 침해를 이유로 게시중단 요청을 받은 경우 이를 임시로 게시 중단(전송중단)할 수 있으며, 게시중단 요청자와 게시물 등록자 간에 소송, 합의 기타 이에 준하는 관련 기관의 결정 등이 이루어져 사이트에 접수된 경우 이에 따릅니다.",
+    "en": "④ The site and operator may temporarily suspend (stop transmission of) posts if a third party requests suspension due to defamation, intellectual property rights infringement, or other rights violations. If lawsuits, settlements, or equivalent decisions by related institutions occur between the requester and the poster, the site will comply with the outcomes."
+  },
+  "제13조 게시물의 보관": {
+    "ko": "제13조 게시물의 보관",
+    "en": "Article 13 Preservation of Posts"
+  },
+  "사이트 운영자가 불가피한 사정으로": {
+    "ko": "사이트 운영자가 불가피한 사정으로 본 사이트를 중단하게 될 경우, 회원에게 사전 공지를 하고 게시물의 이전이 쉽도록 모든 조치를 하기 위해 노력합니다.",
+    "en": "If the site operator is forced to discontinue the operation of this site due to unavoidable circumstances, they will notify members in advance and make every effort to ensure that posts can be easily transferred."
+  },
+  "제14조 게시물에 대한 저작권": {
+    "ko": "제14조 게시물에 대한 저작권",
+    "en": "Article 14 Copyright of Posts"
+  },
+  "① 회원이 사이트 내에 게시한 게시물의 저작권은": {
+    "ko": "① 회원이 사이트 내에 게시한 게시물의 저작권은 게시한 회원에게 귀속됩니다. 또한 사이트는 게시자의 동의 없이 게시물을 상업적으로 이용할 수 없습니다. 다만 비영리 목적인 경우는 그러하지 아니하며, 또한 서비스 내의 게재권을 갖습니다.",
+    "en": "① The copyright of posts posted by members on the site belongs to the member who posted them. The site cannot use the posts commercially without the consent of the poster. However, this does not apply to non-commercial purposes, and the site retains the right to display the posts within the service."
+  },
+  "② 회원은 서비스를 이용하여 취득한 정보를": {
+    "ko": "② 회원은 서비스를 이용하여 취득한 정보를 임의 가공, 판매하는 행위 등 서비스에 게재된 자료를 상업적으로 사용할 수 없습니다.",
+    "en": "② Members cannot arbitrarily process, sell, or use the materials posted on the service for commercial purposes using the information obtained through the service."
+  },
+  "③ 운영자는 회원이 게시하거나 등록하는 사이트 내의": {
+    "ko": "③ 운영자는 회원이 게시하거나 등록하는 사이트 내의 내용물, 게시 내용에 대해 제12조 각호에 해당한다고 판단되는 경우 사전통지 없이 삭제하거나 이동 또는 등록 거부할 수 있습니다.",
+    "en": "③ The operator may delete, move, or refuse to register content or posts posted or registered by members on the site without prior notice if it is determined to fall under any of the provisions of Article 12."
+  },
+  "제15조 손해배상": {
+    "ko": "제15조 손해배상",
+    "en": "Article 15 Liability for Damages"
+  },
+  "① 본 사이트의 발생한 모든 민, 형법상 책임은": {
+    "ko": "① 본 사이트의 발생한 모든 민, 형법상 책임은 회원 본인에게 1차적으로 있습니다.",
+    "en": "① All civil and criminal liabilities arising from this site primarily rest with the member."
+  },
+  "② 본 사이트로부터 회원이 받은 손해가": {
+    "ko": "② 본 사이트로부터 회원이 받은 손해가 천재지변 등 불가항력적이거나 회원의 고의 또는 과실로 인하여 발생한 때에는 손해배상을 하지 않습니다.",
+    "en": "② The site is not liable for damages incurred by members due to force majeure events such as natural disasters or damages caused by the member's intentional or negligent acts."
+  },
+  "제16조 면책": {
+    "ko": "제16조 면책",
+    "en": "Article 16 Disclaimer"
+  },
+  "① 운영자는 회원이 사이트의 서비스 제공으로부터 기대되는 이익을": {
+    "ko": "① 운영자는 회원이 사이트의 서비스 제공으로부터 기대되는 이익을 얻지 못하였거나 서비스 자료에 대한 취사선택 또는 이용으로 발생하는 손해 등에 대해서는 책임이 면제됩니다.",
+    "en": "① The operator is not liable for damages incurred by members due to failure to achieve the expected benefits from the services provided by the site or damages resulting from the selection or use of service materials."
+  },
+  "② 운영자는 본 사이트의 서비스 기반 및 타 통신업자가 제공하는": {
+    "ko": "② 운영자는 본 사이트의 서비스 기반 및 타 통신업자가 제공하는 전기통신 서비스의 장애로 인한 경우에는 책임이 면제되며 본 사이트의 서비스 기반과 관련되어 발생한 손해에 대해서는 사이트의 이용약관에 준합니다.",
+    "en": "② The operator is not liable in cases of service disruptions caused by the site's service infrastructure or telecommunications services provided by other telecommunications operators. Damages related to the site's service infrastructure are governed by the site's terms of use."
+  },
+  "③ 운영자는 회원이 저장, 게시 또는 전송한 자료와 관련하여": {
+    "ko": "③ 운영자는 회원이 저장, 게시 또는 전송한 자료와 관련하여 일체의 책임을 지지 않습니다.",
+    "en": "③ The operator is not responsible for any materials stored, posted, or transmitted by members."
+  },
+  "④ 운영자는 회원의 귀책 사유로 인하여 서비스 이용의 장애가": {
+    "ko": "④ 운영자는 회원의 귀책 사유로 인하여 서비스 이용의 장애가 발생한 경우에는 책임지지 아니합니다.",
+    "en": "④ The operator is not liable for service disruptions caused by the member's fault."
+  },
+  "⑤ 운영자는 회원 상호 간 또는 회원과 제3자 상호 간,": {
+    "ko": "⑤ 운영자는 회원 상호 간 또는 회원과 제3자 상호 간, 기타 회원의 본 서비스 내외를 불문한 일체의 활동(데이터 전송, 기타 커뮤니티 활동 포함)에 대하여 책임을 지지 않습니다.",
+    "en": "⑤ The operator is not liable for any activities (including data transmission and other community activities) between members, between members and third parties, or any other activities within or outside the service."
+  },
+  "⑥ 운영자는 회원이 게시 또는 전송한 자료 및 본 사이트로": {
+    "ko": "⑥ 운영자는 회원이 게시 또는 전송한 자료 및 본 사이트로 회원이 제공받을 수 있는 모든 자료들의 진위, 신뢰도, 정확성 등 그 내용에 대해서는 책임지지 아니합니다.",
+    "en": "⑥ The operator is not responsible for the authenticity, reliability, accuracy, or content of any materials posted or transmitted by members or any materials provided to members through the site."
+  },
+  "⑦ 운영자는 회원 상호 간 또는 회원과 제3자 상호 간에": {
+    "ko": "⑦ 운영자는 회원 상호 간 또는 회원과 제3자 상호 간에 서비스를 매개로 하여 물품거래 등을 한 경우에 그로부터 발생하는 일체의 손해에 대하여 책임지지 아니합니다.",
+    "en": "⑦ The operator is not liable for any damages arising from transactions such as goods trading conducted between members or between members and third parties through the service."
+  },
+  "⑧ 운영자는 운영자의 귀책 사유 없이 회원간 또는 회원과 제3자간에": {
+    "ko": "⑧ 운영자는 운영자의 귀책 사유 없이 회원간 또는 회원과 제3자간에 발생한 일체의 분쟁에 대하여 책임지지 아니합니다.",
+    "en": "⑧ The operator is not liable for any disputes arising between members or between members and third parties without the operator's fault."
+  },
+  "⑨ 운영자는 서버 등 설비의 관리, 점검, 보수, 교체 과정 또는": {
+    "ko": "⑨ 운영자는 서버 등 설비의 관리, 점검, 보수, 교체 과정 또는 소프트웨어의 운용 과정에서 고의 또는 고의에 준하는 중대한 과실 없이 발생할 수 있는 시스템의 장애, 제3자의 공격으로 인한 시스템의 장애, 국내외의 저명한 연구기관이나 보안 관련 업체에 의해 대응 방법이 개발되지 아니한 컴퓨터 바이러스 등의 유포나 기타 운영자가 통제할 수 없는 불가항력적 사유로 인한 회원의 손해에 대하여 책임지지 않습니다.",
+    "en": "⑨ The operator is not liable for damages caused to members due to system failures that may occur without intentional or gross negligence during the management, inspection, maintenance, or replacement of servers and other facilities, or during software operations; system failures caused by third-party attacks; the spread of computer viruses for which countermeasures have not been developed by renowned domestic or international research institutions or security-related companies; or other force majeure events beyond the operator's control."
+  },
+  "부칙": {
+    "ko": "부칙",
+    "en": "Addendum"
+  },
+  "이 약관은 <2022.10.19>부터 시행합니다.": {
+    "ko": "이 약관은 <2022.10.19>부터 시행합니다.",
+    "en": "These terms and conditions shall take effect from <2022.10.19>."
+  },
+  "개인정보처리방침": {
+    "ko": "개인정보처리방침",
+    "en": "Privacy Policy"
+  },
+  "모나 주식회사 (이하 ‘회사’라 한다)는 개인정보 보호법 제30조에 따라": {
+    "ko": "모나 주식회사 (이하 ‘회사’라 한다)는 개인정보 보호법 제30조에 따라 정보 주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리지침을 수립, 공개합니다.",
+    "en": "Mona Corporation (hereinafter referred to as the 'Company') establishes and discloses the following personal information processing policy to protect the personal information of data subjects and to promptly and smoothly handle related grievances in accordance with Article 30 of the Personal Information Protection Act."
+  },
+  "제1조 (개인정보의 처리목적)": {
+    "ko": "제1조 (개인정보의 처리목적)",
+    "en": "Article 1 (Purpose of Processing Personal Information)"
+  },
+  "회사는 다음의 목적을 위하여 개인정보를 처리합니다.": {
+    "ko": "회사는 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는 개인정보보호법 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.",
+    "en": "The Company processes personal information for the following purposes. Personal information being processed will not be used for purposes other than the following, and if the purpose of use changes, necessary measures such as obtaining separate consent in accordance with Article 18 of the Personal Information Protection Act will be taken."
+  },
+  "1. 문의에 대한 정보 확인을 위해 개인정보를 처리합니다.": {
+    "ko": "1. 문의에 대한 정보 확인을 위해 개인정보를 처리합니다.",
+    "en": "1. Personal information is processed to verify information related to inquiries."
+  },
+  "2. 지원서 수신": {
+    "ko": "2. 지원서 수신 이름, 생년월일, 연락처, 이메일주소, 이력서, 포트폴리오를 통해 지원자의 개인정보를 획득하고 취급합니다.",
+    "en": "2. Receiving applications: The Company collects and handles applicants' personal information through names, dates of birth, contact information, email addresses, resumes, and portfolios."
+  },
+  "3. 고충 처리": {
+    "ko": "3. 고충 처리",
+    "en": "3. Handling grievances"
+  },
+  "민원인의 신원 확인": {
+    "ko": "민원인의 신원 확인, 민원사항 확인, 사실조사를 위한 연락․통지, 처리 결과 통보 등의 목적으로 개인정보를 처리합니다.",
+    "en": "Personal information is processed for the purpose of verifying the identity of the complainant, confirming the details of the complaint, contacting and notifying the complainant for fact-finding, and informing the results of processing."
+  },
+  "제2조 (개인정보의 처리 및 보유기간)": {
+    "ko": "제2조 (개인정보의 처리 및 보유기간)",
+    "en": "Article 2 (Processing and Retention Period of Personal Information)"
+  },
+  "① 회사는 법령에 따른 개인정보 보유, 이용 기간 또는": {
+    "ko": "① 회사는 법령에 따른 개인정보 보유, 이용 기간 또는 정보주체로부터 개인정보를 수집 시에 동의 받은 개인정보 보유, 이용 기간 내에서 개인정보를 처리, 보유합니다.",
+    "en": "① The Company processes and retains personal information within the period of retention and use of personal information agreed upon when collecting personal information from the data subject or as prescribed by law."
+  },
+  "② 각각의 개인정보 처리 및 보유 기간은 다음과 같습니다.": {
+    "ko": "② 각각의 개인정보 처리 및 보유 기간은 다음과 같습니다.",
+    "en": "② The processing and retention periods for each type of personal information are as follows:"
+  },
+  "「통신비밀보호법」 제41조에 따른 통신사실확인자료 보관": {
+    "ko": "「통신비밀보호법」 제41조에 따른 통신사실확인자료 보관",
+    "en": "Retention of communication confirmation data pursuant to Article 41 of the Protection of Communications Secrets Act"
+  },
+  "- 가입자 전기통신일시, 개시․종료 시간, 상대방 가입자 번호, 사용도수, 발신기지국 위치추적자료 : 1년": {
+    "ko": "- 가입자 전기통신일시, 개시․종료 시간, 상대방 가입자 번호, 사용도수, 발신기지국 위치추적자료 : 1년",
+    "en": "- Subscriber telecommunications date and time, start/end time, counterpart subscriber number, usage frequency, base station location tracking data: 1 year"
+  },
+  "- 컴퓨터 통신, 인터넷 로그 기록자료, 접속지 추적자료 : 3개월": {
+    "ko": "- 컴퓨터 통신, 인터넷 로그 기록자료, 접속지 추적자료 : 3개월",
+    "en": "- Computer communications, internet log records, and access location tracking data: 3 months"
+  },
+  "제3조(이용자 및 법정대리인의 권리와 그 행사 방법)": {
+    "ko": "제3조(이용자 및 법정대리인의 권리와 그 행사 방법)",
+    "en": "Article 3 (Rights of Users and Legal Representatives and How to Exercise Them)"
+  },
+  "① 정보주체는 회사에 대해 언제든지 다음 각 호의 개인정보 보호 관련 권리를 행사할 수 있습니다.": {
+    "ko": "① 정보주체는 회사에 대해 언제든지 다음 각 호의 개인정보 보호 관련 권리를 행사할 수 있습니다.",
+    "en": "① The data subject may exercise the following rights related to personal information protection against the Company at any time:"
+  },
+  "1. 개인정보 열람 요구": {
+    "ko": "1. 개인정보 열람 요구",
+    "en": "1. Request to view personal information"
+  },
+  "2. 오류 등이 있을 경우 정정 요구": {
+    "ko": "2. 오류 등이 있을 경우 정정 요구",
+    "en": "2. Request correction in case of errors, etc."
+  },
+  "3. 삭제요구": {
+    "ko": "3. 삭제요구",
+    "en": "3. Request deletion"
+  },
+  "4. 처리정지 요구": {
+    "ko": "4. 처리정지 요구",
+    "en": "4. Request to suspend processing"
+  },
+  "② 제1항에 따른 권리 행사는 회사에 대해 서면, 전화, 전자우편, 모사전송(FAX) 등을 통하여 하실 수 있으며 회사는 이에 대해 지체없이 조치하겠습니다.": {
+    "ko": "② 제1항에 따른 권리 행사는 회사에 대해 서면, 전화, 전자우편, 모사전송(FAX) 등을 통하여 하실 수 있으며 회사는 이에 대해 지체없이 조치하겠습니다.",
+    "en": "② The rights under Paragraph 1 may be exercised against the Company through written documents, telephone, email, or facsimile (FAX), and the Company will take action without delay."
+  },
+  "③ 정보주체가 개인정보의 오류 등에 대한 정정 또는 삭제를 요구한 경우에는 회사는 정정 또는 삭제를 완료할 때까지 당해 개인정보를 이용하거나 제공하지 않습니다.": {
+    "ko": "③ 정보주체가 개인정보의 오류 등에 대한 정정 또는 삭제를 요구한 경우에는 회사는 정정 또는 삭제를 완료할 때까지 당해 개인정보를 이용하거나 제공하지 않습니다.",
+    "en": "③ If the data subject requests correction or deletion of personal information errors, the Company will not use or provide the personal information until the correction or deletion is completed."
+  },
+  "④ 제1항에 따른 권리 행사는 정보주체의 법정대리인이나 위임을 받은 자 등 대리인을 통하여 하실 수 있습니다. 이 경우 개인정보 보호법 시행규칙 별지 제11호 서식에 따른 위임장을 제출하셔야 합니다.": {
+    "ko": "④ 제1항에 따른 권리 행사는 정보주체의 법정대리인이나 위임을 받은 자 등 대리인을 통하여 하실 수 있습니다. 이 경우 개인정보 보호법 시행규칙 별지 제11호 서식에 따른 위임장을 제출하셔야 합니다.",
+    "en": "④ The rights under Paragraph 1 may be exercised through the legal representative of the data subject or a delegated person. In this case, a power of attorney in the format prescribed in Form No. 11 of the Enforcement Rules of the Personal Information Protection Act must be submitted."
+  },
+  "⑤ 정보주체는 개인정보 보호법 등 관계 법령을 위반하여 회사가 처리하고 있는 정보주체 본인이나 타인의 개인정보 및 사생활을 침해하여서는 아니 됩니다.": {
+    "ko": "⑤ 정보주체는 개인정보 보호법 등 관계 법령을 위반하여 회사가 처리하고 있는 정보주체 본인이나 타인의 개인정보 및 사생활을 침해하여서는 아니 됩니다.",
+    "en": "⑤ The data subject must not violate the Personal Information Protection Act or other related laws and infringe on the personal information or privacy of themselves or others processed by the Company."
+  },
+  "제4조(처리하는 개인정보 항목)": {
+    "ko": "제4조(처리하는 개인정보 항목)",
+    "en": "Article 4 (Items of Personal Information Processed)"
+  },
+  "회사는 다음의 개인정보 항목을 처리하고 있습니다.": {
+    "ko": "회사는 다음의 개인정보 항목을 처리하고 있습니다.",
+    "en": "The Company processes the following personal information items:"
+  },
+  "1. 인터넷 서비스 이용과정에서 아래 개인정보 항목이 자동으로 생성되어 수집될 수 있습니다.": {
+    "ko": "1. 인터넷 서비스 이용과정에서 아래 개인정보 항목이 자동으로 생성되어 수집될 수 있습니다.",
+    "en": "1. The following personal information items may be automatically generated and collected during the use of internet services:"
+  },
+  "IP주소, 쿠키, MAC주소, 서비스 이용기록, 방문기록, 불량 이용기록 등": {
+    "ko": "IP주소, 쿠키, MAC주소, 서비스 이용기록, 방문기록, 불량 이용기록 등",
+    "en": "IP address, cookies, MAC address, service usage records, visit records, bad usage records, etc."
+  },
+  "제5조(개인정보의 파기)": {
+    "ko": "제5조(개인정보의 파기)",
+    "en": "Article 5 (Destruction of Personal Information)"
+  },
+  "① 회사는 개인정보 보유 기간의 경과, 처리목적 달성 등 개인정보가 불필요하게 되었을 때에는 지체없이 해당 개인정보를 파기합니다.": {
+    "ko": "① 회사는 개인정보 보유 기간의 경과, 처리목적 달성 등 개인정보가 불필요하게 되었을 때에는 지체없이 해당 개인정보를 파기합니다.",
+    "en": "① The Company destroys personal information without delay when the retention period expires, the processing purpose is achieved, or the personal information is no longer necessary."
+  },
+  "② 정보주체로부터 동의받은 개인정보 보유 기간이 경과하거나 처리목적이 달성되었음에도 불구하고 다른 법령에 따라 개인정보를 계속 보존하여야 하는 경우에는, 해당 개인정보를 별도의 데이터베이스(DB)로 옮기거나 보관장소를 달리하여 보존합니다.": {
+    "ko": "② 정보주체로부터 동의받은 개인정보 보유 기간이 경과하거나 처리목적이 달성되었음에도 불구하고 다른 법령에 따라 개인정보를 계속 보존하여야 하는 경우에는, 해당 개인정보를 별도의 데이터베이스(DB)로 옮기거나 보관장소를 달리하여 보존합니다.",
+    "en": "② If the retention period for personal information agreed upon by the data subject has expired or the processing purpose has been achieved but the personal information must be retained under other laws, the personal information is stored in a separate database (DB) or in a different storage location."
+  },
+  "③ 개인정보 파기의 절차 및 방법은 다음과 같습니다.": {
+    "ko": "③ 개인정보 파기의 절차 및 방법은 다음과 같습니다.",
+    "en": "③ The procedures and methods for destroying personal information are as follows:"
+  },
+  "1. 파기 절차": {
+    "ko": "1. 파기 절차",
+    "en": "1. Destruction procedure"
+  },
+  "회사는 파기 사유가 발생한 개인정보를 선정하고, 회사의 개인정보 보호책임자의 승인을 받아 개인정보를 파기합니다.": {
+    "ko": "회사는 파기 사유가 발생한 개인정보를 선정하고, 회사의 개인정보 보호책임자의 승인을 받아 개인정보를 파기합니다.",
+    "en": "The Company selects personal information to be destroyed when the reason for destruction arises and destroys it with the approval of the Company's personal information protection officer."
+  },
+  "2. 파기 방법": {
+    "ko": "2. 파기 방법",
+    "en": "2. Destruction method"
+  },
+  "회사는 전자적 파일 형태로 기록․저장된 개인정보는 기록을 재생할 수 없도록 로우레밸포멧(Low Level Format) 등의 방법을 이용하여 파기하며, 종이 문서에 기록․저장된 개인정보는 분쇄기로 분쇄하거나 소각하여 파기합니다.": {
+    "ko": "회사는 전자적 파일 형태로 기록․저장된 개인정보는 기록을 재생할 수 없도록 로우레밸포멧(Low Level Format) 등의 방법을 이용하여 파기하며, 종이 문서에 기록․저장된 개인정보는 분쇄기로 분쇄하거나 소각하여 파기합니다.",
+    "en": "The Company destroys personal information recorded and stored in electronic file form using methods such as low-level formatting to prevent record recovery, and personal information recorded and stored in paper documents is shredded or incinerated for destruction."
+  },
+  "제6조(개인정보의 안전성 확보조치)": {
+    "ko": "제6조(개인정보의 안전성 확보조치)",
+    "en": "Article 6 (Measures to Ensure the Security of Personal Information)"
+  },
+  "회사는 개인정보의 안전성 확보를 위해 다음과 같은 조치를 하고 있습니다.": {
+    "ko": "회사는 개인정보의 안전성 확보를 위해 다음과 같은 조치를 하고 있습니다.",
+    "en": "The Company takes the following measures to ensure the security of personal information:"
+  },
+  "1. 관리적 조치 : 내부관리계획 수립 및 시행, 정기적 직원 교육 등": {
+    "ko": "1. 관리적 조치 : 내부관리계획 수립 및 시행, 정기적 직원 교육 등",
+    "en": "1. Administrative measures: Establishment and implementation of internal management plans, regular employee training, etc."
+  },
+  "2. 기술적 조치 : 개인정보처리시스템 등의 접근 권한 관리, 접근통제시스템 설치, 고유 식별정보 등의 암호화, 보안프로그램 설치": {
+    "ko": "2. 기술적 조치 : 개인정보처리시스템 등의 접근 권한 관리, 접근통제시스템 설치, 고유 식별정보 등의 암호화, 보안프로그램 설치",
+    "en": "2. Technical measures: Management of access rights to personal information processing systems, installation of access control systems, encryption of unique identification information, installation of security programs"
+  },
+  "3. 물리적 조치 : 전산실, 자료보관실 등의 접근통제": {
+    "ko": "3. 물리적 조치 : 전산실, 자료보관실 등의 접근통제",
+    "en": "3. Physical measures: Access control for computer rooms, data storage rooms, etc."
+  },
+  "제7조(개인정보 자동 수집 장치의 설치∙운영 및 거부에 관한 사항)": {
+    "ko": "제7조(개인정보 자동 수집 장치의 설치∙운영 및 거부에 관한 사항)",
+    "en": "Article 7 (Installation, Operation, and Rejection of Automatic Personal Information Collection Devices)"
+  },
+  "① 회사는 이용자에게 개별적인 맞춤 서비스를 제공하기 위해 이용정보를 저장하고 수시로 불러오는 ‘쿠키(cookie)’를 사용합니다.": {
+    "ko": "① 회사는 이용자에게 개별적인 맞춤 서비스를 제공하기 위해 이용정보를 저장하고 수시로 불러오는 ‘쿠키(cookie)’를 사용합니다.",
+    "en": "① The Company uses 'cookies' to store and retrieve usage information to provide customized services to users."
+  },
+  "② 쿠키는 웹사이트를 운영하는데 이용되는 서버(http)가 이용자의 컴퓨터 브라우저에 보내는 소량의 정보이며 이용자들의 컴퓨터 내의 하드디스크에 저장되기도 합니다.": {
+    "ko": "② 쿠키는 웹사이트를 운영하는데 이용되는 서버(http)가 이용자의 컴퓨터 브라우저에 보내는 소량의 정보이며 이용자들의 컴퓨터 내의 하드디스크에 저장되기도 합니다.",
+    "en": "② A cookie is a small piece of information sent by a server (http) used to operate a website to a user's computer browser and is stored on the user's hard disk."
+  },
+  "가. 쿠키의 사용 목적: 이용자가 방문한 각 서비스와 웹 사이트들에 대한 방문 및 이용형태, 인기 검색어, 보안접속 여부, 등을 파악하여 이용자에게 최적화된 정보 제공을 위해 사용됩니다.": {
+    "ko": "가. 쿠키의 사용 목적: 이용자가 방문한 각 서비스와 웹 사이트들에 대한 방문 및 이용형태, 인기 검색어, 보안접속 여부, 등을 파악하여 이용자에게 최적화된 정보 제공을 위해 사용됩니다.",
+    "en": "a. Purpose of using cookies: Cookies are used to identify the visit and usage patterns of services and websites visited by users, popular search terms, security connection status, etc., to provide optimized information to users."
+  },
+  "나. 쿠키의 설치∙운영 및 거부 : 웹브라우저 상단의 도구>인터넷 옵션>개인정보 메뉴의 옵션 설정을 통해 쿠키 저장을 거부 할 수 있습니다.": {
+    "ko": "나. 쿠키의 설치∙운영 및 거부 : 웹브라우저 상단의 도구>인터넷 옵션>개인정보 메뉴의 옵션 설정을 통해 쿠키 저장을 거부 할 수 있습니다.",
+    "en": "b. Installation, operation, and rejection of cookies: Users can refuse to save cookies by setting options in the Privacy menu under Tools > Internet Options at the top of the web browser."
+  },
+  "다. 쿠키 저장을 거부할 경우 맞춤형 서비스 이용에 어려움이 발생할 수 있습니다.": {
+    "ko": "다. 쿠키 저장을 거부할 경우 맞춤형 서비스 이용에 어려움이 발생할 수 있습니다.",
+    "en": "c. If cookies are refused, there may be difficulties in using customized services."
+  },
+  "제8조(개인정보 보호책임자)": {
+    "ko": "제8조(개인정보 보호책임자)",
+    "en": "Article 8 (Personal Information Protection Officer)"
+  },
+  "① 회사는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만 처리 및 피해구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.": {
+    "ko": "① 회사는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만 처리 및 피해구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.",
+    "en": "① The Company is responsible for overseeing tasks related to personal information processing and has designated a Personal Information Protection Officer as follows to handle complaints and provide relief for damages related to personal information processing."
+  },
+  "▶ 개인정보 보호책임자": {
+    "ko": "▶ 개인정보 보호책임자",
+    "en": "▶ Personal Information Protection Officer"
+  },
+  "성명 : 장익황": {
+    "ko": "성명 : 장익황",
+    "en": "Name: Jang Ik-hwang"
+  },
+  "직책 : 대표이사": {
+    "ko": "직책 : 대표이사",
+    "en": "Position: CEO"
+  },
+  "연락처 : 02-6949-1134 , mona@monaelec.com": {
+    "ko": "연락처 : 02-6949-1134 , mona@monaelec.com",
+    "en": "Contact: 02-6949-1134, mona@monaelec.com"
+  },
+  "※ 개인정보 보호 담당부서로 연결됩니다.": {
+    "ko": "※ 개인정보 보호 담당부서로 연결됩니다.",
+    "en": "※ This connects to the department in charge of personal information protection."
+  },
+  "▶ 개인정보 보호 담당부서": {
+    "ko": "▶ 개인정보 보호 담당부서",
+    "en": "▶ Department in Charge of Personal Information Protection"
+  },
+  "부서명 : 경영지원 팀": {
+    "ko": "부서명 : 경영지원 팀",
+    "en": "Department: Management Support Team"
+  },
+  "담당자 : 윤혜선": {
+    "ko": "담당자 : 윤혜선",
+    "en": "Person in Charge: Yoon Hye-sun"
+  },
+  "② 정보주체께서는 회사의 서비스(또는 사업)을 이용하시면서 발생한 모든 개인정보 보호 관련 문의, 불만 처리, 피해구제 등에 관한 사항을 개인정보 보호책임자 및 담당부서로 문의하실 수 있습니다. 회사는 정보주체의 문의에 대해 지체없이 답변 및 처리해드릴 것입니다.": {
+    "ko": "② 정보주체께서는 회사의 서비스(또는 사업)을 이용하시면서 발생한 모든 개인정보 보호 관련 문의, 불만 처리, 피해구제 등에 관한 사항을 개인정보 보호책임자 및 담당부서로 문의하실 수 있습니다. 회사는 정보주체의 문의에 대해 지체없이 답변 및 처리해드릴 것입니다.",
+    "en": "② Data subjects can contact the Personal Information Protection Officer and the relevant department for any inquiries, complaints, or relief related to personal information protection arising from the use of the company's services (or business). The company will respond and handle inquiries without delay."
+  },
+  "제9조(개인정보 열람청구)": {
+    "ko": "제9조(개인정보 열람청구)",
+    "en": "Article 9 (Request for Access to Personal Information)"
+  },
+  "정보주체는 개인정보 보호법 제35조에 따른 개인정보의 열람 청구를 아래의 부서에 할 수 있습니다. 회사는 정보주체의 개인정보 열람 청구가 신속하게 처리되도록 노력하겠습니다.": {
+    "ko": "정보주체는 개인정보 보호법 제35조에 따른 개인정보의 열람 청구를 아래의 부서에 할 수 있습니다. 회사는 정보주체의 개인정보 열람 청구가 신속하게 처리되도록 노력하겠습니다.",
+    "en": "Data subjects may request access to their personal information under Article 35 of the Personal Information Protection Act through the department below. The company will make efforts to promptly process such requests."
+  },
+  "▶ 개인정보 열람청구 접수․처리 부서": {
+    "ko": "▶ 개인정보 열람청구 접수․처리 부서",
+    "en": "▶ Department for Receiving and Processing Requests for Access to Personal Information"
+  },
+  "제10조(권익침해 구제 방법)": {
+    "ko": "제10조(권익침해 구제 방법)",
+    "en": "Article 10 (Remedies for Infringement of Rights)"
+  },
+  "정보주체는 아래의 기관에 대해 개인정보 침해에 대한 피해구제, 상담 등을 문의하실 수 있습니다.": {
+    "ko": "정보주체는 아래의 기관에 대해 개인정보 침해에 대한 피해구제, 상담 등을 문의하실 수 있습니다.",
+    "en": "Data subjects may contact the following organizations for remedies and consultation regarding personal information infringement."
+  },
+  "▶ 개인정보 침해신고센터 (한국인터넷진흥원 운영)": {
+    "ko": "▶ 개인정보 침해신고센터 (한국인터넷진흥원 운영)",
+    "en": "▶ Personal Information Infringement Report Center (operated by Korea Internet & Security Agency)"
+  },
+  "- 소관 업무 : 개인정보 침해사실 신고, 상담 신청": {
+    "ko": "- 소관 업무 : 개인정보 침해사실 신고, 상담 신청",
+    "en": "- Scope of Work: Reporting personal information infringement and requesting consultation"
+  },
+  "- 홈페이지 : privacy.kisa.or.kr": {
+    "ko": "- 홈페이지 : privacy.kisa.or.kr",
+    "en": "- Website: privacy.kisa.or.kr"
+  },
+  "- 전화 : (국번없이) 118": {
+    "ko": "- 전화 : (국번없이) 118",
+    "en": "- Phone: 118 (no area code required)"
+  },
+  "- 주소 : (58324) 전남 나주시 진흥길 9(빛가람동 301-2) 3층 개인정보침해신고센터": {
+    "ko": "- 주소 : (58324) 전남 나주시 진흥길 9(빛가람동 301-2) 3층 개인정보침해신고센터",
+    "en": "- Address: 3rd Floor, Personal Information Infringement Report Center, 9 Jinheung-gil, Naju-si, Jeollanam-do (58324)"
+  },
+  "▶ 개인정보 분쟁조정위원회": {
+    "ko": "▶ 개인정보 분쟁조정위원회",
+    "en": "▶ Personal Information Dispute Mediation Committee"
+  },
+  "- 소관업무 : 개인정보 분쟁조정신청, 집단분쟁조정 (민사적 해결)": {
+    "ko": "- 소관업무 : 개인정보 분쟁조정신청, 집단분쟁조정 (민사적 해결)",
+    "en": "- Scope of Work: Filing for personal information dispute mediation and collective dispute mediation (civil resolution)"
+  },
+  "- 홈페이지 : www.kopico.go.kr": {
+    "ko": "- 홈페이지 : www.kopico.go.kr",
+    "en": "- Website: www.kopico.go.kr"
+  },
+  "- 전화 : (국번없이) 1833-6972": {
+    "ko": "- 전화 : (국번없이) 1833-6972",
+    "en": "- Phone: 1833-6972 (no area code required)"
+  },
+  "- 주소 : (03171)서울특별시 종로구 세종대로 209 정부서울청사 4층": {
+    "ko": "- 주소 : (03171)서울특별시 종로구 세종대로 209 정부서울청사 4층",
+    "en": "- Address: 4th Floor, Government Complex Seoul, 209 Sejong-daero, Jongno-gu, Seoul (03171)"
+  },
+  "▶ 대검찰청 사이버범죄수사단 : 02-3480-3573 (www.spo.go.kr)": {
+    "ko": "▶ 대검찰청 사이버범죄수사단 : 02-3480-3573 (www.spo.go.kr)",
+    "en": "▶ Supreme Prosecutors' Office Cyber Crime Investigation Division: 02-3480-3573 (www.spo.go.kr)"
+  },
+  "▶ 경찰청 사이버안전국 : 182 (http://cyberbureau.police.go.kr)": {
+    "ko": "▶ 경찰청 사이버안전국 : 182 (http://cyberbureau.police.go.kr)",
+    "en": "▶ National Police Agency Cyber Safety Bureau: 182 (http://cyberbureau.police.go.kr)"
+  },
+  "제11조(개인정보 처리방침 시행 및 변경)": {
+    "ko": "제11조(개인정보 처리방침 시행 및 변경)",
+    "en": "Article 11 (Enforcement and Changes to the Privacy Policy)"
+  },
+  "이 개인정보 처리방침은 2022.10.19부터 적용됩니다.": {
+    "ko": "이 개인정보 처리방침은 2022.10.19부터 적용됩니다.",
+    "en": "This privacy policy has been in effect since October 19, 2022."
   }
 }

@@ -187,7 +187,6 @@ const Page = ({
       </ContentSection>
       <MonaToastContainer />
       <Header lang={lang} />
-
       <Footer lang={lang} />
     </main>
   );
