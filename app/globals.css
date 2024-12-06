@@ -319,3 +319,14 @@
 
 @layer base {
 }
+
+/* React-Toastify */
+.Toastify__toast {
+  padding: 0;
+  min-height: auto;
+}
+.Toastify__toast-body {
+  padding: 0;
+}
+.Toastify__toast-theme--dark {
+}

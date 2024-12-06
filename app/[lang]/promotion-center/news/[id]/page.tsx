@@ -7,6 +7,8 @@ import Header from '@/components/Header/Header';
 import HtmlDiv from '@/components/HtmlDiv';
 import MonaBreadCrumb from '@/components/MonaBreadCrumb';
 import { MobileTabMenu } from '@/components/TabMenu';
+import MonaToastContainer from '@/components/Toast/MonaToastContainer';
+import Toast from '@/components/Toast/Toast';
 import { Button } from '@/components/ui/button';
 import { ClipboardShareButton } from '@/components/ui/ShareButton';
 import dict from '@/dictionaries/promotion-center/news-detail.json';
@@ -19,6 +21,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 type Props = {};
 
@@ -121,7 +124,28 @@ const Page = ({
                   },
                 }}
               /> */}
-              <ClipboardShareButton />
+              <ClipboardShareButton
+                ButtonProps={{
+                  onClick: (e) => {
+                    navigator.clipboard
+                      .writeText(window.location.href)
+                      .then(() => {
+                        toast(({ toastProps }) => (
+                          <Toast
+                            type="success"
+                            message={dict['복사 되었습니다'][lang]}
+                            onClose={() => {
+                              toastProps.onClose &&
+                                toastProps.onClose({
+                                  id: toastProps.toastId,
+                                });
+                            }}
+                          />
+                        ));
+                      });
+                  },
+                }}
+              />
             </span>
           </div>
         </div>
@@ -161,7 +185,9 @@ const Page = ({
           </Button>
         </div>
       </ContentSection>
+      <MonaToastContainer />
       <Header lang={lang} />
+
       <Footer lang={lang} />
     </main>
   );
