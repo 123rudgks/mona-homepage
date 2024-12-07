@@ -37,20 +37,31 @@ const Header = ({ darkMode, lang }: Props) => {
   const { MENU } = useMenu({ lang });
 
   return (
-    <header className={cn('z-20 fixed top-0 w-full group')}>
+    <header className={cn('z-20 fixed top-0 w-full ')}>
       <div
         className={cn(
-          'w-full sm-screen:h-[100px]  h-16   flex items-center justify-center transition-colors',
-          darkMode ? 'bg-transparent' : 'bg-white',
+          'w-full sm-screen:h-[100px]  h-16  flex items-center justify-center transition-colors',
         )}>
-        <div className={cn('flex justify-between w-full')}>
+        <div
+          className={cn(
+            'flex justify-between w-full items-center relative h-full',
+            darkMode ? 'bg-transparent' : 'bg-white',
+          )}>
           <Logo darkMode={darkMode} />
-          <MdScreenCategory
-            lang={lang}
-            darkMode={darkMode}
-            headerMenu={MENU}
-            currentPath={path}
-          />
+          <div className="group h-full flex justify-center items-center hover:flex-1">
+            <MdScreenCategory
+              lang={lang}
+              darkMode={darkMode}
+              headerMenu={MENU}
+              currentPath={path}
+            />
+            <MdScreenDropdownMenu
+              lang={lang}
+              darkMode={darkMode}
+              headerMenu={MENU}
+            />
+          </div>
+
           <div className="flex gap-6 mr-11">
             <EngKor
               lang={lang}
@@ -67,7 +78,6 @@ const Header = ({ darkMode, lang }: Props) => {
           </div>
         </div>
       </div>
-      <MdScreenDropdownMenu lang={lang} darkMode={darkMode} headerMenu={MENU} />
       <div
         className={cn(
           'h-screen md-screen:hidden overflow-hidden transition-all',
@@ -181,9 +191,9 @@ const MdScreenCategory = ({
   return (
     <nav
       className={cn(
-        'relative items-center typo-TitleBold text-black transition-colors hidden',
+        'relative items-center typo-TitleBold text-black transition-colors max-w-[1368px]',
         'md-screen:flex',
-        'group-hover:justify-between group-hover:flex-1 max-w-[1368px] group-hover:transition-all',
+        'group-hover:justify-between group-hover:flex-1  group-hover:transition-all',
         {
           'text-base': lang === 'en',
           'text-white': darkMode,
@@ -220,8 +230,9 @@ const MdScreenDropdownMenu = ({
   return (
     <div
       className={cn(
-        'hidden w-full overflow-hidden',
-        'md-screen:flex md-screen:items-center md-screen:justify-center group-hover:transition-all md-screen:group-hover:h-[452px] md-screen:h-0',
+        'absolute left-0 hidden top-0 translate-y-[100px] w-full overflow-hidden ',
+        'md-screen:flex md-screen:items-center md-screen:justify-center md-screen:h-0',
+        'group-hover:transition-all md-screen:group-hover:h-[452px]',
         darkMode ? 'bg-transparent' : 'bg-white',
       )}>
       <div className={cn(' flex justify-between w-full  h-full ')}>
