@@ -8,6 +8,7 @@ import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
 import MonaBreadCrumb from '@/components/MonaBreadCrumb';
 import { MobileTabMenu } from '@/components/TabMenu';
+import FallbackImage from '@/components/ui/FallbackImage';
 import {
   Pagination,
   PaginationContent,
@@ -22,7 +23,6 @@ import usePagination from '@/hooks/usePagination';
 import { cn } from '@/lib/utils';
 import { ArticleData, Language } from '@/types/globals.types';
 import { HomeIcon } from 'lucide-react';
-import Image from 'next/image';
 import { useCallback, useEffect, useState } from 'react';
 
 type Props = {};
@@ -177,7 +177,14 @@ const NewsCard = ({
       href={`/promotion-center/news/${id}`}
       className={cn('w-full flex flex-col gap-3 cursor-pointer', 'gap-5')}>
       <div className={cn('relative w-full h-[327px]', 'sm-screen:h-[450px]')}>
-        {img && <Image src={img} alt={title} fill />}
+        <FallbackImage
+          src={img ?? ''}
+          alt={title}
+          fill
+          onError={() => {
+            console.log('error');
+          }}
+        />
       </div>
       <div className={cn('flex flex-col gap-2', 'gap-3')}>
         <div
