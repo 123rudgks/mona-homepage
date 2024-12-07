@@ -81,7 +81,9 @@ const Header = ({ darkMode, lang }: Props) => {
       <div
         className={cn(
           'h-screen md-screen:hidden overflow-hidden transition-all',
-          darkMode ? 'bg-transparent' : 'bg-white',
+          darkMode
+            ? 'bg-transparent backdrop-brightness-[0.1] backdrop-blur-sm'
+            : 'bg-white',
           isOpen ? 'block' : 'h-0',
         )}>
         {MENU.map((item, idx) => (
@@ -191,8 +193,8 @@ const MdScreenCategory = ({
   return (
     <nav
       className={cn(
-        'relative items-center typo-TitleBold text-black transition-colors max-w-[1368px]',
-        'md-screen:flex',
+        'relative items-center typo-TitleBold text-black transition-colors max-w-[1368px] ',
+        'hidden md-screen:flex',
         'group-hover:justify-between group-hover:flex-1  group-hover:transition-all',
         {
           'text-base': lang === 'en',
@@ -233,7 +235,9 @@ const MdScreenDropdownMenu = ({
         'absolute left-0 hidden top-0 translate-y-[100px] w-full overflow-hidden ',
         'md-screen:flex md-screen:items-center md-screen:justify-center md-screen:h-0',
         'group-hover:transition-all md-screen:group-hover:h-[452px]',
-        darkMode ? 'bg-transparent' : 'bg-white',
+        darkMode
+          ? 'bg-transparent backdrop-brightness-[0.1] backdrop-blur-sm'
+          : 'bg-white',
       )}>
       <div className={cn(' flex justify-between w-full  h-full ')}>
         <div className="ml-11 flex items-end justify-between gap-2 ">
@@ -371,7 +375,7 @@ const MobileMenu = (
       <div
         className={cn(
           'h-0 overflow-hidden    ',
-          props.darkMode ? 'bg-transparent' : 'bg-grayscale-50',
+          props.darkMode ? 'bg-transparent ' : 'bg-grayscale-50',
           isOpen ? 'border-b  h-fit' : '',
           { 'border-grayscale-200': isOpen && !props.darkMode },
           { 'border-whiteAlpha-10': isOpen && props.darkMode },
