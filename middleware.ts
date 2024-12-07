@@ -33,6 +33,8 @@ function getLocale(request: NextRequest) {
 }
 // This function can be marked `async` if using `await` inside
 export function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
   // request for API
   if (request.url.includes('/api')) {
     return NextResponse.next();
@@ -41,8 +43,14 @@ export function middleware(request: NextRequest) {
   if (request.url.includes('/admin')) {
     return NextResponse.next();
   }
-  console.log('first', request.url);
-  const { pathname } = request.nextUrl;
+  // 1. 정적 파일 요청 필터링
+  if (
+    pathname.startsWith('/_next') || // Next.js 내부 파일 요청
+    pathname.startsWith('/static') || // 정적 파일 요청
+    pathname.match(/\.(png|jpg|jpeg|gif|svg|ico|css|js|woff|woff2|ttf|otf)$/) // 파일 확장자 필터링
+  ) {
+    return NextResponse.next(); // Middleware를 건너뜀
+  }
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
   );
