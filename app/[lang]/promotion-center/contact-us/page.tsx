@@ -4,6 +4,7 @@ import ContentBox from '@/components/ContentBox';
 import ContentSection from '@/components/ContentSection';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
+import Input, { TextFieldWrapper } from '@/components/Input';
 import Modal from '@/components/Modal/Modal';
 import ModalBackground from '@/components/Modal/ModalBackground';
 import ModalPortal from '@/components/Modal/ModalPortal';
@@ -361,49 +362,7 @@ const TextBox = ({
     </div>
   );
 };
-const TextFieldWrapper = ({
-  error,
-  children,
-}: {
-  error?: string;
-  children: React.ReactNode;
-}) => {
-  return (
-    <div>
-      <div
-        className={cn(
-          'py-2 px-3 rounded-[4px]',
-          error !== undefined
-            ? 'ring-[1px] ring-danger'
-            : 'ring-[1px] ring-grayscale-200',
-        )}>
-        {children}
-      </div>
-      {error && (
-        <div className="text-danger typo-BodyCaptionRegular">{error}</div>
-      )}
-    </div>
-  );
-};
-const Input = ({
-  error,
-  inputProps,
-}: {
-  error?: string;
-  inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
-}) => {
-  return (
-    <TextFieldWrapper error={error}>
-      <input
-        {...inputProps}
-        className={cn(
-          'w-full h-full outline-none typo-BodyLargeRegular placeholder:text-grayscale-400',
-          inputProps?.className,
-        )}
-      />
-    </TextFieldWrapper>
-  );
-};
+
 const TextArea = ({
   error,
   textareaProps,

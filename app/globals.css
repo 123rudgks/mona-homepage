@@ -330,3 +330,10 @@
 }
 .Toastify__toast-theme--dark {
 }
+
+/* default */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear, /* Edge에서 아이콘 제거 */
+input[type="password"]::-webkit-textfield-decoration-container {
+  display: none;
+}
