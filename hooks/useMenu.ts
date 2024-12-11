@@ -130,13 +130,26 @@ const useMenu = ({ lang, admin }: Props) => {
         }
       })
       .map((item) => {
-        if (admin && item.category === dict['홍보센터'][lang]) {
-          return {
-            ...item,
-            menus: item.menus.filter(
-              (menu) => menu.text[0] !== dict2['문의하기'][lang],
-            ),
-          };
+        if (admin) {
+          if (item.category === dict['홍보센터'][lang]) {
+            return {
+              ...item,
+              menus: item.menus
+                .filter((menu) => menu.text[0] !== dict2['문의하기'][lang])
+                .map((menu) => ({
+                  ...menu,
+                  path: menu.path.map((p) => '/admin' + p),
+                })),
+            };
+          } else {
+            return {
+              ...item,
+              menus: item.menus.map((menu) => ({
+                ...menu,
+                path: menu.path.map((p) => '/admin' + p),
+              })),
+            };
+          }
         } else {
           return item;
         }
