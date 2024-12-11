@@ -72,6 +72,8 @@ const config = {
           darker: 'hsl(var(--primary-darker))',
           light: 'hsl(var(--primary-light))',
           lighter: 'hsl(var(--primary-lighter))',
+          focused: 'hsl(var(--primary-focused))',
+
           'alpha-70': 'hsl(var(--primary-alpha-70))',
           'alpha-50': 'hsl(var(--primary-alpha-50))',
           'alpha-30': 'hsl(var(--primary-alpha-30))',

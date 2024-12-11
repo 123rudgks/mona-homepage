@@ -15,13 +15,13 @@ const buttonVariants = cva(
         gray: 'rounded-full bg-grayscale-400 text-white  hover:bg-grayscale-500 typo-BodySmallBold focus:ring focus:ring-grayscale-focused focus-visible:ring focus-visible:ring-grayscale-focused focus-visible:ring-offset-0 disabled:bg-grayscale-200 ',
         danger:
           'rounded-full bg-danger text-white  hover:bg-danger-dark typo-BodySmallBold focus:ring focus:ring-danger-light focus-visible:ring focus-visible:ring-danger-light focus-visible:ring-offset-0 disabled:bg-grayscale-200 ',
-        outline:
-          'rounded-s focus:ring focus:ring-grayscale-focused focus-visible:ring focus-visible:ring-grayscale-focused focus-visible:ring-offset-0 ',
+        outline: 'rounded-s focus:ring  focus-visible:ring-offset-0 ',
       },
       theme: {
         white: '',
         black: '',
         gray: '',
+        primary: '',
       },
       size: {
         lg: 'py-2 px-8',
@@ -45,7 +45,13 @@ const buttonVariants = cva(
         variant: 'outline',
         theme: 'gray',
         className:
-          'border border-grayscale-300 hover:bg-grayscale-100 typo-BodyLargeBold text-grayscale-500 disabled:bg-grayscale-200',
+          'border border-grayscale-300 hover:bg-grayscale-100 typo-BodyLargeBold text-grayscale-500 disabled:bg-grayscale-200  focus:ring-grayscale-focused focus-visible:ring focus-visible:ring-grayscale-focused',
+      },
+      {
+        variant: 'outline',
+        theme: 'primary',
+        className:
+          'border border-primary hover:bg-primary-lighter typo-BodyLargeBold text-primary disabled:bg-grayscale-200 focus:ring-primary-focused focus-visible:ring focus-visible:ring-primary-focused',
       },
     ],
     defaultVariants: {},

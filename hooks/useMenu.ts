@@ -6,11 +6,11 @@ import { usePathname } from 'next/navigation';
 import { useMemo } from 'react';
 
 type Props = {
-  lang: Language;
+  lang?: Language;
   admin?: boolean;
 };
 
-const useMenu = ({ lang, admin }: Props) => {
+const useMenu = ({ lang = 'ko', admin }: Props) => {
   const MENU: HeaderMenu[] = useMemo(() => {
     return [
       {

@@ -19,10 +19,11 @@ import LogoBottomText from './icons/LogoBottomText.svg';
 import Youtube from './icons/Youtube.svg';
 type Props = {
   darkMode?: boolean;
-  lang: Language;
+  lang?: Language;
+  admin?: boolean;
 };
 
-const Footer = ({ darkMode, lang }: Props) => {
+const Footer = ({ darkMode, lang = 'ko', admin }: Props) => {
   const [popUp, setPopUp] = useState<'termOfUse' | 'privacy'>();
   return (
     <div
@@ -77,111 +78,113 @@ const Footer = ({ darkMode, lang }: Props) => {
           </div>
         </div>
         {/* Nav menu section */}
-        <div className="w-full hidden md-screen:flex">
-          {[
-            {
-              title: dict['기업정보'][lang],
-              menu: [
-                {
-                  text: [dict['회사소개'][lang]],
-                  path: ['/company-info/introduction'],
-                },
-                {
-                  text: [dict['연혁'][lang]],
-                  path: ['/company-info/history'],
-                },
-                {
-                  text: [dict['구성원'][lang]],
-                  path: ['/company-info/members'],
-                },
-                {
-                  text: [dict['오시는 길'][lang]],
-                  path: ['/company-info/location'],
-                },
-              ],
-            },
-            {
-              title: dict['사업영역'][lang],
-              menu: [
-                {
-                  label: dict['제조 솔루션'][lang],
-                  text: [
-                    dict['초고속 배터리 진단 솔루션'][lang],
-                    dict['모듈 고장 진단 솔루션'][lang],
-                  ],
-                  path: [
-                    '/business-area/high-speed-battery',
-                    '/business-area/module-fault',
-                  ],
-                },
-                {
-                  label: dict['유지 보수 및 SOH 진단'][lang],
-                  text: [
-                    dict['모듈 정비 및 진단'][lang],
-                    dict['전기차 SOH 진단'][lang],
-                  ],
-                  path: [
-                    '/business-area/module-maintenance',
-                    '/business-area/electric-vehicle-soh',
-                  ],
-                },
-                {
-                  text: [dict['사용 후 배터리'][lang]],
-                  path: ['/business-area/after-use-battery'],
-                },
-                {
-                  text: [dict['수소'][lang]],
-                  path: ['/business-area/hydrogen'],
-                },
-              ],
-            },
-            {
-              title: dict['제품정보'][lang],
-              menu: [
-                {
-                  text: [dict['초고속 배터리 진단 솔루션'][lang]],
-                  path: ['/product-info/battery-capacity'],
-                },
-                {
-                  text: [dict['배터리 용량 예측 솔루션'][lang]],
-                  path: ['/product-info/high-speed-battery'],
-                },
-                {
-                  text: [dict['수소 시스템 및 진단'][lang]],
-                  path: ['/product-info/hydrogen-system'],
-                },
-              ],
-            },
-            {
-              title: dict['홍보센터'][lang],
-              menu: [
-                {
-                  text: ['NEWS'],
-                  path: ['/promotion-center/news'],
-                },
-                {
-                  text: [dict['투자정보'][lang]],
-                  path: ['/promotion-center/investment-info'],
-                },
-                {
-                  text: [dict['문의하기'][lang]],
-                  path: ['/promotion-center/contact-us'],
-                },
-              ],
-            },
-            {
-              title: dict['인재채용'][lang],
-              menu: [
-                {
-                  text: [dict['채용공고'][lang]],
-                  path: ['/recruitment/notice'],
-                },
-              ],
-            },
-          ].map((item) => (
-            <NavMenu key={item.title} darkMode={darkMode} {...item} />
-          ))}
-        </div>
+        {!admin && (
+          <div className="w-full hidden md-screen:flex">
+            {[
+              {
+                title: dict['기업정보'][lang],
+                menu: [
+                  {
+                    text: [dict['회사소개'][lang]],
+                    path: ['/company-info/introduction'],
+                  },
+                  {
+                    text: [dict['연혁'][lang]],
+                    path: ['/company-info/history'],
+                  },
+                  {
+                    text: [dict['구성원'][lang]],
+                    path: ['/company-info/members'],
+                  },
+                  {
+                    text: [dict['오시는 길'][lang]],
+                    path: ['/company-info/location'],
+                  },
+                ],
+              },
+              {
+                title: dict['사업영역'][lang],
+                menu: [
+                  {
+                    label: dict['제조 솔루션'][lang],
+                    text: [
+                      dict['초고속 배터리 진단 솔루션'][lang],
+                      dict['모듈 고장 진단 솔루션'][lang],
+                    ],
+                    path: [
+                      '/business-area/high-speed-battery',
+                      '/business-area/module-fault',
+                    ],
+                  },
+                  {
+                    label: dict['유지 보수 및 SOH 진단'][lang],
+                    text: [
+                      dict['모듈 정비 및 진단'][lang],
+                      dict['전기차 SOH 진단'][lang],
+                    ],
+                    path: [
+                      '/business-area/module-maintenance',
+                      '/business-area/electric-vehicle-soh',
+                    ],
+                  },
+                  {
+                    text: [dict['사용 후 배터리'][lang]],
+                    path: ['/business-area/after-use-battery'],
+                  },
+                  {
+                    text: [dict['수소'][lang]],
+                    path: ['/business-area/hydrogen'],
+                  },
+                ],
+              },
+              {
+                title: dict['제품정보'][lang],
+                menu: [
+                  {
+                    text: [dict['초고속 배터리 진단 솔루션'][lang]],
+                    path: ['/product-info/battery-capacity'],
+                  },
+                  {
+                    text: [dict['배터리 용량 예측 솔루션'][lang]],
+                    path: ['/product-info/high-speed-battery'],
+                  },
+                  {
+                    text: [dict['수소 시스템 및 진단'][lang]],
+                    path: ['/product-info/hydrogen-system'],
+                  },
+                ],
+              },
+              {
+                title: dict['홍보센터'][lang],
+                menu: [
+                  {
+                    text: ['NEWS'],
+                    path: ['/promotion-center/news'],
+                  },
+                  {
+                    text: [dict['투자정보'][lang]],
+                    path: ['/promotion-center/investment-info'],
+                  },
+                  {
+                    text: [dict['문의하기'][lang]],
+                    path: ['/promotion-center/contact-us'],
+                  },
+                ],
+              },
+              {
+                title: dict['인재채용'][lang],
+                menu: [
+                  {
+                    text: [dict['채용공고'][lang]],
+                    path: ['/recruitment/notice'],
+                  },
+                ],
+              },
+            ].map((item) => (
+              <NavMenu key={item.title} darkMode={darkMode} {...item} />
+            ))}
+          </div>
+        )}
       </div>
       {/* Bottom section */}
       <div className="w-[329px] mt-4 sm-screen:w-full sm-screen:mb-0 mb-[72px]">

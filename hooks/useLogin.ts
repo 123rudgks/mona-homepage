@@ -28,7 +28,7 @@ const useLogin = (props: Props) => {
       const refreshToken = data.data.refreshToken;
       setTokens(token, refreshToken);
       setError([]);
-      window.location.replace('/admin/business-area');
+      window.location.replace('/admin/business-area/high-speed-battery');
     } else {
       if (
         data.data ===

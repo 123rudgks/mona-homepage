@@ -275,6 +275,8 @@
     --primary-darker: 6 34% 28%;
     --primary-light: 36 100% 77%;
     --primary-lighter: 48 100% 88%;
+    --primary-focused: 30 100% 46% / 30%;
+
     --accent: 257 100% 27%;
     --accent-dark: 261 51% 9%;
     --accent-light: 227 43% 85%;

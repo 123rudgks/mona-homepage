@@ -31,7 +31,7 @@ const LoginPage = (props: Props) => {
   useEffect(() => {
     const token = sessionStorage.getItem('accessToken');
     if (token) {
-      window?.location.replace('/admin/business-area');
+      window?.location.replace('/admin/business-area/high-speed-battery');
     }
   }, []);
   const [forgotPwPopup, setForgotPwPopup] = useState(false);
