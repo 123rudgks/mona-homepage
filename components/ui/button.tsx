@@ -12,6 +12,9 @@ const buttonVariants = cva(
         ghost: 'rounded-full',
         primary:
           'rounded-full bg-primary text-white  hover:bg-primary-dark typo-BodySmallBold focus:ring focus:ring-primary-alpha-30 focus-visible:ring focus-visible:ring-primary-alpha-30 focus-visible:ring-offset-0 disabled:bg-grayscale-200 ',
+        gray: 'rounded-full bg-grayscale-400 text-white  hover:bg-grayscale-500 typo-BodySmallBold focus:ring focus:ring-grayscale-focused focus-visible:ring focus-visible:ring-grayscale-focused focus-visible:ring-offset-0 disabled:bg-grayscale-200 ',
+        danger:
+          'rounded-full bg-danger text-white  hover:bg-danger-dark typo-BodySmallBold focus:ring focus:ring-danger-light focus-visible:ring focus-visible:ring-danger-light focus-visible:ring-offset-0 disabled:bg-grayscale-200 ',
         outline:
           'rounded-s focus:ring focus:ring-grayscale-focused focus-visible:ring focus-visible:ring-grayscale-focused focus-visible:ring-offset-0 ',
       },

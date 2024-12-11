@@ -7,20 +7,27 @@ import LogoText from './icons/LogoText.svg';
 import LogoTopLeft from './icons/LogoTopLeft.svg';
 import LogoTopRight from './icons/LogoTopRight.svg';
 
+import LogOutIcon from '@/app/svgs/admin/LogOutIcon.svg';
 import { HeaderMenu, HeaderNavMenu } from '@/components/Header/Header.types';
+import Modal from '@/components/Modal/Modal';
+import ModalBackground from '@/components/Modal/ModalBackground';
+import ModalPortal from '@/components/Modal/ModalPortal';
+import { Button } from '@/components/ui/button';
 import HamburgerMenu from '@/components/ui/hamburger_menu';
 import useMenu from '@/hooks/useMenu';
 import { cn } from '@/lib/utils';
+import { removeTokens } from '@/utils/apis';
 import Link from 'next/link';
 import { useParams, usePathname, useRouter } from 'next/navigation';
 import { Fragment, useCallback, useState } from 'react';
 
 type Props = {
   darkMode?: boolean;
-  lang: Language;
+  lang?: Language;
+  admin?: boolean;
 };
 
-const Header = ({ darkMode, lang }: Props) => {
+const Header = ({ darkMode, lang = 'ko', admin }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const params = useParams();
@@ -34,7 +41,7 @@ const Header = ({ darkMode, lang }: Props) => {
     },
     [path, params.lang, router],
   );
-  const { MENU } = useMenu({ lang });
+  const { MENU } = useMenu({ lang, admin });
 
   return (
     <header className={cn('z-20 fixed top-0 w-full ')}>
@@ -47,7 +54,14 @@ const Header = ({ darkMode, lang }: Props) => {
             'flex justify-between w-full items-center relative h-full',
             darkMode ? 'bg-transparent' : 'bg-white',
           )}>
-          <Logo darkMode={darkMode} />
+          <div className="relative">
+            <Logo darkMode={darkMode} />
+            {admin && (
+              <span className="absolute right-0 top-1/2 translate-x-full -translate-y-1/2 pl-2 typo-Display1Medium ">
+                관리자
+              </span>
+            )}
+          </div>
           <div className="group h-full flex justify-center items-center hover:flex-1">
             <MdScreenCategory
               lang={lang}
@@ -63,11 +77,15 @@ const Header = ({ darkMode, lang }: Props) => {
           </div>
 
           <div className="flex gap-6 mr-11">
-            <EngKor
-              lang={lang}
-              darkMode={darkMode}
-              changeLanguage={changeLanguage}
-            />
+            {admin ? (
+              <LogOut />
+            ) : (
+              <EngKor
+                lang={lang}
+                darkMode={darkMode}
+                changeLanguage={changeLanguage}
+              />
+            )}
             <HamburgerMenu
               isOpen={isOpen}
               setIsOpen={(open) => {
@@ -274,6 +292,47 @@ const MdScreenDropdownMenu = ({
   );
 };
 
+const LogOut = () => {
+  const [modal, setModal] = useState(false);
+  return (
+    <>
+      <div
+        className=" w-[98px] typo-TitleMedium text-grayscale-500  hidden sm-screen:flex sm-screen:items-center sm-screen:gap-1 cursor-pointer"
+        onClick={() => {
+          setModal(true);
+        }}>
+        <LogOutIcon /> 로그아웃
+      </div>
+      {modal && (
+        <ModalPortal>
+          <ModalBackground onClick={() => setModal(false)}>
+            <Modal
+              title="로그아웃 할까요?"
+              desc={['관리자 홈페이지에서 로그아웃 됩니다.']}
+              bottom={
+                <div className="flex justify-between gap-2">
+                  <Button variant={'gray'} size={'lg'} className="h-12 flex-1">
+                    취소
+                  </Button>
+                  <Button
+                    variant={'danger'}
+                    size={'lg'}
+                    className="flex-1"
+                    onClick={() => {
+                      removeTokens();
+                      window?.location.replace('/admin/login');
+                    }}>
+                    로그아웃
+                  </Button>
+                </div>
+              }
+            />
+          </ModalBackground>
+        </ModalPortal>
+      )}
+    </>
+  );
+};
 const EngKor = ({
   lang,
   darkMode,

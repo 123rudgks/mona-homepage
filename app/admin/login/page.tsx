@@ -12,7 +12,7 @@ import { Button } from '@/components/ui/button';
 import useLogin from '@/hooks/useLogin';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 type Props = {};
 
 const LoginPage = (props: Props) => {
@@ -24,7 +24,16 @@ const LoginPage = (props: Props) => {
     showPassword,
     setShowPassword,
     isButtonActive,
+    postLogin,
+    error,
   } = useLogin({});
+  // Redirect to business-area if already logged in
+  useEffect(() => {
+    const token = sessionStorage.getItem('accessToken');
+    if (token) {
+      window?.location.replace('/admin/business-area');
+    }
+  }, []);
   const [forgotPwPopup, setForgotPwPopup] = useState(false);
 
   return (
@@ -56,6 +65,11 @@ const LoginPage = (props: Props) => {
           <div className="flex flex-col gap-[10px] w-full">
             <div className="h-10">
               <Input
+                error={
+                  error.includes('id')
+                    ? '아이디가 올바르지 않습니다.'
+                    : undefined
+                }
                 inputProps={{
                   placeholder: '아이디',
                   value: id,
@@ -66,6 +80,11 @@ const LoginPage = (props: Props) => {
             </div>
             <div className="h-10">
               <Input
+                error={
+                  error.includes('pw')
+                    ? '비밀번호가 올바르지 않습니다.'
+                    : undefined
+                }
                 inputProps={{
                   placeholder: '비밀번호',
                   type: showPassword ? 'text' : 'password',
@@ -112,7 +131,9 @@ const LoginPage = (props: Props) => {
               size={'lg'}
               className="h-12 w-full"
               disabled={!isButtonActive}
-              onClick={() => {}}>
+              onClick={() => {
+                postLogin(id, password);
+              }}>
               로그인
             </Button>
           </div>
