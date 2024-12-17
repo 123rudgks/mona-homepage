@@ -3,9 +3,12 @@ import ContentBox from '@/components/ContentBox';
 import ContentSection from '@/components/ContentSection';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
-import QuillEditor from '@/components/QuillEditor';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import dynamic from 'next/dynamic';
+const QuillEditor = dynamic(() => import('@/components/QuillEditor'), {
+  ssr: false,
+});
 
 type Props = {
   onSave: () => void;

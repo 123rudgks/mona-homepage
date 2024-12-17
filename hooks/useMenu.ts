@@ -1,3 +1,4 @@
+'use client';
 import { HeaderMenu } from '@/components/Header/Header.types';
 import dict2 from '@/dictionaries/footer.json';
 import dict from '@/dictionaries/header.json';

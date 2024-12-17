@@ -4,6 +4,7 @@ import ContentSection from '@/components/ContentSection';
 import { ToastContext } from '@/components/ContextWrapper';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
+import HtmlDiv from '@/components/HtmlDiv';
 import TabMenu, { MobileTabMenu } from '@/components/TabMenu';
 import { Button } from '@/components/ui/button';
 import useGetInfos from '@/hooks/useGetInfos';
@@ -58,12 +59,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
             <TabMenu lang={lang} admin />
           </div>
           <ContentBox title={content.title} label={currentMenu.label}>
-            <div
-              className="whitespace-pre-line"
-              dangerouslySetInnerHTML={{
-                __html: content.content,
-              }}
-            />
+            <HtmlDiv html={content.content} />
           </ContentBox>
         </div>
       </ContentSection>

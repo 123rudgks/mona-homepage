@@ -12,6 +12,7 @@ import { Button } from '@/components/ui/button';
 import useLogin from '@/hooks/useLogin';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 type Props = {};
 
@@ -27,13 +28,14 @@ const LoginPage = (props: Props) => {
     postLogin,
     error,
   } = useLogin({});
+  const router = useRouter();
   // Redirect to business-area if already logged in
   useEffect(() => {
     const token = sessionStorage.getItem('accessToken');
     if (token) {
-      window?.location.replace('/admin/business-area/high-speed-battery');
+      router.replace('/admin/business-area/high-speed-battery');
     }
-  }, []);
+  }, [router]);
   const [forgotPwPopup, setForgotPwPopup] = useState(false);
 
   return (
