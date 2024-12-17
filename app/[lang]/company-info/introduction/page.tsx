@@ -121,8 +121,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
               <br />
               <br />
               <div className="text-blackAlpha-70">
-                {' '}
-                ㅇ
+                {dict.content_4[lang]}
                 <br />
                 <br />
                 {dict.content_5[lang]}

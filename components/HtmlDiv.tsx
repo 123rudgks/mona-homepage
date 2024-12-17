@@ -1,3 +1,6 @@
+import 'react-quill/dist/quill.snow.css';
+import '../app/custom-quill.css';
+
 type Props = {
   html: string;
 };
@@ -5,7 +8,7 @@ type Props = {
 const HtmlDiv = ({ html }: Props) => {
   return (
     <div
-      className="whitespace-pre-line"
+      className="whitespace-pre-line ql-container ql-editor"
       dangerouslySetInnerHTML={{
         __html: html,
       }}

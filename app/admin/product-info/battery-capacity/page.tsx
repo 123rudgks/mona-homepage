@@ -1,24 +1,38 @@
 'use client';
 import ContentBox from '@/components/ContentBox';
 import ContentSection from '@/components/ContentSection';
+import { ToastContext } from '@/components/ContextWrapper';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
+import HtmlDiv from '@/components/HtmlDiv';
 import TabMenu, { MobileTabMenu } from '@/components/TabMenu';
 import { Button } from '@/components/ui/button';
 import useGetInfos from '@/hooks/useGetInfos';
 import useMenu from '@/hooks/useMenu';
 import { cn } from '@/lib/utils';
 import { Language } from '@/types/globals.types';
+import { useRouter } from 'next/navigation';
+import { useContext, useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 type Props = {};
+const infoTag = 'battery-capacity';
 
 const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
   const { MENU, currentCategory, currentMenu } = useMenu({ lang });
+
   const { content } = useGetInfos({
-    infoTag: 'battery-capacity',
+    infoTag: infoTag,
     infoType: 'product',
   });
-
+  const router = useRouter();
+  const toastContext = useContext(ToastContext);
+  useEffect(() => {
+    if (toastContext?.toast) {
+      toast(toastContext.toast);
+      toastContext.setToast(null);
+    }
+  }, [toastContext]);
   return (
     <main>
       <div className="border-b border-grayscale-200 w-full sm-screen:pt-[100px] pt-16"></div>
@@ -32,7 +46,10 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
             variant={'outline'}
             size={'lg'}
             theme={'primary'}
-            className="w-[100px] rounded-full">
+            className="w-[100px] rounded-full"
+            onClick={() => {
+              router.push(`/admin/product-info/${infoTag}/edit`);
+            }}>
             편집
           </Button>
         </div>
@@ -44,12 +61,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
             <TabMenu lang={lang} />
           </div>
           <ContentBox title={content.title} label={currentMenu.label}>
-            <div
-              className="whitespace-pre-line"
-              dangerouslySetInnerHTML={{
-                __html: content.content,
-              }}
-            />
+            <HtmlDiv html={content.content} />
           </ContentBox>
         </div>
       </ContentSection>

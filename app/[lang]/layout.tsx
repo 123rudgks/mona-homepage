@@ -33,6 +33,7 @@ export default function RootLayout({
     <html lang="ko">
       <body className={cn(inter.className, 'relative')}>
         {children}
+
         <div id="modal-root" className="fixed left-0 top-0 z-40 " />
       </body>
     </html>

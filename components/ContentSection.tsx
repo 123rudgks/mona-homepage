@@ -2,7 +2,7 @@ import { cn } from '@/lib/utils';
 import React from 'react';
 
 interface Props extends React.ComponentPropsWithoutRef<'div'> {
-  mobileTabMenuComp: React.ReactNode;
+  mobileTabMenuComp?: React.ReactNode;
 }
 
 const ContentSection = ({

@@ -36,7 +36,7 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // request for API
-  if (request.url.includes('/api')) {
+  if (request.url.includes('/api') || request.url.includes('/image-api')) {
     return NextResponse.next();
   }
   // request for admin page

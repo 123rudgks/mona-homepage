@@ -16,10 +16,12 @@ export const authFetch = async (
       ...options.headers,
       Authorization: `Bearer ${token}`,
     };
-    const res = await fetch(url, { ...options, headers });
-    const data = await res.json();
-    if (data.message === '실패') {
+    const resForRead = await fetch(url, { ...options, headers });
+    const copiedRes = resForRead.clone();
+    const data = await resForRead.json();
+    if (data.code === 401) {
       if (refreshed) {
+        console.log('refreshed fail');
         return failReturn();
       } else {
         const res = await refreshToken();
@@ -31,12 +33,14 @@ export const authFetch = async (
           // note. 꼭 true로 설정해줘야 함 안그러면 무한루프
           return await authFetch(url, options, true);
         } else {
+          console.log('refreshing fail');
           return failReturn();
         }
       }
     }
-    return res;
+    return copiedRes;
   } else {
+    console.log('no token');
     return failReturn();
   }
 };

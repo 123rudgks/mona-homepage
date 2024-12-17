@@ -15,14 +15,16 @@ import { Fragment, useMemo } from 'react';
 
 type Props = {
   lang: Language;
+  admin?: boolean;
 };
 const checkCurrentPath = (path: string, menuPath: string) => {
   return path.includes(menuPath);
 };
-const TabMenu = ({ lang }: Props) => {
+const TabMenu = ({ lang, admin }: Props) => {
   const path = usePathname();
   const { MENU, currentCategory, currentMenu, currentMenus } = useMenu({
     lang,
+    admin,
   });
 
   return (

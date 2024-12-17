@@ -1,6 +1,7 @@
 'use client';
 import ContentBox from '@/components/ContentBox';
 import ContentSection from '@/components/ContentSection';
+import { ToastContext } from '@/components/ContextWrapper';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
 import HtmlDiv from '@/components/HtmlDiv';
@@ -10,15 +11,27 @@ import useGetInfos from '@/hooks/useGetInfos';
 import useMenu from '@/hooks/useMenu';
 import { cn } from '@/lib/utils';
 import { Language } from '@/types/globals.types';
+import { useRouter } from 'next/navigation';
+import { useContext, useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 type Props = {};
+const infoTag = 'high-speed-battery-product';
 
 const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
   const { MENU, currentCategory, currentMenu } = useMenu({ lang });
   const { content } = useGetInfos({
-    infoTag: 'high-speed-battery-product',
+    infoTag: infoTag,
     infoType: 'product',
   });
+  const router = useRouter();
+  const toastContext = useContext(ToastContext);
+  useEffect(() => {
+    if (toastContext?.toast) {
+      toast(toastContext.toast);
+      toastContext.setToast(null);
+    }
+  }, [toastContext]);
 
   return (
     <main>
@@ -33,7 +46,10 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
             variant={'outline'}
             size={'lg'}
             theme={'primary'}
-            className="w-[100px] rounded-full">
+            className="w-[100px] rounded-full"
+            onClick={() => {
+              router.push(`/admin/product-info/${'high-speed-battery'}/edit`);
+            }}>
             편집
           </Button>
         </div>

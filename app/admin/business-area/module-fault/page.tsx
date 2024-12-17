@@ -1,6 +1,7 @@
 'use client';
 import ContentBox from '@/components/ContentBox';
 import ContentSection from '@/components/ContentSection';
+import { ToastContext } from '@/components/ContextWrapper';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
 import TabMenu, { MobileTabMenu } from '@/components/TabMenu';
@@ -9,6 +10,9 @@ import useGetInfos from '@/hooks/useGetInfos';
 import useMenu from '@/hooks/useMenu';
 import { cn } from '@/lib/utils';
 import { Language } from '@/types/globals.types';
+import { useRouter } from 'next/navigation';
+import { useContext, useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 type Props = {};
 
@@ -18,7 +22,14 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
     infoTag: 'module-fault',
     infoType: 'business',
   });
-
+  const router = useRouter();
+  const toastContext = useContext(ToastContext);
+  useEffect(() => {
+    if (toastContext?.toast) {
+      toast(toastContext.toast);
+      toastContext.setToast(null);
+    }
+  }, [toastContext]);
   return (
     <main>
       <div className="border-b border-grayscale-200 w-full sm-screen:pt-[100px] pt-16"></div>
@@ -32,7 +43,10 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
             variant={'outline'}
             size={'lg'}
             theme={'primary'}
-            className="w-[100px] rounded-full">
+            className="w-[100px] rounded-full"
+            onClick={() => {
+              router.push('/admin/business-area/module-fault/edit');
+            }}>
             편집
           </Button>
         </div>

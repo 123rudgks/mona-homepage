@@ -10,6 +10,10 @@ const nextConfig = {
         source: '/api/:path*',
         destination: `${process.env.SERVER_URL}/v1/:path*`,
       },
+      {
+        source: '/server/:path*',
+        destination: `https://:path*`,
+      },
     ];
   },
   webpack: (config) => {

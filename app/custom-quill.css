@@ -1,0 +1,64 @@
+/* custom quill css */
+
+.quill {
+  height: 500px;
+}
+.ql-snow .ql-picker-options {
+  max-height: 165px;
+  overflow-y: auto;
+}
+.ql-container {
+  font-family: 'Pretendard', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+.ql-editor .ql-font-pretendard {
+  font-family: 'Pretendard';
+}
+
+.ql-editor .ql-size-8px {
+  font-size: 8px;
+}
+.ql-editor .ql-size-9px {
+  font-size: 9px;
+}
+.ql-editor .ql-size-10px {
+  font-size: 10px;
+}
+
+.ql-editor .ql-size-12px {
+  font-size: 12px;
+}
+
+.ql-editor .ql-size-14px {
+  font-size: 14px;
+}
+.ql-editor .ql-size-16px {
+  font-size: 16px;
+}
+.ql-editor .ql-size-20px {
+  font-size: 20px;
+}
+.ql-editor .ql-size-24px {
+  font-size: 24px;
+}
+.ql-editor .ql-size-32px {
+  font-size: 32px;
+}
+.ql-editor .ql-size-42px {
+  font-size: 42px;
+}
+.ql-editor .ql-size-54px {
+  font-size: 54px;
+}
+.ql-editor .ql-size-68px {
+  font-size: 68px;
+}
+.ql-editor .ql-size-84px {
+  font-size: 84px;
+}
+.ql-editor .ql-size-98px {
+  font-size: 98px;
+}
+.ql-editor img {
+  display: inline-block;
+}
