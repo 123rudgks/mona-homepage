@@ -55,7 +55,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
             'sm-screen:flex lg-screen:flex-row lg-screen:gap-11 sm-screen:flex-col sm-screen:gap-9',
           )}>
           <div className={cn('sm-screen:static sm-screen:w-auto ')}>
-            <TabMenu lang={lang} />
+            <TabMenu lang={lang} admin />
           </div>
           <ContentBox title={content.title} label={currentMenu.label}>
             <div
