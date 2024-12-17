@@ -1,4 +1,4 @@
-export const dynamic = 'force-static';
+export const dynamic = 'force-dynamic'; // 동적 렌더링 강제
 import { NextResponse } from 'next/server';
 
 export async function GET(request: Request) {
