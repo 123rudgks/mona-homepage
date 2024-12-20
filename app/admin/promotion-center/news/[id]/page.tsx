@@ -1,26 +1,24 @@
 'use client';
+import MoreIcon from '@/app/svgs/admin/MoreIcon.svg';
 import ChevronLeft from '@/app/svgs/main/ChevronLeft.svg';
-import BoardSection from '@/components/BoardSection';
 import ContentSection from '@/components/ContentSection';
+import { ToastContext } from '@/components/ContextWrapper';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
 import HtmlDiv from '@/components/HtmlDiv';
-import MonaBreadCrumb from '@/components/MonaBreadCrumb';
-import { MobileTabMenu } from '@/components/TabMenu';
 import MonaToastContainer from '@/components/Toast/MonaToastContainer';
 import Toast from '@/components/Toast/Toast';
 import { Button } from '@/components/ui/button';
-import { ClipboardShareButton } from '@/components/ui/ShareButton';
 import dict from '@/dictionaries/promotion-center/news-detail.json';
 import useMenu from '@/hooks/useMenu';
 import { cn } from '@/lib/utils';
 import { ArticleDetailData, Language } from '@/types/globals.types';
+import { authFetch } from '@/utils/apis';
 import dayjs from 'dayjs';
-import { HomeIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
 type Props = {};
@@ -30,15 +28,43 @@ const Page = ({
 }: {
   params: { lang: Language; id: string };
 }) => {
-  const { MENU, currentCategory, currentMenu } = useMenu({ lang });
+  const { MENU, currentCategory, currentMenu } = useMenu({ lang, admin: true });
   const [articleDetail, setArticleDetail] = useState<ArticleDetailData>();
   const router = useRouter();
+  const toastContext = useContext(ToastContext);
+  useEffect(() => {
+    if (toastContext?.toast) {
+      toast(toastContext.toast);
+      toastContext.setToast(null);
+    }
+  }, []);
 
+  const deleteArticle = useCallback(async () => {
+    const res = await authFetch(`/api/articles/${id}`, {
+      method: 'DELETE',
+    });
+    const data = await res?.json();
+    if (data.code === 200) {
+      toastContext?.setToast((props) => (
+        <Toast
+          type="success"
+          message={'삭제되었습니다.'}
+          onClose={() => {
+            props.toastProps.onClose &&
+              props.toastProps.onClose({
+                id: props.toastProps.toastId,
+              });
+          }}
+        />
+      ));
+      router.push(`/admin/promotion-center/news`);
+    }
+  }, [id]);
   const getArticleDetail = useCallback(async () => {
     const res = await fetch(`/api/articles/${id}`);
     const data = await res.json();
     setArticleDetail(data.data);
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     getArticleDetail();
@@ -46,31 +72,13 @@ const Page = ({
 
   return (
     <main>
-      <BoardSection
-        title={currentCategory?.category}
-        desc={['RAPID & ACCURATE BATTERY DIAGNOSIS', 'Powered By AI']}
-      />
-      <ContentSection mobileTabMenuComp={<MobileTabMenu lang={lang} />}>
+      <div className="border-b border-grayscale-200 w-full sm-screen:pt-[100px] pt-16"></div>
+
+      <ContentSection>
         <div
           className={cn(
-            'lg-screen:h-[100px] sm-screen:h-20 h-[60px] flex items-center justify-end',
-          )}>
-          <MonaBreadCrumb
-            items={[
-              { href: '/', component: <HomeIcon />, id: 'home' },
-
-              {
-                href: '/promotion-center/news',
-                component: currentCategory?.category,
-                id: 'category',
-              },
-              {
-                component: 'News',
-                id: 'news',
-              },
-            ]}
-          />
-        </div>
+            'lg-screen:h-[100px] sm-screen:h-20 h-[60px] flex items-center justify-end gap-2',
+          )}></div>
         <div className={cn('sm-screen:px-11', 'px-6')}>
           <div
             className={cn(
@@ -90,9 +98,66 @@ const Page = ({
               </div>
               <div
                 className={cn(
-                  'text-blackAlpha-70 typo-TitleMedium sm-screen:h-12 sm-screen:flex sm-screen:items-center',
+                  'text-blackAlpha-70 typo-TitleMedium sm-screen:h-12 flex items-center justify-between',
                 )}>
-                {dayjs(articleDetail?.createdDate).format('YYYY-MM-DD')}
+                {articleDetail?.reservedDate ? (
+                  <div className="flex gap-2">
+                    {dayjs(articleDetail?.reservedDate).format(
+                      'YYYY-MM-DD HH:mm',
+                    )}
+                    <span className="typo-TitleMedium text-primary">
+                      예약 발행
+                    </span>
+                  </div>
+                ) : (
+                  dayjs(articleDetail?.createdDate).format('YYYY-MM-DD')
+                )}
+
+                <span className="  gap-2 hidden sm-screen:flex">
+                  <Button
+                    variant={'outline'}
+                    size={'lg'}
+                    theme={'gray'}
+                    className="px-5 py-3 rounded-full"
+                    onClick={() => {
+                      router.push(`/admin/promotion-center/news/edit?id=${id}`);
+                    }}>
+                    수정
+                  </Button>
+                  <Button
+                    variant={'outline'}
+                    size={'lg'}
+                    theme={'danger'}
+                    className="px-5 py-3 rounded-full"
+                    onClick={() => {
+                      deleteArticle();
+                    }}>
+                    삭제
+                  </Button>
+                </span>
+                <span className="sm-screen:hidden inline relative">
+                  <Button
+                    variant={'outline'}
+                    size={'lg'}
+                    theme={'gray'}
+                    className="rounded-full w-10 h-10 p-0 peer">
+                    <MoreIcon />
+                  </Button>
+                  <div className="absolute mt-2 shadow-lg bg-white right-0  flex-col z-10 peer-focus:visible hover:visible invisible flex ">
+                    <div
+                      className="p-2 w-[92px] typo-BodyLargeRegular hover:bg-grayscale-50 flex items-center cursor-pointer"
+                      onClick={() => {
+                        router.push(
+                          `/admin/promotion-center/news/edit?id=${id}`,
+                        );
+                      }}>
+                      수정
+                    </div>
+                    <div className="p-2 w-[92px] typo-BodyLargeRegular text-danger hover:bg-grayscale-50 flex items-center cursor-pointer">
+                      삭제
+                    </div>
+                  </div>
+                </span>
               </div>
             </div>
             <div className={cn(' pt-5 pb-[108px]', 'sm-screen:pt-6')}>
@@ -105,48 +170,6 @@ const Page = ({
             {articleDetail?.content && (
               <HtmlDiv html={articleDetail?.content} />
             )}
-
-            <span className="absolute bottom-0 right-1/2 translate-x-1/2 sm-screen:right-0 sm-screen:top-[70px] sm-screen:bottom-auto sm-screen:translate-x-0  flex gap-4">
-              {/* 클라이언트한테 계정 받아야함. 현재 디자인에선 hidden */}
-              {/* <KakaoShareButton
-                kakaoConfig={{
-                  objectType: 'feed',
-                  content: {
-                    title: articleDetail?.title || '',
-                    description: truncateString(
-                      extractTextFromHTML(articleDetail?.content || ''),
-                    ),
-                    imageUrl: articleDetail?.thumbnail || '',
-                    link: {
-                      mobileWebUrl: window.location.href,
-                      webUrl: window.location.href,
-                    },
-                  },
-                }}
-              /> */}
-              <ClipboardShareButton
-                ButtonProps={{
-                  onClick: (e) => {
-                    navigator.clipboard
-                      .writeText(window.location.href)
-                      .then(() => {
-                        toast(({ toastProps }) => (
-                          <Toast
-                            type="success"
-                            message={dict['복사 되었습니다'][lang]}
-                            onClose={() => {
-                              toastProps.onClose &&
-                                toastProps.onClose({
-                                  id: toastProps.toastId,
-                                });
-                            }}
-                          />
-                        ));
-                      });
-                  },
-                }}
-              />
-            </span>
           </div>
         </div>
         <div className="border-t border-b divide-y">
@@ -181,13 +204,13 @@ const Page = ({
             onClick={() => {
               router.push('/promotion-center/news');
             }}>
-            {dict['목록 보기'][lang]}
+            {lang ? dict['목록 보기'][lang] : '목록 보기'}
           </Button>
         </div>
       </ContentSection>
       <MonaToastContainer />
-      <Header lang={lang} />
-      <Footer lang={lang} />
+      <Header lang={lang} admin />
+      <Footer lang={lang} admin />
     </main>
   );
 };

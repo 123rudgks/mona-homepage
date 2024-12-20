@@ -31,7 +31,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
       toast(toastContext.toast);
       toastContext.setToast(null);
     }
-  }, [toastContext]);
+  }, []);
 
   return (
     <main>

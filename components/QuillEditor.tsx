@@ -1,5 +1,6 @@
 'use client';
 import { authFetch } from '@/utils/apis';
+import { base64ToFile, urlToFile } from '@/utils/helpers';
 import { useRef } from 'react';
 import ReactQuill, { Quill } from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -105,31 +106,6 @@ const QuillEditor = ({ value, setValue }: Props) => {
   );
 };
 
-const base64ToFile = (base64: string, filename: string) => {
-  // Base64 문자열에서 "data:image/png;base64," 부분 제거
-  const arr = base64.split(',');
-  const mime = arr[0].match(/:(.*?);/)?.[1] || ''; // MIME 타입 추출
-  const bstr = atob(arr[1]); // Base64 디코딩
-  let n = bstr.length;
-  const u8arr = new Uint8Array(n);
-  while (n--) {
-    u8arr[n] = bstr.charCodeAt(n); // 디코딩된 데이터를 Uint8Array로 변환
-  }
-  // Blob을 사용해 File 객체 생성
-  return new File([u8arr], filename, { type: mime });
-};
-const urlToFile = async (url: string, fileName: string) => {
-  try {
-    const response = await fetch('/admin/image-api/?url=' + url);
-    const blob = await response.blob();
-    const file = new File([blob], fileName, { type: blob.type });
-
-    return file;
-  } catch (error) {
-    console.log('error', error);
-  }
-};
-
 const getUploadedImgUrl = async (file: File) => {
   const formData = new FormData();
   formData.append('image', file);
@@ -188,18 +164,16 @@ const CustomToolbar = () => {
   return (
     <div id={'toolbar'}>
       <span className="ql-formats">
-        <select className="ql-font">
-          <option value={'pretendard'} selected>
-            pretendard
-          </option>
+        <select className="ql-font" defaultValue={'pretendard'}>
+          <option value={'pretendard'}>pretendard</option>
           <option value={'serif'}></option>
           <option value={'monospace'}></option>
         </select>
       </span>
       <span className="ql-formats">
-        <select className="ql-size">
+        <select className="ql-size" defaultValue={'14px'}>
           {fontSizeArr.map((size) => (
-            <option key={size + 'px'} value={size} selected={size === '14px'}>
+            <option key={size + 'px'} value={size}>
               {size}
             </option>
           ))}
@@ -214,8 +188,8 @@ const CustomToolbar = () => {
         <button className="ql-blockquote"></button>
       </span>
       <span className="ql-formats">
-        <select className="ql-color"></select>
-        <select className="ql-background"></select>
+        <select className="ql-color" defaultValue={'#000000'}></select>
+        <select className="ql-background" defaultValue={'#ffffff'}></select>
       </span>
       <span className="ql-formats">
         <button className="ql-list" value="ordered"></button>
@@ -224,7 +198,7 @@ const CustomToolbar = () => {
         <button className="ql-indent" value="+1"></button>
       </span>
       <span className="ql-formats">
-        <select className="ql-align"></select>
+        <select className="ql-align" defaultValue={'left'}></select>
       </span>
       <span className="ql-formats">
         <button className="ql-script" value="sub"></button>

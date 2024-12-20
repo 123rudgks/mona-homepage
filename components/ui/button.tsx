@@ -22,6 +22,7 @@ const buttonVariants = cva(
         black: '',
         gray: '',
         primary: '',
+        danger: '',
       },
       size: {
         lg: 'py-2 px-8',
@@ -52,6 +53,12 @@ const buttonVariants = cva(
         theme: 'primary',
         className:
           'border border-primary hover:bg-primary-lighter typo-BodyLargeBold text-primary disabled:bg-grayscale-200 focus:ring-primary-focused focus-visible:ring focus-visible:ring-primary-focused',
+      },
+      {
+        variant: 'outline',
+        theme: 'danger',
+        className:
+          'border border-danger hover:bg-danger-light typo-BodyLargeBold text-danger disabled:bg-grayscale-200 focus:ring-danger-alpha-30 focus-visible:ring focus-visible:ring-danger-alpha-30',
       },
     ],
     defaultVariants: {},

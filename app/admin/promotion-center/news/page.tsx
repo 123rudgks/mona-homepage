@@ -3,9 +3,10 @@ import InputCancel from '@/app/svgs/promotion-center/news/InputCancel.svg';
 import InputSearchIcon from '@/app/svgs/promotion-center/news/InputSearch.svg';
 import ContentBox from '@/components/ContentBox';
 import ContentSection from '@/components/ContentSection';
+import { ToastContext } from '@/components/ContextWrapper';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
-import { MobileTabMenu } from '@/components/TabMenu';
+import MonaToastContainer from '@/components/Toast/MonaToastContainer';
 import { Button } from '@/components/ui/button';
 import FallbackImage from '@/components/ui/FallbackImage';
 import {
@@ -21,13 +22,16 @@ import useMenu from '@/hooks/useMenu';
 import usePagination from '@/hooks/usePagination';
 import { cn } from '@/lib/utils';
 import { ArticleData, Language } from '@/types/globals.types';
-import { useCallback, useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useCallback, useContext, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 type Props = {};
 
 const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
-  const { MENU, currentCategory, currentMenu } = useMenu({ lang });
+  const { MENU, currentCategory, currentMenu } = useMenu({ lang, admin: true });
   const [inputValue, setInputValue] = useState('');
+  const router = useRouter();
   const [news, setNews] = useState<ArticleData[]>([]);
   const {
     currentPages,
@@ -38,10 +42,17 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
   } = usePagination({
     take: 5,
   });
+  const toastContext = useContext(ToastContext);
+  useEffect(() => {
+    if (toastContext?.toast) {
+      toast(toastContext.toast);
+      toastContext.setToast(null);
+    }
+  }, []);
   const fetchNews = useCallback(
     async ({ page, title }: { page: number; title?: string }) => {
       const res = await fetch(
-        `/api/articles?page=${page}${title ? `&title=${title}` : ''}`,
+        `/api/articles/admin?page=${page}${title ? `&title=${title}` : ''}`,
       );
       const data = await res.json();
       return data;
@@ -62,8 +73,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
   return (
     <main>
       <div className="border-b border-grayscale-200 w-full sm-screen:pt-[100px] pt-16"></div>
-
-      <ContentSection mobileTabMenuComp={<MobileTabMenu lang={lang} />}>
+      <ContentSection>
         <div
           className={cn(
             'lg-screen:h-[100px] sm-screen:h-20 h-[60px] flex items-center justify-end',
@@ -72,7 +82,10 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
             variant={'outline'}
             size={'lg'}
             theme={'primary'}
-            className="w-[100px] rounded-full">
+            className="w-[100px] rounded-full"
+            onClick={() => {
+              router.push('/admin/promotion-center/news/edit');
+            }}>
             글쓰기
           </Button>
         </div>
@@ -148,6 +161,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
           </ContentBox>
         </div>
       </ContentSection>
+      <MonaToastContainer />
       <Header lang={lang} admin />
       <Footer lang={lang} admin />
     </main>
@@ -167,7 +181,7 @@ const NewsCard = ({
 }) => {
   return (
     <a
-      href={`/promotion-center/news/${id}`}
+      href={`/admin/promotion-center/news/${id}`}
       className={cn('w-full flex flex-col gap-3 cursor-pointer', 'gap-5')}>
       <div className={cn('relative w-full h-[327px]', 'sm-screen:h-[450px]')}>
         <FallbackImage

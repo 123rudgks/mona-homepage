@@ -8,14 +8,15 @@ interface InputProps {
   Icon?: React.ReactNode;
 }
 const Input = ({ error, inputProps = {}, Icon }: InputProps) => {
+  const { className, ...props } = inputProps;
   return (
     <TextFieldWrapper error={error} Icon={Icon}>
       <input
-        {...inputProps}
+        {...props}
         ref={inputProps.ref}
         className={cn(
           'w-full h-full outline-none typo-BodyLargeRegular placeholder:text-grayscale-400',
-          inputProps?.className,
+          className,
         )}
       />
     </TextFieldWrapper>

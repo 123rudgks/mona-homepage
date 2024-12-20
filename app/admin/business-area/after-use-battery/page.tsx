@@ -5,7 +5,7 @@ import { ToastContext } from '@/components/ContextWrapper';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
 import HtmlDiv from '@/components/HtmlDiv';
-import TabMenu, { MobileTabMenu } from '@/components/TabMenu';
+import TabMenu from '@/components/TabMenu';
 import { Button } from '@/components/ui/button';
 import useGetInfos from '@/hooks/useGetInfos';
 import useMenu from '@/hooks/useMenu';
@@ -31,12 +31,12 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
       toast(toastContext.toast);
       toastContext.setToast(null);
     }
-  }, [toastContext]);
+  }, []);
   return (
     <main>
       <div className="border-b border-grayscale-200 w-full sm-screen:pt-[100px] pt-16"></div>
 
-      <ContentSection mobileTabMenuComp={<MobileTabMenu lang={lang} />}>
+      <ContentSection>
         <div
           className={cn(
             'lg-screen:h-[100px] sm-screen:h-20 h-[60px] flex items-center justify-end',

@@ -284,6 +284,7 @@
     --danger: 0 72% 65%;
     --danger-dark: 0 57% 42%;
     --danger-light: 0 100% 96%;
+    --danger-alpha-30: 0 72% 65% / 30%;
     --warning: 29 100% 59%;
     --warning-dark: 25 94% 43%;
     --warning-light: 29 100% 91%;

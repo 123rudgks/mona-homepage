@@ -32,7 +32,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
       toast(toastContext.toast);
       toastContext.setToast(null);
     }
-  }, [toastContext]);
+  }, []);
   return (
     <main>
       <div className="border-b border-grayscale-200 w-full sm-screen:pt-[100px] pt-16"></div>

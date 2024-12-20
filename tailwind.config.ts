@@ -89,6 +89,7 @@ const config = {
           DEFAULT: 'hsl(var(--danger))',
           dark: 'hsl(var(--danger-dark))',
           light: 'hsl(var(--danger-light))',
+          'alpha-30': 'hsl(var(--danger-alpha-30))',
         },
         warning: {
           DEFAULT: 'hsl(var(--warning))',
