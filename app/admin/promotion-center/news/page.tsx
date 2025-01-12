@@ -22,6 +22,7 @@ import useMenu from '@/hooks/useMenu';
 import usePagination from '@/hooks/usePagination';
 import { cn } from '@/lib/utils';
 import { ArticleData, Language } from '@/types/globals.types';
+import dayjs from 'dayjs';
 import { useRouter } from 'next/navigation';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
@@ -121,6 +122,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
                   img={article.thumbnail}
                   title={article.title}
                   date={article.createdDate}
+                  reservedDate={article.reservedDate}
                   id={article.id}
                 />
               ))}
@@ -172,11 +174,13 @@ const NewsCard = ({
   img,
   title,
   date,
+  reservedDate,
   id,
 }: {
   img: string | null;
   title: string;
   date: string;
+  reservedDate: string | null;
   id: number;
 }) => {
   return (
@@ -203,7 +207,14 @@ const NewsCard = ({
           {title}
         </div>
         <div className={cn('text-blackAlpha-70', 'typo-BodyLargeRegular')}>
-          {date}
+          {reservedDate && dayjs(reservedDate).isAfter(dayjs()) ? (
+            <div className="flex gap-2">
+              <span>{reservedDate}</span>
+              <span className="text-primary">예약발행</span>
+            </div>
+          ) : (
+            date
+          )}
         </div>
       </div>
     </a>

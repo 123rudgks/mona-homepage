@@ -18,7 +18,7 @@ import dayjs from 'dayjs';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useCallback, useContext, useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { toast } from 'react-toastify';
 
 type Props = {};
@@ -100,19 +100,10 @@ const Page = ({
                 className={cn(
                   'text-blackAlpha-70 typo-TitleMedium sm-screen:h-12 flex items-center justify-between',
                 )}>
-                {articleDetail?.reservedDate ? (
-                  <div className="flex gap-2">
-                    {dayjs(articleDetail?.reservedDate).format(
-                      'YYYY-MM-DD HH:mm',
-                    )}
-                    <span className="typo-TitleMedium text-primary">
-                      예약 발행
-                    </span>
-                  </div>
-                ) : (
-                  dayjs(articleDetail?.createdDate).format('YYYY-MM-DD')
-                )}
-
+                <IssuedDate
+                  reservedDate={articleDetail?.reservedDate}
+                  createdDate={articleDetail?.createdDate}
+                />
                 <span className="  gap-2 hidden sm-screen:flex">
                   <Button
                     variant={'outline'}
@@ -277,6 +268,29 @@ const PostingList = ({
   );
 };
 
+const IssuedDate = ({
+  reservedDate,
+  createdDate,
+}: {
+  reservedDate?: string;
+  createdDate?: string;
+}) => {
+  const isReserved = useMemo(() => {
+    if (reservedDate) {
+      return dayjs(reservedDate).isBefore(dayjs()) ? false : true;
+    } else {
+      return false;
+    }
+  }, [reservedDate]);
+  return isReserved ? (
+    <div className="flex gap-2">
+      {dayjs(reservedDate).format('YYYY-MM-DD HH:mm')}
+      <span className="typo-TitleMedium text-primary">예약 발행</span>
+    </div>
+  ) : (
+    dayjs(createdDate).format('YYYY-MM-DD')
+  );
+};
 function truncateString(str: string) {
   // 문자열이 50글자를 초과하는지 확인
   if (str.length > 50) {

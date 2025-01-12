@@ -13,15 +13,21 @@ import TimeField from '@/components/TimeField';
 import Toast from '@/components/Toast/Toast';
 import { Button } from '@/components/ui/button';
 import HamburgerMenu from '@/components/ui/hamburger_menu';
-import useMenu from '@/hooks/useMenu';
 import { cn } from '@/lib/utils';
 import { Language } from '@/types/globals.types';
 import { authFetch } from '@/utils/apis';
 import { urlToFile } from '@/utils/helpers';
 import dayjs from 'dayjs';
 import dynamic from 'next/dynamic';
-import { useRouter } from 'next/navigation';
-import { useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import {
+  Suspense,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 const QuillEditor = dynamic(() => import('@/components/QuillEditor'), {
   ssr: false,
 });
@@ -32,30 +38,51 @@ interface DateAndTime {
 type Props = {};
 
 const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
-  const { MENU, currentCategory, currentMenu } = useMenu({ lang, admin: true });
+  return (
+    <main>
+      <Suspense>
+        <EditPageContent />
+      </Suspense>
+      ;
+      <Header admin />
+      <Footer admin />
+    </main>
+  );
+};
+
+const EditPageContent = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [file, setFile] = useState<File | null>(null);
+
+  const [reserveDate, setReserveDate] = useState<DateAndTime>({});
+
   const [reserveModal, setReserveModal] = useState(false);
   const router = useRouter();
+  const searchParams = useSearchParams();
   const toastContext = useContext(ToastContext);
-  const [reserveDate, setReserveDate] = useState<DateAndTime>({});
 
   const reservedDateStr = useMemo(() => {
     if (!reserveDate.date || !reserveDate.time) return '';
-    return `${reserveDate.date} ${reserveDate.time}`;
+    return dayjs(`${reserveDate.date} ${reserveDate.time}`).format(
+      'YYYY.MM.DD HH:mm',
+    );
   }, [reserveDate]);
+
+  const id = useMemo(() => {
+    return searchParams.get('id');
+  }, [searchParams]);
+
   const postArticle = useCallback(
     async (_reservedDateStr?: string) => {
-      const searchParams = new URLSearchParams(window.location.search);
-      let id = searchParams.get('id');
-      const url = id ? `/api/articles/${id}` : '/api/articles';
-      const method = id ? 'PATCH' : 'POST';
+      let _id = id;
+      const url = _id ? `/api/articles/${_id}` : '/api/articles';
+      const method = _id ? 'PATCH' : 'POST';
       const formData = new FormData();
       formData.append('title', title);
       formData.append('content', content);
       file && formData.append('thumbnail', file);
-      _reservedDateStr && formData.append('reserveDate', _reservedDateStr);
+      _reservedDateStr && formData.append('reservedDate', _reservedDateStr);
       const res = await authFetch(url, {
         method: method,
         body: formData,
@@ -63,7 +90,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
       if (res) {
         const data = await res.json();
         if (data.code === 200) {
-          id = data.data.id;
+          _id = data.data.id;
           toastContext.setToast((props) => (
             <Toast
               type="success"
@@ -76,13 +103,13 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
               }}
             />
           ));
-          router.push(`/admin/promotion-center/news/${id}`);
+          router.push(`/admin/promotion-center/news/${_id}`);
         } else {
           alert('실패했습니다.');
         }
       }
     },
-    [title, content, file],
+    [title, content, file, id, toastContext, router],
   );
   const getDetail = useCallback(async (id: string) => {
     const res = await fetch(`/api/articles/${id}`);
@@ -103,8 +130,6 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
     file && setFile(file);
   }, []);
   useEffect(() => {
-    const searchParams = new URLSearchParams(window.location.search);
-    const id = searchParams.get('id');
     // 편집 모드
     if (id) {
       getDetail(id);
@@ -112,9 +137,9 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
     // 글 작성 모드
     else {
     }
-  }, []);
+  }, [id, getDetail]);
   return (
-    <main>
+    <>
       <div className="border-b border-grayscale-200 w-full sm-screen:pt-[100px] pt-16"></div>
       <ContentSection>
         <div className="w-full h-full max-w-[1144px] mx-auto">
@@ -122,7 +147,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
             className={cn(
               'lg-screen:h-[100px] sm-screen:h-20 h-[60px] flex items-center justify-end gap-4',
             )}>
-            {reservedDateStr && (
+            {reservedDateStr && dayjs(reservedDateStr).isAfter(dayjs()) && (
               <span className="flex gap-2">
                 <span className="typo-BodyLargeRegular text-blackAlpha-70">
                   {reservedDateStr}
@@ -133,16 +158,19 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
               </span>
             )}
             <div className="flex items-center justify-end gap-2">
-              <Button
-                variant={'outline'}
-                size={'lg'}
-                theme={'primary'}
-                className="w-[100px] rounded-full"
-                onClick={() => {
-                  setReserveModal(true);
-                }}>
-                예약 발행
-              </Button>
+              {!id ||
+                (dayjs(reservedDateStr).isAfter(dayjs()) && (
+                  <Button
+                    variant={'outline'}
+                    size={'lg'}
+                    theme={'primary'}
+                    className="w-[100px] rounded-full"
+                    onClick={() => {
+                      setReserveModal(true);
+                    }}>
+                    예약 발행
+                  </Button>
+                ))}
               <Button
                 variant={'primary'}
                 size={'lg'}
@@ -151,7 +179,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
                 onClick={() => {
                   postArticle();
                 }}>
-                발행하기
+                {id ? '수정하기' : '발행하기'}
               </Button>
             </div>
           </div>
@@ -255,10 +283,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
           </ModalBackground>
         </ModalPortal>
       )}
-      <Header admin />
-      <Footer admin />
-    </main>
+    </>
   );
 };
-
 export default Page;
