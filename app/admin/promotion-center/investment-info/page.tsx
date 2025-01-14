@@ -7,11 +7,12 @@ import { Button } from '@/components/ui/button';
 import useMenu from '@/hooks/useMenu';
 import { cn } from '@/lib/utils';
 import { Language } from '@/types/globals.types';
+import { useRouter } from 'next/navigation';
 type Props = {};
 
 const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
   const { MENU, currentCategory, currentMenu } = useMenu({ lang });
-
+  const router = useRouter();
   return (
     <main>
       <div className="border-b border-grayscale-200 w-full sm-screen:pt-[100px] pt-16"></div>
@@ -25,7 +26,10 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
             variant={'outline'}
             size={'lg'}
             theme={'primary'}
-            className="w-[100px] rounded-full">
+            className="w-[100px] rounded-full"
+            onClick={() => {
+              router.push(`/admin/promotion-center/investment-info/edit`);
+            }}>
             편집
           </Button>
         </div>
