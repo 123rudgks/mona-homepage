@@ -13,11 +13,39 @@ import useMenu from '@/hooks/useMenu';
 import { cn } from '@/lib/utils';
 import { Language } from '@/types/globals.types';
 import { HomeIcon } from 'lucide-react';
+import { useEffect, useState } from 'react';
 type Props = {};
 
 const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
   const { MENU, currentCategory, currentMenu } = useMenu({ lang });
-
+  const [patents, setPatents] = useState<
+    Array<{
+      seq: number;
+      year: string;
+      title: string;
+    }>
+  >([]);
+  useEffect(() => {
+    const getPatentsList = async () => {
+      const res = await fetch(`/api/patents`);
+      const data = await res?.json();
+      if (data) {
+        const sortedData = data.data.sort(
+          (a: { seq: number }, b: { seq: number }) => a.seq - b.seq,
+        );
+        setPatents(
+          sortedData.map((item: any) => {
+            return {
+              id: 'PATENT_ROW_' + item.seq,
+              year: item.year,
+              title: item.content,
+            };
+          }),
+        );
+      }
+    };
+    getPatentsList();
+  }, []);
   return (
     <main>
       <BoardSection
@@ -105,8 +133,17 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
                   </div>
                 </div>
               </InvestmentBox>
-              <InvestmentBox label={dict['특허'][lang]} count={8}>
-                <div className="h-[314px]"></div>
+              <InvestmentBox label={dict['특허'][lang]} count={patents.length}>
+                <div className="min-h-[314px]">
+                  {patents.map((_, idx) => (
+                    <div
+                      key={_.seq}
+                      className="flex gap-[30px] py-6 border-b border-blackAlpha-10">
+                      <span className="typo-BodyLargeRegular">{_.year}</span>
+                      <span className="typo-BodyLargeBold">{_.title}</span>
+                    </div>
+                  ))}
+                </div>
               </InvestmentBox>
             </div>
           </ContentBox>

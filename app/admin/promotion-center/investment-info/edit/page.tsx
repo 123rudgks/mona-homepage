@@ -9,10 +9,13 @@ import {
   PatentDropRow,
   PatentRow,
 } from '@/components/PatentDnD';
+import Toast from '@/components/Toast/Toast';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { Language } from '@/types/globals.types';
-import { useState } from 'react';
+import { authFetch } from '@/utils/apis';
+import { useCallback, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 type Props = {};
 
@@ -20,40 +23,63 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
   const [patents, setPatents] = useState<
     Array<{
       id: string;
-      year: number;
+      year: string;
       title: string;
     }>
-  >([
-    {
-      id: 'PATENT_ROW_0',
-      year: 2024,
-      title:
-        '배터리/연료전지 시스템에 적용을 위한 임피던스 모듈 및 AI를 접목한 진단모델 개발배터리/연료전지 시스템에 적용을 위한 임피던스 모듈 및 AI를 접목한 진단모델 개발배터리/연료전지 시스템에 적용을 위한 임피던스 모듈 및 AI를 접목한 진단모델 개발',
-    },
-    {
-      id: 'PATENT_ROW_1',
-      year: 2023,
-      title:
-        '배터리/연료전지 시스템에 적용을 위한 임피던스 모듈 및 AI를 접목한 진단모델 개발',
-    },
-    {
-      id: 'PATENT_ROW_2',
-      year: 2022,
-      title:
-        '배터리/연료전지 시스템에 적용을 위한 임피던스 모듈 및 AI를 접목한 진단모델 개발',
-    },
-    {
-      id: 'PATENT_ROW_3',
-      year: 2021,
-      title:
-        '배터리/연료전지 시스템에 적용을 위한 임피던스 모듈 및 AI를 접목한 진단모델 개발',
-    },
-  ]);
-
+  >([]);
+  const postPatentsList = useCallback(async () => {
+    const body = patents.map((item, idx) => ({
+      seq: idx,
+      year: item.year,
+      content: item.title,
+    }));
+    const res = await authFetch(`/api/patents`, {
+      method: 'POST',
+      body: JSON.stringify(body),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const data = await res?.json();
+    if (data?.code === 200) {
+      toast(({ toastProps }) => (
+        <Toast
+          type="success"
+          message={'저장되었습니다.'}
+          onClose={() => {
+            toastProps.onClose &&
+              toastProps.onClose({
+                id: toastProps.toastId,
+              });
+          }}
+        />
+      ));
+    }
+  }, [patents]);
+  useEffect(() => {
+    const getPatentsList = async () => {
+      const res = await authFetch(`/api/patents`);
+      const data = await res?.json();
+      if (data) {
+        const sortedData = data.data.sort(
+          (a: { seq: number }, b: { seq: number }) => a.seq - b.seq,
+        );
+        setPatents(
+          sortedData.map((item: any) => {
+            return {
+              id: 'PATENT_ROW_' + item.seq,
+              year: item.year,
+              title: item.content,
+            };
+          }),
+        );
+      }
+    };
+    getPatentsList();
+  }, []);
   return (
     <main>
       <div className="border-b border-grayscale-200 w-full sm-screen:pt-[100px] pt-16"></div>
-
       <ContentSection>
         <div
           className={cn(
@@ -64,7 +90,19 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
               variant={'outline'}
               size={'lg'}
               theme={'primary'}
-              className="w-[125px] rounded-full">
+              className="w-[125px] rounded-full"
+              onClick={() => {
+                setPatents((prev) => {
+                  return [
+                    ...prev,
+                    {
+                      id: 'PATENT_ROW_' + (prev.length + 1),
+                      year: new Date().getFullYear().toString(),
+                      title: '',
+                    },
+                  ];
+                });
+              }}>
               <div className="flex gap-1 items-center">
                 정보 추가
                 <PlusSmall />
@@ -74,16 +112,16 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
               variant={'primary'}
               size={'lg'}
               theme={'primary'}
-              className="w-[100px] rounded-full">
+              className="w-[100px] rounded-full"
+              onClick={() => {
+                postPatentsList();
+              }}>
               저장
             </Button>
           </div>
         </div>
         <div className={cn('max-w-[1430px] w-full')}>
-          <ContentBox
-            title={'특허 정보 편집'}
-            label={'투자정보'}
-            subTitle={'subTitle'}>
+          <ContentBox title={'특허 정보 편집'} label={'투자정보'}>
             <PatentContainer>
               <div className="flex flex-col gap-3">
                 {patents.map((_, idx) => (
@@ -105,7 +143,26 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
                         return tempPatents;
                       });
                     }}>
-                    <PatentRow title={_.title} year={_.year} id={_.id} />
+                    <PatentRow
+                      title={_.title}
+                      year={_.year}
+                      id={_.id}
+                      onDelete={() => {
+                        setPatents((prev) => {
+                          return prev.filter((item) => item.id !== _.id);
+                        });
+                      }}
+                      onChange={(newRow) => {
+                        setPatents((prev) => {
+                          return prev.map((item) => {
+                            if (item.id === newRow.id) {
+                              return newRow;
+                            }
+                            return item;
+                          });
+                        });
+                      }}
+                    />
                   </PatentDropRow>
                 ))}
               </div>

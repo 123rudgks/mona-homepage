@@ -7,12 +7,29 @@ import { Button } from '@/components/ui/button';
 import useMenu from '@/hooks/useMenu';
 import { cn } from '@/lib/utils';
 import { Language } from '@/types/globals.types';
+import { authFetch } from '@/utils/apis';
 import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 type Props = {};
 
 const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
   const { MENU, currentCategory, currentMenu } = useMenu({ lang });
   const router = useRouter();
+  const [patents, setPatents] =
+    useState<Array<{ seq: number; year: string; content: string }>>();
+  useEffect(() => {
+    const getPatentsList = async () => {
+      const res = await authFetch(`/api/patents`);
+      const data = await res?.json();
+      if (data) {
+        const sortedData = data.data.sort(
+          (a: { seq: number }, b: { seq: number }) => a.seq - b.seq,
+        );
+        setPatents(sortedData);
+      }
+    };
+    getPatentsList();
+  }, []);
   return (
     <main>
       <div className="border-b border-grayscale-200 w-full sm-screen:pt-[100px] pt-16"></div>
@@ -36,8 +53,8 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
         <div className={cn('max-w-[1430px] w-full')}>
           <ContentBox title={currentMenu.text} label={'투자정보'}>
             <div className="">
-              {Array.from({ length: 5 }).map((_, idx) => (
-                <InvestmentRow key={idx} />
+              {patents?.map((_, idx) => (
+                <InvestmentRow key={_.seq} year={_.year} content={_.content} />
               ))}
             </div>
           </ContentBox>
@@ -49,16 +66,17 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
   );
 };
 
-const InvestmentRow = () => {
+const InvestmentRow = ({
+  year,
+  content,
+}: {
+  year: string;
+  content: string;
+}) => {
   return (
     <div className="flex gap-[30px] py-6 border-b border-blackAlpha-10">
-      <span className="typo-BodyLargeRegular">2024</span>
-      <span className="typo-BodyLargeBold">
-        배터리/연료전지 시스템에 적용을 위한 임피던스 모듈 및 AI를 접목한
-        진단모델 개발배터리/연료전지 시스템에 적용을 위한 임피던스 모듈 및 AI를
-        접목한 진단모델 개발배터리/연료전지 시스템에 적용을 위한 임피던스 모듈
-        및 AI를 접목한 진단모델 개발
-      </span>
+      <span className="typo-BodyLargeRegular">{year}</span>
+      <span className="typo-BodyLargeBold">{content}</span>
     </div>
   );
 };

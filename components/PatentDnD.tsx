@@ -42,10 +42,22 @@ export const PatentRow = ({
   title,
   year,
   id,
+  onDelete,
+  onChange,
 }: {
-  year: number;
+  year: string;
   title: string;
   id: string;
+  onDelete: () => void;
+  onChange: ({
+    id,
+    year,
+    title,
+  }: {
+    id: string;
+    year: string;
+    title: string;
+  }) => void;
 }) => {
   const dragRef = useRef<HTMLDivElement | null>(null);
   const dragPreviewRef = useRef<HTMLDivElement | null>(null);
@@ -70,31 +82,55 @@ export const PatentRow = ({
       <div ref={dragRef} className="cursor-pointer">
         <ThreeLine />
       </div>
-      <YearSelectBox year={year} />
-      <div className="h-10 flex-1 bg-white">
-        <Input
-          inputProps={{
-            className: 'typo-BodyLargeRegular',
-            placeholder: '특허명',
-            value: title,
-            onChange: (e) => {
-              // setTitle(e.target.value);
-            },
+      <div className="flex-col gap-4 items-center flex-1 sm-screen:flex sm-screen:flex-row">
+        <YearSelectBox
+          year={Number(year)}
+          setYear={(year) => {
+            onChange({
+              id,
+              year: year.toString(),
+              title,
+            });
           }}
         />
+        <div className="h-10 flex-1 bg-white">
+          <Input
+            inputProps={{
+              className: 'typo-BodyLargeRegular',
+              placeholder: '특허명',
+              value: title,
+              onChange: (e) => {
+                onChange({
+                  id,
+                  year,
+                  title: e.target.value,
+                });
+              },
+            }}
+          />
+        </div>
       </div>
 
-      <div className="w-10 h-10 cursor-pointer ring-1 ring-grayscale-200 rounded flex items-center justify-center bg-white">
+      <div
+        className="w-10 h-10 cursor-pointer ring-1 ring-grayscale-200 rounded flex items-center justify-center bg-white"
+        onClick={() => {
+          onDelete();
+        }}>
         <Trash />
       </div>
     </div>
   );
 };
-const YearSelectBox = ({ year }: { year?: number }) => {
+const YearSelectBox = ({
+  year,
+  setYear,
+}: {
+  year?: number;
+  setYear: (year: number) => void;
+}) => {
   const [open, setOpen] = useState<boolean>(false);
   const startYear = 2010;
   const endYear = new Date().getFullYear();
-  const [value, setValue] = useState<number>(year ?? endYear);
 
   const years = Array.from(
     { length: endYear - startYear + 1 },
@@ -102,13 +138,13 @@ const YearSelectBox = ({ year }: { year?: number }) => {
   );
 
   return (
-    <div className="relative w-[84px] h-10 bg-white">
+    <div className="relative sm-screen:w-[84px] sm-screen:flex-none h-10 bg-white flex-1">
       <div
         className="flex justify-between items-center ring-1 ring-grayscale-200 w-full h-full p-2 rounded cursor-pointer"
         onClick={() => {
           setOpen(!open);
         }}>
-        <span>{value}</span>
+        <span>{year}</span>
         <span
           className={cn(
             'h-[18px] w-[18px]',
@@ -124,7 +160,7 @@ const YearSelectBox = ({ year }: { year?: number }) => {
               key={year}
               className="cursor-pointer"
               onClick={() => {
-                setValue(year);
+                setYear(year);
                 setOpen(false);
               }}>
               {year}
