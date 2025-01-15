@@ -89,18 +89,21 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
                 {patents.map((_, idx) => (
                   <PatentDropRow
                     key={_.id}
-                    onDrop={(swapWithId: string) => {
-                      console.log('dropped', _.id);
-                      const swapWithIdx = patents.findIndex(
-                        (_) => _.id === swapWithId,
-                      );
-                      console.log(idx, swapWithIdx);
-                      let tempPatents = [...patents];
-                      [tempPatents[idx], tempPatents[swapWithIdx]] = [
-                        tempPatents[swapWithIdx],
-                        tempPatents[idx],
-                      ];
-                      setPatents(tempPatents);
+                    onDrop={(draggedId) => {
+                      setPatents((prev) => {
+                        let tempPatents = [...prev];
+                        const draggedIdx = tempPatents.findIndex(
+                          (item) => item.id === draggedId,
+                        );
+                        const droppedIdx = tempPatents.findIndex(
+                          (item) => item.id === _.id,
+                        );
+                        [tempPatents[draggedIdx], tempPatents[droppedIdx]] = [
+                          tempPatents[droppedIdx],
+                          tempPatents[draggedIdx],
+                        ];
+                        return tempPatents;
+                      });
                     }}>
                     <PatentRow title={_.title} year={_.year} id={_.id} />
                   </PatentDropRow>

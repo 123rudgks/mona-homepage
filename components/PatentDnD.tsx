@@ -23,13 +23,12 @@ export const PatentDropRow = ({
   onDrop,
 }: {
   children: ReactNode;
-  onDrop: (swapWithId: string) => void;
+  onDrop: (draggedId: string) => void;
 }) => {
   const dragRef = useRef<HTMLDivElement | null>(null);
   const [collectedProps, drop] = useDrop(() => ({
     accept: 'PATENT_ROW',
     drop: (item: { id: string }, monitor) => {
-      console.log('dragged', item.id);
       onDrop(item.id);
     },
     hover: (item, monitor) => {},
