@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 
 import { FooterNavMenu } from '@/components/Footer/Footer.types';
 import HamburgerMenu from '@/components/ui/hamburger_menu';
-import useMenu from '@/hooks/useMenu';
+import useMenu from '@/hooks/useMenu_prev';
 import { Language } from '@/types/globals.types';
 import Link from 'next/link';
 import { useState } from 'react';

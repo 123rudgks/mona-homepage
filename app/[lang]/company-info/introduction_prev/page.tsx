@@ -16,6 +16,7 @@ import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
 import MonaBreadCrumb from '@/components/MonaBreadCrumb';
 import TabMenu, { MobileTabMenu } from '@/components/TabMenu';
+import dict from '@/dictionaries/company-info/introduction.json';
 import mainDict from '@/dictionaries/main.json';
 import useMenu from '@/hooks/useMenu';
 import { cn } from '@/lib/utils';
@@ -76,7 +77,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
             <TabMenu lang={lang} />
           </div>
           <ContentBox
-            title={'회사소개'}
+            title={'RAPID & ACCURATE BATTERY DIAGNOSIS'}
             subTitle={
               <div className="flex items-center gap-1 text-navy-700">
                 Powered by AI
@@ -86,14 +87,56 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
               </div>
             }>
             <div className="typo-BodyLargeRegular">
-              AI와 전기화학 기술을 융합하여 배터리 진단 및 관리 솔루션을
-              선도하는 글로벌 리더 • Ex) 모나는 AI와 전기화학 기술을 융합하여
-              배터리의 성능과 안전성을 혁신적으로 진단하는 솔루션을 제공합니다.
-              2019년에 설립된 이후, 전 세계 배터리 시장의 빠르게 변화하는 요구를
-              충족시키기 위해 꾸준히 연구와 개발을 이어왔습니다. 본사는 전라북도
-              군산시에 위치하며, 광명 AI 연구소와 전라남도 영암 배터리 테스트
-              연구소를 기반으로 전기차 및 에너지 저장 장치(ESS) 진단 솔루션을
-              개발하고 있습니다.
+              {dict.content_1[lang]}
+              <br />
+              <br />
+              {dict.content_2[lang]}
+
+              <div
+                className={cn(
+                  'grid',
+                  'md-screen:grid-cols-5',
+                  'min-[960px]:grid-cols-4',
+                  'sm-screen:grid-cols-3 sm-screen:gap-[14px] sm-screen:my-[60px]',
+                  'grid-cols-2 gap-2 my-9',
+                )}>
+                <AISolutionImgCard />
+                {OperationCardTitles.map((item, idx) => {
+                  const src = OperationCardImgs[item.ko];
+                  return (
+                    <OperationCard
+                      key={'operation card' + item.ko}
+                      label={item.en}
+                      title={item.ko}
+                      desc={mainDict[item.ko][lang]}
+                      img={src}
+                    />
+                  );
+                })}
+              </div>
+              <div className="sm-screen:typo-Display3Bold typo-Display1Bold">
+                {dict.content_3[lang]}
+              </div>
+
+              <br />
+              <br />
+              <div className="text-blackAlpha-70">
+                {dict.content_4[lang]}
+                <br />
+                <br />
+                {dict.content_5[lang]}
+                <div className="w-full aspect-[25/14] rounded-2xl overflow-hidden mb-5 mt-9">
+                  <iframe
+                    src="https://player.vimeo.com/video/761694548?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                    title="1920ver"
+                    className="w-full h-full"
+                  />
+                </div>
+                <br />
+                <br />
+                {dict.content_6[lang]}
+              </div>
             </div>
           </ContentBox>
         </div>

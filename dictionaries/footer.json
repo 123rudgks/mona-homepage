@@ -11,6 +11,10 @@
     "ko": "연혁",
     "en": "History"
   },
+  "비전": {
+    "ko": "비전",
+    "en": "Vision"
+  },
   "구성원": {
     "ko": "구성원",
     "en": "Members"
@@ -19,6 +23,7 @@
     "ko": "오시는 길",
     "en": "Location"
   },
+
   "사업영역": {
     "ko": "사업영역",
     "en": "Business Area"
@@ -26,6 +31,38 @@
   "제조 솔루션": {
     "ko": "제조 솔루션",
     "en": "Manufacturing Solution"
+  },
+  "배터리 솔루션": {
+    "ko": "배터리 솔루션",
+    "en": "Battery Solution"
+  },
+  "EIS+AI기반": {
+    "ko": "EIS+AI기반 초고속 상태 진단",
+    "en": "EIS+AI-based ultra-fast condition diagnosis"
+  },
+  "사용 후 배터리 재활용 가능성 평가": {
+    "ko": "사용 후 배터리 재활용 가능성 평가",
+    "en": "Evaluation of recyclability for used batteries"
+  },
+  "AI기반 배터리 차별화 모델링": {
+    "ko": "AI기반 배터리 차별화 모델링",
+    "en": "AI-based differentiated battery modeling"
+  },
+  "디지털 트윈 기반 배터리 예측 기술": {
+    "ko": "디지털 트윈 기반 배터리 예측 기술",
+    "en": "Battery prediction technology based on digital twin"
+  },
+  "수소에너지": {
+    "ko": "수소에너지",
+    "en": "Hydrogen Energy"
+  },
+  "연료전지 성능평가 솔루션": {
+    "ko": "연료전지 성능평가 솔루션",
+    "en": "Fuel Cell Performance Evaluation Solution"
+  },
+  "수소 생산 기술 연구 개발": {
+    "ko": "수소 생산 기술 연구 개발",
+    "en": "Research and Development of Hydrogen Production Technology"
   },
   "초고속 배터리 진단 솔루션": {
     "ko": "초고속 배터리 진단 솔루션",
@@ -67,6 +104,18 @@
     "ko": "수소 시스템 및 진단",
     "en": "Hydrogen System and Diagnosis"
   },
+  "기술협력": {
+    "ko": "기술협력",
+    "en": "Technical Cooperation"
+  },
+  "사업제휴": {
+    "ko": "사업제휴",
+    "en": "Business Partnership"
+  },
+  "투자": {
+    "ko": "투자",
+    "en": "Investment"
+  },
 
   "홍보센터": {
     "ko": "홍보센터",
@@ -87,6 +136,22 @@
   "채용공고": {
     "ko": "채용공고",
     "en": "Recruitment Notice"
+  },
+  "기업뉴스": {
+    "ko": "기업뉴스",
+    "en": "Corporate News"
+  },
+  "보도자료": {
+    "ko": "보도자료",
+    "en": "News Release"
+  },
+  "갤러리": {
+    "ko": "갤러리",
+    "en": "Gallery"
+  },
+  "문의": {
+    "ko": "문의",
+    "en": "Contact"
   },
   "개인정보처리방침": {
     "ko": "개인정보처리방침",

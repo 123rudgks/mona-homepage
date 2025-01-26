@@ -7,8 +7,8 @@ import Section3_빅데이터 from '@/app/images/main/Section3_BigData.png';
 import Section3_컨버전스 from '@/app/images/main/Section3_Conversions.png';
 import Section3_데이터분석 from '@/app/images/main/Section3_DataAnalysis.png';
 import Section3_하드웨어 from '@/app/images/main/Section3_Hardware.png';
+import VisionImg from '@/app/images/temp/vision.png';
 import HomeIcon from '@/app/svgs/HomeIcon.svg';
-import ShineIcon from '@/app/svgs/Shine.svg';
 import BoardSection from '@/components/BoardSection';
 import ContentBox from '@/components/ContentBox';
 import ContentSection from '@/components/ContentSection';
@@ -76,24 +76,25 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
             <TabMenu lang={lang} />
           </div>
           <ContentBox
-            title={'회사소개'}
+            title={'비전'}
             subTitle={
               <div className="flex items-center gap-1 text-navy-700">
-                Powered by AI
-                <span className="w-[19px] h-[19px]">
-                  <ShineIcon className="[&_path]:fill-navy-700" />
-                </span>
+                Rapid & Accurate Diagnosis for a Sustainable Future
               </div>
             }>
             <div className="typo-BodyLargeRegular">
-              AI와 전기화학 기술을 융합하여 배터리 진단 및 관리 솔루션을
-              선도하는 글로벌 리더 • Ex) 모나는 AI와 전기화학 기술을 융합하여
-              배터리의 성능과 안전성을 혁신적으로 진단하는 솔루션을 제공합니다.
-              2019년에 설립된 이후, 전 세계 배터리 시장의 빠르게 변화하는 요구를
-              충족시키기 위해 꾸준히 연구와 개발을 이어왔습니다. 본사는 전라북도
-              군산시에 위치하며, 광명 AI 연구소와 전라남도 영암 배터리 테스트
-              연구소를 기반으로 전기차 및 에너지 저장 장치(ESS) 진단 솔루션을
-              개발하고 있습니다.
+              모나는 친환경과 지속 가능성(아래 그림)을 핵심으로 배터리 기술의
+              미래를 설계합니다. 전기차와 ESS 시장에서 배터리 안전성을 높이고,
+              재사용 및 재활용 기술을 선도하여, 더 안전하고 효율적인 에너지
+              솔루션을 제공하는 것을 목표로 하고 있습니다. AI와 전기화학 기술의
+              융합으로 더 나은 미래를 만들어가는 글로벌 선두 주자가 되겠습니다.
+              AI와 전기화학 기술을 융합하여 배터리 진단 및 관리
+              <Image
+                src={VisionImg}
+                alt="vision image"
+                width={500}
+                height={500}
+              />
             </div>
           </ContentBox>
         </div>
