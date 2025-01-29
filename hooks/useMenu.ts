@@ -117,9 +117,8 @@ const useMenu = ({ lang = 'ko', admin }: Props) => {
       .filter((item) => {
         if (admin) {
           return [
-            dict['사업영역'][lang],
-            dict['제품정보'][lang],
-            dict['홍보센터'][lang],
+            dict['사업과 솔루션'][lang],
+            dict['소식과 미디어'][lang],
           ].includes(item.category);
         } else {
           return item;
@@ -127,11 +126,11 @@ const useMenu = ({ lang = 'ko', admin }: Props) => {
       })
       .map((item) => {
         if (admin) {
-          if (item.category === dict['홍보센터'][lang]) {
+          if (item.category === dict['소식과 미디어'][lang]) {
             return {
               ...item,
               menus: item.menus
-                .filter((menu) => menu.text[0] !== dict2['문의하기'][lang])
+                .filter((menu) => menu.text[0] !== dict2['문의'][lang])
                 .map((menu) => ({
                   ...menu,
                   path: menu.path.map((p) => '/admin' + p),

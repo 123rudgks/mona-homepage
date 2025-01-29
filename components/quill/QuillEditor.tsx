@@ -1,10 +1,10 @@
 'use client';
+import '@/app/custom-quill.css';
 import { authFetch } from '@/utils/apis';
 import { base64ToFile, urlToFile } from '@/utils/helpers';
 import { useRef } from 'react';
 import ReactQuill, { Quill } from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import '../app/custom-quill.css';
 const fontSizeArr = [
   '8px',
   '9px',

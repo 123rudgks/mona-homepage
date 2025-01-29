@@ -6,7 +6,7 @@ import Header from '@/components/Header/Header';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import dynamic from 'next/dynamic';
-const QuillEditor = dynamic(() => import('@/components/QuillEditor'), {
+const QuillEditor = dynamic(() => import('@/components/quill/QuillEditor'), {
   ssr: false,
 });
 

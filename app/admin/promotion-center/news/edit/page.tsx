@@ -28,7 +28,7 @@ import {
   useMemo,
   useState,
 } from 'react';
-const QuillEditor = dynamic(() => import('@/components/QuillEditor'), {
+const QuillEditor = dynamic(() => import('@/components/quill/QuillEditor'), {
   ssr: false,
 });
 interface DateAndTime {
