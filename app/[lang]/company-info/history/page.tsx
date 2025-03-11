@@ -79,6 +79,26 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
                 year="2024"
                 months={[
                   {
+                    month: '2024.현재',
+                    desc: dict['2024.현재'][lang],
+                  },
+                  {
+                    month: '2024.11',
+                    desc: dict['2024.11'][lang],
+                  },
+                  {
+                    month: '2024.10',
+                    desc: dict['2024.10'][lang],
+                  },
+                  {
+                    month: '2024.08',
+                    desc: dict['2024.08'][lang],
+                  },
+                  {
+                    month: '2024.07',
+                    desc: dict['2024.07'][lang],
+                  },
+                  {
                     month: '2024.06',
                     desc: dict['2024.06'][lang],
                   },
@@ -284,7 +304,7 @@ const HistoryCard = ({
         <div className="flex flex-col gap-4">
           {months.map(({ month, desc }) => (
             <div className="flex gap-4" key={month}>
-              <span className="typo-BodySmallBold ">{month}</span>
+              <span className="typo-BodySmallBold w-[60px]">{month}</span>
               <span className="typo-BodySmallMedium">{desc}</span>
             </div>
           ))}
