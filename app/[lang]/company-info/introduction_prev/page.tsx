@@ -29,12 +29,12 @@ const OperationCardTitles: {
   ko: Partial<keyof typeof mainDict>;
   en: string;
 }[] = [
-  { ko: 'AI 솔루션', en: 'AI Solution' },
-  { ko: '데이터 분석', en: 'Data Analysis' },
-  { ko: '빅데이터', en: 'Big Data' },
-  { ko: '하드웨어 디자인', en: 'Hardware Design' },
-  { ko: '컨버전스', en: 'Convergence' },
-];
+    { ko: 'AI 솔루션', en: 'AI Solution' },
+    { ko: '데이터 분석', en: 'Data Analysis' },
+    { ko: '빅데이터', en: 'Big Data' },
+    { ko: '하드웨어 디자인', en: 'Hardware Design' },
+    { ko: '컨버전스', en: 'Convergence' },
+  ];
 const OperationCardImgs: {
   [str in Partial<keyof typeof mainDict>]?: string;
 } = {
@@ -51,7 +51,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
     <main>
       <BoardSection
         title={currentCategory?.category}
-        desc={['RAPID & ACCURATE BATTERY DIAGNOSIS', 'Powered By AI']}
+        desc={['RAPID & ACCURATE ENERGY DIAGNOSIS', 'Powered By AI']}
       />
       <ContentSection mobileTabMenuComp={<MobileTabMenu lang={lang} />}>
         <div
@@ -77,7 +77,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
             <TabMenu lang={lang} />
           </div>
           <ContentBox
-            title={'RAPID & ACCURATE BATTERY DIAGNOSIS'}
+            title={'RAPID & ACCURATE ENERGY DIAGNOSIS'}
             subTitle={
               <div className="flex items-center gap-1 text-navy-700">
                 Powered by AI

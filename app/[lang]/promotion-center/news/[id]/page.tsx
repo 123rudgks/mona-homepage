@@ -48,7 +48,7 @@ const Page = ({
     <main>
       <BoardSection
         title={currentCategory?.category}
-        desc={['RAPID & ACCURATE BATTERY DIAGNOSIS', 'Powered By AI']}
+        desc={['RAPID & ACCURATE ENERGY DIAGNOSIS', 'Powered By AI']}
       />
       <ContentSection mobileTabMenuComp={<MobileTabMenu lang={lang} />}>
         <div
@@ -242,8 +242,8 @@ const PostingList = ({
         {title
           ? title
           : direction === 'next'
-          ? dict['다음글이 없습니다.'][lang]
-          : dict['이전글이 없습니다.'][lang]}
+            ? dict['다음글이 없습니다.'][lang]
+            : dict['이전글이 없습니다.'][lang]}
       </div>
       {date && (
         <div className="typo-BodySmallRegular text-blackAlpha-50 hidden sm-screen:block">

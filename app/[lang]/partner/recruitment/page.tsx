@@ -84,7 +84,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
     <main>
       <BoardSection
         title={currentCategory?.category}
-        desc={['RAPID & ACCURATE BATTERY DIAGNOSIS', 'Powered By AI']}
+        desc={['RAPID & ACCURATE ENERGY DIAGNOSIS', 'Powered By AI']}
       />
       <ContentSection mobileTabMenuComp={<MobileTabMenu lang={lang} />}>
         <div

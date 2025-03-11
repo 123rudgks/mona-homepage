@@ -98,7 +98,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
     <main>
       <BoardSection
         title={currentCategory?.category}
-        desc={['RAPID & ACCURATE BATTERY DIAGNOSIS', 'Powered By AI']}
+        desc={['RAPID & ACCURATE ENERGY DIAGNOSIS', 'Powered By AI']}
       />
       <ContentSection mobileTabMenuComp={<MobileTabMenu lang={lang} />}>
         <div
@@ -502,7 +502,7 @@ const PrivacyPolicyPopup = ({
         <br />
         {
           dict[
-            '제9조(개인정보 자동 수집 장치의 설치∙운영 및 거부에 관한 사항)'
+          '제9조(개인정보 자동 수집 장치의 설치∙운영 및 거부에 관한 사항)'
           ][lang]
         }
         <br />

@@ -175,7 +175,7 @@ export default function Page({
                 'sm-screen:text-[80px] sm-screen:leading-[90px] sm-screen:tracking-[-1.4px]',
                 'text-[38px] leading-[50px] tracking-[-1px]',
               )}>
-              BATTERY DIAGNOSIS
+              ENERGY DIAGNOSIS
             </span>
             <span
               className={cn(
@@ -568,8 +568,8 @@ export default function Page({
         )}>
         <div className="absolute inset-0 flex items-center justify-center">
           <span className="whitespace-nowrap sm-screen:typo-Display6Regular typo-Display2Regular text-primary">
-            RAPID & ACCURATE BATTERY DIAGNOSIS RAPID & ACCURATE BATTERY
-            DIAGNOSIS RAPID & ACCURATE BATTERY DIAGNOSIS
+            RAPID & ACCURATE ENERGY DIAGNOSIS RAPID & ACCURATE ENERGY
+            DIAGNOSIS RAPID & ACCURATE ENERGY DIAGNOSIS
           </span>
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-black to-transparent"></div>
