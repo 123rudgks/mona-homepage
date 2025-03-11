@@ -40,69 +40,56 @@
     "en": "We will be a leading technology company in the field of regeneration and next-generation mobility."
   },
   "Section4_Tab1": {
-    "ko": "솔루션",
-    "en": "Solution"
+    "ko": "배터리 솔루션",
+    "en": "Battery Solution"
   },
   "Section4_Tab2": {
-    "ko": "하드웨어",
-    "en": "Hardware"
+    "ko": "수소에너지",
+    "en": "Hydrogen Energy"
   },
   "Section4_Solution1_Desc1": {
-    "ko": "인공지능 기반 IN-LINE기반",
-    "en": "AI-based IN-LINE-based"
+    "ko": "EIS+AI기반 초고속 상태 진단",
+    "en": "EIS+AI-based high-speed state diagnosis"
   },
-  "Section4_Solution1_Desc2": {
-    "ko": "배터리 실시간 검사 솔루션",
-    "en": "battery real-time inspection solution"
-  },
+
   "Section4_Solution1_SubDesc": {
-    "ko": "배터리 임피던스 계측 및 보정 기술 개발, 배터리 임피던스에 대한 빅데이터 수집 및 분석, 인공지능 기술 기반의 신속하고 정밀한 In-line 기반의 배터리 검사 시스템 개발",
-    "en": "Developing battery impedance measurement and calibration technology, collecting and analyzing big data on battery impedance, and developing a fast and accurate in-line-based battery inspection system based on artificial intelligence technology."
+    "ko": "배터리 특성을 수 초 이내 판단, 대량생산 체계에서도 배터리의 특성 혹은 불량 여부 확인 가능",
+    "en": "Determination of battery characteristics within seconds, even in large-scale production systems it can check the characteristics or defects of batteries."
   },
   "Section4_Solution2_Desc": {
-    "ko": "EV 배터리 실시간 모니터링 및 진단",
-    "en": "EV battery real-time monitoring and diagnosis"
+    "ko": "사용후 배터리 재활용 가능성 평가",
+    "en": "Evaluation of the possibility of recycling used batteries"
   },
   "Section4_Solution2_SubDesc1": {
-    "ko": "인공지능 기반 사용 후 배터리 상태 진단 솔루션,",
-    "en": "AI-based post-use battery condition diagnosis solution,"
+    "ko": "셀 초기 검사와 셀 성능검사를 통해 재활용 가능성 평가",
+    "en": "Evaluation of the possibility of recycling used batteries through cell initial inspection and cell performance inspection"
   },
-  "Section4_Solution2_SubDesc2": {
-    "ko": "클라우드 서비스 기반 재사용 배터리 상태 감시 및 수명 예측 솔루션",
-    "en": "cloud service-based reuse battery condition monitoring and life prediction solution"
-  },
+
   "Section4_Solution3_Desc": {
-    "ko": "사용 후 배터리 전 주기 신속진단 예측 솔루션",
-    "en": "Fast diagnosis and prediction solution for battery full cycle after use"
+    "ko": "AI기반 배터리 차별화 모델링",
+    "en": "AI-based battery differentiation modeling"
   },
   "Section4_Solution3_SubDesc": {
-    "ko": "전송된 원시 데이터의 처리, AI 기반 배터리 상태 진단 사용할 배터리 상태 전달",
-    "en": "Processing of transmitted raw data, AI-based battery condition diagnosis, and delivery of battery condition to be used"
+    "ko": "다양한 종류의 배터리 거동에 따른 Randles 모델을 구현하며 해당 모델의 변수 설정에 있어서 정밀한 측정이 가능",
+    "en": "Implementing Randles models for various types of battery behavior, and precise measurement is possible in setting variables for the model."
   },
   "Section4_Hardware1_Desc": {
-    "ko": "배터리 테스터(충전/방전)",
-    "en": "Battery Tester (Charging/Discharging)"
+    "ko": "연료전지 성능평가 솔루션",
+    "en": "Fuel Cell Performance Evaluation Solution"
   },
   "Section4_Hardware1_SubDesc": {
-    "ko": "배터리 충전 테스트, 배터리 방전 테스트, 배터리 셀 온도 측정 ( 2 TC per CH ), CYCLE TEST UI 프로그램, 원격 설정 및 모니터링, 4CH / UNIT 및 최대 20CH",
-    "en": "Battery Charging Test, Battery Discharging Test, Battery Cell Temperature Measurements ( 2 TC per CH ), CYCLE TEST UI Program, Remote setup and Monitoring, 4CH / UNIT and max 20CH"
+    "ko": "사용자 기반 연료전지 테스트 스테이션 수전해 시스템",
+    "en": "User-based Fuel Cell Test Station Electrolyzer System"
   },
   "Section4_Hardware2_Desc": {
-    "ko": "PEMFC 스테이션",
-    "en": "PEMFC Station"
+    "ko": "수소 생산 기술 연구 개발",
+    "en": "Hydrogen Production Technology Research and Development"
   },
   "Section4_Hardware2_SubDesc": {
     "ko": "사용자 정의형 연료전지 시험 스테이션, 다양한 H2, AIR 또는 O2 공급 모드 변수, 습식 / 건식 운전 모드, 자동화 실험, 흐름 범위 : 0.5 ~ 5 SLPM",
     "en": "Customizable Fuel Cell Test Station, Various H2, AIR or O2 Supply Modes Variable, Wet / Dry Operating Modes, Automation experiments, Flow range : 0.5 ~ 5 SLPM"
   },
-  "Section4_Hardware3_Desc": {
-    "ko": "EIS",
-    "en": "EIS"
-  },
-  "Section4_Hardware3_SubDesc": {
-    "ko": "배터리 셀 / 모듈 테스트 스테이션, 임피던스 및 전압 측정, 임피던스 측정, 자동화 실험, 온도 측정",
-    "en": "BATTERY Cell / Module Test Station, Impedance & Voltage Measurement, Impedance Measurement, Automation experiments, Temperature Measurement"
-  },
+
   "Section5_Desc1": {
     "ko": "모나 주식회사는",
     "en": "Monna Co., Ltd."

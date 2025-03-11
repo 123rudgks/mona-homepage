@@ -61,7 +61,6 @@ const ProductCarousel = ({ lang, tabValue }: Props) => {
               }
               desc={[
                 dict['Section4_Solution1_Desc1'][lang],
-                dict['Section4_Solution1_Desc2'][lang],
               ]}
               subDesc={[dict['Section4_Solution1_SubDesc'][lang]]}
             />
@@ -74,7 +73,6 @@ const ProductCarousel = ({ lang, tabValue }: Props) => {
               desc={[dict['Section4_Solution2_Desc'][lang]]}
               subDesc={[
                 dict['Section4_Solution2_SubDesc1'][lang],
-                dict['Section4_Solution2_SubDesc2'][lang],
               ]}
             />
             <ProductCarouselItem
@@ -88,7 +86,7 @@ const ProductCarousel = ({ lang, tabValue }: Props) => {
             />
           </CarouselContent>
         )}
-        {tabValue === 'hardware' && (
+        {tabValue === 'hydrogen' && (
           <CarouselContent>
             <ProductCarouselItem
               isSelected={selectedSlide === 0}
@@ -102,13 +100,6 @@ const ProductCarousel = ({ lang, tabValue }: Props) => {
               cardImg={<Image src={Hardware2} alt="Hardware2" fill />}
               desc={[dict['Section4_Hardware2_Desc'][lang]]}
               subDesc={[dict['Section4_Hardware2_SubDesc'][lang]]}
-            />
-
-            <ProductCarouselItem
-              isSelected={selectedSlide === 2}
-              cardImg={<Image src={Hardware3} alt="Hardware3" fill />}
-              desc={[dict['Section4_Hardware3_Desc'][lang]]}
-              subDesc={[dict['Section4_Hardware3_SubDesc'][lang]]}
             />
           </CarouselContent>
         )}
@@ -133,11 +124,10 @@ const ProductCarousel = ({ lang, tabValue }: Props) => {
                   ? () => emblaApi?.scrollTo(selectedSlide)
                   : () => emblaApi?.scrollTo(idx)
               }
-              className={`w-3 h-3 rounded-full cursor-pointer ${
-                selectedSlide === idx
-                  ? 'w-9 bg-primary-alpha-70'
-                  : 'bg-primary-alpha-30'
-              }`}
+              className={`w-3 h-3 rounded-full cursor-pointer ${selectedSlide === idx
+                ? 'w-9 bg-primary-alpha-70'
+                : 'bg-primary-alpha-30'
+                }`}
             />
           ))}
         </div>

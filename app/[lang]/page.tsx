@@ -458,7 +458,7 @@ export default function Page({
                   'typo-BodyLargeBold',
                   'sm-screen:typo-Display1Medium',
                 )}>
-                PRODUCT
+                사업과 솔루션
               </span>
               <span
                 className={cn(
@@ -490,7 +490,7 @@ export default function Page({
                   className={cn(
                     'sm-screen:typo-HeadlineBold typo-BodyLargeBold sm-screen:py-3 sm-screen:px-6 py-2 px-4',
                   )}
-                  value="hardware">
+                  value="hydrogen">
                   {dict['Section4_Tab2'][lang]}
                 </TabsTrigger>
               </TabsList>
