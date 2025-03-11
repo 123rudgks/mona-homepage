@@ -7,7 +7,7 @@ import Section3_빅데이터 from '@/app/images/main/Section3_BigData.png';
 import Section3_컨버전스 from '@/app/images/main/Section3_Conversions.png';
 import Section3_데이터분석 from '@/app/images/main/Section3_DataAnalysis.png';
 import Section3_하드웨어 from '@/app/images/main/Section3_Hardware.png';
-import VisionImg from '@/app/images/temp/vision.png';
+import VisionImg from '@/app/images/vision/Vision.png';
 import HomeIcon from '@/app/svgs/HomeIcon.svg';
 import BoardSection from '@/components/BoardSection';
 import ContentBox from '@/components/ContentBox';
@@ -83,18 +83,18 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
               </div>
             }>
             <div className="typo-BodyLargeRegular">
-              모나는 친환경과 지속 가능성(아래 그림)을 핵심으로 배터리 기술의
-              미래를 설계합니다. 전기차와 ESS 시장에서 배터리 안전성을 높이고,
-              재사용 및 재활용 기술을 선도하여, 더 안전하고 효율적인 에너지
-              솔루션을 제공하는 것을 목표로 하고 있습니다. AI와 전기화학 기술의
-              융합으로 더 나은 미래를 만들어가는 글로벌 선두 주자가 되겠습니다.
-              AI와 전기화학 기술을 융합하여 배터리 진단 및 관리
-              <Image
-                src={VisionImg}
-                alt="vision image"
-                width={500}
-                height={500}
-              />
+              모나㈜는 지구와 인류의 공존을 위해 친환경과 지속가능성이라는 에너지 분야에 대한 이상적인 목표를 가지고 2차 전지 및 수소연료전지의 안전성 확보와 효율 개선을 위한 연구를 추진하고 있습니다.
+              <br />
+              이러한 기술을 기반으로 고객 만족, 구성원들의 성취와 행복을 추구합니다.
+
+              <div className='w-full h-[208px] rounded-[8px] relative overflow-hidden sm-screen:rounded-2xl sm-screen:h-[446px] md-screen:h-[506px] xl-screen:h-[544px] my-9'>
+
+                <Image
+                  src={VisionImg}
+                  alt="vision image"
+                  fill
+                />
+              </div>
             </div>
           </ContentBox>
         </div>
