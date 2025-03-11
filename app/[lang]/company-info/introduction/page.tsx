@@ -1,6 +1,8 @@
 'use client';
 import AISolutionBubble from '@/app/images/company-info/introduction/AI_Solution_Bubble.png';
 import CheckedElectron from '@/app/images/company-info/introduction/CheckedElectron.png';
+import History2024 from '@/app/images/company-info/history/History2024.png';
+
 import Electron from '@/app/images/company-info/introduction/Electron.png';
 import Section3_AI솔루션 from '@/app/images/main/Section3_AISolution.png';
 import Section3_빅데이터 from '@/app/images/main/Section3_BigData.png';
@@ -86,14 +88,13 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
               </div>
             }>
             <div className="typo-BodyLargeRegular">
-              AI와 전기화학 기술을 융합하여 배터리 진단 및 관리 솔루션을
-              선도하는 글로벌 리더 • Ex) 모나는 AI와 전기화학 기술을 융합하여
-              배터리의 성능과 안전성을 혁신적으로 진단하는 솔루션을 제공합니다.
-              2019년에 설립된 이후, 전 세계 배터리 시장의 빠르게 변화하는 요구를
-              충족시키기 위해 꾸준히 연구와 개발을 이어왔습니다. 본사는 전라북도
-              군산시에 위치하며, 광명 AI 연구소와 전라남도 영암 배터리 테스트
-              연구소를 기반으로 전기차 및 에너지 저장 장치(ESS) 진단 솔루션을
-              개발하고 있습니다.
+              모나㈜는 전기화학적 분석 기술과 인공지능 기술을 융합하여 배터리 및 수소연료전지 진단 솔루션을 제공하여 사용자의 안전과 그 효율성을 높여 지속가능성을 추구하는 혁신적인 기업입니다.
+              <br />
+              2019년 설립 이후 다양한 형태의 2차 전지에 대하여 깊이 있는 실험과 분석, 그리고 이러한 자료를 빅데이터화하였으며 여기에 인공지능을 더해 에너지 분야의 무한한 가능성을 밝혀주는 기업으로 우뚝 설 것입니다.
+              <div className='w-full h-[208px] rounded-[8px] relative overflow-hidden sm-screen:rounded-2xl sm-screen:h-[446px] md-screen:h-[506px] xl-screen:h-[544px] my-9'>
+
+                <Image src={History2024.src} alt="History2024" fill />
+              </div>
             </div>
           </ContentBox>
         </div>
