@@ -1,5 +1,5 @@
 'use client';
-import LoginBg from '@/app/images/login/LoginBg.png';
+import LoginBg from '@/app/images/login/LoginBg.webp';
 import LoginLogo from '@/app/images/login/LoginLogo.png';
 import IdIcon from '@/app/svgs/login/IdIcon.svg';
 import PwCheckIcon from '@/app/svgs/login/PwCheckIcon.svg';

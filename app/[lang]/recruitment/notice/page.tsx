@@ -1,5 +1,5 @@
 'use client';
-import RecruitSection1 from '@/app/images/recruitment/notice/RecruitSection1.png';
+import RecruitSection1 from '@/app/images/recruitment/notice/RecruitSection1.webp';
 // import BackEndIcon from '@/app/svgs/recruitment/notice/BackEndIcon.svg';
 import BatteryIcon from '@/app/svgs/recruitment/notice/BatteryIcon.svg';
 import BMSIcon from '@/app/svgs/recruitment/notice/BMSIcon.svg';
