@@ -104,10 +104,6 @@ const useMenu = ({ lang = 'ko', admin }: Props) => {
             path: ['/news-media/news-release'],
           },
           {
-            text: [dict2['갤러리'][lang]],
-            path: ['/news-media/gallery'],
-          },
-          {
             text: [dict2['문의'][lang]],
             path: ['/news-media/contact'],
           },
