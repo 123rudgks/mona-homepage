@@ -1,20 +1,26 @@
 'use client';
-import MoreIcon from '@/app/svgs/admin/MoreIcon.svg';
 import ChevronLeft from '@/app/svgs/main/ChevronLeft.svg';
+import MoreIcon from '@/app/svgs/admin/MoreIcon.svg';
+
+import BoardSection from '@/components/BoardSection';
 import ContentSection from '@/components/ContentSection';
 import { ToastContext } from '@/components/ContextWrapper';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
 import HtmlDiv from '@/components/HtmlDiv';
+import MonaBreadCrumb from '@/components/MonaBreadCrumb';
+import { MobileTabMenu } from '@/components/TabMenu';
 import MonaToastContainer from '@/components/Toast/MonaToastContainer';
 import Toast from '@/components/Toast/Toast';
 import { Button } from '@/components/ui/button';
+import { ClipboardShareButton } from '@/components/ui/ShareButton';
 import dict from '@/dictionaries/promotion-center/news-detail.json';
 import useMenu from '@/hooks/useMenu';
 import { cn } from '@/lib/utils';
 import { ArticleDetailData, Language } from '@/types/globals.types';
 import { authFetch } from '@/utils/apis';
 import dayjs from 'dayjs';
+import { HomeIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -40,7 +46,7 @@ const Page = ({
   }, []);
 
   const deleteArticle = useCallback(async () => {
-    const res = await authFetch(`/api/articles/${id}`, {
+    const res = await authFetch(`/api/posts/${id}`, {
       method: 'DELETE',
     });
     const data = await res?.json();
@@ -57,14 +63,14 @@ const Page = ({
           }}
         />
       ));
-      router.push(`/admin/promotion-center/news`);
+      router.push(`/admin/news-media/ir`);
     }
   }, [id]);
   const getArticleDetail = useCallback(async () => {
-    const res = await fetch(`/api/articles/${id}`);
+    const res = await fetch(`/api/posts/${id}`);
     const data = await res.json();
     setArticleDetail(data.data);
-  }, [id]);
+  }, []);
 
   useEffect(() => {
     getArticleDetail();
@@ -73,7 +79,7 @@ const Page = ({
   return (
     <main>
       <div className="border-b border-grayscale-200 w-full sm-screen:pt-[100px] pt-16"></div>
-      <ContentSection>
+      <ContentSection mobileTabMenuComp={<MobileTabMenu lang={lang} />}>
         <div
           className={cn(
             'lg-screen:h-[100px] sm-screen:h-20 h-[60px] flex items-center justify-end gap-2',
@@ -110,7 +116,7 @@ const Page = ({
                     theme={'gray'}
                     className="px-5 py-3 rounded-full"
                     onClick={() => {
-                      router.push(`/admin/promotion-center/news/edit?id=${id}`);
+                      router.push(`/admin/news-media/ir/edit?id=${id}`);
                     }}>
                     수정
                   </Button>
@@ -138,7 +144,7 @@ const Page = ({
                       className="p-2 w-[92px] typo-BodyLargeRegular hover:bg-grayscale-50 flex items-center cursor-pointer"
                       onClick={() => {
                         router.push(
-                          `/admin/promotion-center/news/edit?id=${id}`,
+                          `/admin/news-media/ir/edit?id=${id}`,
                         );
                       }}>
                       수정
@@ -192,9 +198,10 @@ const Page = ({
             theme={'gray'}
             className="w-[268px] h-12 rounded-full"
             onClick={() => {
-              router.push('/promotion-center/news');
+              router.push('/admin/news-media/ir');
             }}>
             {lang ? dict['목록 보기'][lang] : '목록 보기'}
+
           </Button>
         </div>
       </ContentSection>
@@ -202,6 +209,30 @@ const Page = ({
       <Header lang={lang} admin />
       <Footer lang={lang} admin />
     </main>
+  );
+};
+
+const IssuedDate = ({
+  reservedDate,
+  createdDate,
+}: {
+  reservedDate?: string;
+  createdDate?: string;
+}) => {
+  const isReserved = useMemo(() => {
+    if (reservedDate) {
+      return dayjs(reservedDate).isBefore(dayjs()) ? false : true;
+    } else {
+      return false;
+    }
+  }, [reservedDate]);
+  return isReserved ? (
+    <div className="flex gap-2">
+      {dayjs(reservedDate).format('YYYY-MM-DD HH:mm')}
+      <span className="typo-TitleMedium text-primary">예약 발행</span>
+    </div>
+  ) : (
+    dayjs(createdDate).format('YYYY-MM-DD')
   );
 };
 
@@ -222,7 +253,7 @@ const PostingList = ({
 }) => {
   return (
     <Link
-      href={`/promotion-center/news/${id}`}
+      href={`/admin/news-media/ir/${id}`}
       onClick={(e) => {
         disabled && e.preventDefault();
       }}
@@ -264,30 +295,6 @@ const PostingList = ({
         </div>
       )}
     </Link>
-  );
-};
-
-const IssuedDate = ({
-  reservedDate,
-  createdDate,
-}: {
-  reservedDate?: string;
-  createdDate?: string;
-}) => {
-  const isReserved = useMemo(() => {
-    if (reservedDate) {
-      return dayjs(reservedDate).isBefore(dayjs()) ? false : true;
-    } else {
-      return false;
-    }
-  }, [reservedDate]);
-  return isReserved ? (
-    <div className="flex gap-2">
-      {dayjs(reservedDate).format('YYYY-MM-DD HH:mm')}
-      <span className="typo-TitleMedium text-primary">예약 발행</span>
-    </div>
-  ) : (
-    dayjs(createdDate).format('YYYY-MM-DD')
   );
 };
 function truncateString(str: string) {

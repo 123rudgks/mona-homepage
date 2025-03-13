@@ -43,7 +43,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
   const fetchNews = useCallback(
     async ({ page, title }: { page: number; title?: string }) => {
       const res = await fetch(
-        `/api/articles?page=${page}${title ? `&title=${title}` : ''}`,
+        `/api/posts?page=${page}${title ? `&title=${title}` : ''}`,
       );
       const data = await res.json();
       return data;
@@ -53,7 +53,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
   const moveToPage = useCallback(
     async (page: number, title?: string) => {
       const data = await fetchNews({ page, title: title });
-      setNews(data.data.articles);
+      setNews(data.data.posts);
       updatePaginationMeta(data.data.meta);
     },
     [updatePaginationMeta, fetchNews],
@@ -174,7 +174,7 @@ const NewsCard = ({
 }) => {
   return (
     <a
-      href={`/news-media/news-release/${id}`}
+      href={`/news-media/ir/${id}`}
       className={cn('w-full flex flex-col gap-3 cursor-pointer', 'gap-5')}>
       <div className={cn('relative w-full h-[327px]', 'sm-screen:h-[450px]')}>
         <FallbackImage

@@ -1,13 +1,13 @@
 'use client';
 import InputCancel from '@/app/svgs/promotion-center/news/InputCancel.svg';
 import InputSearchIcon from '@/app/svgs/promotion-center/news/InputSearch.svg';
-import BoardSection from '@/components/BoardSection';
 import ContentBox from '@/components/ContentBox';
 import ContentSection from '@/components/ContentSection';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
-import MonaBreadCrumb from '@/components/MonaBreadCrumb';
 import { MobileTabMenu } from '@/components/TabMenu';
+import { useRouter } from 'next/navigation';
+import { Button } from '@/components/ui/button';
 import FallbackImage from '@/components/ui/FallbackImage';
 import {
   Pagination,
@@ -22,14 +22,18 @@ import useMenu from '@/hooks/useMenu';
 import usePagination from '@/hooks/usePagination';
 import { cn } from '@/lib/utils';
 import { ArticleData, Language } from '@/types/globals.types';
-import { HomeIcon } from 'lucide-react';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
+import { ToastContext } from '@/components/ContextWrapper';
+import { toast } from 'react-toastify';
+import MonaToastContainer from '@/components/Toast/MonaToastContainer';
+import dayjs from 'dayjs';
 
 type Props = {};
 
 const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
   const { MENU, currentCategory, currentMenu } = useMenu({ lang });
   const [inputValue, setInputValue] = useState('');
+  const router = useRouter();
   const [news, setNews] = useState<ArticleData[]>([]);
   const {
     currentPages,
@@ -40,10 +44,17 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
   } = usePagination({
     take: 5,
   });
+  const toastContext = useContext(ToastContext);
+  useEffect(() => {
+    if (toastContext?.toast) {
+      toast(toastContext.toast);
+      toastContext.setToast(null);
+    }
+  }, []);
   const fetchNews = useCallback(
     async ({ page, title }: { page: number; title?: string }) => {
       const res = await fetch(
-        `/api/articles?page=${page}${title ? `&title=${title}` : ''}`,
+        `/api/articles/admin?page=${page}${title ? `&title=${title}` : ''}`,
       );
       const data = await res.json();
       return data;
@@ -63,25 +74,22 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
   }, [moveToPage]);
   return (
     <main>
-      <BoardSection
-        title={currentCategory?.category}
-        desc={['RAPID & ACCURATE ENERGY DIAGNOSIS', 'Powered By AI']}
-      />
-      <ContentSection mobileTabMenuComp={<MobileTabMenu lang={lang} />}>
+      <div className="border-b border-grayscale-200 w-full sm-screen:pt-[100px] pt-16"></div>
+      <ContentSection >
         <div
           className={cn(
             'lg-screen:h-[100px] sm-screen:h-20 h-[60px] flex items-center justify-end',
           )}>
-          <MonaBreadCrumb
-            items={[
-              { href: '/', component: <HomeIcon />, id: 'home' },
-
-              {
-                component: currentCategory?.category,
-                id: 'category',
-              },
-            ]}
-          />
+          <Button
+            variant={'outline'}
+            size={'lg'}
+            theme={'primary'}
+            className="w-[100px] rounded-full"
+            onClick={() => {
+              router.push('/admin/news-media/news-release/edit');
+            }}>
+            글쓰기
+          </Button>
         </div>
         <div
           className={cn(
@@ -115,6 +123,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
                   img={article.thumbnail}
                   title={article.title}
                   date={article.createdDate}
+                  reservedDate={article.reservedDate}
                   id={article.id}
                 />
               ))}
@@ -155,8 +164,9 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
           </ContentBox>
         </div>
       </ContentSection>
-      <Header lang={lang} />
-      <Footer lang={lang} />
+      <MonaToastContainer />
+      <Header lang={lang} admin />
+      <Footer lang={lang} admin />
     </main>
   );
 };
@@ -165,16 +175,18 @@ const NewsCard = ({
   img,
   title,
   date,
+  reservedDate,
   id,
 }: {
   img: string | null;
   title: string;
   date: string;
+  reservedDate: string | null;
   id: number;
 }) => {
   return (
     <a
-      href={`/promotion-center/news/${id}`}
+      href={`/admin/news-media/news-release/${id}`}
       className={cn('w-full flex flex-col gap-3 cursor-pointer', 'gap-5')}>
       <div className={cn('relative w-full h-[327px]', 'sm-screen:h-[450px]')}>
         <FallbackImage
@@ -196,7 +208,14 @@ const NewsCard = ({
           {title}
         </div>
         <div className={cn('text-blackAlpha-70', 'typo-BodyLargeRegular')}>
-          {date}
+          {reservedDate && dayjs(reservedDate).isAfter(dayjs()) ? (
+            <div className="flex gap-2">
+              <span>{reservedDate}</span>
+              <span className="text-primary">예약발행</span>
+            </div>
+          ) : (
+            date
+          )}
         </div>
       </div>
     </a>

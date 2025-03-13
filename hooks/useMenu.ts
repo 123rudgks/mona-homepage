@@ -96,8 +96,8 @@ const useMenu = ({ lang = 'ko', admin }: Props) => {
         categoryPath: '/news-media',
         menus: [
           {
-            text: [dict2['기업뉴스'][lang]],
-            path: ['/news-media/corporate-news'],
+            text: [dict2['IR'][lang]],
+            path: ['/news-media/ir'],
           },
           {
             text: [dict2['보도자료'][lang]],
