@@ -9,32 +9,29 @@ import MonaBreadCrumb from '@/components/MonaBreadCrumb';
 import { MobileTabMenu } from '@/components/TabMenu';
 import useMenu from '@/hooks/useMenu';
 import { cn } from '@/lib/utils';
-import { Language } from '@/types/globals.types';
+import { Language, PartnerData } from '@/types/globals.types';
 import { HomeIcon } from 'lucide-react';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
-type Props = {};
 
+type Props = {};
 const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
   const { MENU, currentCategory, currentMenu } = useMenu({ lang });
-  const [patents, setPatents] = useState<
-    Array<{
-      seq: number;
-      year: string;
-      title: string;
-    }>
+  const [logos, setLogos] = useState<
+    Array<PartnerData>
   >([]);
   useEffect(() => {
-    const getPatentsList = async () => {
-      const res = await fetch(`/api/patents`);
+    const getLogos = async () => {
+      const res = await fetch(`/api/partners/business`);
       const data = await res?.json();
       if (data) {
         const sortedData = data.data.sort(
           (a: { seq: number }, b: { seq: number }) => a.seq - b.seq,
         );
-        setPatents(
+        setLogos(
           sortedData.map((item: any) => {
             return {
-              id: 'PATENT_ROW_' + item.seq,
+              id: 'LOGO_ROW_' + item.seq,
               year: item.year,
               title: item.content,
             };
@@ -42,7 +39,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
         );
       }
     };
-    getPatentsList();
+    getLogos();
   }, []);
   return (
     <main>
@@ -63,6 +60,10 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
                 component: currentCategory?.category,
                 id: 'category',
               },
+              {
+                component: '사업 제휴',
+                id: 'business-partnership',
+              },
             ]}
           />
         </div>
@@ -71,7 +72,26 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
             'sm-screen:flex lg-screen:flex-row lg-screen:gap-11 sm-screen:flex-col sm-screen:gap-9',
           )}>
           <ContentBox title={currentMenu.text} label={currentMenu.label}>
-            사업 제휴 페이지
+            <div
+              className={cn(
+                'flex flex-col',
+                'border-t border-grayscale-200 pt-3 gap-9',
+                'sm-screen:border-none sm-screen:pt-0 sm-screen:gap-11',
+              )}>
+              <InvestmentBox label={'기업'}>
+                <div
+                  className={cn(
+                    'grid',
+                    'grid-cols-2 gap-6',
+                    'sm-screen:grid-cols-3 sm-screen:gap-9 [&>*:not(:nth-child(3n+1))]:sm-screen:border-l [&>*:nth-child(3n+1)]:sm-screen:pl-0',
+                  )}>
+                  {logos.map(logo => <InformationCard
+                    key={logo.id}
+                    src={logo.url}
+                  />)}
+                </div>
+              </InvestmentBox>
+            </div>
           </ContentBox>
         </div>
       </ContentSection>
@@ -99,7 +119,7 @@ const InvestmentBox = ({
           <div className={cn('text-primary')}>{count}</div>
         )}
       </div>
-      <div className="bg-grayscale-50 rounded-[44px] border border-grayscale-200 p-11">
+      <div className="bg-grayscale-50 rounded-[44px] border border-grayscale-200 lg-screen:p-11 p-8">
         {children}
       </div>
     </div>
@@ -107,43 +127,25 @@ const InvestmentBox = ({
 };
 
 const InformationCard = ({
-  label,
-  tooltip,
-  content,
+  src,
   className,
 }: {
-  label: string;
-  tooltip?: string;
-  content: string;
+  src: string;
   className?: string;
 }) => {
   return (
     <div
       className={cn(
-        'flex flex-col gap-1  sm-screen:items-center sm-screen:py-3',
+        'sm-screen:py-3 w-full h-full pl-6 sm-screen:pl-9 ',
         className,
       )}>
-      <div
-        className={cn(
-          'flex text-grayscale-700 items-center',
-          'typo-BodySmallMedium',
-          'sm-screen:typo-TitleMedium',
-        )}>
-        {label}
-        {tooltip && (
-          <div className="relative group">
-            <Tooltip className="cursor-pointer" />
+      <div className='w-full h-full py-3 bg-white flex justify-center items-center'>
 
-            <div className="absolute bottom-[-5px] translate-y-full group-hover:block hidden typo-BodySmallMedium text-white py-[6px] px-[11px] bg-blackAlpha-80 w-max max-w-[151px] rounded-[4px]">
-              {tooltip}
-              <span className="absolute top-0 left-[11px] -translate-y-full   border-[5px] border-transparent border-b-blackAlpha-80" />
-            </div>
-          </div>
-        )}
+        <div className='relative  lg-screen:w-[258px] w-[200px] aspect-[2/1] '>
+          <Image src={src} alt="logo" fill />
+        </div>
       </div>
-      <div className={cn('typo-TitleBold', 'sm-screen:typo-Display2Bold')}>
-        {content}
-      </div>
+
     </div>
   );
 };

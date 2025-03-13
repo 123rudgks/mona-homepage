@@ -47,3 +47,12 @@ export interface ContactData {
   phone: string;
   content: string;
 }
+
+export interface PartnerData {
+  id: number;
+  seq: number;
+  url: string;
+  partnerType: PartnerType;
+}
+
+export type PartnerType = 'tech' | 'business';
