@@ -16,7 +16,7 @@ import { useEffect, useState } from 'react';
 
 type Props = {};
 const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
-  const { MENU, currentCategory, currentMenu } = useMenu({ lang });
+  const { MENU, currentCategory, currentMenu } = useMenu({ lang, admin: true });
   const [logos, setLogos] = useState<
     Array<PartnerData>
   >([]);
@@ -89,8 +89,8 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
           </ContentBox>
         </div>
       </ContentSection>
-      <Header lang={lang} />
-      <Footer lang={lang} />
+      <Header lang={lang} admin={true} />
+      <Footer lang={lang} admin={true} />
     </main>
   );
 };

@@ -25,17 +25,11 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
       const res = await fetch(`/api/partners/tech`);
       const data = await res?.json();
       if (data) {
-        const sortedData = data.data.sort(
+        const sortedData: Array<PartnerData> = data.data.sort(
           (a: { seq: number }, b: { seq: number }) => a.seq - b.seq,
         );
         setLogos(
-          sortedData.map((item: any) => {
-            return {
-              id: 'LOGO_ROW_' + item.seq,
-              year: item.year,
-              title: item.content,
-            };
-          }),
+          sortedData
         );
       }
     };

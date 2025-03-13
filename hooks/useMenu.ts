@@ -115,6 +115,7 @@ const useMenu = ({ lang = 'ko', admin }: Props) => {
           return [
             dict['사업과 솔루션'][lang],
             dict['소식과 미디어'][lang],
+            dict['파트너'][lang]
           ].includes(item.category);
         } else {
           return item;
@@ -132,6 +133,16 @@ const useMenu = ({ lang = 'ko', admin }: Props) => {
                   path: menu.path.map((p) => '/admin' + p),
                 })),
             };
+          } else if (item.category === dict['파트너'][lang]) {
+            return {
+              ...item,
+              menus: item.menus
+                .filter((menu) => (menu.text[0] !== dict2['투자'][lang] && menu.text[0] !== dict2['인재채용'][lang]))
+                .map((menu) => ({
+                  ...menu,
+                  path: menu.path.map(p => '/admin' + p)
+                }))
+            }
           } else {
             return {
               ...item,
