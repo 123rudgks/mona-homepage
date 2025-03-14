@@ -27,26 +27,35 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
   const onSave = async () => {
     const savedLogos = logos.filter(logo => !logo.url.includes('blob:'));
     const unSavedLogos = logos.filter(logo => logo.url.includes('blob:'));
-    const uploadPromises = unSavedLogos.map(async (logo) => {
+    let uploadedLogos: PartnerData[] = [];
+    if (unSavedLogos.length > 0) {
       const formData = new FormData();
-      const imgRes = await fetch(logo.url);
-      const imgFile = await imgRes.blob();
-      formData.append('image', imgFile);
+
+      // forEach 대신 Promise.all과 map 사용
+      await Promise.all(
+        unSavedLogos.map(async (logo) => {
+          const imgRes = await fetch(logo.url);
+          const imgFile = await imgRes.blob();
+          formData.append('images', imgFile);
+        })
+      );
+
+      // 모든 이미지가 formData에 추가된 후 실행
       const res = await authFetch('/api/upload/image', {
         method: 'POST',
         body: formData,
       });
       const data = await res?.json();
       if (data.code === 200) {
-        return { ...logo, url: data.data };
+        uploadedLogos = unSavedLogos.map((logo, idx) => {
+          const url = data.data[idx];
+          return { ...logo, url };
+        })
       }
-      throw new Error('Image upload failed');
-    });
+    }
 
     try {
-      const uploadedLogos = await Promise.all(uploadPromises);
       savedLogos.push(...uploadedLogos);
-
       // 모든 이미지 업로드가 완료된 후 savedLogos를 서버에 전송
       const response = await authFetch('/api/partners/tech', {
         method: 'POST',
