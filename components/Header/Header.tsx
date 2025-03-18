@@ -1,11 +1,11 @@
 'use client';
 import { Language } from '@/types/globals.types';
 
-import LogoBottomLeft from './icons/LogoBottomLeft.svg';
-import LogoBottomRight from './icons/LogoBottomRight.svg';
-import LogoText from './icons/LogoText.svg';
-import LogoTopLeft from './icons/LogoTopLeft.svg';
-import LogoTopRight from './icons/LogoTopRight.svg';
+import LogoBottomLeft from '@/components/Header/icons/LogoBottomLeft.svg';
+import LogoBottomRight from '@/components/Header/icons/LogoBottomRight.svg';
+import LogoText from '@/components/Header/icons/LogoText.svg';
+import LogoTopLeft from '@/components/Header/icons/LogoTopLeft.svg';
+import LogoTopRight from '@/components/Header/icons/LogoTopRight.svg'
 
 import LogOutIcon from '@/app/svgs/admin/LogOutIcon.svg';
 import { HeaderMenu, HeaderNavMenu } from '@/components/Header/Header.types';
@@ -162,27 +162,35 @@ const Logo = ({ darkMode }: { darkMode?: boolean }) => {
     <Link href={'/'} className="ml-11 flex items-end justify-between gap-2 ">
       <div className="w-[22px] h-[22px]">
         <div className="flex justify-between">
-          <LogoTopLeft />
-          <LogoTopRight
-            className={cn(
-              darkMode ? '[&>path]:fill-white' : '',
-              '[&>path]:transition-colors',
-            )}
-          />
+          <div className='flex-1'>
+            <LogoTopLeft />
+          </div>
+          <div className='flex-1'>
+            <LogoTopRight
+              className={cn(
+                darkMode ? '[&>path]:fill-white' : '',
+                '[&>path]:transition-colors',
+              )}
+            />
+          </div>
         </div>
         <div className="flex justify-between transition-colors">
-          <LogoBottomLeft
-            className={cn(
-              darkMode ? '[&>path]:fill-white' : '',
-              '[&>path]:transition-colors',
-            )}
-          />
-          <LogoBottomRight
-            className={cn(
-              darkMode ? '[&>path]:fill-white' : '',
-              '[&>path]:transition-colors',
-            )}
-          />
+          <div className='flex-1'>
+            <LogoBottomLeft
+              className={cn(
+                darkMode ? '[&>path]:fill-white' : '',
+                '[&>path]:transition-colors',
+              )}
+            />
+          </div>
+          <div className='flex-1'>
+            <LogoBottomRight
+              className={cn(
+                darkMode ? '[&>path]:fill-white' : '',
+                '[&>path]:transition-colors',
+              )}
+            />
+          </div>
         </div>
       </div>
       <div className="w-[100px] h-[22px]">
@@ -370,9 +378,9 @@ const EngKor = ({
             'text-grayscale-white': lang === 'en' && darkMode,
             'text-whiteAlpha-50': lang !== 'en' && darkMode,
           })}
-          // onClick={() => {
-          //   changeLanguage('en');
-          // }}
+        // onClick={() => {
+        //   changeLanguage('en');
+        // }}
         >
           ENG
         </span>
