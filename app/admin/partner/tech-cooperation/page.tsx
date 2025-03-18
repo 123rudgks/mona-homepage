@@ -287,8 +287,8 @@ const InformationCard = ({
       <div className='w-full h-full py-3 bg-white flex justify-center items-center'
         ref={dragRef}
       >
-        <div className='relative  lg-screen:w-[258px] w-[200px] aspect-[2/1] '>
-          <Image src={src} alt="logo" fill />
+        <div className='relative lg-screen:w-[258px] w-[200px] aspect-[2/1] '>
+          <Image src={src} alt="logo" fill className='object-contain' />
           {onDelete && <div
             className="absolute bottom-0 right-0 cursor-pointer  rounded flex items-center justify-center bg-white"
             onClick={() => {

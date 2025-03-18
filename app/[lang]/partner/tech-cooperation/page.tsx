@@ -136,7 +136,7 @@ const InformationCard = ({
       <div className='w-full h-full py-3 bg-white flex justify-center items-center'>
 
         <div className='relative  lg-screen:w-[258px] w-[200px] aspect-[2/1] '>
-          <Image src={src} alt="logo" fill />
+          <Image src={src} alt="logo" fill className='object-contain' />
         </div>
       </div>
 
