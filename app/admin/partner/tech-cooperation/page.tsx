@@ -31,7 +31,6 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
     if (unSavedLogos.length > 0) {
       const formData = new FormData();
 
-      // forEach 대신 Promise.all과 map 사용
       await Promise.all(
         unSavedLogos.map(async (logo) => {
           const imgRes = await fetch(logo.url);
@@ -51,6 +50,8 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
           const url = data.data[idx];
           return { ...logo, url };
         })
+      } else {
+        alert('이미지 업로드 실패');
       }
     }
 
@@ -76,10 +77,11 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
       // 성공 처리 (예: 상태 업데이트, 알림 표시 등)
     } catch (error) {
       // 에러 처리
-      alert('이미지 업로드 실패');
+      alert('이미지 서버 전송 실패');
       console.error('Error during upload:', error);
     }
     setIsEdit(false);
+    window.location.reload();
   }
   const handleAddLogo = () => {
     fileInputRef.current?.click();

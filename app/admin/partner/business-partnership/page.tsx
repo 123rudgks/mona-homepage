@@ -51,6 +51,8 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
           const url = data.data[idx];
           return { ...logo, url };
         })
+      } else {
+        alert('이미지 업로드 실패');
       }
     }
     try {
@@ -80,6 +82,7 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
       console.error('Error during upload:', error);
     }
     setIsEdit(false);
+    window.location.reload();
   }
   const handleAddLogo = () => {
     fileInputRef.current?.click();
