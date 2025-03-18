@@ -1,5 +1,6 @@
 'use client';
 import '@/app/custom-quill.css';
+import { APIResponse } from '@/types/globals.types';
 import { authFetch } from '@/utils/apis';
 import { base64ToFile, urlToFile } from '@/utils/helpers';
 import { useRef } from 'react';
@@ -94,7 +95,7 @@ const QuillEditor = ({ value, setValue }: Props) => {
             .then((res) => {
               setValue(res);
             })
-            .catch((err) => {});
+            .catch((err) => { });
         }}
         // modules={modules}
         modules={{
@@ -106,59 +107,69 @@ const QuillEditor = ({ value, setValue }: Props) => {
   );
 };
 
-const getUploadedImgUrl = async (file: File) => {
-  const formData = new FormData();
-  formData.append('image', file);
+const getUploadedImgUrl = async (formData: FormData): Promise<APIResponse<string[]>> => {
   const response = await authFetch('/api/upload', {
     method: 'POST',
     body: formData,
   });
-  if (response) {
-    const res = await response.json();
-    if (res.code === 200) {
-      return res.data;
-    }
-    return null;
+  if (!response || !response.ok) {
+    throw new Error('Failed to upload images');
   }
-  return null;
+  return response.json();
 };
 
-const changeImgSrc = async (html: string) => {
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(html, 'text/html');
-  const imgTags = doc.querySelectorAll('img');
+const changeImgSrc = async (html: string): Promise<string> => {
+  // DOM 파싱을 위한 임시 div 생성
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = html
 
-  const promises = Array.from(imgTags).map(async (el) => {
-    const _src = el.getAttribute('src');
-    let file: File | undefined;
-    if (!_src) {
-      el.remove();
-    } else if (
-      _src.startsWith(
-        'https://monalec-dev.s3.ap-northeast-2.amazonaws.com/images/',
-      )
-    ) {
-      return;
-    } else {
-      if (_src.startsWith('data:image')) {
-        file = base64ToFile(_src, 'upload_image.png');
-      } else {
-        file = await urlToFile(_src, 'upload_image.png');
+  // 모든 img 태그 선택
+  const imgElements = tempDiv.getElementsByTagName('img');
+  const formData = new FormData();
+  const imgToUpdate: HTMLImageElement[] = [];
+
+  // 이미지 처리 및 formData 구성
+  await Promise.all(
+    Array.from(imgElements).map(async (img) => {
+      const src = img.getAttribute('src');
+      // src가 없거나, 이미 업로드된 이미지(temp서버 또는 실제 이미지 서버 모두 )일 경우 temp서버로 업로드시 제외
+      if (!src || src.startsWith('https://monalec-dev.s3.ap-northeast-2.amazonaws.com/images/')) {
+        return;
       }
-      if (file) {
-        const url = await getUploadedImgUrl(file);
-        if (url) {
-          el.setAttribute('src', url);
-        } else {
-          el.remove();
-        }
-      } else {
-        el.remove();
+      try {
+        // 이미지 src로부터 파일 객체 생성
+        const response = await fetch(src);
+        const blob = await response.blob();
+        formData.append('images', blob);
+        imgToUpdate.push(img);
+
+      } catch (error) {
+        console.error('Error processing image:', error);
       }
     }
-  });
-  await Promise.all(promises);
-  return doc.body.innerHTML;
+    ));
+
+  if (imgToUpdate.length > 0) {
+    try {
+      // 이미지 파일들 업로드
+      const response = await getUploadedImgUrl(formData);
+      if (response.data && Array.isArray(response.data)) {
+        // 업로드된 이미지 주소로 교체
+        response.data.forEach((newSrc: string, index: number) => {
+          if (imgToUpdate[index]) {
+            imgToUpdate[index].setAttribute('src', newSrc);
+          }
+        })
+      }
+
+    }
+    catch (error) {
+      console.error('Error uploading images:', error);
+      throw error;
+    }
+  }
+  return tempDiv.innerHTML;
+
 };
 const CustomToolbar = () => {
   return (
