@@ -113,7 +113,7 @@ const Footer = ({ darkMode, lang = 'ko', admin }: Props) => {
             'flex-col justify-between items-center gap-2',
           )}>
           <span className="sm-screen:typo-BodyLargeRegular typo-BodySmallRegular">
-            Copyright ⓒ 2024 MONA All rights reserved.
+            Copyright ⓒ 2025 MONA All rights reserved.
           </span>
           {/* policy + icon section */}
           <div className="flex gap-6 flex-col sm-screen:flex-row sm-screen:gap-8 ">

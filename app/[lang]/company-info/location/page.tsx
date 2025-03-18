@@ -1,5 +1,7 @@
 'use client';
-import MapSample from '@/app/images/company-info/location/MapSample.png';
+import Headquarters from '@/app/images/company-info/location/Headquarters.png'
+import ResearchInstitute from '@/app/images/company-info/location/ResearchInstitute.png'
+import Company from '@/app/images/company-info/location/Company.png'
 import BoardSection from '@/components/BoardSection';
 import ContentBox from '@/components/ContentBox';
 import ContentSection from '@/components/ContentSection';
@@ -53,17 +55,17 @@ const Page = ({ params: { lang } }: { params: { lang: Language } }) => {
               <LocationBox
                 label={dict['본사'][lang]}
                 address={dict['본사_addr'][lang]}
-                map={<Image src={MapSample} alt="" />}
+                map={<Image src={Headquarters} alt="" />}
               />
               <LocationBox
                 label={dict['연구소'][lang]}
                 address={dict['연구소_addr'][lang]}
-                map={<Image src={MapSample} alt="" />}
+                map={<Image src={ResearchInstitute} alt="" />}
               />
               <LocationBox
                 label={dict['자사'][lang]}
                 address={dict['자사_addr'][lang]}
-                map={<Image src={MapSample} alt="" />}
+                map={<Image src={Company} alt="" />}
               />
             </div>
           </ContentBox>
