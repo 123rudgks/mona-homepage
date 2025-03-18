@@ -53,7 +53,7 @@ const ProductCarousel = ({ lang, tabValue }: Props) => {
         {tabValue === 'solution' && (
           <CarouselContent>
             <ProductCarouselItem
-              link="/product-info/high-speed-battery"
+              link="/business-solution/condition-diagnosis"
               isSelected={selectedSlide === 0}
               cardImg={
                 <Image src={Solution_slide1} alt="Solution_slide1" fill />
@@ -65,7 +65,7 @@ const ProductCarousel = ({ lang, tabValue }: Props) => {
               subDesc={[dict['Section4_Solution1_SubDesc'][lang]]}
             />
             <ProductCarouselItem
-              link="/product-info/battery-capacity"
+              link="/business-solution/recyclability-evaluation"
               isSelected={selectedSlide === 1}
               cardImg={
                 <Image src={Solution_slide2} alt="Solution_slide2" fill />
@@ -76,7 +76,7 @@ const ProductCarousel = ({ lang, tabValue }: Props) => {
               ]}
             />
             <ProductCarouselItem
-              link="/product-info/hydrogen-system"
+              link="/business-solution/battery-modeling"
               isSelected={selectedSlide === 2}
               cardImg={
                 <Image src={Solution_slide3} alt="Solution_slide3" fill />
@@ -93,6 +93,7 @@ const ProductCarousel = ({ lang, tabValue }: Props) => {
               cardImg={<Image src={Hardware1} alt="Hardware1" fill />}
               desc={[dict['Section4_Hardware1_Desc'][lang]]}
               subDesc={[dict['Section4_Hardware1_SubDesc'][lang]]}
+              link='/business-solution/fuel-cell-evaluation'
             />
 
             <ProductCarouselItem
@@ -100,6 +101,7 @@ const ProductCarousel = ({ lang, tabValue }: Props) => {
               cardImg={<Image src={Hardware2} alt="Hardware2" fill />}
               desc={[dict['Section4_Hardware2_Desc'][lang]]}
               subDesc={[dict['Section4_Hardware2_SubDesc'][lang]]}
+              link='/business-solution/research-development'
             />
           </CarouselContent>
         )}

@@ -86,28 +86,6 @@ export default function Page({
       enableScroll();
       setHeaderDarkMode(true);
     });
-    // setTimeout(() => {
-    //   // enableScroll();
-    //   // setHeaderDarkMode(true);
-    //   // if (animatedCircle) {
-    //   //   animatedCircle.classList.remove('invisible');
-    //   //   animatedCircle.classList.remove(
-    //   //     'md-screen:w-[874px]',
-    //   //     'md-screen:h-[874px]',
-    //   //     'sm-screen:w-[600px]',
-    //   //     'sm-screen:h-[600px]',
-    //   //     'w-[400px]',
-    //   //     'h-[400px]',
-    //   //   );
-    //   //   animatedCircle.classList.add(
-    //   //     'sm-screen:-translate-y-[50px]',
-    //   //     '-translate-y-8',
-    //   //   );
-    //   //   animatedCircle.classList.add('w-full', 'h-full');
-    //   //   animatedCircle.classList.remove('rounded-full');
-    //   //   setHeaderDarkMode(true);
-    //   // }
-    // }, 100);
   }, []);
   const fetchNews = useCallback(
     async ({ page, title }: { page: number; title?: string }) => {
@@ -129,31 +107,6 @@ export default function Page({
       id="main"
       className="flex min-h-screen flex-col items-center justify-between bg-white ">
       <div className=" flex justify-center items-center sm-screen:pt-[100px]   pt-16 bg-white w-full sm-screen:h-[1080px] h-[812px] relative ">
-        {/* <div
-          id="animated-circle"
-          className={cn(
-            'fixed invisible transition-all duration-500 ease-in  rounded-full  bg-black overflow-hidden',
-            'md-screen:w-[874px] md-screen:h-[874px]',
-            'sm-screen:w-[600px] sm-screen:h-[600px]',
-            'w-[400px] h-[400px]',
-            // 'animate-expanding-circle',
-          )}
-          // style={{
-          //   backgroundRepeat: 'no-repeat',
-          //   backgroundImage: `url(${AnimationCircleBg.src})`,
-          //   backgroundPosition: 'center',
-          //   backgroundSize: 'cover',
-          // }}
-        >
-          <Image
-            src={AnimationCircleBg.src}
-            alt="Animated Circle"
-            layout="fill"
-            objectFit="cover"
-            quality={100} // 고화질 설정
-            priority={true} // 우선순위 설정
-          />
-        </div> */}
 
         <div className="flex flex-col md-screen:gap-[74px] sm-screen:gap-12 gap-5 items-center">
           {/* Section1 Text Section */}
@@ -524,7 +477,7 @@ export default function Page({
                 'typo-BodyLargeBold',
                 'sm-screen:typo-Display1Medium',
               )}>
-              NEWS
+              보도자료
             </span>
             <span
               className={cn(
@@ -554,7 +507,7 @@ export default function Page({
             size={'lg'}
             className="w-[200px] h-10 lg-screen:mt-[30px] sm-screen:mt-5"
             onClick={() => {
-              router.push('/promotion-center/news');
+              router.push('/news-media/news-release');
             }}>
             <div className="flex items-center gap-2">
               View more <ViewMore />
